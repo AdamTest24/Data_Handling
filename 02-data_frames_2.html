@@ -222,10 +222,10 @@
 <div class="inner">
 <h3 class="card-title">Questions</h3>
 <ul><li>What is bivariate or multivariate analysis?</li>
-<li>How are bivariate properties of data understood?</li>
-<li>How can a bivariate quantity explained?</li>
-<li>When to use correlation matrix?</li>
-<li>What are the ways to study relationships in a dataset?</li>
+<li>How are bivariate properties of data interpreted?</li>
+<li>How can a bivariate quantity be explained?</li>
+<li>When to use the correlation matrix?</li>
+<li>What are the ways to study relationships in data?</li>
 </ul></div>
 </div>
 </div>
@@ -233,9 +233,9 @@
 <div class="card-body">
 <div class="inner bordered">
 <h3 class="card-title">Objectives</h3>
-<ul><li>Practice working with Pandas dataframes and Numpy arrays.</li>
+<ul><li>Practise working with Pandas dataframes and Numpy arrays.</li>
 <li>Bivariate analysis of Pandas dataframe / Numpy array.</li>
-<li>Understanding Pearson correlation coefficient (<span class="math inline">\(PCC\)</span>).</li>
+<li>The Pearson correlation coefficient (<span class="math inline">\(PCC\)</span>).</li>
 <li>Correlation Matrix as an example of bivariate summary statistics.</li>
 </ul></div>
 </div>
@@ -369,7 +369,7 @@ In this lesson we aim to get an overview of the similarities in a data set. We f
 For recordings of variables that are contained e.g. in the columns of a dataframe, we often assume the independence of samples: the measurement in one row does not depend on the recording in another row. Therefore all results of the features obtained e.g. under <code>describe</code> will not depend on the order of the rows. Also, while the numbers obtained from different rows can be similar (or even the same) by chance, there is no way to <em>predict</em> the values in one row from the values of another row.
 </p>
 <p style="text-align: justify;">
-When comparing different variables arranged in columns, in contrast, this is not necessarily so. (We assume here that they are consistent, e.g. all values in a single row obtained from the same subject.) The values in one column can related to the numbers in another column and specifically they can show degrees of similarity. If, for instance, we have a number of subjects investigated some of who have an inflammatory disease and some of who are healthy controls, an inflammatory marker might be increased in the diseased subjects. If several markers are recorded from a each subject (i.e. more than one column in the data frame), the values of several inflammatory markers may be elevated simultaneously in the diseased subjects. Thus, the profiles of these markers across the whole group will show a certain similarity.
+When comparing different variables arranged in columns, in contrast, this is not necessarily so. (We assume here that they are consistent, e.g. all values in a single row obtained from the same subject.) The values in one column can be related to the numbers in another column and specifically they can show degrees of similarity. If, for instance, we have a number of subjects investigated some of who have an inflammatory disease and some of who are healthy controls, an inflammatory marker might be increased in the diseased subjects. If several markers are recorded from each subject (i.e. more than one column in the data frame), the values of several inflammatory markers may be elevated simultaneously in the diseased subjects. Thus, the profiles of these markers across the whole group will show a certain similarity.
 </p>
 <p style="text-align: justify;">
 The goal of multivariate data analysis is to find out whether similarities (or, in general, any relationships) between recorded variables exist.
@@ -449,7 +449,7 @@ Out of the seven columns, three containing integers, three containing floating p
   Q1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -482,7 +482,7 @@ max     50.00   72.00  202.00    138.00      99.00</code></pre>
   Q2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -503,7 +503,7 @@ max     50.00   72.00  202.00    138.00      99.00</code></pre>
   Q3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -524,7 +524,7 @@ max     50.00   72.00  202.00    138.00      99.00</code></pre>
 <div class="section level3">
 <h3 id="visual-search-for-similarity-the-scatter-plot"><strong>Visual Search for Similarity: the Scatter Plot</strong><a class="anchor" aria-label="anchor" href="#visual-search-for-similarity-the-scatter-plot"></a></h3>
 <p style="text-align: justify;">
-In Matplotlib, the function <code>scatter</code> allows plotting of one variable against the other. This is a common way to visually check for relationships between individual columns in a datframe.
+In Matplotlib, the function <code>scatter</code> allows plotting of one variable against the other. This is a common way to visually check for relationships between individual columns in a dataframe.
 </p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -539,7 +539,7 @@ In Matplotlib, the function <code>scatter</code> allows plotting of one variable
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <figure><img src="fig/02-data_frames_2-rendered-unnamed-chunk-9-7.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-The data points appear to be grouped into two clouds. We will not deal with this qualitative aspect further at present.
+The data points appear to be grouped into two clouds. We will not deal with this qualitative aspect further at present. Grouping will be discussed as Unsupervised Machine Learning or Clustering later in the Course.
 </p>
 <p style="text-align: justify;">
 However, from the plot one might also suspect that there is a trend of heavier people being taller. For instance, we note that there are no points in the lower right corner of the plot (weight &gt;160 pounds and height &lt; 65 inches).
@@ -567,7 +567,7 @@ Scatter plots are useful for the inspection of select pairs of data. However, th
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -589,7 +589,7 @@ From the plot one might suspect that a larger systolic value is connected with a
 </div>
 </section><section id="the-correlation-coefficient"><h2 class="section-heading">The Correlation Coefficient</h2>
 <hr class="half-width"><p style="text-align: justify;">
-Bivariate measures are quantities that are calculated from a two variables of data. Bivariate features are the most widely used subset of multivariate features - all of which require more than one variable in order to be calculated.
+Bivariate measures are quantities that are calculated from two variables of data. Bivariate features are the most widely used subset of multivariate features - all of which require more than one variable in order to be calculated.
 </p>
 <p style="text-align: justify;">
 The concept behind many bivariate measures is to quantify “similarity” between two data sets. If any similarity is discovered it is assumed that there is some connection or relationship between the sets. For similar variables, knowledge of one leads to some expectation about the other.
@@ -607,7 +607,7 @@ Two perfectly antisymmetrical data sets (one variable can be obtained by multipl
 The <span class="math inline">\(PCC\)</span> is an <strong>undirected</strong> measure in the sense that its value for the comparison between data set 1 and data set 2 is the same as the <span class="math inline">\(PCC\)</span> between data set 2 and data set 1.
 </p>
 <p style="text-align: justify;">
-A direct way to calculate the <span class="math inline">\(PCC\)</span> of two data-sets is to use the function <code>corr</code> applied to a dataframe. For instance we can apply it to the Everleys data:
+A direct way to calculate the <span class="math inline">\(PCC\)</span> of two data-sets is to use the function <code>corr</code> applied to a dataframe. For instance, we can apply it to the Everleys data:
 </p>
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -623,7 +623,7 @@ calcium  1.000000 -0.258001
 sodium  -0.258001  1.000000</code></pre>
 </div>
 <p style="text-align: justify;">
-The result as a matrix of two by two numbers. Along the diagonal (top left and bottom right) are the values for the comparison of a column to itself. As any dataset is identical with itself, the values are one by construction of the matrix.
+The result as a matrix of two-by-two numbers. Along the diagonal (top left and bottom right) are the values for the comparison of a column to itself. As any dataset is identical with itself, the values are one by definition.
 </p>
 <p style="text-align: justify;">
 The non-diagonal elements show that the <span class="math inline">\(CC \approx-0.26\)</span> for the two data sets. Both <span class="math inline">\(CC(12)\)</span> and <span class="math inline">\(CC(21)\)</span> are given in the matrix but because of the symmetry we would only need to report one of the two.
@@ -639,7 +639,7 @@ The non-diagonal elements show that the <span class="math inline">\(CC \approx-0
 Note that in this lesson we introduce how to calculate the <span class="math inline">\(PCC\)</span> but do not discuss its significance. E.g. the interpretation of the value above needs to be checked against the fact that we only have 18 data points. Specifically, we refrain from concluding that because the <span class="math inline">\(PCC\)</span> is negative, a high value of the calcium concentration is associated with a small value of the sodium concentration (relative to their respective means).
 </p>
 <p style="text-align: justify;">
-One quantitative way to assess whether or not a given value of the <span class="math inline">\(PCC\)</span> is meaningful or not is to use surrogate data. In our case, we could e.g. create random numbers in an array with shape (18, 2) such that the two means and standard deviations are the same as in the Everley data but the two columns are indepedent of each other. Creating many realisations, we can check what distribution of <span class="math inline">\(PCC\)</span> values is expected from the randomly generated data and compare this with the values from the Everleys data.
+One quantitative way to assess whether or not a given value of the <span class="math inline">\(PCC\)</span> is meaningful or not is to use surrogate data. In our case, we could e.g. create random numbers in an array with shape (18, 2) such that the two means and standard deviations are the same as in the Everley data but the two columns are independent of each other. Creating many realisations, we can check what distribution of <span class="math inline">\(PCC\)</span> values is expected from the randomly generated data and compare this with the values from the Everleys data.
 </p>
 </div>
 </div>
@@ -748,7 +748,7 @@ The result shows how the covariance is strongly dependent on the actual numerica
   Q1
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -775,7 +775,7 @@ Diastolic  0.511843   1.000000</code></pre>
   Q2
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -886,7 +886,7 @@ Here is some code using Matplotlib to plot a heatmap of the correlation matrix f
 <span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <figure><img src="fig/02-data_frames_2-rendered-unnamed-chunk-21-11.png" width="480" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-Note that we have specified the colour map ‘coolwarm’. For a list of Matplotlib colour maps, please refer to the <a href="https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html" class="external-link">gallery in the documentation</a>. The names to use are on the left hand side of the colour bar.
+Note that we have specified the colour map ‘coolwarm’. For a list of Matplotlib colour maps, please refer to the <a href="https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html" class="external-link">gallery in the documentation</a>. The names to use in the code are on the left hand side of the colour bar.
 </p>
 Let us add two more features to improve the figure.
 <p style="text-align: justify;">
@@ -937,7 +937,7 @@ Calculate and plot the correlation matrix of the first five columns as above bas
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1141,7 +1141,7 @@ There is one strongly correlated pair (column indices 4 and 5) and one strongly 
 <span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre>
 </div>
 <figure><img src="fig/02-data_frames_2-rendered-unnamed-chunk-31-23.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-This histogram shows that the data have a distribution that is shifted towards positive correlations. However, only four values are absolutely larger than 0.5 (three positive, one negative).
+This histogram shows that the data have a distribution that is shifted towards positive correlations. However, only four values are (absolutely) larger than 0.5 (three positive, one negative).
 </p>
 <p>Next we can get the average (absolute) correlation per column.</p>
 <div class="codewrapper sourceCode" id="cb51">
@@ -1202,7 +1202,7 @@ This histogram shows that the data have a distribution that is shifted towards p
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1-2">Q1<a class="anchor" aria-label="anchor" href="#q1-2"></a></h3>

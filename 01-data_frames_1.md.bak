@@ -19,10 +19,10 @@ exercises: 60
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
-- Import data set as dataframe
+- Import data set as Pandas dataframe
 - Inspect data frame and access data
 - Produce an overview of data features
-- Create data plots using matplotlib
+- Create data plots using Matplotlib
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 <br>
@@ -110,13 +110,13 @@ The small practice data file for this section is called 'everleys_data.csv' and 
 The file `everleys_data.csv` contains blood concentrations of calcium and sodium ions from 17 patients with Everley's syndrome. The data are taken from a [BMJ statistics tutorial](https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one/7-t-tests). The data are stored as comma-separated values (csv), two values for each patient.
 </p>
 <p style='text-align: justify;'>
-To get to know a dataset, we will use the Pandas package and the Matplotlib plotting. The Pandas package for data science is included in the Anaconda distribution of Python. Check this [link for installation instructions](https://pandas.pydata.org/getting_started.html) to get started. 
+To get to know a dataset, we will use the Pandas package and the Matplotlib plotting library. The Pandas package for data science is included in the Anaconda distribution of Python. Check this [link for installation instructions](https://pandas.pydata.org/getting_started.html) to get started. 
 </p>
 
-If you are not using the Anaconda distribution, pease refer to [these guidelines](https://pandas.pydata.org/docs/getting_started/install.html). 
+If you are not using the Anaconda distribution, please refer to [these guidelines](https://pandas.pydata.org/docs/getting_started/install.html). 
 
 <p style='text-align: justify;'>
-To use the functions contained in Pandas they need to be imported. Our dataset is in '.csv' format, and we therefore need to read it from a csv file. For this, we import the function `read_csv`. This will create a _Pandas dataframe_.
+To use the functions contained in Pandas they need to be imported. Our dataset is in '.csv' format, and we therefore need to read it from a csv file. For this, we import the function `read_csv`. This function will create a _Pandas dataframe_.
 </p>
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -145,10 +145,28 @@ df = read_csv("data/everleys_data.csv")
 
 
 ```python
-# please uncomment for Windows
 # (please go to previous cell if using Mac OSX or Linux)
 
-# df = read_csv("data\everleys_data.csv") 
+df = read_csv("data\everleys_data.csv") 
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): FileNotFoundError: [Errno 2] No such file or directory: 'data\\everleys_data.csv'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 680, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 575, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 933, in __init__
+    self._engine = self._make_engine(f, self.engine)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1217, in _make_engine
+    self.handles = get_handle(  # type: ignore[call-overload]
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/common.py", line 789, in get_handle
+    handle = open(
 ```
 
 <p style='text-align: justify;'>
@@ -438,7 +456,7 @@ Name: calcium, dtype: float64
 ```
 
 <p style='text-align: justify;'>
-Another possibility to index and slice a dataframe is the use of the 'index location' or `iloc` property. It refers first to rows and then to columns by index, all within a single pair of brackets. For example, to get all rows `:` of the first column (index `0`), you use:
+Another possibility to index and slice a dataframe is the use of the 'index location' or `iloc` property. It refers first to rows and then to columns by index, all within a single pair of brackets. For example, to get all rows of the first column (index `0`), you use:
 </p>
 
 
@@ -651,7 +669,7 @@ max     5.652390  134.052390
 ```
 
 <p style='text-align: justify;'>
-The `describe` function produces a new dataframe (here called 'descrition') that contains the number of samples, the mean, the standard deviation, minimum, 25th, 50th, 75th  percentile, and the maximum value for each column of the data. Note that the indices of the rows have now been replaced by strings. To access rows, it is possible to refer to those names using the `loc` property. E.g. to access the mean of the calcium concentrations from the description, each of the following is valid:
+The `describe` function produces a new dataframe (here called 'description') that contains the number of samples, the mean, the standard deviation, minimum, 25th, 50th, 75th  percentile, and the maximum value for each column of the data. Note that the indices of the rows have now been replaced by strings. To access rows, it is possible to refer to those names using the `loc` property. E.g. to access the mean of the calcium concentrations from the description, each of the following is valid:
 </p>
 
 
@@ -681,7 +699,7 @@ description['calcium'][1]
 ## DIY4: Practice
 
 <p style='text-align: justify;'>
-Use your own .csv data set to practice. (If you don't have a data set at hand, any excel table can be exported as .csv.) Read it into a dataframe, check its header, access indivdual values or sets of values. Create a statistics using `describe` and check for missing values using `.isnull`.
+Use your own .csv data set to practice. (If you don't have a data set at hand, any excel table can be exported as .csv.) Read it into a dataframe, check its header, access individual values or sets of values. Create a statistics using `describe` and check for missing values using `.isnull`.
 </p>
 
 ::::::::::::::::: solution
@@ -767,7 +785,7 @@ print('Labels:          ', randomLabel)
 ```{.output}
 Number of rows:   18
 Number of Labels: 18
-Labels:           [1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 0 0]
+Labels:           [0 1 0 0 1 1 0 1 0 1 1 0 0 1 0 0 0 0]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code. 
@@ -787,9 +805,9 @@ df.head()
 
 ```{.output}
     calcium      sodium  gender
-0  3.455582  112.690980       1
-1  3.669026  125.663330       0
-2  2.789910  105.821810       1
+0  3.455582  112.690980       0
+1  3.669026  125.663330       1
+2  2.789910  105.821810       0
 3  2.939900   98.172772       0
 4  5.426060   97.931489       1
 ```
@@ -804,22 +822,22 @@ df['gender'] == 1
 ```
 
 ```{.output}
-0      True
-1     False
-2      True
+0     False
+1      True
+2     False
 3     False
 4      True
 5      True
-6      True
-7     False
-8      True
+6     False
+7      True
+8     False
 9      True
 10     True
 11    False
-12     True
-13    False
-14     True
-15     True
+12    False
+13     True
+14    False
+15    False
 16    False
 17    False
 Name: gender, dtype: bool
@@ -838,17 +856,13 @@ df[df_female]
 
 ```{.output}
      calcium      sodium  gender
-0   3.455582  112.690980       1
-2   2.789910  105.821810       1
+1   3.669026  125.663330       1
 4   5.426060   97.931489       1
 5   0.715811  120.858330       1
-6   5.652390  112.871500       1
-8   4.300067  132.031720       1
+7   3.571320  112.647360       1
 9   1.369419  118.499010       1
 10  2.550962  117.373730       1
-12  3.664987  105.346410       1
-14  3.718798  125.021060       1
-15  1.865868  112.075420       1
+13  1.362779  123.359490       1
 ```
 
 Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label. 
@@ -1189,7 +1203,7 @@ plt.show()
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-48-21.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-The bars in this plot go up and down. Note, however, that the vertical axis has values ranging from -10^(-15)^ to +10^(-15)^. This means that for all practical purposes all means are zero. This is not a coincidence. The original values have been normalised to zero mean for the purpose of applying some machine learning algorithm to them. 
+The bars in this plot go up and down. Note, however, that the vertical axis has values ranging from -10^(-16)^ to +10^(-16)^. This means that for all practical purposes all means are zero. This is not a coincidence. The original values have been normalised to zero mean for the purpose of applying some machine learning algorithm to them. 
 </p>
 
 In this example, we see how important it is to check the data before working with them. 

@@ -25,6 +25,22 @@ exercises: 60
 - Create data plots using matplotlib
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+<br>
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/jdWOAzK81VE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/zw6t3yHEqGU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/mljXcIzx4ps" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+
 :::::::::::::::::: prereq 
 
 ## Prerequisites
@@ -751,7 +767,7 @@ print('Labels:          ', randomLabel)
 ```{.output}
 Number of rows:   18
 Number of Labels: 18
-Labels:           [1 0 0 1 1 1 1 1 1 0 1 0 0 1 0 0 1 1]
+Labels:           [1 0 1 0 1 1 1 0 1 1 1 0 1 0 1 1 0 0]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code. 
@@ -773,8 +789,8 @@ df.head()
     calcium      sodium  gender
 0  3.455582  112.690980       1
 1  3.669026  125.663330       0
-2  2.789910  105.821810       0
-3  2.939900   98.172772       1
+2  2.789910  105.821810       1
+3  2.939900   98.172772       0
 4  5.426060   97.931489       1
 ```
 
@@ -790,22 +806,22 @@ df['gender'] == 1
 ```{.output}
 0      True
 1     False
-2     False
-3      True
+2      True
+3     False
 4      True
 5      True
 6      True
-7      True
+7     False
 8      True
-9     False
+9      True
 10     True
 11    False
-12    False
-13     True
-14    False
-15    False
-16     True
-17     True
+12     True
+13    False
+14     True
+15     True
+16    False
+17    False
 Name: gender, dtype: bool
 ```
 
@@ -823,16 +839,16 @@ df[df_female]
 ```{.output}
      calcium      sodium  gender
 0   3.455582  112.690980       1
-3   2.939900   98.172772       1
+2   2.789910  105.821810       1
 4   5.426060   97.931489       1
 5   0.715811  120.858330       1
 6   5.652390  112.871500       1
-7   3.571320  112.647360       1
 8   4.300067  132.031720       1
+9   1.369419  118.499010       1
 10  2.550962  117.373730       1
-13  1.362779  123.359490       1
-16  3.272809  117.588040       1
-17  3.917591  101.009870       1
+12  3.664987  105.346410       1
+14  3.718798  125.021060       1
+15  1.865868  112.075420       1
 ```
 
 Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label. 
@@ -857,7 +873,7 @@ print(no_males, 'samples are labelled "male".')
 ```
 
 ```{.output}
-8 samples are labelled "male".
+12 samples are labelled "male".
 ```
 ::::::::::::::::: 
 ::::::::::::::::::::::::::::::::::
@@ -925,14 +941,9 @@ As an example, let us create a [boxplot](https://matplotlib.org/api/_as_gen/matp
 fig, ax = plt.subplots()
 
 ax.boxplot(df['calcium'])
-
-ax.set_title('Boxplot of Everley Calcium');
+ax.set_title('Boxplot of Everley Calcium')
 
 plt.show()
-```
-
-```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f41862d0670>, <matplotlib.lines.Line2D object at 0x7f41862d0940>], 'caps': [<matplotlib.lines.Line2D object at 0x7f41862d0c10>, <matplotlib.lines.Line2D object at 0x7f41862d0ee0>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f41862d03a0>], 'medians': [<matplotlib.lines.Line2D object at 0x7f41862d11b0>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f41862d1480>], 'means': []}
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-37-5.png" width="672" style="display: block; margin: auto;" />
@@ -958,11 +969,6 @@ ax[1].set_title('Sodium');
 plt.show()
 ```
 
-```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f4186354bb0>, <matplotlib.lines.Line2D object at 0x7f4186354e80>], 'caps': [<matplotlib.lines.Line2D object at 0x7f4186355150>, <matplotlib.lines.Line2D object at 0x7f4186355420>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f4186354760>], 'medians': [<matplotlib.lines.Line2D object at 0x7f41863556f0>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f41863559c0>], 'means': []}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f4186356200>, <matplotlib.lines.Line2D object at 0x7f41863564d0>], 'caps': [<matplotlib.lines.Line2D object at 0x7f41863567a0>, <matplotlib.lines.Line2D object at 0x7f4186356a70>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f4186355f30>], 'medians': [<matplotlib.lines.Line2D object at 0x7f4186356d40>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f4186357010>], 'means': []}
-```
-
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-38-7.png" width="672" style="display: block; margin: auto;" />
 
 Note that you now have to refer to each of the subplots by indexing the coordinate system 'ax'. This figure gives a good overview of the Everley's data.
@@ -979,10 +985,6 @@ ax.boxplot([df['calcium'], df['sodium']], positions=[1, 2])
 ax.set_title('Boxplot of Calcium (left) and Sodium (right)')
 
 plt.show()
-```
-
-```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f41841a74f0>, <matplotlib.lines.Line2D object at 0x7f41841a7b20>, <matplotlib.lines.Line2D object at 0x7f41841d8c40>, <matplotlib.lines.Line2D object at 0x7f41841d8f10>], 'caps': [<matplotlib.lines.Line2D object at 0x7f41841a7df0>, <matplotlib.lines.Line2D object at 0x7f41841d8100>, <matplotlib.lines.Line2D object at 0x7f41841d91e0>, <matplotlib.lines.Line2D object at 0x7f41841d94b0>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f41841a7820>, <matplotlib.lines.Line2D object at 0x7f41841d8970>], 'medians': [<matplotlib.lines.Line2D object at 0x7f41841d83d0>, <matplotlib.lines.Line2D object at 0x7f41841d9780>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f41841d86a0>, <matplotlib.lines.Line2D object at 0x7f41841d9a50>], 'means': []}
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-39-9.png" width="672" style="display: block; margin: auto;" />
@@ -1002,10 +1004,6 @@ ax.boxplot([df_loan['ApplicantIncome'], df_loan['CoapplicantIncome']], positions
 ax.set_title('Applicant Income (left) & Co-Applicant Income (right)');
 
 plt.show()
-```
-
-```{.output}
-{'whiskers': [<matplotlib.lines.Line2D object at 0x7f418421e8f0>, <matplotlib.lines.Line2D object at 0x7f418421ebc0>, <matplotlib.lines.Line2D object at 0x7f418421fca0>, <matplotlib.lines.Line2D object at 0x7f418421ff70>], 'caps': [<matplotlib.lines.Line2D object at 0x7f418421ee90>, <matplotlib.lines.Line2D object at 0x7f418421f160>, <matplotlib.lines.Line2D object at 0x7f4184250280>, <matplotlib.lines.Line2D object at 0x7f4184250550>], 'boxes': [<matplotlib.lines.Line2D object at 0x7f418421e320>, <matplotlib.lines.Line2D object at 0x7f418421f9d0>], 'medians': [<matplotlib.lines.Line2D object at 0x7f418421f430>, <matplotlib.lines.Line2D object at 0x7f4184250820>], 'fliers': [<matplotlib.lines.Line2D object at 0x7f418421f700>, <matplotlib.lines.Line2D object at 0x7f4184250af0>], 'means': []}
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-40-11.png" width="672" style="display: block; margin: auto;" />
@@ -1033,15 +1031,6 @@ fig.suptitle('Histograms of Everley concentrations', fontsize=15);
 plt.show()
 ```
 
-```{.output}
-(array([1., 2., 1., 1., 3., 5., 2., 1., 0., 2.]), array([0.71581063, 1.20946859, 1.70312654, 2.1967845 , 2.69044246,
-       3.18410042, 3.67775837, 4.17141633, 4.66507429, 5.15873224,
-       5.6523902 ]), <BarContainer object of 10 artists>)
-(array([3., 0., 2., 1., 3., 3., 1., 3., 0., 2.]), array([ 97.931489 , 101.5435791, 105.1556692, 108.7677593, 112.3798494,
-       115.9919395, 119.6040296, 123.2161197, 126.8282098, 130.4402999,
-       134.05239  ]), <BarContainer object of 10 artists>)
-```
-
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-41-13.png" width="672" style="display: block; margin: auto;" />
 
 
@@ -1062,15 +1051,6 @@ ax[1].set(xlabel='Calcium, 15 bins', ylabel='Count');
 fig.suptitle('Histograms with Different Binnings', fontsize=16);
 
 plt.show()
-```
-
-```{.output}
-(array([3., 2., 8., 3., 2.]), array([0.71581063, 1.70312654, 2.69044246, 3.67775837, 4.66507429,
-       5.6523902 ]), <BarContainer object of 5 artists>)
-(array([1., 2., 0., 1., 0., 1., 3., 1., 4., 2., 1., 0., 0., 0., 2.]), array([0.71581063, 1.04491593, 1.37402124, 1.70312654, 2.03223185,
-       2.36133715, 2.69044246, 3.01954776, 3.34865307, 3.67775837,
-       4.00686368, 4.33596898, 4.66507429, 4.99417959, 5.3232849 ,
-       5.6523902 ]), <BarContainer object of 15 artists>)
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-42-15.png" width="672" style="display: block; margin: auto;" />
@@ -1094,15 +1074,6 @@ fig.tight_layout()
 plt.show()
 ```
 
-```{.output}
-(array([3., 2., 8., 3., 2.]), array([0.71581063, 1.70312654, 2.69044246, 3.67775837, 4.66507429,
-       5.6523902 ]), <BarContainer object of 5 artists>)
-(array([1., 2., 0., 1., 0., 1., 3., 1., 4., 2., 1., 0., 0., 0., 2.]), array([0.71581063, 1.04491593, 1.37402124, 1.70312654, 2.03223185,
-       2.36133715, 2.69044246, 3.01954776, 3.34865307, 3.67775837,
-       4.00686368, 4.33596898, 4.66507429, 4.99417959, 5.3232849 ,
-       5.6523902 ]), <BarContainer object of 15 artists>)
-```
-
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-43-17.png" width="672" style="display: block; margin: auto;" />
 
 ::::::::::::::::::::::::::::::: challenge 
@@ -1122,13 +1093,6 @@ ax.set(xlabel='Loan amount', ylabel='Count');
 ax.set_title('Histograms of Loan Amounts', fontsize=16);
 
 plt.show()
-```
-
-```{.output}
-(array([12., 34., 63., 97., 67., 33., 28.,  9.,  6.,  2.,  5.,  1.,  1.,
-        1.,  1.,  0.,  1.,  0.,  0.,  1.]), array([ 28. ,  54.1,  80.2, 106.3, 132.4, 158.5, 184.6, 210.7, 236.8,
-       262.9, 289. , 315.1, 341.2, 367.3, 393.4, 419.5, 445.6, 471.7,
-       497.8, 523.9, 550. ]), <BarContainer object of 20 artists>)
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-44-19.png" width="672" style="display: block; margin: auto;" />
@@ -1414,18 +1378,6 @@ ax.set_xlabel('Age', fontsize=20)
 ax.set_ylabel('Count', fontsize=20)
 ax.set_title('Age distribution of subjects',  fontsize=24);
 plt.show()
-```
-
-```{.output}
-(array([ 3., 15., 43., 38., 65., 38., 18., 74., 29., 55., 31., 52., 17.,
-       16., 43., 26., 34.,  6.,  9., 21.,  5.,  9.,  5.,  4.,  2.,  2.,
-        2.,  2.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,  0.,
-        0.,  2.,  0.,  0.,  0.,  0.,  0.,  1.,  0.,  0.,  1.]), array([13.  , 14.42, 15.84, 17.26, 18.68, 20.1 , 21.52, 22.94, 24.36,
-       25.78, 27.2 , 28.62, 30.04, 31.46, 32.88, 34.3 , 35.72, 37.14,
-       38.56, 39.98, 41.4 , 42.82, 44.24, 45.66, 47.08, 48.5 , 49.92,
-       51.34, 52.76, 54.18, 55.6 , 57.02, 58.44, 59.86, 61.28, 62.7 ,
-       64.12, 65.54, 66.96, 68.38, 69.8 , 71.22, 72.64, 74.06, 75.48,
-       76.9 , 78.32, 79.74, 81.16, 82.58, 84.  ]), <BarContainer object of 50 artists>)
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-53-23.png" width="672" style="display: block; margin: auto;" />

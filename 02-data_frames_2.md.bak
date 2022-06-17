@@ -50,7 +50,7 @@ from pandas import read_csv
 from sklearn import datasets
 
 # To create figure environments and plots
-from matplotlib.pyplot import subplots
+from matplotlib.pyplot import subplots, show
 
 # Specific numpy functions, description in the main body
 from numpy import corrcoef, fill_diagonal, triu_indices, arange
@@ -104,12 +104,11 @@ One way to check for the similarity between variables in a dataset is to create 
 ```python
 # Figure Code
 
-import matplotlib.pyplot as plt
 diabetes = datasets.load_diabetes()
 
 diabetes_data = diabetes.data
 
-fig, ax = plt.subplots(figsize=(21, 10), ncols=3, nrows=2)
+fig, ax = subplots(figsize=(21, 10), ncols=3, nrows=2)
 
 # Histograms
 ax[0,0].hist(diabetes_data[:,3], bins=20)
@@ -134,7 +133,7 @@ ax[1,2].scatter(diabetes_data[:,5], diabetes_data[:,3]);
 ax[1,2].set_xlabel('Column 5', fontsize=20)
 ax[1,2].set_ylabel('Column 3', fontsize=20);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-3-1.png" width="2016" style="display: block; margin: auto;" />
@@ -259,10 +258,10 @@ max     50.00   72.00  202.00    138.00      99.00
 ## Q2
 
 ```python
-fig, ax = plt.subplots()
+fig, ax = subplots()
 bins = arange(5)
 ax.bar(bins, df_describe.loc['min'])
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-7-3.png" width="672" style="display: block; margin: auto;" />
@@ -275,12 +274,12 @@ plt.show()
 
 ```python
 
-fig, ax = plt.subplots()
+fig, ax = subplots()
 bins = arange(5)
 ax.bar(bins, df_describe.loc['min'], yerr=df_describe.loc['std'])
 ax.set_xticks(bins)
 ax.set_xticklabels(df.columns[:5], fontsize=12);
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-8-5.png" width="672" style="display: block; margin: auto;" />
@@ -298,13 +297,13 @@ In Matplotlib, the function `scatter` allows plotting of one variable against th
 
 ```python
 # Scatter plot 
-fig, ax = plt.subplots();
+fig, ax = subplots();
 
 ax.scatter(df['Weight'], df['Height']);
 ax.set_xlabel('Weight (pounds)', fontsize=16)
 ax.set_ylabel('Height (inches)', fontsize=16)
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-9-7.png" width="672" style="display: block; margin: auto;" />
@@ -329,12 +328,12 @@ Scatter plots are useful for the inspection of select pairs of data. However, th
 ::::::::::::::::: solution
 
 ```python
-fig, ax = plt.subplots();
+fig, ax = subplots();
 ax.scatter(df['Systolic'], df['Diastolic']);
 ax.set_xlabel('Systolic', fontsize=16)
 ax.set_ylabel('Diastolic', fontsize=16)
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-10-9.png" width="672" style="display: block; margin: auto;" />
@@ -625,11 +624,11 @@ Here is some code using Matplotlib to plot a heatmap of the correlation matrix f
 
 
 ```python
-fig, ax = plt.subplots(figsize=(5,5))
+fig, ax = subplots(figsize=(5,5))
 
 im = ax.imshow(patients_corr, cmap='coolwarm');
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-21-11.png" width="480" style="display: block; margin: auto;" />
@@ -653,13 +652,13 @@ from numpy import fill_diagonal
 
 fill_diagonal(patients_corr, 0)
 
-fig, ax = plt.subplots(figsize=(7,7))
+fig, ax = subplots(figsize=(7,7))
 
 im = ax.imshow(patients_corr, cmap='coolwarm');
 
 fig.colorbar(im, orientation='horizontal', shrink=0.7);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-22-13.png" width="672" style="display: block; margin: auto;" />
@@ -713,12 +712,12 @@ array([[1.        , 0.11636668, 0.09327152, 0.12105741, 0.08703685],
 from numpy import fill_diagonal
 fill_diagonal(patients_spearman, 0)
 
-fig, ax = plt.subplots(figsize=(7,7))
+fig, ax = subplots(figsize=(7,7))
 
 im = ax.imshow(patients_spearman, cmap='coolwarm');
 fig.colorbar(im, orientation='horizontal', shrink=0.7);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-24-15.png" width="672" style="display: block; margin: auto;" />
@@ -767,13 +766,13 @@ Now we plot these correlation coefficients as a bar chart to see them one next t
 
 
 ```python
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 bins = arange(len(corr_coeffs))
 
 ax.bar(bins, corr_coeffs);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-26-17.png" width="672" style="display: block; margin: auto;" />
@@ -801,7 +800,7 @@ corr_matrix_abs = abs(patients_corr)
 # Average of the correlation strengths
 corr_column_average = mean(corr_matrix_abs, axis=0)
 
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 bins = arange(corr_column_average.shape[0])
 
@@ -809,7 +808,7 @@ ax.bar(bins, corr_column_average );
 
 print(corr_column_average)
 
-plt.show()
+show()
 ```
 
 ```{.output}
@@ -869,13 +868,13 @@ data_corr_matrix = corrcoef(data_diabetes, rowvar=False)
 
 fill_diagonal(data_corr_matrix, 0)
 
-fig, ax = plt.subplots(figsize=(8, 8))
+fig, ax = subplots(figsize=(8, 8))
 
 im = ax.imshow(data_corr_matrix, cmap='coolwarm');
 
 fig.colorbar(im, orientation='horizontal', shrink=0.5);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-30-21.png" width="768" style="display: block; margin: auto;" />
@@ -892,11 +891,11 @@ from numpy import triu_indices
 
 data_corr_coeffs = data_corr_matrix[triu_indices(data_corr_matrix.shape[0], k=1)]
 
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 ax.hist(data_corr_coeffs, bins=10);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-31-23.png" width="672" style="display: block; margin: auto;" />
@@ -911,7 +910,7 @@ Next we can get the average (absolute) correlation per column.
 ```python
 data_column_average = mean(abs(data_corr_matrix), axis=0)
 
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 bins = arange(len(data_column_average))
 
@@ -920,7 +919,7 @@ ax.set_title('Average Correlation Strength per Column')
 ax.set_xticks(arange(len(diabetes.feature_names)))
 ax.set_xticklabels(diabetes.feature_names);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-32-25.png" width="672" style="display: block; margin: auto;" />
@@ -980,7 +979,7 @@ from pandas import read_csv
 from sklearn import datasets
 
 # To create figure environments and plots
-from matplotlib.pyplot import subplots
+from matplotlib.pyplot import subplots, show
 
 # Specific numpy functions, description in the main body
 from numpy import corrcoef, fill_diagonal, triu_indices, arange
@@ -1011,13 +1010,13 @@ max          28.11         39.28  ...                 0.20           0.30
 
 
 ```python
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 bins = arange(df_bc_describe.shape[1])
 
 ax.bar(bins, df_bc_describe.loc['mean'], yerr=df_bc_describe.loc['std'])
 
-plt.show()
+show()
 ```
 
 ```{.output}
@@ -1060,13 +1059,13 @@ from numpy import fill_diagonal
 
 fill_diagonal(bc_corr, 0)
 
-fig, ax = plt.subplots(figsize=(7,7))
+fig, ax = subplots(figsize=(7,7))
 
 im = ax.imshow(bc_corr, cmap='coolwarm');
 
 fig.colorbar(im, orientation='horizontal', shrink=0.7);
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-38-29.png" width="672" style="display: block; margin: auto;" />
@@ -1077,14 +1076,14 @@ plt.show()
 ```python
 bc_column_average = mean(abs(bc_corr), axis=0)
 
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 bins = arange(len(bc_column_average))
 
 ax.bar(bins, bc_column_average);
 ax.set_title('Average Correlation Strength per Column');
 
-plt.show()
+show()
 ```
 
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-39-31.png" width="672" style="display: block; margin: auto;" />

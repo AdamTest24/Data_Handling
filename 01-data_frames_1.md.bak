@@ -145,28 +145,10 @@ df = read_csv("data/everleys_data.csv")
 
 
 ```python
+# Please uncomment for Windows
 # (please go to previous cell if using Mac OSX or Linux)
 
-df = read_csv("data\everleys_data.csv") 
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): FileNotFoundError: [Errno 2] No such file or directory: 'data\\everleys_data.csv'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/util/_decorators.py", line 311, in wrapper
-    return func(*args, **kwargs)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 680, in read_csv
-    return _read(filepath_or_buffer, kwds)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 575, in _read
-    parser = TextFileReader(filepath_or_buffer, **kwds)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 933, in __init__
-    self._engine = self._make_engine(f, self.engine)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/parsers/readers.py", line 1217, in _make_engine
-    self.handles = get_handle(  # type: ignore[call-overload]
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/pandas/io/common.py", line 789, in get_handle
-    handle = open(
+# df = read_csv("data\everleys_data.csv") 
 ```
 
 <p style='text-align: justify;'>
@@ -785,7 +767,7 @@ print('Labels:          ', randomLabel)
 ```{.output}
 Number of rows:   18
 Number of Labels: 18
-Labels:           [0 1 0 0 1 1 0 1 0 1 1 0 0 1 0 0 0 0]
+Labels:           [1 0 0 1 1 1 0 0 1 0 1 1 1 1 0 1 1 1]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code. 
@@ -805,10 +787,10 @@ df.head()
 
 ```{.output}
     calcium      sodium  gender
-0  3.455582  112.690980       0
-1  3.669026  125.663330       1
+0  3.455582  112.690980       1
+1  3.669026  125.663330       0
 2  2.789910  105.821810       0
-3  2.939900   98.172772       0
+3  2.939900   98.172772       1
 4  5.426060   97.931489       1
 ```
 
@@ -822,24 +804,24 @@ df['gender'] == 1
 ```
 
 ```{.output}
-0     False
-1      True
+0      True
+1     False
 2     False
-3     False
+3      True
 4      True
 5      True
 6     False
-7      True
-8     False
-9      True
+7     False
+8      True
+9     False
 10     True
-11    False
-12    False
+11     True
+12     True
 13     True
 14    False
-15    False
-16    False
-17    False
+15     True
+16     True
+17     True
 Name: gender, dtype: bool
 ```
 
@@ -856,13 +838,18 @@ df[df_female]
 
 ```{.output}
      calcium      sodium  gender
-1   3.669026  125.663330       1
+0   3.455582  112.690980       1
+3   2.939900   98.172772       1
 4   5.426060   97.931489       1
 5   0.715811  120.858330       1
-7   3.571320  112.647360       1
-9   1.369419  118.499010       1
+8   4.300067  132.031720       1
 10  2.550962  117.373730       1
+11  2.894129  134.052390       1
+12  3.664987  105.346410       1
 13  1.362779  123.359490       1
+15  1.865868  112.075420       1
+16  3.272809  117.588040       1
+17  3.917591  101.009870       1
 ```
 
 Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label. 
@@ -887,7 +874,7 @@ print(no_males, 'samples are labelled "male".')
 ```
 
 ```{.output}
-12 samples are labelled "male".
+11 samples are labelled "male".
 ```
 ::::::::::::::::: 
 ::::::::::::::::::::::::::::::::::
@@ -938,8 +925,7 @@ For this, we import the function `subplots` from the [pyplot library](https://ma
 
 
 ```python
-from matplotlib.pyplot import subplots
-import matplotlib.pyplot as plt
+from matplotlib.pyplot import subplots, show
 ```
 
 <p style='text-align: justify;'>
@@ -952,12 +938,12 @@ As an example, let us create a [boxplot](https://matplotlib.org/api/_as_gen/matp
 
 
 ```python
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 ax.boxplot(df['calcium'])
 ax.set_title('Boxplot of Everley Calcium')
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-37-5.png" width="672" style="display: block; margin: auto;" />
@@ -972,7 +958,7 @@ Here is an example to create two boxplots next to each other. The keyword argume
 
 
 ```python
-fig, ax = plt.subplots(ncols=2)
+fig, ax = subplots(ncols=2)
 
 ax[0].boxplot(df['calcium'])
 ax[0].set_title('Calcium')
@@ -980,7 +966,7 @@ ax[0].set_title('Calcium')
 ax[1].boxplot(df['sodium'])
 ax[1].set_title('Sodium');
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-38-7.png" width="672" style="display: block; margin: auto;" />
@@ -993,12 +979,12 @@ If you prefer to have the boxplots of both columns in a single figure, that can 
 
 
 ```python
-fig, ax = plt.subplots(ncols=1, nrows=1)
+fig, ax = subplots(ncols=1, nrows=1)
 
 ax.boxplot([df['calcium'], df['sodium']], positions=[1, 2])
 ax.set_title('Boxplot of Calcium (left) and Sodium (right)')
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-39-9.png" width="672" style="display: block; margin: auto;" />
@@ -1013,11 +999,11 @@ Plot the boxplots of the 'ApplicantIncome' and the 'CoapplicantIncome' in the Lo
 
 
 ```python
-fig, ax = plt.subplots(ncols=1, nrows=1)
+fig, ax = subplots(ncols=1, nrows=1)
 ax.boxplot([df_loan['ApplicantIncome'], df_loan['CoapplicantIncome']], positions=[1, 2])
 ax.set_title('Applicant Income (left) & Co-Applicant Income (right)');
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-40-11.png" width="672" style="display: block; margin: auto;" />
@@ -1032,7 +1018,7 @@ Another good overview is the histogram: Containers or 'bins' are created over th
 
 
 ```python
-fig, ax = plt.subplots(ncols=2, nrows=1)
+fig, ax = subplots(ncols=2, nrows=1)
 
 ax[0].hist(df['calcium'])
 ax[0].set(xlabel='Calcium', ylabel='Count');
@@ -1042,7 +1028,7 @@ ax[1].set(xlabel='Sodium', ylabel='Count');
 
 fig.suptitle('Histograms of Everley concentrations', fontsize=15);
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-41-13.png" width="672" style="display: block; margin: auto;" />
@@ -1055,7 +1041,7 @@ This uses the default value for the generation of the bins. It is set to 10 bins
 
 
 ```python
-fig, ax = plt.subplots(ncols=2, nrows=1)
+fig, ax = subplots(ncols=2, nrows=1)
 
 ax[0].hist(df['calcium'], bins=5)
 ax[0].set(xlabel='Calcium, 5 bins', ylabel='Count');
@@ -1064,7 +1050,7 @@ ax[1].hist(df['calcium'], bins=15)
 ax[1].set(xlabel='Calcium, 15 bins', ylabel='Count');
 fig.suptitle('Histograms with Different Binnings', fontsize=16);
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-42-15.png" width="672" style="display: block; margin: auto;" />
@@ -1075,7 +1061,7 @@ Note how the y-label of the right figure is not placed well. To correct for the 
 
 
 ```python
-fig, ax = plt.subplots(ncols=2, nrows=1)
+fig, ax = subplots(ncols=2, nrows=1)
 
 ax[0].hist(df['calcium'], bins=5)
 ax[0].set(xlabel='Calcium, 5 bins', ylabel='Count');
@@ -1085,7 +1071,7 @@ ax[1].set(xlabel='Calcium, 15 bins', ylabel='Count');
 fig.suptitle('Histograms with Different Binnings', fontsize=16);
 fig.tight_layout()
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-43-17.png" width="672" style="display: block; margin: auto;" />
@@ -1101,12 +1087,12 @@ Take the loan data and display the histogram of the loan amount that people aske
 
 ```python
 # Histogram of loan amounts in k£
-fig, ax = plt.subplots()
+fig, ax = subplots()
 ax.hist(df_loan['LoanAmount'], bins=20)
 ax.set(xlabel='Loan amount', ylabel='Count');
 ax.set_title('Histograms of Loan Amounts', fontsize=16);
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-44-19.png" width="672" style="display: block; margin: auto;" />
@@ -1191,13 +1177,13 @@ The medians are:  [-2.511816797794472e-19, 1.2307902309192911e-17, -2.2455642172
 
 
 ```python
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 bins = range(10)
 
 ax.bar(bins, conc_means);
 
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-48-21.png" width="672" style="display: block; margin: auto;" />
@@ -1385,13 +1371,13 @@ This is 14.4 % of the total.
 ### Q5
 
 ```python
-fig, ax = plt.subplots()
+fig, ax = subplots()
 
 ax.hist(df_cervix['Age'], bins=50)
 ax.set_xlabel('Age', fontsize=20)
 ax.set_ylabel('Count', fontsize=20)
 ax.set_title('Age distribution of subjects',  fontsize=24);
-plt.show()
+show()
 ```
 
 <img src="fig/01-data_frames_1-rendered-unnamed-chunk-53-23.png" width="672" style="display: block; margin: auto;" />

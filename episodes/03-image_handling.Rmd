@@ -6,7 +6,7 @@ exercises: 60
 
 [**Download Chapter pdf**](03-image_handling.md.pdf)
 
-[**Download Chapter notebook (ipynb)**](03-image_handling_2.ipynb)
+[**Download Chapter notebook (ipynb)**](03-image_handling.ipynb)
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
@@ -135,7 +135,7 @@ show()
 ```
 
 <p style='text-align: justify;'>
-`imshow` has allowed us to plot the Numpy array of our image data as a picutre. The figure is divided up into a number of pixels, and each of those pixels is assigned an intensity value stored in the Numpy array. Let's have a closer look by selecting a smaller region of our image and plotting that.
+`imshow` has allowed us to plot the Numpy array of our image data as a picture. The figure is divided up into a number of pixels, and each of those pixels is assigned an intensity value stored in the Numpy array. Let's have a closer look by selecting a smaller region of our image and plotting that.
 </p>
 
 ```{python}
@@ -678,7 +678,7 @@ show()
 
 ### Q5
 
-```{python, results='hide', collapse=TRUE}
+```{python, results='hold'}
 from numpy import sum as numpy_sum
 total_pixels = img_task.shape[0]*img_task.shape[1]
 

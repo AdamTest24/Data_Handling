@@ -6,7 +6,7 @@ exercises: 60
 
 [**Download Chapter pdf**](03-image_handling.md.pdf)
 
-[**Download Chapter notebook (ipynb)**](03-image_handling.ipynb)
+[**Download Chapter notebook (ipynb)**](03-image_handling_2.ipynb)
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
@@ -141,7 +141,7 @@ show()
 <img src="fig/03-image_handling-rendered-unnamed-chunk-4-1.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-`imshow` has allowed us to plot the Numpy array of our image data as a picture. The figure is divided up into a number of pixels, and each of those pixels is assigned an intensity value stored in the Numpy array. Let's have a closer look by selecting a smaller region of our image and plotting that.
+`imshow` has allowed us to plot the Numpy array of our image data as a picutre. The figure is divided up into a number of pixels, and each of those pixels is assigned an intensity value stored in the Numpy array. Let's have a closer look by selecting a smaller region of our image and plotting that.
 </p>
 
 
@@ -413,13 +413,13 @@ Error in py_call_impl(callable, dots$args, dots$keywords): DecompressionBombErro
 
 Detailed traceback:
   File "<string>", line 1, in <module>
-  File "/Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages/matplotlib/image.py", line 1560, in imread
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/matplotlib/image.py", line 1560, in imread
     with img_open(fname) as image:
-  File "/Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 2994, in open
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3133, in open
     im = _open_core(fp, filename, prefix, formats)
-  File "/Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 2981, in _open_core
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3120, in _open_core
     _decompression_bomb_check(im.size)
-  File "/Users/sabaferdous/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 2890, in _decompression_bomb_check
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3029, in _decompression_bomb_check
     raise DecompressionBombError(
 ```
 
@@ -826,12 +826,6 @@ blue_counts  = numpy_sum(blue_mask)
 print("Approximately %d"%(red_counts/total_pixels*100)+"% of the image is synaptophysin")
 print("Approximately %d"%(green_counts/total_pixels*100)+"% of the image is IP3R")
 print("Approximately %d"%(blue_counts/total_pixels*100)+"% of the image is DNA") 
-```
-
-```{.output}
-Approximately 13% of the image is synaptophysin
-Approximately 34% of the image is IP3R
-Approximately 18% of the image is DNA
 ```
 
 ### Q6

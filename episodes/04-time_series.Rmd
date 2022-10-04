@@ -27,6 +27,18 @@ exercises: 60
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
+
+<br>
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/qWYBBXR8Yrs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+<p align = "center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/T2Qh7yjHC9M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</p>
+<br>
+
+
 :::::::::::::::::: prereq 
 
 ## Prerequisites
@@ -36,6 +48,14 @@ exercises: 60
 - [Basics of Numpy Arrays]()
 
 ::::::::::::::::::
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+
+use_virtualenv("r-env")
+```
+
 
 ```{python}
 from pandas import read_csv

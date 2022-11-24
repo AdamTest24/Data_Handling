@@ -767,7 +767,7 @@ print('Labels:          ', randomLabel)
 ```{.output}
 Number of rows:   18
 Number of Labels: 18
-Labels:           [1 0 0 1 0 1 1 0 0 0 0 1 1 1 1 1 1 0]
+Labels:           [1 1 0 0 1 1 1 0 0 1 0 1 0 0 1 1 1 1]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code. 
@@ -788,10 +788,10 @@ df.head()
 ```{.output}
     calcium      sodium  gender
 0  3.455582  112.690980       1
-1  3.669026  125.663330       0
+1  3.669026  125.663330       1
 2  2.789910  105.821810       0
-3  2.939900   98.172772       1
-4  5.426060   97.931489       0
+3  2.939900   98.172772       0
+4  5.426060   97.931489       1
 ```
 
 <p style='text-align: justify;'>
@@ -805,23 +805,23 @@ df['gender'] == 1
 
 ```{.output}
 0      True
-1     False
+1      True
 2     False
-3      True
-4     False
+3     False
+4      True
 5      True
 6      True
 7     False
 8     False
-9     False
+9      True
 10    False
 11     True
-12     True
-13     True
+12    False
+13    False
 14     True
 15     True
 16     True
-17    False
+17     True
 Name: gender, dtype: bool
 ```
 
@@ -839,15 +839,16 @@ df[df_female]
 ```{.output}
      calcium      sodium  gender
 0   3.455582  112.690980       1
-3   2.939900   98.172772       1
+1   3.669026  125.663330       1
+4   5.426060   97.931489       1
 5   0.715811  120.858330       1
 6   5.652390  112.871500       1
+9   1.369419  118.499010       1
 11  2.894129  134.052390       1
-12  3.664987  105.346410       1
-13  1.362779  123.359490       1
 14  3.718798  125.021060       1
 15  1.865868  112.075420       1
 16  3.272809  117.588040       1
+17  3.917591  101.009870       1
 ```
 
 Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label. 
@@ -872,7 +873,7 @@ print(no_males, 'samples are labelled "male".')
 ```
 
 ```{.output}
-6 samples are labelled "male".
+8 samples are labelled "male".
 ```
 ::::::::::::::::: 
 ::::::::::::::::::::::::::::::::::
@@ -1126,15 +1127,41 @@ df_diabetes = DataFrame(data=X)
 df_diabetes.head()
 ```
 
-```{.output}
-          0         1         2  ...         7         8         9
-0  0.038076  0.050680  0.061696  ... -0.002592  0.019907 -0.017646
-1 -0.001882 -0.044642 -0.051474  ... -0.039493 -0.068332 -0.092204
-2  0.085299  0.050680  0.044451  ... -0.002592  0.002861 -0.025930
-3 -0.089063 -0.044642 -0.011595  ...  0.034309  0.022688 -0.009362
-4  0.005383 -0.044642 -0.036385  ... -0.002592 -0.031988 -0.046641
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
 
-[5 rows x 10 columns]
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'datasets' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'X' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
 ```
     
 If you don't see all columns, use the cursor to scroll to the right.
@@ -1144,13 +1171,35 @@ Now let's check the number of columns and rows.
 
 ```python
 no_rows = len(df_diabetes)
-no_cols = len(df_diabetes.columns)
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
+no_cols = len(df_diabetes.columns)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
 print('Rows:', no_rows, 'Columns:', no_cols)
 ```
 
-```{.output}
-Rows: 442 Columns: 10
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'no_cols' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
 ```
  
 There are 442 rows organised in 10 columns.
@@ -1168,9 +1217,22 @@ print('The columns are: ', list(df_diabetes.columns))
 print('The medians are: ', conc_means, 2)
 ```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'df_diabetes' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
 ```{.output}
-The columns are:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-The medians are:  [-2.511816797794472e-19, 1.2307902309192911e-17, -2.2455642172282577e-16, -4.7975700837874414e-17, -1.3814992387869595e-17, 3.918434204559376e-17, -5.7771786349272854e-18, -9.042540472060099e-18, 9.293722151839546e-17, 1.1303175590075123e-17] 2
+The medians are:  [] 2
 ```
 
 
@@ -1180,7 +1242,19 @@ fig, ax = subplots()
 bins = range(10)
 
 ax.bar(bins, conc_means);
+Error in py_call_impl(callable, dots$args, dots$keywords): ValueError: shape mismatch: objects cannot be broadcast to a single shape.  Mismatch is between arg 0 with shape (10,) and arg 1 with shape (0,).
 
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/matplotlib/__init__.py", line 1423, in inner
+    return func(ax, *map(sanitize_sequence, args), **kwargs)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/matplotlib/axes/_axes.py", line 2391, in bar
+    x, height, width, y, linewidth, hatch = np.broadcast_arrays(
+  File "<__array_function__ internals>", line 180, in broadcast_arrays
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/numpy/lib/stride_tricks.py", line 540, in broadcast_arrays
+    shape = _broadcast_shape(*args)
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/numpy/lib/stride_tricks.py", line 422, in _broadcast_shape
+    b = np.broadcast(*args[:32])
 show()
 ```
 

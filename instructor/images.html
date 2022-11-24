@@ -374,9 +374,30 @@
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.fftpack <span class="im">import</span> fft</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>data_back_fft <span class="op">=</span> fft(data_back, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.fftpack <span class="im">import</span> fft</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;
+  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb18">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data_back_fft <span class="op">=</span> fft(data_back, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
 </div>
 To plot the results, a couple of steps are required.
 <p style="text-align: justify;">
@@ -388,96 +409,169 @@ Second, the Fourier transform results in twice the number of complex coefficient
 <p style="text-align: justify;">
 Third, the Fourier transform outputs complex numbers. To display the ‘amplitude’ of a frequency (the coefficient corresponding to the amplitude of the sine wave with that frequency) we take the absolute value of the complex numbers.
 </p>
-<div class="codewrapper sourceCode" id="cb17">
+<div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>no_win <span class="op">=</span> <span class="dv">2</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> data_back.shape[<span class="dv">0</span>]</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> (sr<span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="bu">int</span>(rows<span class="op">/</span><span class="dv">2</span>))</span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>amplitudes_back <span class="op">=</span> (<span class="fl">2.0</span> <span class="op">/</span> rows) <span class="op">*</span> <span class="bu">abs</span>(data_back_fft[:rows<span class="op">//</span><span class="dv">2</span>, :<span class="dv">2</span>])</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> df_back.columns[:<span class="dv">2</span>]</span>
-<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
-<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_back[:, index])</span>
-<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">8</span>)</span>
-<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitude </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>axes[index].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
-<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>no_win <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> data_back.shape[<span class="dv">0</span>]</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> (sr<span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="bu">int</span>(rows<span class="op">/</span><span class="dv">2</span>))</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>amplitudes_back <span class="op">=</span> (<span class="fl">2.0</span> <span class="op">/</span> rows) <span class="op">*</span> <span class="bu">abs</span>(data_back_fft[:rows<span class="op">//</span><span class="dv">2</span>, :<span class="dv">2</span>])</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_back_fft' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb22">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> df_back.columns[:<span class="dv">2</span>]</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_back[:, index])</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">8</span>)</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitude </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_back' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 2, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb24">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>axes[index].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can see that in these two channels, the main amplitude contributions lie in the low frequencies, below 2 Hz.</p>
 <p>Let us compare the corresponding figure for the case of seizure activity:</p>
-<div class="codewrapper sourceCode" id="cb18">
+<div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data_epil_fft <span class="op">=</span> fft(data_epil, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>data_epil_fft <span class="op">=</span> fft(data_epil, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
 </div>
-<div class="codewrapper sourceCode" id="cb19">
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> df_epil.columns[:<span class="dv">2</span>]</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>amplitudes_epil <span class="op">=</span> (<span class="fl">2.0</span> <span class="op">/</span> rows) <span class="op">*</span> <span class="bu">abs</span>(data_epil_fft[:rows<span class="op">//</span><span class="dv">2</span>, :<span class="dv">2</span>])</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_epil[:, index])</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">12</span>)</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitude </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>axes[index].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">5</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>names <span class="op">=</span> df_epil.columns[:<span class="dv">2</span>]</span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>amplitudes_epil <span class="op">=</span> (<span class="fl">2.0</span> <span class="op">/</span> rows) <span class="op">*</span> <span class="bu">abs</span>(data_epil_fft[:rows<span class="op">//</span><span class="dv">2</span>, :<span class="dv">2</span>])</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_epil_fft' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb29">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_epil[:, index])</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">12</span>)</span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitude </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_epil' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 2, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb31">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>axes[index].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-17-15.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 The main frequency of the epileptic rhythm is between 2 and 3 Hz.
 <p style="text-align: justify;">
 As we can see above in the Fourier spectra above, the amplitudes are high for low frequencies and tend to decrease with increasing frequency. Sometimes it is useful to see the high frequencies enhanced. This can be achieved with a logarithmic plot of the powers.
 </p>
-<div class="codewrapper sourceCode" id="cb20">
+<div class="codewrapper sourceCode" id="cb32">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_back[:, index])</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">30</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitude </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    axes[index].set_yscale(<span class="st">'log'</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>axes[no_win<span class="op">-</span><span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Logarithmic Fourier Spectra of Background EEG'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_back[:, index])</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">30</span>)</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitude </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb32-8"><a href="#cb32-8" aria-hidden="true" tabindex="-1"></a>    axes[index].set_yscale(<span class="st">'log'</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_back' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 3, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb34">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>axes[no_win<span class="op">-</span><span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Logarithmic Fourier Spectra of Background EEG'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-18-17.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>And for the seizure data:</p>
-<div class="codewrapper sourceCode" id="cb21">
+<div class="codewrapper sourceCode" id="cb35">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">10</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                    </span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_epil[:, index])</span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">30</span>)</span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Power </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    axes[index].set_yscale(<span class="st">'log'</span>)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>axes[no_win<span class="op">-</span><span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Logarithmic Fourier Spectra of Seizure EEG'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">10</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_epil[:, index])</span>
+<span id="cb35-7"><a href="#cb35-7" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">30</span>)</span>
+<span id="cb35-8"><a href="#cb35-8" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Power </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span>
+<span id="cb35-9"><a href="#cb35-9" aria-hidden="true" tabindex="-1"></a>    axes[index].set_yscale(<span class="st">'log'</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_epil' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 3, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb37">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>axes[no_win<span class="op">-</span><span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Logarithmic Fourier Spectra of Seizure EEG'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <img src="../fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"><p style="text-align: justify;">
 In the spectrum of the absence data, it is now more obvious that there are further maxima at 6, 9, 12, and perhaps 15Hz. These are integer multiples or ‘harmonics’ of the basic frequency at around 3Hz, also referred to as the fundamental frequency.
@@ -503,32 +597,80 @@ A feature that can be used as a summary statistic, is to caclulate the <strong>b
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
-<div class="codewrapper sourceCode" id="cb22">
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>data_epil_filt <span class="op">=</span> data_filter(data_epil, sr, <span class="dv">4</span>, <span class="dv">12</span>)</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>data_epil_fft <span class="op">=</span> fft(data_epil_filt, axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> data_epil.shape[<span class="dv">0</span>]</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> (sr<span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="bu">int</span>(rows<span class="op">/</span><span class="dv">2</span>))</span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>amplitudes_epil <span class="op">=</span> (<span class="fl">2.0</span> <span class="op">/</span> rows) <span class="op">*</span> <span class="bu">abs</span>(data_epil_fft[:rows<span class="op">//</span><span class="dv">2</span>, :no_win])</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">10</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_epil[:, index])</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">12</span>)</span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitudes </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>axes[no_win<span class="op">-</span><span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Fourier Spectra of Seizure EEG'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>data_epil_filt <span class="op">=</span> data_filter(data_epil, sr, <span class="dv">4</span>, <span class="dv">12</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;
+  File "&lt;string&gt;", line 14, in data_filter
+  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb40">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>data_epil_fft <span class="op">=</span> fft(data_epil_filt, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb42">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>rows <span class="op">=</span> data_epil.shape[<span class="dv">0</span>]</span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> (sr<span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="bu">int</span>(rows<span class="op">/</span><span class="dv">2</span>))</span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>amplitudes_epil <span class="op">=</span> (<span class="fl">2.0</span> <span class="op">/</span> rows) <span class="op">*</span> <span class="bu">abs</span>(data_epil_fft[:rows<span class="op">//</span><span class="dv">2</span>, :no_win])</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_epil_fft' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 1, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb44">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">10</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_epil[:, index])</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    axes[index].set_xlim(<span class="dv">0</span>, <span class="dv">12</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    axes[index].<span class="bu">set</span>(ylabel<span class="op">=</span><span class="ss">f'Amplitudes </span><span class="sc">{</span>names[index]<span class="sc">}</span><span class="ss">'</span>)</span></code></pre>
+</div>
+<div class="codewrapper">
+<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="error" tabindex="0"><code>Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_epil' is not defined
+
+Detailed traceback:
+  File "&lt;string&gt;", line 2, in &lt;module&gt;</code></pre>
+</div>
+<div class="codewrapper sourceCode" id="cb46">
+<h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+</h3>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>axes[no_win<span class="op">-</span><span class="dv">1</span>].<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Frequency (Hz)'</span>)<span class="op">;</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>fig.suptitle(<span class="st">'Fourier Spectra of Seizure EEG'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-20-21.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 </div>
@@ -607,9 +749,9 @@ A feature that can be used as a summary statistic, is to caclulate the <strong>b
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-rmd/instructor/images.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/images.html",
-  "dateCreated": "2022-10-04",
-  "dateModified": "2022-11-22",
-  "datePublished": "2022-11-22"
+  "dateCreated": "2022-11-24",
+  "dateModified": "2022-11-24",
+  "datePublished": "2022-11-24"
 }
 
   </script><script>

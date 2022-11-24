@@ -415,11 +415,11 @@ Detailed traceback:
   File "<string>", line 1, in <module>
   File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/matplotlib/image.py", line 1541, in imread
     with img_open(fname) as image:
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3133, in open
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3172, in open
     im = _open_core(fp, filename, prefix, formats)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3120, in _open_core
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3159, in _open_core
     _decompression_bomb_check(im.size)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3029, in _decompression_bomb_check
+  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3068, in _decompression_bomb_check
     raise DecompressionBombError(
 ```
 
@@ -530,17 +530,39 @@ For this, we can use functionality from the [Scikit-Learn](https://scikit-learn.
 from sklearn.feature_extraction.image import extract_patches_2d
 ```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
+    module = _import(
+```
+
 'extract_patches_2d' is used to extract parts of the image. The shape of each patch as well as maxiaml number of patches can be specified.
 
 
 
 ```python
 patches = extract_patches_2d(img_hr, (174, 187), max_patches=100)
+```
+
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'extract_patches_2d' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
 patches.shape
 ```
 
-```{.output}
-(100, 174, 187, 3)
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'patches' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
 ```
 
 Note that patching itself can be a memory-intensive task. Extracting lots and lots of patches might take a long time. To look at the patches we can use a for loop:
@@ -553,7 +575,16 @@ ax = ax.flatten()
 
 for index in range(patches.shape[0]):
     ax[index].imshow(patches[index, :, :, :])
+```
 
+```{.error}
+Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'patches' is not defined
+
+Detailed traceback:
+  File "<string>", line 1, in <module>
+```
+
+```python
 show()
 ```
 

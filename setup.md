@@ -13,6 +13,7 @@ Please download the [data zip file](data/data.zip) and unzip it to your Desktop.
 - [Everley data](data/everleys_data.csv)
 - [Cervical cancer data](data/cervical_cancer.csv)
 - [Loan data](data/loan_data.csv)
+- [Breast Cancer Data](data/breast_cancer.csv)
 
 ::::::::::::::::
 The code assumes a path to the data files as '/data/...' or '\data\...', respectively. Please create a subfolder called 'data' in your current directory and put the data files in it. 

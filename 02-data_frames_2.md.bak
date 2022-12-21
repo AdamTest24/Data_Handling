@@ -64,18 +64,6 @@ from pandas import read_csv
 from sklearn import datasets
 
 # To create figure environments and plots
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```python
 from matplotlib.pyplot import subplots, show
 
 # Specific numpy functions, description in the main body
@@ -131,61 +119,31 @@ One way to check for the similarity between variables in a dataset is to create 
 # Figure Code
 
 diabetes = datasets.load_diabetes()
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'datasets' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 diabetes_data = diabetes.data
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig, ax = subplots(figsize=(21, 10), ncols=3, nrows=2)
 
 # Histograms
 ax[0,0].hist(diabetes_data[:,3], bins=20)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes_data' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[0,0].set_ylabel('Count', fontsize=20)
 
 ax[0,1].hist(diabetes_data[:,4], bins=20)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes_data' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[0,1].set_ylabel('Count', fontsize=20)
 
 ax[0,2].hist(diabetes_data[:,5], bins=20)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes_data' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[0,2].set_ylabel('Count', fontsize=20)
 
 # Scatter plots
 ax[1,0].scatter(diabetes_data[:,3], diabetes_data[:,4]);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes_data' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[1,0].set_xlabel('Column 3', fontsize=20)
 ax[1,0].set_ylabel('Column 4', fontsize=20)
 
 ax[1,1].scatter(diabetes_data[:,4], diabetes_data[:,5]);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes_data' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[1,1].set_xlabel('Column 4', fontsize=20)
 ax[1,1].set_ylabel('Column 5', fontsize=20)
 
 ax[1,2].scatter(diabetes_data[:,5], diabetes_data[:,3]);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes_data' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[1,2].set_xlabel('Column 5', fontsize=20)
 ax[1,2].set_ylabel('Column 3', fontsize=20);
 
@@ -757,56 +715,22 @@ patients_spearman = spearmanr(patients_numpy_float).correlation
 patients_spearman
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'spearmanr' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'patients_spearman' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+```{.output}
+array([[1.        , 0.11636668, 0.09327152, 0.12105741, 0.08703685],
+       [0.11636668, 1.        , 0.65614849, 0.20036338, 0.14976559],
+       [0.09327152, 0.65614849, 1.        , 0.12185782, 0.19738765],
+       [0.12105741, 0.20036338, 0.12185782, 1.        , 0.48666928],
+       [0.08703685, 0.14976559, 0.19738765, 0.48666928, 1.        ]])
 ```
 
 
 ```python
 from numpy import fill_diagonal
 fill_diagonal(patients_spearman, 0)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'patients_spearman' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig, ax = subplots(figsize=(7,7))
 
 im = ax.imshow(patients_spearman, cmap='coolwarm');
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'patients_spearman' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig.colorbar(im, orientation='horizontal', shrink=0.7);
 
 show()
@@ -942,37 +866,10 @@ First we import the data. it is one of the example datasets of scikit-learn, the
 
 ```python
 from sklearn import datasets
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```python
 diabetes = datasets.load_diabetes()
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'datasets' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 data_diabetes = diabetes.data
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ```
 
 <p style='text-align: justify;'>
@@ -984,40 +881,13 @@ For the bivariate features, let us get the correlation matrix and plot it as a h
 from numpy import fill_diagonal
 
 data_corr_matrix = corrcoef(data_diabetes, rowvar=False)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_diabetes' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fill_diagonal(data_corr_matrix, 0)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_corr_matrix' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig, ax = subplots(figsize=(8, 8))
 
 im = ax.imshow(data_corr_matrix, cmap='coolwarm');
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_corr_matrix' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig.colorbar(im, orientation='horizontal', shrink=0.5);
 
 show()
@@ -1036,29 +906,11 @@ Now we calculate the $10*9/2 = 45$ correlation coefficients and plot them as a h
 from numpy import triu_indices
 
 data_corr_coeffs = data_corr_matrix[triu_indices(data_corr_matrix.shape[0], k=1)]
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_corr_matrix' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig, ax = subplots()
 
 ax.hist(data_corr_coeffs, bins=10);
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_corr_coeffs' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 show()
 ```
 
@@ -1073,63 +925,16 @@ Next we can get the average (absolute) correlation per column.
 
 ```python
 data_column_average = mean(abs(data_corr_matrix), axis=0)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_corr_matrix' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig, ax = subplots()
 
 bins = arange(len(data_column_average))
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_column_average' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 ax.bar(bins, data_column_average);
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_column_average' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 ax.set_title('Average Correlation Strength per Column')
 ax.set_xticks(arange(len(diabetes.feature_names)))
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 ax.set_xticklabels(diabetes.feature_names);
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'diabetes' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 show()
 ```
 
@@ -1144,24 +949,12 @@ Finally, we can obtain the average correlation of the whole data set.
 ```python
 # Average of the correlation strengths
 data_corr_matrix_average = mean(abs(data_corr_matrix))
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_corr_matrix' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 print('Average Correlation Strength: ', round(data_corr_matrix_average, 3))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_corr_matrix_average' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+```{.output}
+Average Correlation Strength:  0.29
 ```
 
 ## Exercises
@@ -1213,15 +1006,6 @@ df_bc = read_csv("data/breast_cancer.csv")
 df_bc_describe = df_bc.iloc[:, 1:10].describe()
 
 df_bc_describe.round(2)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
 ```
 
 ```{.output}

@@ -395,18 +395,9 @@ def data_filter(data, sr, low, high):
 
 ```python
 data_back_filt = data_filter(data_back, sr, 8, 13)
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "<string>", line 14, in data_filter
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
 (fig, ax) = plot_series(data_back_filt, sr)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_back_filt' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig.suptitle('Filtered Recording of Background EEG', fontsize=16);
 
 legend(names);
@@ -433,18 +424,9 @@ Create figures of the delta (1-4 Hz) band for both the background and the seizur
 
 ```python
 data_back_filt = data_filter(data_back, sr, 1, 4)
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "<string>", line 14, in data_filter
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
 (fig, ax) = plot_series(data_back_filt, sr)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_back_filt' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig.suptitle('Delta Band of Background EEG', fontsize=16);
 
 legend(names);
@@ -457,18 +439,9 @@ show()
 
 ```python
 data_epil_filt = data_filter(data_epil, sr, 1, 4)
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "<string>", line 14, in data_filter
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
 (fig, ax) = plot_series(data_epil_filt, sr)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_epil_filt' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig.suptitle('Delta Band of Seizure EEG', fontsize=16);
 
 legend(names);
@@ -499,26 +472,8 @@ We import the Fourier transform function `fft` from __scipy.fftpack__ and can us
 
 ```python
 from scipy.fftpack import fft
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```python
 data_back_fft = fft(data_back, axis=0)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ```
 
 To plot the results, a couple of steps are required. 
@@ -542,16 +497,7 @@ freqs = (sr/2)*linspace(0, 1, int(rows/2))
 
 amplitudes_back = (2.0 / rows) * abs(data_back_fft[:rows//2, :2])
 
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_back_fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig, axes = subplots(figsize=(6, 5), ncols=1, nrows=no_win, sharex=False)
 
 names = df_back.columns[:2]
@@ -560,16 +506,7 @@ for index, ax in enumerate(axes.flat):
     axes[index].plot(freqs, amplitudes_back[:, index])
     axes[index].set_xlim(0, 8)
     axes[index].set(ylabel=f'Amplitude {names[index]}')
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_back' is not defined
-
-Detailed traceback:
-  File "<string>", line 2, in <module>
-```
-
-```python
 axes[index].set(xlabel='Frequency (Hz)');
 
 show()
@@ -587,13 +524,6 @@ Let us compare the corresponding figure for the case of seizure activity:
 data_epil_fft = fft(data_epil, axis=0)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
 
 ```python
 fig, axes = subplots(figsize=(6, 5), ncols=1, nrows=no_win, sharex=False)
@@ -601,30 +531,12 @@ fig, axes = subplots(figsize=(6, 5), ncols=1, nrows=no_win, sharex=False)
 names = df_epil.columns[:2]
 
 amplitudes_epil = (2.0 / rows) * abs(data_epil_fft[:rows//2, :2])
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_epil_fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 for index, ax in enumerate(axes.flat):
     axes[index].plot(freqs, amplitudes_epil[:, index])
     axes[index].set_xlim(0, 12)
     axes[index].set(ylabel=f'Amplitude {names[index]}')
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_epil' is not defined
-
-Detailed traceback:
-  File "<string>", line 2, in <module>
-```
-
-```python
 axes[index].set(xlabel='Frequency (Hz)');
 
 show()
@@ -647,16 +559,7 @@ for index, ax in enumerate(axes.flat):
     axes[index].set_xlim(0, 30)
     axes[index].set(ylabel=f'Amplitude {names[index]}')
     axes[index].set_yscale('log')
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_back' is not defined
-
-Detailed traceback:
-  File "<string>", line 3, in <module>
-```
-
-```python
 axes[no_win-1].set(xlabel='Frequency (Hz)');
 fig.suptitle('Logarithmic Fourier Spectra of Background EEG', fontsize=16);
 
@@ -678,16 +581,7 @@ for index, ax in enumerate(axes.flat):
     axes[index].set_xlim(0, 30)
     axes[index].set(ylabel=f'Power {names[index]}')
     axes[index].set_yscale('log')
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_epil' is not defined
-
-Detailed traceback:
-  File "<string>", line 3, in <module>
-```
-
-```python
 axes[no_win-1].set(xlabel='Frequency (Hz)');
 fig.suptitle('Logarithmic Fourier Spectra of Seizure EEG', fontsize=16);
 
@@ -712,61 +606,21 @@ Calculate and display the Fourier spectra of the first two channels filtered bet
 
 ```python
 data_epil_filt = data_filter(data_epil, sr, 4, 12)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "<string>", line 14, in data_filter
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```python
 data_epil_fft = fft(data_epil_filt, axis=0)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 rows = data_epil.shape[0]
 
 freqs = (sr/2)*linspace(0, 1, int(rows/2))
 
 amplitudes_epil = (2.0 / rows) * abs(data_epil_fft[:rows//2, :no_win])
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'data_epil_fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 fig, axes = subplots(figsize=(6, 10), ncols=1, nrows=no_win, sharex=False)
 
 for index, ax in enumerate(axes.flat):
     axes[index].plot(freqs, amplitudes_epil[:, index])
     axes[index].set_xlim(0, 12)
     axes[index].set(ylabel=f'Amplitudes {names[index]}')
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'amplitudes_epil' is not defined
-
-Detailed traceback:
-  File "<string>", line 2, in <module>
-```
-
-```python
 axes[no_win-1].set(xlabel='Frequency (Hz)');
 
 fig.suptitle('Fourier Spectra of Seizure EEG', fontsize=16);
@@ -919,18 +773,7 @@ from numpy import around, triu_indices
 from numpy.ma import masked_less, masked_greater
 
 from scipy.fftpack import fft
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
-```python
 from matplotlib.pyplot import subplots, yticks, legend, axis, figure, show
 ```
 ### Q1
@@ -996,18 +839,9 @@ def data_filter(data, sr, low, high):
 ```python
 
 dat_back_filt = data_filter(dat_back, sr, 1, 20)
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "<string>", line 14, in data_filter
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
 (fig, ax) = plot_series(dat_back_filt, sr)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_back_filt' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig.suptitle('First two seconds: Background EEG', fontsize=16);
 
 show()
@@ -1018,18 +852,9 @@ show()
 
 ```python
 dat_epil_filt = data_filter(dat_epil, sr, 1, 20)
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'scipy'
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "<string>", line 14, in data_filter
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
 (fig, ax) = plot_series(dat_epil_filt, sr)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_epil_filt' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig.suptitle('Last 2 seconds: Seizure EEG', fontsize=16);
 
 show()
@@ -1045,46 +870,12 @@ show()
 rows = dat_back.shape[0]
 
 dat_back_fft = fft(dat_back_filt, axis=0)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 powers_back2 = (2.0 / rows) * abs(dat_back_fft[:rows//2, :])
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_back_fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 dat_epil_fft = fft(dat_epil_filt, axis=0)
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 powers_epil2 = (2.0 / rows) * abs(dat_epil_fft[:rows//2, :])
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_epil_fft' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ```
 
 <p style='text-align: justify;'>
@@ -1141,96 +932,14 @@ ax[1].set(xlabel='Frequency (Hz), Seizure');
 show()
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_epil2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_epil2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_epil2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powermax_back2_index' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powermax_epil2_index' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powermax_back2_freq' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powermax_epil2_freq' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powermax_back2_freq' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
 ```{.output}
+Frequencies of max power in background (Hz):  
+ [ 2.5 11.   4.5 10.5 10.5  1.5 10.5 10.5 10.5 11. ]
+
+Frequencies of max power in seizure (Hz):  
+ [ 6.   7.5 10.  10.  12.   8.   3.5  7.   7.   8. ]
 (0.0, 30.0)
 (0.0, 10.0)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powermax_epil2_freq' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.output}
 (0.0, 30.0)
 (0.0, 10.0)
 ```
@@ -1250,21 +959,9 @@ print('Frequency with maximum count: background: ', '10-11 Hz')
 print('Frequency with maximum count: seizure:    ', ' 7- 8 Hz')
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'counts1' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'counts2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
 ```{.output}
+Maximum count: background:  5.0
+Maximum count: seizure:     3.0
 Frequency with maximum count: background:  10-11 Hz
 Frequency with maximum count: seizure:      7- 8 Hz
 ```
@@ -1277,37 +974,21 @@ freqs = (sr/2)*linspace(0, 1, int(rows/2))
 fig, axes = subplots(figsize=(6, 14), ncols=1, nrows=4, sharex=False)
     
 axes[0].plot(freqs, powers_back2[:, 3])
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 axes[0].set_xlim(0, 20)
 axes[0].set_ylim(0, 12)
 axes[0].set(ylabel=f'Power channel 3')
 axes[0].set(xlabel='Frequency (Hz)');
 
 axes[1].plot(time, dat_back_filt[:, 3], c='r')
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_back_filt' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 axes[1].set(xlabel='Time (s)');
 axes[1].set_ylim(-50, 60)
 axes[2].plot(freqs, powers_epil2[:, 3])
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'powers_epil2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 axes[2].set_xlim(0, 20)
 axes[2].set_ylim(0, 12)
 axes[2].set(ylabel='Power channel index 1')
 axes[2].set(xlabel='Frequency (Hz)');
 
 axes[3].plot(time, dat_epil_filt[:, 3], c='r')
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_epil_filt' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 axes[3].set(xlabel='Time (s)');
 axes[3].set_ylim(-50, 60)
 show()
@@ -1320,47 +1001,20 @@ show()
 
 ```python
 corr_matrix_back2 = corrcoef(dat_back_filt, rowvar=False)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_back_filt' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fill_diagonal(corr_matrix_back2, 0)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_back2' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 corr_matrix_epil2 = corrcoef(dat_epil_filt, rowvar=False)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'dat_epil_filt' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fill_diagonal(corr_matrix_epil2, 0)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_epil2' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig, ax = subplots(figsize = (8,8), ncols=2)
 
 im1 = ax[0].imshow(corr_matrix_back2, cmap='coolwarm');
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig.colorbar(im1, ax=ax[0], orientation='horizontal', shrink=0.8)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'im1' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 im2 = ax[1].imshow(corr_matrix_epil2, cmap='coolwarm');
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_epil2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig.colorbar(im2, ax=ax[1], orientation='horizontal', shrink=0.8);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'im2' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 show()
 ```
 
@@ -1373,28 +1027,13 @@ show()
 channels = dat_back.shape[1]
 
 corr_coeffs_back2 = corr_matrix_back2[triu_indices(channels, k=1)]
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 corr_coeffs_epil2 = corr_matrix_epil2[triu_indices(channels, k=1)]
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_epil2' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig, ax = subplots(nrows=2)
 
 ax[0].hist(corr_coeffs_back2, bins = 12);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[0].set_xlim(-1, 1)
 ax[1].hist(corr_coeffs_epil2, bins = 12);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_epil2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[1].set_xlim(-1, 1);
 
 show()
@@ -1407,34 +1046,15 @@ show()
 
 ```python
 corr_coeffs_back2_mean = mean(abs(corr_matrix_back2), axis=0)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_back2' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 corr_coeffs_epil2_mean = mean(abs(corr_matrix_epil2), axis=0)
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_matrix_epil2' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 fig, ax = subplots(nrows=2, figsize=(5,9))
-
 bins = arange(corr_coeffs_back2_mean.shape[0])
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_back2_mean' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[0].bar(bins, corr_coeffs_back2_mean);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'bins' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[0].set_xlabel('Background')
 ax[0].set_ylim(0, 0.4)
 ax[1].bar(bins, corr_coeffs_epil2_mean);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'bins' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax[1].set_xlabel('Seizure')
 ax[1].set_ylim(0, 0.4);
 
@@ -1452,32 +1072,9 @@ print('Average correlation background: ', around(corr_back2_mean, decimals=2))
 print('Average correlation seizure:    ', around(corr_epil2_mean, decimals=2))
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_back2_mean' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_epil2_mean' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_back2_mean' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_epil2_mean' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+```{.output}
+Average correlation background:  0.23
+Average correlation seizure:     0.2
 ```
 
 ### Channels with strongest correlations during the seizure
@@ -1486,24 +1083,13 @@ Detailed traceback:
 threshold = 0.2
 
 corr_coeffs_epil2_large = corr_coeffs_epil2_mean > threshold
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_epil2_mean' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 corr_coeffs_epil2_large
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_epil2_large' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+```{.output}
+array([False, False, False,  True, False,  True,  True,  True, False,
+        True])
 ```
 
 A horizontal line can be used to indicate the threshold:
@@ -1513,15 +1099,8 @@ A horizontal line can be used to indicate the threshold:
 fig, ax = subplots()
 
 bins = arange(corr_coeffs_back2_mean.shape[0])
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_back2_mean' is not defined
 
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax.bar(bins, corr_coeffs_epil2_mean);
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'bins' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
 ax.set_xlabel('Seizure')
 ax.set_ylim(0, 0.4);
 ax.axhline(y=threshold, c='r');
@@ -1540,11 +1119,8 @@ from numpy import nonzero
 nonzero(corr_coeffs_epil2_large)
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'corr_coeffs_epil2_large' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+```{.output}
+(array([3, 5, 6, 7, 9]),)
 ```
 
 :::::::::::::::::::::

@@ -530,39 +530,17 @@ For this, we can use functionality from the [Scikit-Learn](https://scikit-learn.
 from sklearn.feature_extraction.image import extract_patches_2d
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): ModuleNotFoundError: No module named 'sklearn'
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.local/share/renv/cache/v5/R-4.2/x86_64-pc-linux-gnu/reticulate/1.24/ffdf27627a3c1537478073c43b6e7980/reticulate/python/rpytools/loader.py", line 39, in _import_hook
-    module = _import(
-```
-
 'extract_patches_2d' is used to extract parts of the image. The shape of each patch as well as maxiaml number of patches can be specified.
 
 
 
 ```python
 patches = extract_patches_2d(img_hr, (174, 187), max_patches=100)
-```
-
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'extract_patches_2d' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 patches.shape
 ```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'patches' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+```{.output}
+(100, 174, 187, 3)
 ```
 
 Note that patching itself can be a memory-intensive task. Extracting lots and lots of patches might take a long time. To look at the patches we can use a for loop:
@@ -575,16 +553,7 @@ ax = ax.flatten()
 
 for index in range(patches.shape[0]):
     ax[index].imshow(patches[index, :, :, :])
-```
 
-```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'patches' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-```
-
-```python
 show()
 ```
 

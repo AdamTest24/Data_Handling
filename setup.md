@@ -24,6 +24,11 @@ Please download the [fig zip file](fig/fig.zip) and unzip it to your Desktop. It
 ## Figures
 - [diabetes_data_screenshot.png](fig/diabetes_data_screenshot.png)
 - [subfolder_data.png](fig/subfolder_data.png)
+- [axon_slice.jpg](fig/axon_slice.jpg)
+- [rat_brain_low_res.jpg](fig/rat_brain_low_res.jpg)
+- [rat_brain.jpg](fig/rat_brain.jpg)
+- [brain.nii](fig/brain.nii)
+- [rat_cerebellum.jpg](fig/rat_cerebellum.jpg)
 
 ::::::::::::::::
 

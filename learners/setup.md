@@ -18,7 +18,7 @@ Please download the [data zip file](data/data.zip) and unzip it to your Desktop.
 ::::::::::::::::
 The code assumes a path to the data files as '/data/...' or '\data\...', respectively. Please create a subfolder called 'data' in your current directory and put the data files in it. 
 
-Figure files for download from the Course page:
+Please download the [fig zip file](fig/fig.zip) and unzip it to your Desktop. It contains:
 
 :::::::::::::::: checklist
 ## Figures

@@ -20,7 +20,6 @@ Please download the [data zip file](data/data.zip) and unzip it to your Desktop.
 The code assumes a path to the data files as '/data/...' or '\data\...', respectively. Please create a subfolder called 'data' in your current directory and put the data files in it. 
 
 Please download the [fig zip file](fig/fig.zip) and unzip it to your Desktop. It contains:
-<<<<<<< HEAD
 
 ## Data Sets - Image Handling
 

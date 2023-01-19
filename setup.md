@@ -23,8 +23,6 @@ Please download the [fig zip file](fig/fig.zip) and unzip it to your Desktop. It
 <<<<<<< HEAD
 
 ## Data Sets - Image Handling
-=======
->>>>>>> 9320a2bd6748b457d4b255d04af78512524a9748
 
 :::::::::::::::: checklist
 ## Figures

@@ -2,7 +2,7 @@
 title: Setup
 ---
 
-## Data Sets
+## Data Sets - Data Frames
 
 Please download the [data zip file](data/data.zip) and unzip it to your Desktop. It contains:
 
@@ -16,9 +16,15 @@ Please download the [data zip file](data/data.zip) and unzip it to your Desktop.
 - [Breast Cancer Data](data/breast_cancer.csv)
 
 ::::::::::::::::
+
 The code assumes a path to the data files as '/data/...' or '\data\...', respectively. Please create a subfolder called 'data' in your current directory and put the data files in it. 
 
 Please download the [fig zip file](fig/fig.zip) and unzip it to your Desktop. It contains:
+<<<<<<< HEAD
+
+## Data Sets - Image Handling
+=======
+>>>>>>> 9320a2bd6748b457d4b255d04af78512524a9748
 
 :::::::::::::::: checklist
 ## Figures
@@ -34,7 +40,15 @@ Please download the [fig zip file](fig/fig.zip) and unzip it to your Desktop. It
 
 To include the figures in your notebook, please create a subfolder called 'figs' in your current directory and put the figure files in it. You can check the pdf of the notebook for reference. 
 
+## Data Sets - Time Series
 
+Please download the [data zip file](data/data-tseries.zip) for topic time series and unzip it to the folder where your notebook is. It contains:
 
+:::::::::::::::: checklist
 
+## Data files
+- [EEG_absence.txt](data/EEG_absence.txt)
+- [EEG_background.txt](data/EEG_background.txt)
+- [P1_Seizure1.csv](data/P1_Seizure1.csv)
 
+::::::::::::::::

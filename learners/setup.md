@@ -14,6 +14,7 @@ Please download the [data zip file](data/data.zip) and unzip it to your Desktop.
 - [Cervical cancer data](data/cervical_cancer.csv)
 - [Loan data](data/loan_data.csv)
 - [Breast Cancer Data](data/breast_cancer.csv)
+- [Patient Data](data/patients.csv)
 
 ::::::::::::::::
 

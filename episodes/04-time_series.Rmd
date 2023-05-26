@@ -54,13 +54,6 @@ exercises: 60
 
 ::::::::::::::::::
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-library(reticulate)
-
-use_virtualenv("r-env")
-```
-
 ```{python}
 from pandas import read_csv
 

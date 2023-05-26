@@ -91,8 +91,6 @@ First, we want to read in an image. For this part of the lesson, we use a histol
 </p>
 
 
-
-
 ```python
 from matplotlib.image import imread
 
@@ -409,25 +407,11 @@ img_hr.shape
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): DecompressionBombError: Image size (324649360 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack.
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/matplotlib/image.py", line 1541, in imread
-    with img_open(fname) as image:
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3172, in open
-    im = _open_core(fp, filename, prefix, formats)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3159, in _open_core
-    _decompression_bomb_check(im.size)
-  File "/home/runner/.virtualenvs/r-env/lib/python3.10/site-packages/PIL/Image.py", line 3068, in _decompression_bomb_check
-    raise DecompressionBombError(
+Error: PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
 ```
 
 ```{.error}
-Error in py_call_impl(callable, dots$args, dots$keywords): NameError: name 'img_hr' is not defined
-
-Detailed traceback:
-  File "<string>", line 1, in <module>
+Error: NameError: name 'img_hr' is not defined
 ```
 
 <p style='text-align: justify;'>
@@ -451,11 +435,18 @@ Let's try again. Be patient, it might take a moment.
 
 ```python
 img_hr = imread('fig/rat_brain.jpg')
+```
+
+```{.error}
+Error: PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
+```
+
+```python
 img_hr.shape
 ```
 
-```{.output}
-(17360, 18701, 3)
+```{.error}
+Error: NameError: name 'img_hr' is not defined
 ```
 
 Now we can plot the full high-resolution image:
@@ -465,7 +456,13 @@ Now we can plot the full high-resolution image:
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_hr, cmap='gray');
+```
 
+```{.error}
+Error: NameError: name 'img_hr' is not defined
+```
+
+```python
 show()
 ```
 
@@ -485,8 +482,16 @@ img_small = img_pil.resize((174, 187))
 print(type(img_small))
 ```
 
-```{.output}
-<class 'PIL.Image.Image'>
+```{.error}
+Error: PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
+```
+
+```{.error}
+Error: NameError: name 'img_pil' is not defined
+```
+
+```{.error}
+Error: NameError: name 'img_small' is not defined
 ```
 
 Plotting should now be quicker.
@@ -496,7 +501,13 @@ Plotting should now be quicker.
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_small, cmap='gray');
+```
 
+```{.error}
+Error: NameError: name 'img_small' is not defined
+```
+
+```python
 show()
 ```
 
@@ -511,12 +522,18 @@ With this code, we have resized the image to 174 by 187 pixels. We should be awa
 from numpy import array
 
 img_numpy = array(img_small)
+```
 
+```{.error}
+Error: NameError: name 'img_small' is not defined
+```
+
+```python
 print(type(img_numpy))
 ```
 
-```{.output}
-<class 'numpy.ndarray'>
+```{.error}
+Error: NameError: name 'img_numpy' is not defined
 ```
 
 <p style='text-align: justify;'>
@@ -536,11 +553,18 @@ from sklearn.feature_extraction.image import extract_patches_2d
 
 ```python
 patches = extract_patches_2d(img_hr, (174, 187), max_patches=100)
+```
+
+```{.error}
+Error: NameError: name 'img_hr' is not defined
+```
+
+```python
 patches.shape
 ```
 
-```{.output}
-(100, 174, 187, 3)
+```{.error}
+Error: NameError: name 'patches' is not defined
 ```
 
 Note that patching itself can be a memory-intensive task. Extracting lots and lots of patches might take a long time. To look at the patches we can use a for loop:
@@ -553,7 +577,13 @@ ax = ax.flatten()
 
 for index in range(patches.shape[0]):
     ax[index].imshow(patches[index, :, :, :])
+```
 
+```{.error}
+Error: NameError: name 'patches' is not defined
+```
+
+```python
 show()
 ```
 

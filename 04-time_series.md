@@ -55,8 +55,6 @@ exercises: 60
 ::::::::::::::::::
 
 
-
-
 ```python
 from pandas import read_csv
 

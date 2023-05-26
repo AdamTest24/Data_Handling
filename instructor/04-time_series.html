@@ -17,9 +17,19 @@
     <header id="top" class="navbar navbar-expand-md navbar-light bg-white top-nav l2d"><a class="visually-hidden-focusable skip-link" href="#main-content">Skip to main content</a>
   <div class="container-fluid top-nav-container">
     <div class="col-md-6">
-      <div class="large-logo"><img alt="l2d" src="../assets/images/l2d-logo.svg"></div>
+      <div class="large-logo">
+        <img alt="l2d" src="../assets/images/l2d-logo.svg"><abbr class="icon" title="This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught." style="text-decoration: unset">
+           
+          <a href="https://cdh.carpentries.org/the-lesson-life-cycle.html#early-development-pre-alpha-through-alpha" class="external-link alert-link" style="color: #383838">Pre-Alpha
+            <i aria-hidden="true" class="icon" data-feather="alert-octagon" style="color: #FF4955; border-radius: 5px"></i>
+          </a>
+          <span class="visually-hidden">This lesson is in the pre-alpha phase, which means that it is in early development, but has not yet been taught.</span>
+        </abbr>
+        
+      </div>
     </div>
     <div class="selector-container ">
+      
       
       <div class="dropdown">
         <button class="btn btn-secondary dropdown-toggle bordered-button" type="button" id="dropdownMenu1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -40,7 +50,9 @@
       Data Handling
     </div>
     <div class="search-icon-sm">
+      <!-- TODO: do not show until we have search
       <i role="img" aria-label="search button" data-feather="search"></i>
+      -->
     </div>
     <div class="desktop-nav">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0"><li class="nav-item">
@@ -64,18 +76,20 @@
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown"></ul></li>
       </ul></div>
     <form class="d-flex col-md-2 search-form">
-      <input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit"><i class="search-icon" data-feather="search" role="img" aria-label="search button"></i></button>
-    </form>
+      <fieldset disabled><input class="form-control me-2 searchbox" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success tablet-search-button" type="submit">
+          <i class="search-icon" data-feather="search" role="img" aria-label="search button"></i>
+        </button>
+      </fieldset></form>
   </div><!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
   Data Handling
 </div>
 
-<aside class="col-md-12 lesson-progress"><div style="width: 100%" class="percentage">
-    100%
+<aside class="col-md-12 lesson-progress"><div style="width: 75%" class="percentage">
+    75%
   </div>
   <div class="progress l2d">
-    <div class="progress-bar l2d" role="progressbar" style="width: 100%" aria-valuenow="100" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
+    <div class="progress-bar l2d" role="progressbar" style="width: 75%" aria-valuenow="75" aria-label="Lesson Progress" aria-valuemin="0" aria-valuemax="100">
     </div>
   </div>
 </aside><div class="container">
@@ -112,7 +126,7 @@
 
               <button id="chapters" class="accordion-button show" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
                 <h2 class="accordion-header chapters" id="flush-headingEleven">
-                  CHAPTERS
+                  EPISODES
                 </h2>
               </button>
               <div id="flush-collapseEleven" class="accordion-collapse show collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlush11">
@@ -189,12 +203,21 @@
                 </h2>
                 <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlush12">
                   <div class="accordion-body">
-                    <ul></ul></div>
+                    <ul><li>
+                        <a href="../instructor/key-points.html">Key Points</a>
+                      </li>
+                      <li>
+                        <a href="../instructor/instructor-notes.html">Instructor Notes</a>
+                      </li>
+                      <li>
+                        <a href="../instructor/images.html">Extract All Images</a>
+                      </li>
+                      
+                    </ul></div>
                 </div>
               </div>
             </div>
-
-            <a href="../instructor/aio.html">See all in one page</a>
+            <hr class="half-width resources"><a href="../instructor/aio.html">See all in one page</a>
 
             <hr class="d-none d-sm-block d-md-none"><div class="d-grid gap-1">
             
@@ -218,7 +241,12 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Time Series</h1>
-        <p> Last updated on 2022-12-21 | <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/04-time_series.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        <p> Last updated on 2023-05-26 | 
+        
+        <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/04-time_series.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
+        
+        
+        
         <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 120 minutes </p>
         
         <div class="text-end">
@@ -227,9 +255,12 @@
 
         
 
-<p><a href="04-time_series.md.pdf"><strong>Download Chapter pdf</strong></a></p>
-<p><a href="04-time_series.ipynb"><strong>Download Chapter notebook (ipynb)</strong></a></p>
-<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback Survey</strong></span></a></p>
+<p><a href="../04-time_series.md.pdf"><strong>Download Chapter
+pdf</strong></a></p>
+<p><a href="../04-time_series.ipynb"><strong>Download Chapter notebook
+(ipynb)</strong></a></p>
+<p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
+Survey</strong></span></a></p>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -269,12 +300,13 @@
 </iframe>
 </p>
 <p><br></p>
-<div id="prereq1" class="callout prereq">
+<div id="prerequisites" class="callout prereq">
 <div class="callout-square">
 <i class="callout-icon" data-feather="check"></i>
 </div>
 <div id="prerequisites" class="callout-inner">
-<h3 class="callout-title">Prerequisites</h3>
+<h3 class="callout-title">Prerequisites<a class="anchor" aria-label="anchor" href="#prerequisites"></a>
+</h3>
 <div class="callout-content">
 <ul><li><a href="01-data_frames_1.html">Dataframes 1 and 2</a></li>
 <li><a href="03-image_handling.html">Image Handling</a></li>
@@ -294,15 +326,20 @@
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, yticks, legend, axis, figure, show</span></code></pre>
 </div>
-<div id="discussion1" class="callout discussion">
+<div id="python-function" class="callout discussion">
 <div class="callout-square">
 <i class="callout-icon" data-feather="message-circle"></i>
 </div>
 <div id="python-function" class="callout-inner">
-<h3 class="callout-title">Python Function</h3>
+<h3 class="callout-title">Python Function<a class="anchor" aria-label="anchor" href="#python-function"></a>
+</h3>
 <div class="callout-content">
 <p style="text-align: justify;">
-Please execute the following function definition before proceeding. The function code takes data and creates a plot of all columns as time series, one above the other. When you execute the function code nothing happens. Similar to the import, running a function code will only activate it and make it available for later use.
+Please execute the following function definition before proceeding. The
+function code takes data and creates a plot of all columns as time
+series, one above the other. When you execute the function code nothing
+happens. Similar to the import, running a function code will only
+activate it and make it available for later use.
 </p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -350,9 +387,14 @@ Please execute the following function definition before proceeding. The function
 </div>
 </div>
 </div>
-<section id="example-normal-and-pathological-eeg"><h2 class="section-heading">Example: Normal and Pathological EEG</h2>
+<section id="example-normal-and-pathological-eeg"><h2 class="section-heading">Example: Normal and Pathological EEG<a class="anchor" aria-label="anchor" href="#example-normal-and-pathological-eeg"></a>
+</h2>
 <hr class="half-width"><p style="text-align: justify;">
-As an example, let us import two sets of time series data and convert them to Numpy arrays, here called <em>data_back</em> and <em>data_epil</em>. They represent human electroencephalogram (EEG) as recorded during normal <em>background</em> activity and during an epileptic seizure called <em>absence</em> seizure.
+As an example, let us import two sets of time series data and convert
+them to Numpy arrays, here called <em>data_back</em> and
+<em>data_epil</em>. They represent human electroencephalogram (EEG) as
+recorded during normal <em>background</em> activity and during an
+epileptic seizure called <em>absence</em> seizure.
 </p>
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -371,13 +413,22 @@ As an example, let us import two sets of time series data and convert them to Nu
 <span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>data_epil <span class="op">=</span> d2[:period<span class="op">*</span>sr:, :channels]</span></code></pre>
 </div>
 <p style="text-align: justify;">
-The <code>read_csv</code> function is used with the keyword argument <code>delim_whitespace</code>. When set to True, this allows to import data that are space-separated (rather than comma-separated). If you check the data .txt files, you will see that the numbers (which represent voltages) are indeed separated by space, not comma.
+The <code>read_csv</code> function is used with the keyword argument
+<code>delim_whitespace</code>. When set to True, this allows to import
+data that are space-separated (rather than comma-separated). If you
+check the data .txt files, you will see that the numbers (which
+represent voltages) are indeed separated by space, not comma.
 </p>
 <p style="text-align: justify;">
-Next, three constants are assigned: The sampling rate, sr, which is given in number of samples recorded per seconds; the duration of the recording, period, which is given in seconds; and the number of columns, referred to as channels, to be extracted from the recording. We use the first 10 columns in this lesson.
+Next, three constants are assigned: The sampling rate, sr, which is
+given in number of samples recorded per seconds; the duration of the
+recording, period, which is given in seconds; and the number of columns,
+referred to as channels, to be extracted from the recording. We use the
+first 10 columns in this lesson.
 </p>
 <p>The data are then converted from a data frame to Numpy arrays.</p>
-<p>To see the names of the channels (or recording sensors) we can use <code>head</code>.</p>
+<p>To see the names of the channels (or recording sensors) we can use
+<code>head</code>.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -396,10 +447,15 @@ Next, three constants are assigned: The sampling rate, sr, which is given in num
 [5 rows x 28 columns]</code></pre>
 </div>
 <p style="text-align: justify;">
-The row indices and column names for the seizure data look the same. The names of the recording channels are from the commonly used <a href="https://en.wikipedia.org/wiki/10%E2%80%9320_system_(EEG)" class="external-link">10-20 system</a> to record voltages of brain activity from the scalp in humans. E.g. ‘F’ stands for the frontal lobe.
+The row indices and column names for the seizure data look the same. The
+names of the recording channels are from the commonly used <a href="https://en.wikipedia.org/wiki/10%E2%80%9320_system_(EEG)" class="external-link">10-20 system</a>
+to record voltages of brain activity from the scalp in humans. E.g. ‘F’
+stands for the frontal lobe.
 </p>
 <p style="text-align: justify;">
-We can now use the plot function from above to plot the data. Note from the definition (first line) that two input arguments are required: the data set and the sampling rate.
+We can now use the plot function from above to plot the data. Note from
+the definition (first line) that two input arguments are required: the
+data set and the sampling rate.
 </p>
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -415,24 +471,39 @@ We can now use the plot function from above to plot the data. Note from the defi
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-6-3.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p><strong>Observations</strong></p>
 <ol style="list-style-type: decimal"><li>Background:</li>
-</ol><ul><li><p>There are irregular oscillations of all recorded brain potentials.</p></li>
-<li><p>Oscillations recorded at different locations above the brain differ.</p></li>
+</ol><ul><li><p>There are irregular oscillations of all recorded brain
+potentials.</p></li>
+<li><p>Oscillations recorded at different locations above the brain
+differ.</p></li>
 <li><p>Oscillations are not stable but modulated over time.</p></li>
 <li><p>There are different frequency components in each trace.</p></li>
 </ul><ol start="2" style="list-style-type: decimal"><li>Epileptic Seizure:</li>
 </ol><ul><li><p>There are regular oscillations.</p></li>
-<li><p>Oscillations recorded at different locations are not identical but similar or at least related in shape.</p></li>
-<li><p>Despite some modulation, oscillations are fairly stable over time.</p></li>
-<li><p>There are repetitive motifs composed of two major components throughout the recording, a sharp <em>spike</em> and a slow <em>wave</em>.</p></li>
+<li><p>Oscillations recorded at different locations are not identical
+but similar or at least related in shape.</p></li>
+<li><p>Despite some modulation, oscillations are fairly stable over
+time.</p></li>
+<li><p>There are repetitive motifs composed of two major components
+throughout the recording, a sharp <em>spike</em> and a slow
+<em>wave</em>.</p></li>
 </ul><p><strong>Task</strong></p>
 <p style="text-align: justify;">
-Quantify features of these time series data to get an overview. As a univariate feature we can use the frequency content. This takes into account the fact that the rows (or samplles) are not independent of each other but are organised along the time axis. In consequence, there are correlations between data points along the rows of each column and the <strong>Fourier spectrum</strong> can be used to identify these.
+Quantify features of these time series data to get an overview. As a
+univariate feature we can use the frequency content. This takes into
+account the fact that the rows (or samplles) are not independent of each
+other but are organised along the time axis. In consequence, there are
+correlations between data points along the rows of each column and the
+<strong>Fourier spectrum</strong> can be used to identify these.
 </p>
 <p style="text-align: justify;">
-The Fourier spectrum assumes that the data are stationary and can be thought of as a superposition of regular sine waves with different frequencies. Its output will show which of the frequencies are present in the data and also their respective amplitudes.
+The Fourier spectrum assumes that the data are stationary and can be
+thought of as a superposition of regular sine waves with different
+frequencies. Its output will show which of the frequencies are present
+in the data and also their respective amplitudes.
 </p>
 <p>As a bivariate feature we can use the cross-correlation matrix.</p>
-</section><section id="work-through-example"><h2 class="section-heading">Work Through Example</h2>
+</section><section id="work-through-example"><h2 class="section-heading">Work Through Example<a class="anchor" aria-label="anchor" href="#work-through-example"></a>
+</h2>
 <hr class="half-width"><p>Check the Numpy array containing the background and seizure data.</p>
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -448,9 +519,14 @@ The Fourier spectrum assumes that the data are stationary and can be thought of 
 <div class="section level3">
 <h3 id="display-data-with-offset"><strong>Display data with offset</strong><a class="anchor" aria-label="anchor" href="#display-data-with-offset"></a></h3>
 <p style="text-align: justify;">
-Take a look at the code of the function <code>plot_series</code> that creates the time series plot. It requires the input of a data file where the row index is interpreted as time. In addition, the sampling rate sr is required to be able to extract the time scale. The sampling rate specifies the number of samples recorded per unit time.
+Take a look at the code of the function <code>plot_series</code> that
+creates the time series plot. It requires the input of a data file where
+the row index is interpreted as time. In addition, the sampling rate sr
+is required to be able to extract the time scale. The sampling rate
+specifies the number of samples recorded per unit time.
 </p>
-<p>The sensors or recording channels are assumed to be in the columns.</p>
+<p>The sensors or recording channels are assumed to be in the
+columns.</p>
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -494,12 +570,18 @@ Take a look at the code of the function <code>plot_series</code> that creates th
 <span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>   </span>
 <span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig, ax</span></code></pre>
 </div>
-<p>The declaration syntax <code>def</code> is followed by the function name and, in parenthesis, the input arguments. It is completed with a colon.</p>
+<p>The declaration syntax <code>def</code> is followed by the function
+name and, in parenthesis, the input arguments. It is completed with a
+colon.</p>
 <p>Following the declaration is the documentation of the function.</p>
 <p>Next comes the function code, all indented.</p>
-<p>The function closes with the optional output syntax <code>return</code> and any number of returned variables, anything that might be used as a product of running the function.</p>
-<p>In our example, the figure environment and the coordinate system are ‘returned’, and can in principle be used to further modify the plot.</p>
-<p>Here is how to call the function and then add a title and the sensor names to the display.</p>
+<p>The function closes with the optional output syntax
+<code>return</code> and any number of returned variables, anything that
+might be used as a product of running the function.</p>
+<p>In our example, the figure environment and the coordinate system are
+‘returned’, and can in principle be used to further modify the plot.</p>
+<p>Here is how to call the function and then add a title and the sensor
+names to the display.</p>
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -514,30 +596,55 @@ Take a look at the code of the function <code>plot_series</code> that creates th
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-9-5.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-A function usually (but not necessarily) takes in one or several variables or values, processes them, and produces a specific result. The variable(s) given to a function and those produced by it are referred to as input arguments, and outputs respectively.
+A function usually (but not necessarily) takes in one or several
+variables or values, processes them, and produces a specific result. The
+variable(s) given to a function and those produced by it are referred to
+as input arguments, and outputs respectively.
 </p>
 <p style="text-align: justify;">
-There are different ways to create functions in Python. In this course, we will be using <code>def</code> to implement our own functions. This is the easiest, and by far the most common method for declaring functions. The structure of a typical function defined using <code>def</code> can be see in the <code>plot_series</code> example:
+There are different ways to create functions in Python. In this course,
+we will be using <code>def</code> to implement our own functions. This
+is the easiest, and by far the most common method for declaring
+functions. The structure of a typical function defined using
+<code>def</code> can be see in the <code>plot_series</code> example:
 </p>
 <p>There are several points to remember in relation to functions:</p>
-<ul><li><p>The name of a function follows same principles as that of any other variable. It must be in lower-case characters.</p></li>
-<li><p>The input arguments of a function, e.g. <em>data</em> and <em>sr</em> in the example, are essentially variables whose scope is the function. That is, they are only accessible within the function itself, and not from outside the function.</p></li>
-<li><p>Variables defined inside of a function, should not use the same name as variables defined outside. Otherwise they may override each other.</p></li>
+<ul><li><p>The name of a function follows same principles as that of any
+other variable. It must be in lower-case characters.</p></li>
+<li><p>The input arguments of a function, e.g. <em>data</em> and
+<em>sr</em> in the example, are essentially variables whose scope is the
+function. That is, they are only accessible within the function itself,
+and not from outside the function.</p></li>
+<li><p>Variables defined inside of a function, should not use the same
+name as variables defined outside. Otherwise they may override each
+other.</p></li>
 </ul><p style="text-align: justify;">
-It is important for a function to only perform one specific task. As such it can be used independent of the current context. Try to avoid incorporating separable tasks into a single function.
+It is important for a function to only perform one specific task. As
+such it can be used independent of the current context. Try to avoid
+incorporating separable tasks into a single function.
 </p>
 <p style="text-align: justify;">
-Once you start creating functions for different purposes you can start to build your own library of ready-to-use functions to address different needs. This is the primary principle of a popular programming paradigm known as <a href="https://en.wikipedia.org/wiki/Functional_programming" class="external-link">functional programming</a>.
+Once you start creating functions for different purposes you can start
+to build your own library of ready-to-use functions to address different
+needs. This is the primary principle of a popular programming paradigm
+known as <a href="https://en.wikipedia.org/wiki/Functional_programming" class="external-link">functional
+programming</a>.
 </p>
 </div>
 <div class="section level3">
 <h3 id="filtering"><strong>Filtering</strong><a class="anchor" aria-label="anchor" href="#filtering"></a></h3>
-Data sets with complex waveforms contain many different components which may or may not be relevant for a specific question.
+Data sets with complex waveforms contain many different components which
+may or may not be relevant for a specific question.
 <p style="text-align: justify;">
-Data filtering is applied to take out specific components. Component in this context refers to ‘frequency’, i.e. the number of cycles per unit of time. Thus a small number refers to low frequencies with long periods (cycles) and a large number to high frequencies with short periods.
+Data filtering is applied to take out specific components. Component in
+this context refers to ‘frequency’, i.e. the number of cycles per unit
+of time. Thus a small number refers to low frequencies with long periods
+(cycles) and a large number to high frequencies with short periods.
 </p>
-<p>Let us see a simple example how both low- and high-frequency components can be filtered (suppressed) in the example time series.</p>
-<p>Here is a simple function which takes two additional input arguments, the low and the high cut-off.</p>
+<p>Let us see a simple example how both low- and high-frequency
+components can be filtered (suppressed) in the example time series.</p>
+<p>Here is a simple function which takes two additional input arguments,
+the low and the high cut-off.</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -586,16 +693,23 @@ Data filtering is applied to take out specific components. Component in this con
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-11-7.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-The frequency range from 8 to 13 Hz is referred to as alpha band in the electroencephalogram. It is thought that this represents a kind of idling rhythm of the brain, i.e. an activity where the brain is not actively processing sensory input.
+The frequency range from 8 to 13 Hz is referred to as alpha band in the
+electroencephalogram. It is thought that this represents a kind of
+idling rhythm of the brain, i.e. an activity where the brain is not
+actively processing sensory input.
 </p>
-<div id="challenge1" class="callout challenge">
+<div id="diy1-band-pass-filtered-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="diy1-band-pass-filtered-data" class="callout-inner">
-<h3 class="callout-title"><strong>DIY1: Band-pass filtered data</strong></h3>
+<h3 class="callout-title">
+<strong>DIY1: Band-pass filtered
+data</strong><a class="anchor" aria-label="anchor" href="#diy1-band-pass-filtered-data"></a>
+</h3>
 <div class="callout-content">
-<p>Create figures of the delta (1-4 Hz) band for both the background and the seizure EEG. Note the differences.</p>
+<p>Create figures of the delta (1-4 Hz) band for both the background and
+the seizure EEG. Note the differences.</p>
 </div>
 </div>
 </div>
@@ -642,13 +756,24 @@ The frequency range from 8 to 13 Hz is referred to as alpha band in the electroe
 <div class="section level3">
 <h3 id="fourier-spectrum"><strong>Fourier Spectrum</strong><a class="anchor" aria-label="anchor" href="#fourier-spectrum"></a></h3>
 <p style="text-align: justify;">
-The Fourier spectrum decomposes the time series into a sum of sine waves. The spectrum gives the coefficients of each of the sine wave components. The coefficients are directly related to the amplitudes needed to optimally fit the sum of all sine waves to recreate the original data.
+The Fourier spectrum decomposes the time series into a sum of sine
+waves. The spectrum gives the coefficients of each of the sine wave
+components. The coefficients are directly related to the amplitudes
+needed to optimally fit the sum of all sine waves to recreate the
+original data.
 </p>
 <p style="text-align: justify;">
-However, the assumption behind the Fourier transform is that the data are provided as in infinitely long stationary time series. These assumptions are not fulfilled as the data are finite and stationarity of a biological system can typically not be guaranteed. Thus, interpretation needs to be cautious.
+However, the assumption behind the Fourier transform is that the data
+are provided as in infinitely long stationary time series. These
+assumptions are not fulfilled as the data are finite and stationarity of
+a biological system can typically not be guaranteed. Thus,
+interpretation needs to be cautious.
 </p>
-<figure id="fourier-transform-of-eeg-data"><h4><strong>Fourier Transform of EEG data</strong></h4>
-<p>We import the Fourier transform function <code>fft</code> from <strong>scipy.fftpack</strong> and can use it to transform all columns at the same time.</p>
+<div class="section level4">
+<h4 id="fourier-transform-of-eeg-data"><strong>Fourier Transform of EEG data</strong><a class="anchor" aria-label="anchor" href="#fourier-transform-of-eeg-data"></a></h4>
+<p>We import the Fourier transform function <code>fft</code> from
+<strong>scipy.fftpack</strong> and can use it to transform all columns
+at the same time.</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -658,13 +783,20 @@ However, the assumption behind the Fourier transform is that the data are provid
 </div>
 To plot the results, a couple of steps are required.
 <p style="text-align: justify;">
-First, we obtain a Fourier spectrum for every data column, so we need to define how many plots we want to have. If we take only columns, we can display them all in one go.
+First, we obtain a Fourier spectrum for every data column, so we need to
+define how many plots we want to have. If we take only columns, we can
+display them all in one go.
 </p>
 <p style="text-align: justify;">
-Second, the Fourier transform results in twice the number of complex coefficients (positive and negative) of which we only need the first half.
+Second, the Fourier transform results in twice the number of complex
+coefficients (positive and negative) of which we only need the first
+half.
 </p>
 <p style="text-align: justify;">
-Third, the Fourier transform outputs complex numbers. To display the ‘amplitude’ of a frequency (the coefficient corresponding to the amplitude of the sine wave with that frequency) we take the absolute value of the complex numbers.
+Third, the Fourier transform outputs complex numbers. To display the
+‘amplitude’ of a frequency (the coefficient corresponding to the
+amplitude of the sine wave with that frequency) we take the absolute
+value of the complex numbers.
 </p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -691,8 +823,10 @@ Third, the Fourier transform outputs complex numbers. To display the ‘amplitud
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can see that in these two channels, the main amplitude contributions lie in the low frequencies, below 2 Hz.</p>
-<p>Let us compare the corresponding figure for the case of seizure activity:</p>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can see that in these two channels, the main amplitude
+contributions lie in the low frequencies, below 2 Hz.</p>
+<p>Let us compare the corresponding figure for the case of seizure
+activity:</p>
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -719,7 +853,10 @@ Third, the Fourier transform outputs complex numbers. To display the ‘amplitud
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-17-15.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 The main frequency of the epileptic rhythm is between 2 and 3 Hz.
 <p style="text-align: justify;">
-As we can see above in the Fourier spectra above, the amplitudes are high for low frequencies and tend to decrease with increasing frequency. Sometimes it is useful to see the high frequencies enhanced. This can be achieved with a logarithmic plot of the powers.
+As we can see above in the Fourier spectra above, the amplitudes are
+high for low frequencies and tend to decrease with increasing frequency.
+Sometimes it is useful to see the high frequencies enhanced. This can be
+achieved with a logarithmic plot of the powers.
 </p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -757,20 +894,32 @@ As we can see above in the Fourier spectra above, the amplitudes are high for lo
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<img src="../fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"><p style="text-align: justify;">
-In the spectrum of the absence data, it is now more obvious that there are further maxima at 6, 9, 12, and perhaps 15Hz. These are integer multiples or ‘harmonics’ of the basic frequency at around 3Hz, also referred to as the fundamental frequency.
+<img src="../fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" style="display: block; margin: auto;" class="figure"><p style="text-align: justify;">
+In the spectrum of the absence data, it is now more obvious that there
+are further maxima at 6, 9, 12, and perhaps 15Hz. These are integer
+multiples or ‘harmonics’ of the basic frequency at around 3Hz, also
+referred to as the fundamental frequency.
 </p>
 <p style="text-align: justify;">
-A feature that can be used as a summary statistic, is to caclulate the <strong>band power</strong> for each channel. The band power can be obtained as the sum of all powers within a specified range of frequencies, also called the ‘band’. The band power thus represents a single number.
+A feature that can be used as a summary statistic, is to caclulate the
+<strong>band power</strong> for each channel. The band power can be
+obtained as the sum of all powers within a specified range of
+frequencies, also called the ‘band’. The band power thus represents a
+single number.
 </p>
-<div id="challenge2" class="callout challenge">
+<div id="diy2-fourier-spectra-of-filtered-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="diy2-fourier-spectra-of-filtered-data" class="callout-inner">
-<h3 class="callout-title"><strong>DIY2: Fourier spectra of filtered data</strong></h3>
+<h3 class="callout-title">
+<strong>DIY2: Fourier spectra of filtered
+data</strong><a class="anchor" aria-label="anchor" href="#diy2-fourier-spectra-of-filtered-data"></a>
+</h3>
 <div class="callout-content">
-<p>Calculate and display the Fourier spectra of the first two channels filtered between 4 and 12 Hz for the absence seizure data. Can you find harmonics?</p>
+<p>Calculate and display the Fourier spectra of the first two channels
+filtered between 4 and 12 Hz for the absence seizure data. Can you find
+harmonics?</p>
 </div>
 </div>
 </div>
@@ -812,10 +961,12 @@ A feature that can be used as a summary statistic, is to caclulate the <strong>b
 </div>
 </div>
 </div>
-</figure></div>
+</div>
+</div>
 <div class="section level3">
 <h3 id="cross-correlation-matrix"><strong>Cross-Correlation Matrix</strong><a class="anchor" aria-label="anchor" href="#cross-correlation-matrix"></a></h3>
-<p>As one example of a multivariate analysis of time series data, we can calculate the cross-correlation matrix.</p>
+<p>As one example of a multivariate analysis of time series data, we can
+calculate the cross-correlation matrix.</p>
 <p>Here it is done for the background:</p>
 <div class="codewrapper sourceCode" id="cb23">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -833,20 +984,27 @@ A feature that can be used as a summary statistic, is to caclulate the <strong>b
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-21-23.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-The diagonal is set to zero. This is done to improve the visual display. If left to one, the diagonal tends to dominate the visual impression even though it is trivial and nothing can be learned from it.
+The diagonal is set to zero. This is done to improve the visual display.
+If left to one, the diagonal tends to dominate the visual impression
+even though it is trivial and nothing can be learned from it.
 </p>
 <p>Looking at the non-diagonal elements, we find:</p>
 <ul><li><p>two strongly correlated series (indices 5 and 7)</p></li>
 <li><p>two strongly anti-correlated series (indices 3 and 4)</p></li>
-<li><p>a block of pronounced correlations between series with indices 4 through 9)</p></li>
-</ul><div id="challenge3" class="callout challenge">
+<li><p>a block of pronounced correlations between series with indices 4
+through 9)</p></li>
+</ul><div id="diy3-display-the-correlation-matrix-for-the-seizure-data" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="diy3-display-the-correlation-matrix-for-the-seizure-data" class="callout-inner">
-<h3 class="callout-title"><strong>DIY3: Display the correlation matrix for the seizure data</strong></h3>
+<h3 class="callout-title">
+<strong>DIY3: Display the correlation matrix
+for the seizure data</strong><a class="anchor" aria-label="anchor" href="#diy3-display-the-correlation-matrix-for-the-seizure-data"></a>
+</h3>
 <div class="callout-content">
-<p>Calculate the correlation matrix for the seizure data and compare the correlation pattern to the one from the background data.</p>
+<p>Calculate the correlation matrix for the seizure data and compare the
+correlation pattern to the one from the background data.</p>
 </div>
 </div>
 </div>
@@ -875,30 +1033,41 @@ The diagonal is set to zero. This is done to improve the visual display. If left
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/04-time_series-rendered-unnamed-chunk-22-25.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
-We find - a number of pairs of strongly correlated series - two strongly anti-correlated series (in- dices 3 and 4) - a block of pronounced correlations between series with indices 4 through 9).
+We find - a number of pairs of strongly correlated series - two strongly
+anti-correlated series (in- dices 3 and 4) - a block of pronounced
+correlations between series with indices 4 through 9).
 </p>
 <p style="text-align: justify;">
-So interestingly, while the time series changes dramatically in shape, the correlation pattern still shows some qualitative resemblance.
+So interestingly, while the time series changes dramatically in shape,
+the correlation pattern still shows some qualitative resemblance.
 </p>
 </div>
 </div>
 </div>
 </div>
 <p style="text-align: justify;">
-All results shown so far, represent the recording of the segment of 6 seconds chosen at the beginning. The human brain produces time-dependent voltage changes 24 hours a day and as seeing only a few seconds is only a partial view. The next step to investigate is to show how the features found for one segment vary over time.
+All results shown so far, represent the recording of the segment of 6
+seconds chosen at the beginning. The human brain produces time-dependent
+voltage changes 24 hours a day and as seeing only a few seconds is only
+a partial view. The next step to investigate is to show how the features
+found for one segment vary over time.
 </p>
 </div>
-</section><section id="exercises"><h2 class="section-heading">Exercises</h2>
-<hr class="half-width"><div id="challenge4" class="callout challenge">
+</section><section id="exercises"><h2 class="section-heading">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
+</h2>
+<hr class="half-width"><div id="end-of-chapter-exercises" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
 <div id="end-of-chapter-exercises" class="callout-inner">
-<h3 class="callout-title">End of chapter Exercises</h3>
+<h3 class="callout-title">End of chapter Exercises<a class="anchor" aria-label="anchor" href="#end-of-chapter-exercises"></a>
+</h3>
 <div class="callout-content">
 <strong>Pathological Human Brain Rhythms</strong>
 <p style="text-align: justify;">
-Look at the image of brain activity from a child at the start of an epileptic seizure. It shows 4 seconds of evolution of the first 10 channels of a seizure rhythm at sampling rate sr=1024.
+Look at the image of brain activity from a child at the start of an
+epileptic seizure. It shows 4 seconds of evolution of the first 10
+channels of a seizure rhythm at sampling rate sr=1024.
 </p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -919,12 +1088,20 @@ Look at the image of brain activity from a child at the start of an epileptic se
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Using the code from this lesson, import the data from the file <code>P1_Seizure1.csv</code> and generate an overview of uni- and multivariate features in the following form:</p>
-<ol style="list-style-type: decimal"><li><p>Pick the first two seconds of the recording as background, the last two second as epileptic seizure rhythm. Use the first ten channels in both cases. Data should have the shape (2048, 10).</p></li>
-<li><p>Filter the data to get rid of frequencies below 1 Hz and frequencies faster than 20 Hz.</p></li>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Using the code from this lesson, import the data from the file
+<code>P1_Seizure1.csv</code> and generate an overview of uni- and
+multivariate features in the following form:</p>
+<ol style="list-style-type: decimal"><li><p>Pick the first two seconds of the recording as background, the
+last two second as epileptic seizure rhythm. Use the first ten channels
+in both cases. Data should have the shape (2048, 10).</p></li>
+<li><p>Filter the data to get rid of frequencies below 1 Hz and
+frequencies faster than 20 Hz.</p></li>
 <li><p>Plot time series of both.</p></li>
-<li><p>Fourier transform both filtered data sets and display the Fourier spectra of the first 4 channels. What are the strongest frequencies in the two sets?</p></li>
-<li><p>Plot the correlation matrices of both data sets. Which channels show the strongest change in correlations?</p></li>
+<li><p>Fourier transform both filtered data sets and display the Fourier
+spectra of the first 4 channels. What are the strongest frequencies in
+the two sets?</p></li>
+<li><p>Plot the correlation matrices of both data sets. Which channels
+show the strongest change in correlations?</p></li>
 </ol></div>
 </div>
 </div>
@@ -1062,7 +1239,9 @@ Look at the image of brain activity from a child at the start of an epileptic se
 <span id="cb32-9"><a href="#cb32-9" aria-hidden="true" tabindex="-1"></a>powers_epil2 <span class="op">=</span> (<span class="fl">2.0</span> <span class="op">/</span> rows) <span class="op">*</span> <span class="bu">abs</span>(dat_epil_fft[:rows<span class="op">//</span><span class="dv">2</span>, :])</span></code></pre>
 </div>
 <p style="text-align: justify;">
-You can see the frequencies with largest power visually from a display of the Fourier spectrum. Here is an example code how to extract those values for each channel using Numpy functions.
+You can see the frequencies with largest power visually from a display
+of the Fourier spectrum. Here is an example code how to extract those
+values for each channel using Numpy functions.
 </p>
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1176,7 +1355,9 @@ Frequency with maximum count: seizure:      7- 8 Hz</code></pre>
 <span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_ylim(<span class="op">-</span><span class="dv">50</span>, <span class="dv">60</span>)</span>
 <span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-32-35.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"> ### Q5 ### Correlation Matrix</figure><div class="codewrapper sourceCode" id="cb38">
+<p><img src="../fig/04-time_series-rendered-unnamed-chunk-32-35.png" width="576" style="display: block; margin: auto;" class="figure">
+### Q5 ### Correlation Matrix</p>
+<div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>corr_matrix_back2 <span class="op">=</span> corrcoef(dat_back_filt, rowvar<span class="op">=</span><span class="va">False</span>)</span>
@@ -1285,7 +1466,9 @@ Average correlation seizure:     0.2</code></pre>
 <span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-38-43.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>To find the indices of the channels that are larger than the threshold (i.e. those displaying True), we can use Numpy function <code>nonzero</code>:</p>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-38-43.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>To find the indices of the channels that are larger than the
+threshold (i.e. those displaying True), we can use Numpy function
+<code>nonzero</code>:</p>
 <div class="codewrapper sourceCode" id="cb46">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -1308,12 +1491,16 @@ Average correlation seizure:     0.2</code></pre>
 <i class="callout-icon" data-feather="key"></i>
 </div>
 <div class="callout-inner">
-<h3 class="callout-title">Keypoints</h3>
+<h3 class="callout-title">Keypoints<a class="anchor" aria-label="anchor" href="#keypoints1"></a>
+</h3>
 <div class="callout-content">
 <ul><li>
-<code>plot_series</code> is a Python function created to display multiple timeseries plots.</li>
-<li>Data filtering is applied to take out specific and relevant components.<br></li>
-<li>The Fourier spectrum decomposes the time series into a sum of sine waves.</li>
+<code>plot_series</code> is a Python function created to display
+multiple timeseries plots.</li>
+<li>Data filtering is applied to take out specific and relevant
+components.<br></li>
+<li>The Fourier spectrum decomposes the time series into a sum of sine
+waves.</li>
 <li>Cross-correlation matrix is used for multivariate analysis.</li>
 </ul></div>
 </div>
@@ -1337,8 +1524,14 @@ any links that you are not going to use.
 
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
-				<p>All Carpentry lessons are subject to the <a href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html" class="external-link">Code of Conduct</a></p>
-				<p><a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/04-time_series.Rmd" class="external-link">Edit on Github</a> | <a href="https://github.com/carpentries/workbench-template-rmd/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> | <a href="https://github.com/carpentries/workbench-template-rmd/" class="external-link">Source</a></p>
+				<p>This lesson is subject to the <a href="CODE_OF_CONDUCT.html">Code of Conduct</a></p>
+        <p>
+        
+        <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/04-time_series.Rmd" class="external-link">Edit on GitHub</a>
+        
+	
+        | <a href="https://github.com/carpentries/workbench-template-rmd/blob/main/CONTRIBUTING.md" class="external-link">Contributing</a> 
+        | <a href="https://github.com/carpentries/workbench-template-rmd/" class="external-link">Source</a></p>
 				<p><a href="https://github.com/carpentries/workbench-template-rmd/blob/main/CITATION" class="external-link">Cite</a> | <a href="mailto:team@carpentries.org">Contact</a> | <a href="https://carpentries.org/about/" class="external-link">About</a></p>
 			</div>
 			<div class="col-md-6">
@@ -1346,9 +1539,9 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/carpentries/sandpaper" class="external-link">sandpaper (0.9.0)</a>,
-      <a href="https://github.com/carpentries/pegboard" class="external-link">pegboard (0.4.2)</a>,
-      and <a href="https://github.com/carpentries/varnish" class="external-link">varnish (0.1.4)</a>.</p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.12.0.9000)</a>,
+        <a href="https://github.com/carpentries/pegboard/tree/3b06f4559892e31ff0a6bae1d838cd1ba6fd94fb" class="external-link">pegboard (0.5.3)</a>,
+      and <a href="https://github.com/LearnToDiscover/varnish/tree/f412e8bbc14a5110120155e1af9282842877c62f" class="external-link">varnish (0.2.14)</a>.</p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1361,35 +1554,41 @@ any links that you are not going to use.
   "@context": "https://schema.org",
   "@type": "TrainingMaterial",
   "@id": "https://carpentries.github.io/workbench-template-rmd/instructor/04-time_series.html",
-  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/0.9-DRAFT-2020_12_08",
+  "dct:conformsTo": "https://bioschemas.org/profiles/TrainingMaterial/1.0-RELEASE",
   "description": "A Carpentries Lesson teaching foundational data and coding skills to researchers worldwide",
   "keywords": "software, data, lesson, The Carpentries",
   "name": "Time Series",
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-rmd/instructor/04-time_series.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/04-time_series.html",
-  "dateCreated": "2023-01-19",
-  "dateModified": "2022-12-21",
-  "datePublished": "2023-01-19"
+  "dateCreated": "2023-05-26",
+  "dateModified": "2023-05-26",
+  "datePublished": "2023-05-26"
 }
 
   </script><script>
 		feather.replace();
-	</script><!-- Matomo --><script>
-          var _paq = window._paq = window._paq || [];
-          /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-          _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
-          _paq.push(["setDomains", ["*.lessons.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
-          _paq.push(["setDoNotTrack", true]);
-          _paq.push(["disableCookies"]);
-          _paq.push(['trackPageView']);
-          _paq.push(['enableLinkTracking']);
-          (function() {
-              var u="https://carpentries.matomo.cloud/";
-              _paq.push(['setTrackerUrl', u+'matomo.php']);
-              _paq.push(['setSiteId', '1']);
-              var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-              g.async=true; g.src='https://cdn.matomo.cloud/carpentries.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
-          })();
-        </script><!-- End Matomo Code --></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
+	</script><!-- Matomo
+    2022-11-07: we have gotten a notification that we have an overage for our
+    tracking and I'm pretty sure this has to do with Workbench usage.
+    Considering that I am not _currently_ using this tracking because I do not
+    yet know how to access the data, I am turning this off for now.
+  <script>
+    var _paq = window._paq = window._paq || [];
+    /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+    _paq.push(["setDocumentTitle", document.domain + "/" + document.title]);
+    _paq.push(["setDomains", ["*.preview.carpentries.org","*.datacarpentry.github.io","*.datacarpentry.org","*.librarycarpentry.github.io","*.librarycarpentry.org","*.swcarpentry.github.io", "*.carpentries.github.io"]]);
+    _paq.push(["setDoNotTrack", true]);
+    _paq.push(["disableCookies"]);
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+          var u="https://carpentries.matomo.cloud/";
+          _paq.push(['setTrackerUrl', u+'matomo.php']);
+          _paq.push(['setSiteId', '1']);
+          var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+          g.async=true; g.src='https://cdn.matomo.cloud/carpentries.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+        })();
+  </script>
+  End Matomo Code --></body></html><!-- END:   inst/pkgdown/templates/layout.html-->
 

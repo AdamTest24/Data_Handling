@@ -52,10 +52,6 @@ exercises: 60
 The following cell contains functions that need to be imported, please execute it before continuing with the Introduction.
 
 
-
-
-
-
 ```python
 # To import data from a csv file into a Pandas dataframe
 from pandas import read_csv
@@ -568,16 +564,8 @@ df = read_csv('data/patients.csv')
 df.corr()
 ```
 
-```{.output}
-                Age    Height    Weight  Systolic  Diastolic    Smoker
-Age        1.000000  0.116002  0.091356  0.134127   0.080597  0.060220
-Height     0.116002  1.000000  0.695970  0.214076   0.156819  0.199114
-Weight     0.091356  0.695970  1.000000  0.155788   0.222687  0.215586
-Systolic   0.134127  0.214076  0.155788  1.000000   0.511843  0.706323
-Diastolic  0.080597  0.156819  0.222687  0.511843   1.000000  0.723365
-Smoker     0.060220  0.199114  0.215586  0.706323   0.723365  1.000000
-
-<string>:1: FutureWarning: The default value of numeric_only in DataFrame.corr is deprecated. In a future version, it will default to False. Select only valid columns or specify the value of numeric_only to silence this warning.
+```{.error}
+Error: ValueError: could not convert string to float: 'Male'
 ```
 
 <p style='text-align: justify;'>

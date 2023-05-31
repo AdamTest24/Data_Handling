@@ -241,7 +241,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Image Handling</h1>
-        <p> Last updated on 2023-05-26 | 
+        <p> Last updated on 2023-05-31 | 
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/03-image_handling.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -433,7 +433,7 @@ default colour map.
 <span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-4-1.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-4-1.png" width="2400" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 <code>imshow</code> has allowed us to plot the Numpy array of our image
 data as a picture. The figure is divided up into a number of pixels, and
 each of those pixels is assigned an intensity value stored in the Numpy
@@ -451,7 +451,7 @@ image and plotting that.
 <span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-5-3.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-5-3.png" width="2400" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 With <code>img[:50, :70]</code> we select the first 50 values from the
 first dimension, and the first 70 values from the second dimension.
 Thus, the image above shows a very small part of the upper left corner
@@ -468,7 +468,7 @@ look at an even smaller section.
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-6-5.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-6-5.png" width="2400" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This is a small section from that same upper left corner. Each square is
 a pixel and it has one grey value. So how exactly are the pixel values
 assigned? By the numbers stored in the Numpy array, <code>img</code>.
@@ -527,7 +527,7 @@ We show an example of the colourmaps called <code>viridis</code> and
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-8-7.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-8-7.png" width="2400" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 Note, that even though we can plot our greyscale image with colourful
 colourschemes, it still does not qualify as a colour image. This is
 because colour images will require <strong>three sets</strong> of
@@ -561,7 +561,7 @@ found in this image:</p>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-9-9.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-9-9.png" width="960" class="figure mx-auto d-block"></figure>
 The histogram is a distribution with intensity values mostly between
 about 50 and 250.
 <p style="text-align: justify;">
@@ -598,7 +598,7 @@ and the masked image.
 <span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-10-11.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-10-11.png" width="1920" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 The left subplot shows the binary mask itself. White represents values
 where our condition is true, and black where our condition is false. The
 right image shows the original image after we have applied the binary
@@ -626,7 +626,7 @@ condition is false are multiplied with zero ans therefore set to zero.
 <span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-11-13.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-11-13.png" width="1920" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 On the left we show all the values for the masked image. There is a
 large peak at zero, as a large part of the image is masked. On the
 right, we show only the non-zero pixel intensities. We can see that our
@@ -673,7 +673,7 @@ values on top of each other.
 <span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-13-15.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-13-15.png" width="2400" class="figure mx-auto d-block"></figure>
 The sample is labeled for Hoechst stain (blue), the Inositol
 trisphosphate (IP3) receptor (green) and Glial fibrillary acidic protein
 (GFAP) (red).
@@ -704,7 +704,7 @@ corresponds to ‘green’ and index 2 corresponds to ‘blue’:
 <span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-15-17.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-15-17.png" width="1920" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This shows what colour combinations each of the pixels is made up of.
 Notice that the intensities go up to 255. This is because RGB (red,
 green and blue) colours are defined within the range 0-255. This gives a
@@ -728,7 +728,7 @@ total of 16,777,216 possible colour combinations!
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-16-19.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-16-19.png" width="1920" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="dealing-with-large-images"><strong>Dealing with Large Images</strong><a class="anchor" aria-label="anchor" href="#dealing-with-large-images"></a></h3>
 <p style="text-align: justify;">
@@ -811,7 +811,7 @@ follows.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-20-21.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-20-21.png" width="2400" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 Although now we can plot this image, it consists of over 300 million
 pixels, and we could run into memory problems when trying to process it.
 One approach is simply to reduce the resolution. One way to do this is
@@ -863,7 +863,7 @@ playing around is recommended!
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-22-23.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-22-23.png" width="2400" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 With this code, we have resized the image to 174 by 187 pixels. We
 should be aware though, that our image is no longer in a Numpy array
 form but rather it now has type ‘PIL.Image.Image’. We can, however,
@@ -949,7 +949,7 @@ we can use a for loop:</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-26-25.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Now, working with these smaller, individual patches will be much more
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-26-25.png" width="2400" class="figure mx-auto d-block"></figure><p>Now, working with these smaller, individual patches will be much more
 manageable!</p>
 </div>
 <div class="section level3">
@@ -1027,7 +1027,7 @@ third dimension of the image:
 <span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb58-11"><a href="#cb58-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-29-27.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>These look fairly dark. We can improve the contrast, by adjusting the
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-29-27.png" width="2400" class="figure mx-auto d-block"></figure><p>These look fairly dark. We can improve the contrast, by adjusting the
 intensity range. This requires setting of the keyword arguments
 <code>vmin</code> and <code>vmax</code>.</p>
 <p style="text-align: justify;">
@@ -1053,7 +1053,7 @@ darker shades of grey, we can reduce the value of <code>vmax</code>
 <span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb59-11"><a href="#cb59-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-30-29.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>What about the other dimensions? We can also plot coronal and
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-30-29.png" width="2400" class="figure mx-auto d-block"></figure><p>What about the other dimensions? We can also plot coronal and
 sagittal slices but note that the respective slices have different pixel
 resolution.</p>
 <div class="codewrapper sourceCode" id="cb60">
@@ -1081,7 +1081,7 @@ resolution.</p>
 <span id="cb60-20"><a href="#cb60-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb60-21"><a href="#cb60-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-31-31.png" width="2496" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Now, we can see all three viewing planes for this 3-dimensional brain
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-31-31.png" width="2496" class="figure mx-auto d-block"></figure><p>Now, we can see all three viewing planes for this 3-dimensional brain
 scan!</p>
 </div>
 </section><section id="exercises-1"><h2 class="section-heading">Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"></a>
@@ -1124,7 +1124,7 @@ the resolution affect your results?</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1">Q1<a class="anchor" aria-label="anchor" href="#q1"></a></h3>
@@ -1149,7 +1149,7 @@ the resolution affect your results?</p></li>
 <span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-33-33.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-33-33.png" width="1920" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="q2">Q2<a class="anchor" aria-label="anchor" href="#q2"></a></h3>
 <div class="codewrapper sourceCode" id="cb63">
@@ -1173,7 +1173,7 @@ the resolution affect your results?</p></li>
 <span id="cb63-16"><a href="#cb63-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb63-17"><a href="#cb63-17" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-34-35.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb64">
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-34-35.png" width="1920" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb64">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
@@ -1187,7 +1187,7 @@ the resolution affect your results?</p></li>
 <span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb64-10"><a href="#cb64-10" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-35-37.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-35-37.png" width="1920" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="q3-4">Q3-4<a class="anchor" aria-label="anchor" href="#q3-4"></a></h3>
 <div class="codewrapper sourceCode" id="cb65">
@@ -1218,7 +1218,7 @@ the resolution affect your results?</p></li>
 <span id="cb65-23"><a href="#cb65-23" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb65-24"><a href="#cb65-24" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-36-39.png" width="1728" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-36-39.png" width="1728" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="q5">Q5<a class="anchor" aria-label="anchor" href="#q5"></a></h3>
 <div class="codewrapper sourceCode" id="cb66">
@@ -1327,8 +1327,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-rmd/instructor/03-image_handling.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/03-image_handling.html",
   "dateCreated": "2023-05-26",
-  "dateModified": "2023-05-26",
-  "datePublished": "2023-05-30"
+  "dateModified": "2023-05-31",
+  "datePublished": "2023-05-31"
 }
 
   </script><script>

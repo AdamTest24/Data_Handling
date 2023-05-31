@@ -241,7 +241,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Time Series</h1>
-        <p> Last updated on 2023-05-26 | 
+        <p> Last updated on 2023-05-31 | 
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/04-time_series.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -463,13 +463,13 @@ data set and the sampling rate.
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plot_series(data_back, sr)</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb7">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-5-1.png" width="672" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>plot_series(data_epil, sr)<span class="op">;</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-6-3.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p><strong>Observations</strong></p>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-6-3.png" width="672" class="figure mx-auto d-block"></figure><p><strong>Observations</strong></p>
 <ol style="list-style-type: decimal"><li>Background:</li>
 </ol><ul><li><p>There are irregular oscillations of all recorded brain
 potentials.</p></li>
@@ -595,7 +595,7 @@ names to the display.</p>
 <span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-9-5.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-9-5.png" width="672" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 A function usually (but not necessarily) takes in one or several
 variables or values, processes them, and produces a specific result. The
 variable(s) given to a function and those produced by it are referred to
@@ -692,7 +692,7 @@ the low and the high cut-off.</p>
 <span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-11-7.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-11-7.png" width="672" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 The frequency range from 8 to 13 Hz is referred to as alpha band in the
 electroencephalogram. It is thought that this represents a kind of
 idling rhythm of the brain, i.e. an activity where the brain is not
@@ -720,7 +720,7 @@ the seizure EEG. Note the differences.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -735,7 +735,7 @@ the seizure EEG. Note the differences.</p>
 <span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-12-9.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb15">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-12-9.png" width="672" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>data_epil_filt <span class="op">=</span> data_filter(data_epil, sr, <span class="dv">1</span>, <span class="dv">4</span>)</span>
@@ -748,7 +748,7 @@ the seizure EEG. Note the differences.</p>
 <span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-13-11.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-13-11.png" width="672" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>
@@ -823,7 +823,7 @@ value of the complex numbers.
 <span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can see that in these two channels, the main amplitude
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" class="figure mx-auto d-block"></figure><p>We can see that in these two channels, the main amplitude
 contributions lie in the low frequencies, below 2 Hz.</p>
 <p>Let us compare the corresponding figure for the case of seizure
 activity:</p>
@@ -850,7 +850,7 @@ activity:</p>
 <span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-17-15.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-17-15.png" width="576" class="figure mx-auto d-block"></figure>
 The main frequency of the epileptic rhythm is between 2 and 3 Hz.
 <p style="text-align: justify;">
 As we can see above in the Fourier spectra above, the amplitudes are
@@ -875,7 +875,7 @@ achieved with a logarithmic plot of the powers.
 <span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-18-17.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>And for the seizure data:</p>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-18-17.png" width="576" class="figure mx-auto d-block"></figure><p>And for the seizure data:</p>
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -894,7 +894,7 @@ achieved with a logarithmic plot of the powers.
 <span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<img src="../fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" style="display: block; margin: auto;" class="figure"><p style="text-align: justify;">
+<img src="../fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" class="figure"><p style="text-align: justify;">
 In the spectrum of the absence data, it is now more obvious that there
 are further maxima at 6, 9, 12, and perhaps 15Hz. These are integer
 multiples or ‘harmonics’ of the basic frequency at around 3Hz, also
@@ -930,7 +930,7 @@ harmonics?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -957,7 +957,7 @@ harmonics?</p>
 <span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-20-21.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-20-21.png" width="576" class="figure mx-auto d-block"></figure></div>
 </div>
 </div>
 </div>
@@ -983,7 +983,7 @@ calculate the cross-correlation matrix.</p>
 <span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-21-23.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-21-23.png" width="768" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 The diagonal is set to zero. This is done to improve the visual display.
 If left to one, the diagonal tends to dominate the visual impression
 even though it is trivial and nothing can be learned from it.
@@ -1015,7 +1015,7 @@ correlation pattern to the one from the background data.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1032,7 +1032,7 @@ correlation pattern to the one from the background data.</p>
 <span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-22-25.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-22-25.png" width="768" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 We find - a number of pairs of strongly correlated series - two strongly
 anti-correlated series (in- dices 3 and 4) - a block of pronounced
 correlations between series with indices 4 through 9).
@@ -1088,7 +1088,7 @@ channels of a seizure rhythm at sampling rate sr=1024.
 <span id="cb25-14"><a href="#cb25-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb25-15"><a href="#cb25-15" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Using the code from this lesson, import the data from the file
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" class="figure mx-auto d-block"></figure><p>Using the code from this lesson, import the data from the file
 <code>P1_Seizure1.csv</code> and generate an overview of uni- and
 multivariate features in the following form:</p>
 <ol style="list-style-type: decimal"><li><p>Pick the first two seconds of the recording as background, the
@@ -1112,7 +1112,7 @@ show the strongest change in correlations?</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1208,7 +1208,7 @@ show the strongest change in correlations?</p></li>
 <span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-27-29.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb31">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-27-29.png" width="672" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>dat_epil_filt <span class="op">=</span> data_filter(dat_epil, sr, <span class="dv">1</span>, <span class="dv">20</span>)</span>
@@ -1219,7 +1219,7 @@ show the strongest change in correlations?</p></li>
 <span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-28-31.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-28-31.png" width="672" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="q4">Q4<a class="anchor" aria-label="anchor" href="#q4"></a></h3>
 </div>
@@ -1306,7 +1306,7 @@ Frequencies of max power in seizure (Hz):
 (0.0, 30.0)
 (0.0, 10.0)</code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-30-33.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-30-33.png" width="576" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="fourier-spectrum-with-max-frequency">Fourier spectrum with max frequency<a class="anchor" aria-label="anchor" href="#fourier-spectrum-with-max-frequency"></a></h3>
 <div class="codewrapper sourceCode" id="cb35">
@@ -1355,7 +1355,7 @@ Frequency with maximum count: seizure:      7- 8 Hz</code></pre>
 <span id="cb37-22"><a href="#cb37-22" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">3</span>].set_ylim(<span class="op">-</span><span class="dv">50</span>, <span class="dv">60</span>)</span>
 <span id="cb37-23"><a href="#cb37-23" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<p><img src="../fig/04-time_series-rendered-unnamed-chunk-32-35.png" width="576" style="display: block; margin: auto;" class="figure">
+<p><img src="../fig/04-time_series-rendered-unnamed-chunk-32-35.png" width="576" class="figure">
 ### Q5 ### Correlation Matrix</p>
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1377,7 +1377,7 @@ Frequency with maximum count: seizure:      7- 8 Hz</code></pre>
 <span id="cb38-15"><a href="#cb38-15" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb38-16"><a href="#cb38-16" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-33-37.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-33-37.png" width="768" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="hist-of-correlation-coefficients">Hist of Correlation Coefficients<a class="anchor" aria-label="anchor" href="#hist-of-correlation-coefficients"></a></h3>
 <div class="codewrapper sourceCode" id="cb39">
@@ -1397,7 +1397,7 @@ Frequency with maximum count: seizure:      7- 8 Hz</code></pre>
 <span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-34-39.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-34-39.png" width="672" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="channel-correlations">Channel Correlations<a class="anchor" aria-label="anchor" href="#channel-correlations"></a></h3>
 <div class="codewrapper sourceCode" id="cb40">
@@ -1418,7 +1418,7 @@ Frequency with maximum count: seizure:      7- 8 Hz</code></pre>
 <span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-35-41.png" width="480" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb41">
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-35-41.png" width="480" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb41">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>corr_back2_mean <span class="op">=</span> mean(corr_coeffs_back2_mean)</span>
@@ -1466,7 +1466,7 @@ Average correlation seizure:     0.2</code></pre>
 <span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-38-43.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>To find the indices of the channels that are larger than the
+<figure><img src="../fig/04-time_series-rendered-unnamed-chunk-38-43.png" width="672" class="figure mx-auto d-block"></figure><p>To find the indices of the channels that are larger than the
 threshold (i.e. those displaying True), we can use Numpy function
 <code>nonzero</code>:</p>
 <div class="codewrapper sourceCode" id="cb46">
@@ -1562,8 +1562,8 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-rmd/instructor/04-time_series.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/04-time_series.html",
   "dateCreated": "2023-05-26",
-  "dateModified": "2023-05-26",
-  "datePublished": "2023-05-30"
+  "dateModified": "2023-05-31",
+  "datePublished": "2023-05-31"
 }
 
   </script><script>

@@ -764,7 +764,7 @@ print('Labels:          ', randomLabel)
 ```{.output}
 Number of rows:   18
 Number of Labels: 18
-Labels:           [0 1 0 1 0 0 1 1 0 0 1 1 1 1 1 1 1 0]
+Labels:           [1 0 1 0 1 0 0 1 1 0 1 0 1 0 1 0 0 0]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code. 
@@ -784,11 +784,11 @@ df.head()
 
 ```{.output}
     calcium      sodium  gender
-0  3.455582  112.690980       0
-1  3.669026  125.663330       1
-2  2.789910  105.821810       0
-3  2.939900   98.172772       1
-4  5.426060   97.931489       0
+0  3.455582  112.690980       1
+1  3.669026  125.663330       0
+2  2.789910  105.821810       1
+3  2.939900   98.172772       0
+4  5.426060   97.931489       1
 ```
 
 <p style='text-align: justify;'>
@@ -801,23 +801,23 @@ df['gender'] == 1
 ```
 
 ```{.output}
-0     False
-1      True
-2     False
-3      True
-4     False
+0      True
+1     False
+2      True
+3     False
+4      True
 5     False
-6      True
+6     False
 7      True
-8     False
+8      True
 9     False
 10     True
-11     True
+11    False
 12     True
-13     True
+13    False
 14     True
-15     True
-16     True
+15    False
+16    False
 17    False
 Name: gender, dtype: bool
 ```
@@ -835,17 +835,14 @@ df[df_female]
 
 ```{.output}
      calcium      sodium  gender
-1   3.669026  125.663330       1
-3   2.939900   98.172772       1
-6   5.652390  112.871500       1
+0   3.455582  112.690980       1
+2   2.789910  105.821810       1
+4   5.426060   97.931489       1
 7   3.571320  112.647360       1
+8   4.300067  132.031720       1
 10  2.550962  117.373730       1
-11  2.894129  134.052390       1
 12  3.664987  105.346410       1
-13  1.362779  123.359490       1
 14  3.718798  125.021060       1
-15  1.865868  112.075420       1
-16  3.272809  117.588040       1
 ```
 
 Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label. 
@@ -891,7 +888,7 @@ df = read_csv("data/everleys_data.csv")
 df.boxplot()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-34-1.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-34-1.png" width="672" />
 
 <p style='text-align: justify;'>
 By default, boxplots are shown for all columns if no further argument is given to the function (empty round parenthesis). As the calcium plot is rather squeezed we may wish to see it individually. This can be done by specifying the calcium column as an argument:
@@ -903,7 +900,7 @@ By default, boxplots are shown for all columns if no further argument is given t
 df.boxplot(column='calcium')
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-35-3.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-35-3.png" width="672" />
 
 ## Plots using Matplotlib
 
@@ -942,7 +939,7 @@ ax.set_title('Boxplot of Everley Calcium')
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-37-5.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-37-5.png" width="672" />
 
 Note how following the actual plot we define the title of the plot by referring to the same coordinate system `ax`.
 
@@ -965,7 +962,7 @@ ax[1].set_title('Sodium');
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-38-7.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-38-7.png" width="672" />
 
 Note that you now have to refer to each of the subplots by indexing the coordinate system 'ax'. This figure gives a good overview of the Everley's data.
 
@@ -983,7 +980,7 @@ ax.set_title('Boxplot of Calcium (left) and Sodium (right)')
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-39-9.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-39-9.png" width="672" />
 
 
 :::::::::::::::::::::::::::::: challenge
@@ -1002,7 +999,7 @@ ax.set_title('Applicant Income (left) & Co-Applicant Income (right)');
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-40-11.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-40-11.png" width="672" />
 
 ::::::::::::::::: 
 :::::::::::::::::::::::::::::: 
@@ -1027,7 +1024,7 @@ fig.suptitle('Histograms of Everley concentrations', fontsize=15);
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-41-13.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-41-13.png" width="672" />
 
 
 This also shows how to add labels to the axes and a title to the overall figure.
@@ -1049,7 +1046,7 @@ fig.suptitle('Histograms with Different Binnings', fontsize=16);
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-42-15.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-42-15.png" width="672" />
 
 
 Note how the y-label of the right figure is not placed well. To correct for the placement of the labels and the title, you can use 
@@ -1070,7 +1067,7 @@ fig.tight_layout()
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-43-17.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-43-17.png" width="672" />
 
 ::::::::::::::::::::::::::::::: challenge 
 ## DIY7: Create the histogram of a column
@@ -1091,7 +1088,7 @@ ax.set_title('Histograms of Loan Amounts', fontsize=16);
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-44-19.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-44-19.png" width="672" />
 
 ::::::::::::::::: 
 ::::::::::::::::::::::::::::::: 
@@ -1182,7 +1179,7 @@ ax.bar(bins, conc_means);
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-48-21.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-48-21.png" width="672" />
 
 <p style='text-align: justify;'>
 The bars in this plot go up and down. Note, however, that the vertical axis has values ranging from -10^(-16)^ to +10^(-16)^. This means that for all practical purposes all means are zero. This is not a coincidence. The original values have been normalised to zero mean for the purpose of applying some machine learning algorithm to them. 
@@ -1376,7 +1373,7 @@ ax.set_title('Age distribution of subjects',  fontsize=24);
 show()
 ```
 
-<img src="fig/01-data_frames_1-rendered-unnamed-chunk-53-23.png" width="672" style="display: block; margin: auto;" />
+<img src="fig/01-data_frames_1-rendered-unnamed-chunk-53-23.png" width="672" />
 
 ### Q6
 

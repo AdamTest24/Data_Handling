@@ -407,7 +407,7 @@ img_hr.shape
 ```
 
 ```{.error}
-Error: FileNotFoundError: [Errno 2] No such file or directory: 'fig/rat_brain.jpg'
+Error: PIL.Image.DecompressionBombError: Image size (324649360 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack.
 ```
 
 ```{.error}
@@ -435,18 +435,11 @@ Let's try again. Be patient, it might take a moment.
 
 ```python
 img_hr = imread('fig/rat_brain.jpg')
-```
-
-```{.error}
-Error: FileNotFoundError: [Errno 2] No such file or directory: 'fig/rat_brain.jpg'
-```
-
-```python
 img_hr.shape
 ```
 
-```{.error}
-Error: NameError: name 'img_hr' is not defined
+```{.output}
+(17360, 18701, 3)
 ```
 
 Now we can plot the full high-resolution image:
@@ -456,13 +449,7 @@ Now we can plot the full high-resolution image:
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_hr, cmap='gray');
-```
 
-```{.error}
-Error: NameError: name 'img_hr' is not defined
-```
-
-```python
 show()
 ```
 
@@ -482,16 +469,8 @@ img_small = img_pil.resize((174, 187))
 print(type(img_small))
 ```
 
-```{.error}
-Error: FileNotFoundError: [Errno 2] No such file or directory: 'fig/rat_brain.jpg'
-```
-
-```{.error}
-Error: NameError: name 'img_pil' is not defined
-```
-
-```{.error}
-Error: NameError: name 'img_small' is not defined
+```{.output}
+<class 'PIL.Image.Image'>
 ```
 
 Plotting should now be quicker.
@@ -501,13 +480,7 @@ Plotting should now be quicker.
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_small, cmap='gray');
-```
 
-```{.error}
-Error: NameError: name 'img_small' is not defined
-```
-
-```python
 show()
 ```
 
@@ -522,18 +495,12 @@ With this code, we have resized the image to 174 by 187 pixels. We should be awa
 from numpy import array
 
 img_numpy = array(img_small)
-```
 
-```{.error}
-Error: NameError: name 'img_small' is not defined
-```
-
-```python
 print(type(img_numpy))
 ```
 
-```{.error}
-Error: NameError: name 'img_numpy' is not defined
+```{.output}
+<class 'numpy.ndarray'>
 ```
 
 <p style='text-align: justify;'>
@@ -553,18 +520,11 @@ from sklearn.feature_extraction.image import extract_patches_2d
 
 ```python
 patches = extract_patches_2d(img_hr, (174, 187), max_patches=100)
-```
-
-```{.error}
-Error: NameError: name 'img_hr' is not defined
-```
-
-```python
 patches.shape
 ```
 
-```{.error}
-Error: NameError: name 'patches' is not defined
+```{.output}
+(100, 174, 187, 3)
 ```
 
 Note that patching itself can be a memory-intensive task. Extracting lots and lots of patches might take a long time. To look at the patches we can use a for loop:
@@ -577,13 +537,7 @@ ax = ax.flatten()
 
 for index in range(patches.shape[0]):
     ax[index].imshow(patches[index, :, :, :])
-```
 
-```{.error}
-Error: NameError: name 'patches' is not defined
-```
-
-```python
 show()
 ```
 

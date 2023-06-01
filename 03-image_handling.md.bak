@@ -407,7 +407,7 @@ img_hr.shape
 ```
 
 ```{.error}
-Error: PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
+Error: FileNotFoundError: [Errno 2] No such file or directory: 'fig/rat_brain.jpg'
 ```
 
 ```{.error}
@@ -438,7 +438,7 @@ img_hr = imread('fig/rat_brain.jpg')
 ```
 
 ```{.error}
-Error: PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
+Error: FileNotFoundError: [Errno 2] No such file or directory: 'fig/rat_brain.jpg'
 ```
 
 ```python
@@ -483,7 +483,7 @@ print(type(img_small))
 ```
 
 ```{.error}
-Error: PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
+Error: FileNotFoundError: [Errno 2] No such file or directory: 'fig/rat_brain.jpg'
 ```
 
 ```{.error}

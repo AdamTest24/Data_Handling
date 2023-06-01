@@ -65,16 +65,19 @@ jobs:
             mkdir -p ~/.pandoc/templates
             curl -o ~/.pandoc/templates/eisvogel.latex https://raw.githubusercontent.com/Wandmalfarbe/pandoc-latex-template/master/eisvogel.tex
 
-
       - name: "Setup Lesson Engine"
-        uses: milanmlft/actions/setup-sandpaper@main
+        uses: LearnToDiscover/actions/setup-sandpaper@main
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
       - name: "Setup Package Cache"
-        uses: milanmlft/actions/setup-lesson-deps@main
+        uses: LearnToDiscover/actions/setup-lesson-deps@main
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
+
+      - name: "Install jupytext"
+        run: |
+          pip install jupytext
 
       - name: "Deploy Site"
         run: |

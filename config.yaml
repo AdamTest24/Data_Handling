@@ -59,8 +59,10 @@ contact: team@carpentries.org
 # - another-learner.md
 
 # Order of episodes in your lesson
+
 episodes:
-# - 01-data_frames_1.Rmd
+
+  - 01-data_frames_1.Rmd
 # - 02-data_frames_2.Rmd
 # - 03-image_handling.Rmd
 # - 04-time_series.Rmd

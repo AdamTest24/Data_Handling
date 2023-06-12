@@ -242,7 +242,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Time Series</h1>
-        <p> Last updated on 2023-06-07 | 
+        <p> Last updated on 2023-06-12 | 
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/04-time_series.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -256,8 +256,6 @@
 
         
 
-<p><a href="../04-time_series.md.pdf"><strong>Download Chapter
-pdf</strong></a></p>
 <p><a href="../04-time_series.ipynb"><strong>Download Chapter notebook
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
@@ -348,15 +346,15 @@ activate it and make it available for later use.
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_series(data, sr):</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''</span></span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Time series plot of multiple time series</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Data are normalised to mean=0 and var=1 </span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Data are normalised to mean=0 and var=1</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">    data: nxm numpy array. Rows are time points, columns are recordings</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="co">    sr: sampling rate, same time units as period</span></span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    samples <span class="op">=</span> data.shape[<span class="dv">0</span>]</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    sensors <span class="op">=</span> data.shape[<span class="dv">1</span>]</span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    period <span class="op">=</span> samples <span class="op">//</span> sr</span>
 <span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    time <span class="op">=</span> linspace(<span class="dv">0</span>, period, period<span class="op">*</span>sr)</span>
@@ -378,11 +376,11 @@ activate it and make it available for later use.
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> [<span class="bu">str</span>(x) <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(sensors)]</span>
 <span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>    legend(names)</span>
-<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>    ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Time'</span>)</span>
 <span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>    axis(<span class="st">'tight'</span>)<span class="op">;</span></span>
-<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig, ax</span></code></pre>
 </div>
 </div>
@@ -400,8 +398,8 @@ epileptic seizure called <em>absence</em> seizure.
 <div class="codewrapper sourceCode" id="cb3">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_back <span class="op">=</span> read_csv(<span class="st">"data/EEG_background.txt"</span>, delim_whitespace<span class="op">=</span><span class="va">True</span>) </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_epil <span class="op">=</span> read_csv(<span class="st">"data/EEG_absence.txt"</span>, delim_whitespace<span class="op">=</span><span class="va">True</span>) </span>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df_back <span class="op">=</span> read_csv(<span class="st">"data/EEG_background.txt"</span>, delim_whitespace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>df_epil <span class="op">=</span> read_csv(<span class="st">"data/EEG_absence.txt"</span>, delim_whitespace<span class="op">=</span><span class="va">True</span>)</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>sr <span class="op">=</span> <span class="dv">256</span>     <span class="co"># 1 / seconds</span></span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>period <span class="op">=</span> <span class="dv">6</span>   <span class="co"># seconds</span></span>
@@ -534,15 +532,15 @@ columns.</p>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> plot_series(data, sr):</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">'''</span></span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Time series plot of multiple time series</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Data are normalised to mean=0 and var=1 </span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co">    Data are normalised to mean=0 and var=1</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co">    data: nxm numpy array. Rows are time points, columns are channels</span></span>
 <span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="co">    sr: sampling rate, same time units as period</span></span>
 <span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="co">    '''</span></span>
 <span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    samples <span class="op">=</span> data.shape[<span class="dv">0</span>]</span>
 <span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    sensors <span class="op">=</span> data.shape[<span class="dv">1</span>]</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    period <span class="op">=</span> samples <span class="op">//</span> sr</span>
 <span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    time <span class="op">=</span> linspace(<span class="dv">0</span>, period, period<span class="op">*</span>sr)</span>
@@ -564,11 +562,11 @@ columns.</p>
 <span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    names <span class="op">=</span> [<span class="bu">str</span>(x) <span class="cf">for</span> x <span class="kw">in</span> <span class="bu">range</span>(sensors)]</span>
 <span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>    legend(names)</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>    ax.<span class="bu">set</span>(xlabel<span class="op">=</span><span class="st">'Time'</span>)</span>
 <span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    axis(<span class="st">'tight'</span>)<span class="op">;</span></span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a>   </span>
+<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> fig, ax</span></code></pre>
 </div>
 <p>The declaration syntax <code>def</code> is followed by the function
@@ -651,11 +649,11 @@ the low and the high cut-off.</p>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_filter(data, sr, low, high):</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Filtering of multiple time series. </span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Filtering of multiple time series.</span></span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="co">    data: nxm numpy array. Rows are time points, columns are recordings</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">    sr: sampling rate, same time units as period    </span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a><span class="co">    sr: sampling rate, same time units as period</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a><span class="co">    low:  Low cut-off frequency (high-pass filter)</span></span>
 <span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a><span class="co">    high: High cut-off frequency (low-pass filter)</span></span>
 <span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -672,13 +670,12 @@ the low and the high cut-off.</p>
 <span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>    data_filtered <span class="op">=</span> zeros((data.shape[<span class="dv">0</span>], data.shape[<span class="dv">1</span>]))</span>
 <span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, column <span class="kw">in</span> <span class="bu">enumerate</span>(data.transpose()): </span>
+<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, column <span class="kw">in</span> <span class="bu">enumerate</span>(data.transpose()):</span>
 <span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>        forward <span class="op">=</span> sosfilt(sos, column)</span>
 <span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>        backwards <span class="op">=</span> sosfilt(sos, forward[<span class="op">-</span><span class="dv">1</span>::<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>        data_filtered[:, index] <span class="op">=</span> backwards[<span class="op">-</span><span class="dv">1</span>::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data_filtered</span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    </span></code></pre>
+<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data_filtered</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -721,7 +718,7 @@ the seizure EEG. Note the differences.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -863,7 +860,7 @@ achieved with a logarithmic plot of the powers.
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">6</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_back[:, index])</span>
@@ -882,7 +879,7 @@ achieved with a logarithmic plot of the powers.
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">10</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span>no_win, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                    </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index, ax <span class="kw">in</span> <span class="bu">enumerate</span>(axes.flat):</span>
 <span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    axes[index].plot(freqs, amplitudes_epil[:, index])</span>
@@ -931,7 +928,7 @@ harmonics?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1016,7 +1013,7 @@ correlation pattern to the one from the background data.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1113,7 +1110,7 @@ show the strongest change in correlations?</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1169,11 +1166,11 @@ show the strongest change in correlations?</p></li>
 </h3>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> data_filter(data, sr, low, high):</span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Filtering of multiple time series. </span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="co">    Filtering of multiple time series.</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a><span class="co">    data: nxm numpy array. Rows are time points, columns are recordings</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">    sr: sampling rate, same time units as period    </span></span>
-<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a><span class="co">    sr: sampling rate, same time units as period</span></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="co">    low:  Low cut-off frequency (high-pass filter)</span></span>
 <span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="co">    high: High cut-off frequency (low-pass filter)</span></span>
 <span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a></span>
@@ -1190,11 +1187,11 @@ show the strongest change in correlations?</p></li>
 <span id="cb29-21"><a href="#cb29-21" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-22"><a href="#cb29-22" aria-hidden="true" tabindex="-1"></a>    data_filtered <span class="op">=</span> zeros((data.shape[<span class="dv">0</span>], data.shape[<span class="dv">1</span>]))</span>
 <span id="cb29-23"><a href="#cb29-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, column <span class="kw">in</span> <span class="bu">enumerate</span>(data.transpose()): </span>
+<span id="cb29-24"><a href="#cb29-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> index, column <span class="kw">in</span> <span class="bu">enumerate</span>(data.transpose()):</span>
 <span id="cb29-25"><a href="#cb29-25" aria-hidden="true" tabindex="-1"></a>        forward <span class="op">=</span> sosfilt(sos, column)</span>
 <span id="cb29-26"><a href="#cb29-26" aria-hidden="true" tabindex="-1"></a>        backwards <span class="op">=</span> sosfilt(sos, forward[<span class="op">-</span><span class="dv">1</span>::<span class="op">-</span><span class="dv">1</span>])</span>
 <span id="cb29-27"><a href="#cb29-27" aria-hidden="true" tabindex="-1"></a>        data_filtered[:, index] <span class="op">=</span> backwards[<span class="op">-</span><span class="dv">1</span>::<span class="op">-</span><span class="dv">1</span>]</span>
-<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a>        </span>
+<span id="cb29-28"><a href="#cb29-28" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb29-29"><a href="#cb29-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> data_filtered</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb30">
@@ -1260,22 +1257,22 @@ values for each channel using Numpy functions.
 <span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ind, <span class="bu">pow</span> <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">list</span>(powers_back2.transpose())):</span>
 <span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a>    pow_ind <span class="op">=</span> <span class="bu">list</span>(<span class="bu">pow</span>).index(powermax_back2[ind])</span>
 <span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a>    powermax_back2_index[ind] <span class="op">=</span> pow_ind</span>
-<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a>powermax_epil2_index <span class="op">=</span> zeros(powers_epil2.shape[<span class="dv">1</span>])</span>
 <span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> ind, <span class="bu">pow</span> <span class="kw">in</span> <span class="bu">enumerate</span>(<span class="bu">list</span>(powers_epil2.transpose())):</span>
 <span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>    pow_ind <span class="op">=</span> <span class="bu">list</span>(<span class="bu">pow</span>).index(powermax_epil2[ind])</span>
 <span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a>    powermax_epil2_index[ind] <span class="op">=</span> pow_ind</span>
-<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a>powermax_back2_freq <span class="op">=</span> asarray(powermax_back2_index)<span class="op">*</span>(sr <span class="op">/</span> <span class="dv">2</span> <span class="op">/</span> powers_back2.shape[<span class="dv">0</span>])</span>
 <span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>powermax_epil2_freq <span class="op">=</span> asarray(powermax_epil2_index)<span class="op">*</span>(sr <span class="op">/</span> <span class="dv">2</span> <span class="op">/</span> powers_epil2.shape[<span class="dv">0</span>])</span>
 <span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-26"><a href="#cb33-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Frequencies of max power in background (Hz): '</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, around(powermax_back2_freq, decimals<span class="op">=</span><span class="dv">1</span>))</span>
 <span id="cb33-27"><a href="#cb33-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">''</span>)</span>
-<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Frequencies of max power in seizure (Hz): '</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, around(powermax_epil2_freq, decimals<span class="op">=</span><span class="dv">1</span>))    </span>
-<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Frequencies of max power in seizure (Hz): '</span>, <span class="st">'</span><span class="ch">\n</span><span class="st">'</span>, around(powermax_epil2_freq, decimals<span class="op">=</span><span class="dv">1</span>))</span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="co">#print(powermax_back2_freq, '\n',  powermax_epil2_freq)</span></span>
 <span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">6</span>,<span class="dv">9</span>))</span>
@@ -1335,7 +1332,7 @@ Frequency with maximum count: seizure:      7- 8 Hz</code></pre>
 <pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>freqs <span class="op">=</span> (sr<span class="op">/</span><span class="dv">2</span>)<span class="op">*</span>linspace(<span class="dv">0</span>, <span class="dv">1</span>, <span class="bu">int</span>(rows<span class="op">/</span><span class="dv">2</span>))</span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">6</span>, <span class="dv">14</span>), ncols<span class="op">=</span><span class="dv">1</span>, nrows<span class="op">=</span><span class="dv">4</span>, sharex<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].plot(freqs, powers_back2[:, <span class="dv">3</span>])</span>
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_xlim(<span class="dv">0</span>, <span class="dv">20</span>)</span>
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_ylim(<span class="dv">0</span>, <span class="dv">12</span>)</span>
@@ -1499,7 +1496,7 @@ threshold (i.e. those displaying True), we can use Numpy function
 <code>plot_series</code> is a Python function created to display
 multiple timeseries plots.</li>
 <li>Data filtering is applied to take out specific and relevant
-components.<br></li>
+components.</li>
 <li>The Fourier spectrum decomposes the time series into a sum of sine
 waves.</li>
 <li>Cross-correlation matrix is used for multivariate analysis.</li>
@@ -1563,7 +1560,7 @@ any links that you are not going to use.
   "url": "https://carpentries.github.io/workbench-template-rmd/instructor/04-time_series.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/04-time_series.html",
   "dateCreated": "2023-06-12",
-  "dateModified": "2023-06-07",
+  "dateModified": "2023-06-12",
   "datePublished": "2023-06-12"
 }
 

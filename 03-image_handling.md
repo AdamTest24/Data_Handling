@@ -4,13 +4,12 @@ teaching: 60
 exercises: 60
 ---
 
-[**Download Chapter pdf**](03-image_handling.md.pdf)
 
 [**Download Chapter notebook (ipynb)**](03-image_handling.ipynb)
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
-:::::::::::::::::::::::::::::::::::::: questions 
+:::::::::::::::::::::::::::::::::::::: questions
 
 - How to read and process images in Python?
 - How is an image mask created?
@@ -42,7 +41,7 @@ exercises: 60
 </p>
 <br>
 
-:::::::::::::::::: prereq 
+:::::::::::::::::: prereq
 
 ## Prerequisites
 - Numpy arrays
@@ -56,7 +55,7 @@ exercises: 60
 This lesson has no explicit exercises. At each step, use images of your own choice to practice. There are many image file formats, different colour schemes etc for which you can try to find similar or analogous solutions.
 </p>
 
-:::::::::::::::::: 
+::::::::::::::::::
 
 ## Challenge
 
@@ -122,7 +121,7 @@ print(img.shape)
 ```
 
 <p style='text-align: justify;'>
-This tells us that our image is composed of 2300 by 3040 data units, or _pixels_ as we are dealing with an image. It is equivalent to the image resolution. The array has two dimensions, and so we can expect our image to be two-dimensional as well. Let us now use matplotlib.pyplot's `imshow` function to plot the image to see what it looks like. We set the colour map to `gray` to overwrite the default colour map. 
+This tells us that our image is composed of 2300 by 3040 data units, or _pixels_ as we are dealing with an image. It is equivalent to the image resolution. The array has two dimensions, and so we can expect our image to be two-dimensional as well. Let us now use matplotlib.pyplot's `imshow` function to plot the image to see what it looks like. We set the colour map to `gray` to overwrite the default colour map.
 </p>
 
 
@@ -171,7 +170,7 @@ show()
 <img src="fig/03-image_handling-rendered-unnamed-chunk-6-5.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-This is a small section from that same upper left corner. Each square is a pixel and it has one grey value. So how exactly are the pixel values assigned? By the numbers stored in the Numpy array, `img`. Let us have a look at those values by picking a slice from the array. 
+This is a small section from that same upper left corner. Each square is a pixel and it has one grey value. So how exactly are the pixel values assigned? By the numbers stored in the Numpy array, `img`. Let us have a look at those values by picking a slice from the array.
 </p>
 
 
@@ -202,7 +201,7 @@ print(img[:20, :15])
  [ 41  56  64  70  78  76  75  84  90  95 100 104 106 109 111]]
 ```
 
-Each of these numbers corresponds to an intensity in the specified colourmap. These numbers range from 0 to 255, implying 256 shades of grey. 
+Each of these numbers corresponds to an intensity in the specified colourmap. These numbers range from 0 to 255, implying 256 shades of grey.
 
 <p style='text-align: justify;'>
 We chose `cmap = gray`, which assigns darker grey colours to smaller numbers, and lighter grey colours to higher numbers. However, we can also pick a colourmap to plot our image, and we can even show a colourbar to keep track of the intensity values. Matplotlib has a large number of very nice colourmaps that you can look through [here](https://matplotlib.org/tutorials/colors/colormaps.html). We show an example of the colourmaps called `viridis` and `magma`:
@@ -228,7 +227,7 @@ Note, that even though we can plot our greyscale image with colourful coloursche
 
 ### **Creating an Image Mask**
 
-Now that we know that the images are composed of a set of intensities that are just numbers in a Numpy array, we can start using these numbers to process our image. 
+Now that we know that the images are composed of a set of intensities that are just numbers in a Numpy array, we can start using these numbers to process our image.
 
 <p style='text-align: justify;'>
 As a first approach, we can plot a histogram of the original image intensities. We use the `.flatten()` method to turn the original 2300 x 3040 array into a one-dimensional array with 6,992,000 values. This rearrangement allows the inclusion of an image as a single column in a matrix or dataframe!
@@ -250,7 +249,7 @@ show()
 
 The histogram is a distribution with intensity values mostly between about 50 and 250.
 <p style='text-align: justify;'>
-The image shows a cut through an axon bundle. Say we are now interested in the myelin sheath surrounding the axons (the dark rings). We can create a __mask__ that isolates pixels whose intensity value is below a certain threshold (because darker pixels have lower intensity values). Everything below this threshold can be assigned to e.g. 1 (representing True), and everything above will be assigned to 0 (representing False). This is called a binary or Boolean mask. 
+The image shows a cut through an axon bundle. Say we are now interested in the myelin sheath surrounding the axons (the dark rings). We can create a __mask__ that isolates pixels whose intensity value is below a certain threshold (because darker pixels have lower intensity values). Everything below this threshold can be assigned to e.g. 1 (representing True), and everything above will be assigned to 0 (representing False). This is called a binary or Boolean mask.
 </p>
 
 <p style='text-align: justify;'>
@@ -278,7 +277,7 @@ show()
 <img src="fig/03-image_handling-rendered-unnamed-chunk-10-11.png" width="1920" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-The left subplot shows the binary mask itself. White represents values where our condition is true, and black where our condition is false. The right image shows the original image after we have applied the binary mask, i.e. the original pixel intensities in regions where the mask value is true. 
+The left subplot shows the binary mask itself. White represents values where our condition is true, and black where our condition is false. The right image shows the original image after we have applied the binary mask, i.e. the original pixel intensities in regions where the mask value is true.
 </p>
 <p style='text-align: justify;'>
 Note that "applying the mask" means that the intensities where the condition is true are left unchanged and the intensities where the condition is false are multiplied with zero ans therefore set to zero.
@@ -324,7 +323,7 @@ img_col.shape
 ```
 
 <p style='text-align: justify;'>
-Our image array now contains three dimensions. The first two are the spatial dimensions corresponding to the pixel positions. The last one contains the three colour channels. So we have three layers of intensity values on top of each other. 
+Our image array now contains three dimensions. The first two are the spatial dimensions corresponding to the pixel positions. The last one contains the three colour channels. So we have three layers of intensity values on top of each other.
 </p>
 First, let us plot the whole image.
 
@@ -371,7 +370,7 @@ show()
 <img src="fig/03-image_handling-rendered-unnamed-chunk-15-17.png" width="1920" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
-This shows what colour combinations each of the pixels is made up of. Notice that the intensities go up to 255. This is because RGB (red, green and blue) colours are defined within the range 0-255. This gives a total of 16,777,216 possible colour combinations! 
+This shows what colour combinations each of the pixels is made up of. Notice that the intensities go up to 255. This is because RGB (red, green and blue) colours are defined within the range 0-255. This gives a total of 16,777,216 possible colour combinations!
 </p>
 
 We can plot histograms of each of the colour channels.
@@ -418,7 +417,7 @@ Error: NameError: name 'img_hr' is not defined
 In fact, we can even get an warning from python that say something like "Image size (324649360 pixels) exceeds limit of 244158474 pixels, could be decompression bomb DOS attack." This refers to malicious files which are designed to crash or cause disruption by using up a lot of memory.
 </p>
 
-We can get around this by changing the maximum pixel limit as follows. 
+We can get around this by changing the maximum pixel limit as follows.
 
 To do this, we import Image from the Python Image Library PIL:
 
@@ -504,7 +503,7 @@ print(type(img_numpy))
 ```
 
 <p style='text-align: justify;'>
-Often, we like to have full resolution images, as resizing causes a loss of information. An alternative approach to downsampling that is commonly used is to _patch_ the images, i.e. divide the picture up into smaller chunks, or patches. 
+Often, we like to have full resolution images, as resizing causes a loss of information. An alternative approach to downsampling that is commonly used is to _patch_ the images, i.e. divide the picture up into smaller chunks, or patches.
 </p>
 
 For this, we can use functionality from the [Scikit-Learn](https://scikit-learn.org/stable/) library.
@@ -548,12 +547,12 @@ Now, working with these smaller, individual patches will be much more manageable
 ### **3D Images**
 
 <p style='text-align: justify;'>
-Sometimes we might want to work with 3D images. A good example for this are MRI scans. These don't come as 'csv' format but in specialised image formats. One example is `nii`, the _Neuroimaging Informatics Technology Initiative (NIfTI)_ open file format. For these types of images we will need special software. In particular, we will be using the open source library called __nibabel__. Documentation for this package is available at https://nipy.org/nibabel/. 
+Sometimes we might want to work with 3D images. A good example for this are MRI scans. These don't come as 'csv' format but in specialised image formats. One example is `nii`, the _Neuroimaging Informatics Technology Initiative (NIfTI)_ open file format. For these types of images we will need special software. In particular, we will be using the open source library called __nibabel__. Documentation for this package is available at https://nipy.org/nibabel/.
 </p>
 
-As it is not contained in your Python installation by default, it needs to be installed first. 
+As it is not contained in your Python installation by default, it needs to be installed first.
 
-To install it, please run: 
+To install it, please run:
 
 ```
 conda install -c conda-forge nibabel
@@ -618,14 +617,14 @@ show()
 
 <img src="fig/03-image_handling-rendered-unnamed-chunk-29-27.png" width="2400" style="display: block; margin: auto;" />
 
-These look fairly dark. We can improve the contrast, by adjusting the intensity range. This requires setting of the keyword arguments `vmin` and `vmax`. 
+These look fairly dark. We can improve the contrast, by adjusting the intensity range. This requires setting of the keyword arguments `vmin` and `vmax`.
 
 <p style='text-align: justify;'>
 `vmin` and `vmax` define the data range that the colormap (in our case the 'grey' map) covers. By default, the colormap covers the complete value range of the supplied data. For an image that will be somewhere between 0 and 255. If we want to brighten up the darker shades of grey, we can reduce the value of `vmax`
 </p>
 
 Expanding the above code:
-    
+
 
 ```python
 fig, ax = subplots(ncols=3, figsize=(25, 15))
@@ -643,7 +642,7 @@ show()
 
 <img src="fig/03-image_handling-rendered-unnamed-chunk-30-29.png" width="2400" style="display: block; margin: auto;" />
 
-What about the other dimensions? We can also plot coronal and sagittal slices but note that the respective slices have different pixel resolution. 
+What about the other dimensions? We can also plot coronal and sagittal slices but note that the respective slices have different pixel resolution.
 
 
 ```python
@@ -809,7 +808,7 @@ green_counts = numpy_sum(green_mask)
 blue_counts  = numpy_sum(blue_mask)
 print("Approximately %d"%(red_counts/total_pixels*100)+"% of the image is synaptophysin")
 print("Approximately %d"%(green_counts/total_pixels*100)+"% of the image is IP3R")
-print("Approximately %d"%(blue_counts/total_pixels*100)+"% of the image is DNA") 
+print("Approximately %d"%(blue_counts/total_pixels*100)+"% of the image is DNA")
 ```
 
 ```{.output}
@@ -828,7 +827,7 @@ Approximately 18% of the image is DNA
 ::::::::::::::::::::::::::::::::::::::::
 
 
-::::::::::::::::::::::::::::::::::::: keypoints 
+::::::::::::::::::::::::::::::::::::: keypoints
 
 - `imread` function can interpret many different image formats.
 - Masking isolates pixels whose intensity value is below a certain threshold.

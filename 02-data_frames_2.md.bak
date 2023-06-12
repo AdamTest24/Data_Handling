@@ -146,7 +146,7 @@ ax[1,2].set_ylabel('Column 3', fontsize=20);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-3-1.png" width="2016" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-3-1.png" width="2016" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 When plotting the data against each other in pairs (lower row), data column 3 versus column 4 (left) and column 5 versus 3 (right) both show a fairly uniform circular distribution of points. This is what would be expected if the data in the two columns were independent of each other. 
@@ -274,7 +274,7 @@ ax.bar(bins, df_describe.loc['min'])
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-7-3.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-7-3.png" width="672" style="display: block; margin: auto;" />
 
 :::::::::::::::::
 
@@ -292,7 +292,7 @@ ax.set_xticklabels(df.columns[:5], fontsize=12);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-8-5.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-8-5.png" width="672" style="display: block; margin: auto;" />
 
 :::::::::::::::::
 
@@ -316,7 +316,7 @@ ax.set_ylabel('Height (inches)', fontsize=16)
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-9-7.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-9-7.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 The data points appear to be grouped into two clouds. We will not deal with this qualitative aspect further at present. Grouping will be discussed as Unsupervised Machine Learning or Clustering later in the Course.
@@ -346,7 +346,7 @@ ax.set_ylabel('Diastolic', fontsize=16)
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-10-9.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-10-9.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 From the plot one might suspect that a larger systolic value is connected with a larger diastolic value. However, the plot in itself is not conclusive in that respect.
@@ -635,7 +635,7 @@ im = ax.imshow(patients_corr, cmap='coolwarm');
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-21-11.png" width="480" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-21-11.png" width="480" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 Note that we have specified the colour map 'coolwarm'. For a list of Matplotlib colour maps, please refer to the [gallery in the documentation](https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html). The names to use in the code are on the left hand side of the colour bar.
@@ -665,7 +665,7 @@ fig.colorbar(im, orientation='horizontal', shrink=0.7);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-22-13.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-22-13.png" width="672" style="display: block; margin: auto;" />
 
     
 <p style='text-align: justify;'>
@@ -724,7 +724,7 @@ fig.colorbar(im, orientation='horizontal', shrink=0.7);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-24-15.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-24-15.png" width="672" style="display: block; margin: auto;" />
 
 
 :::::::::::::::::
@@ -779,7 +779,7 @@ ax.bar(bins, corr_coeffs);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-26-17.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-26-17.png" width="672" style="display: block; margin: auto;" />
 
 If there is a large number of coefficients, we can also display their histogram or a boxplot as a summary statistics. 
 
@@ -819,7 +819,7 @@ show()
 [0.08441655 0.23657328 0.23316028 0.20316681 0.19438933]
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-27-19.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-27-19.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 The result is that the average column correlation is on the order of 0.2 for the columns with indices 1 to 4 and less than 0.1 for the column with index 0, which is the age.
@@ -881,7 +881,7 @@ fig.colorbar(im, orientation='horizontal', shrink=0.5);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-30-21.png" width="768" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-30-21.png" width="768" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 There is one strongly correlated pair (column indices 4 and 5) and one strongly anti-correlated pair (column indices 6 and 7).
@@ -902,7 +902,7 @@ ax.hist(data_corr_coeffs, bins=10);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-31-23.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-31-23.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 This histogram shows that the data have a distribution that is shifted towards positive correlations. However, only four values are (absolutely) larger than 0.5 (three positive, one negative). 
@@ -926,7 +926,7 @@ ax.set_xticklabels(diabetes.feature_names);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-32-25.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-32-25.png" width="672" style="display: block; margin: auto;" />
 
 In the plot, note how the column names were extracted from the 'diabetes' data using `diabetes.feature_names`.
 
@@ -1027,7 +1027,7 @@ show()
 <BarContainer object of 9 artists>
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-35-27.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-35-27.png" width="672" style="display: block; margin: auto;" />
 
 ### Q3
 
@@ -1072,7 +1072,7 @@ fig.colorbar(im, orientation='horizontal', shrink=0.7);
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-38-29.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-38-29.png" width="672" style="display: block; margin: auto;" />
 
 ### Q6
 
@@ -1090,7 +1090,7 @@ ax.set_title('Average Correlation Strength per Column');
 show()
 ```
 
-<img src="fig/02-data_frames_2-rendered-unnamed-chunk-39-31.png" width="672" />
+<img src="fig/02-data_frames_2-rendered-unnamed-chunk-39-31.png" width="672" style="display: block; margin: auto;" />
 
 
 ```python

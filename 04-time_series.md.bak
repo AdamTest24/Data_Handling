@@ -183,7 +183,7 @@ plot_series(data_back, sr)
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-5-1.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
 
 
 ```python
@@ -191,7 +191,7 @@ plot_series(data_epil, sr);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-6-3.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-6-3.png" width="672" style="display: block; margin: auto;" />
 
 __Observations__
 
@@ -319,7 +319,7 @@ legend(names);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-9-5.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-9-5.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 A function usually (but not necessarily) takes in one or several variables or values, processes them, and produces a specific result. The variable(s) given to a function and those produced by it are referred to as input arguments, and outputs respectively.
@@ -403,7 +403,7 @@ legend(names);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-11-7.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-11-7.png" width="672" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 The frequency range from 8 to 13 Hz is referred to as alpha band in the electroencephalogram. It is thought that this represents a kind of idling rhythm of the brain, i.e. an activity where the brain is not actively processing sensory input. 
@@ -432,7 +432,7 @@ legend(names);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-12-9.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-12-9.png" width="672" style="display: block; margin: auto;" />
 
 
 ```python
@@ -447,7 +447,7 @@ legend(names);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-13-11.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-13-11.png" width="672" style="display: block; margin: auto;" />
 
 :::::::::::::::::
 
@@ -510,7 +510,7 @@ axes[index].set(xlabel='Frequency (Hz)');
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" style="display: block; margin: auto;" />
 
 We can see that in these two channels, the main amplitude contributions lie in the low frequencies, below 2 Hz. 
 
@@ -540,7 +540,7 @@ axes[index].set(xlabel='Frequency (Hz)');
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-17-15.png" width="576" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-17-15.png" width="576" style="display: block; margin: auto;" />
 
 The main frequency of the epileptic rhythm is between 2 and 3 Hz. 
 <p style='text-align: justify;'>
@@ -564,7 +564,7 @@ fig.suptitle('Logarithmic Fourier Spectra of Background EEG', fontsize=16);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-18-17.png" width="576" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-18-17.png" width="576" style="display: block; margin: auto;" />
 
 And for the seizure data:
 
@@ -586,7 +586,7 @@ fig.suptitle('Logarithmic Fourier Spectra of Seizure EEG', fontsize=16);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" style="display: block; margin: auto;" />
 <p style='text-align: justify;'>
 In the spectrum of the absence data, it is now more obvious that there are further maxima at 6, 9, 12, and perhaps 15Hz. These are integer multiples or 'harmonics' of the basic frequency at around 3Hz, also referred to as the fundamental frequency.
 </p>
@@ -626,7 +626,7 @@ fig.suptitle('Fourier Spectra of Seizure EEG', fontsize=16);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-20-21.png" width="576" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-20-21.png" width="576" style="display: block; margin: auto;" />
 
 :::::::::::::::::
 
@@ -652,7 +652,7 @@ fig.colorbar(im, orientation='horizontal', shrink=0.68);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-21-23.png" width="768" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-21-23.png" width="768" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 The diagonal is set to zero. This is done to improve the visual display. If left to one, the diagonal tends to dominate the visual impression even though it is trivial and nothing can be learned from it.
@@ -691,7 +691,7 @@ fig.colorbar(im, orientation='horizontal', shrink=0.68);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-22-25.png" width="768" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-22-25.png" width="768" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 We find - a number of pairs of strongly correlated series - two strongly anti-correlated series (in- dices 3 and 4) - a block of pronounced correlations between series with indices 4 through 9).
@@ -739,7 +739,7 @@ plot_series(data_P1[:sr*period, :channels], sr);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" style="display: block; margin: auto;" />
 
 Using the code from this lesson, import the data from the file `P1_Seizure1.csv` and generate an overview of uni- and multivariate features in the following form:
 
@@ -845,7 +845,7 @@ fig.suptitle('First two seconds: Background EEG', fontsize=16);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-27-29.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-27-29.png" width="672" style="display: block; margin: auto;" />
 
 
 ```python
@@ -858,7 +858,7 @@ fig.suptitle('Last 2 seconds: Seizure EEG', fontsize=16);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-28-31.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-28-31.png" width="672" style="display: block; margin: auto;" />
 
 ### Q4
 ### Fourier Transform
@@ -942,7 +942,7 @@ Frequencies of max power in seizure (Hz):
 (0.0, 10.0)
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-30-33.png" width="576" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-30-33.png" width="576" style="display: block; margin: auto;" />
 
 ### Fourier spectrum with max frequency
 
@@ -992,7 +992,7 @@ axes[3].set_ylim(-50, 60)
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-32-35.png" width="576" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-32-35.png" width="576" style="display: block; margin: auto;" />
 ### Q5
 ### Correlation Matrix
 
@@ -1016,7 +1016,7 @@ fig.colorbar(im2, ax=ax[1], orientation='horizontal', shrink=0.8);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-33-37.png" width="768" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-33-37.png" width="768" style="display: block; margin: auto;" />
 
 ### Hist of Correlation Coefficients
 
@@ -1037,7 +1037,7 @@ ax[1].set_xlim(-1, 1);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-34-39.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-34-39.png" width="672" style="display: block; margin: auto;" />
 
 ### Channel Correlations
 
@@ -1059,7 +1059,7 @@ ax[1].set_ylim(0, 0.4);
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-35-41.png" width="480" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-35-41.png" width="480" style="display: block; margin: auto;" />
 
 
 ```python
@@ -1106,7 +1106,7 @@ ax.axhline(y=threshold, c='r');
 show()
 ```
 
-<img src="fig/04-time_series-rendered-unnamed-chunk-38-43.png" width="672" />
+<img src="fig/04-time_series-rendered-unnamed-chunk-38-43.png" width="672" style="display: block; margin: auto;" />
 
 To find the indices of the channels that are larger than the threshold (i.e. those displaying True), we can use Numpy function `nonzero`: 
 

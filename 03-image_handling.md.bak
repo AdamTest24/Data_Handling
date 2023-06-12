@@ -136,7 +136,7 @@ ax.imshow(img, cmap='gray');
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-4-1.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-4-1.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 `imshow` has allowed us to plot the Numpy array of our image data as a picture. The figure is divided up into a number of pixels, and each of those pixels is assigned an intensity value stored in the Numpy array. Let's have a closer look by selecting a smaller region of our image and plotting that.
@@ -153,7 +153,7 @@ ax.imshow(img[:50, :70], cmap='gray');
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-5-3.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-5-3.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 With `img[:50, :70]` we select the first 50 values from the first dimension, and the first 70 values from the second dimension. Thus, the image above shows a very small part of the upper left corner of our original image. As we are now zoomed in quite close to that corner, we can easily see the individual pixels here. Let's take a quick look at an even smaller section.
@@ -168,7 +168,7 @@ ax.imshow(img[:20, :15], cmap='gray');
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-6-5.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-6-5.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 This is a small section from that same upper left corner. Each square is a pixel and it has one grey value. So how exactly are the pixel values assigned? By the numbers stored in the Numpy array, `img`. Let us have a look at those values by picking a slice from the array. 
@@ -220,7 +220,7 @@ fig.colorbar(p2, ax=ax[1], shrink = 0.8);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-8-7.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-8-7.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 Note, that even though we can plot our greyscale image with colourful colourschemes, it still does not qualify as a colour image. This is because colour images will require __three sets__ of intensities for each pixel, not just one as in this example. In the case above, the number in the array represented a grey value and the colour was assigned to that grey value by Matplotlib. These represent 'false' colours.
@@ -246,7 +246,7 @@ ax.set_xlabel("Pixel intensity", fontsize=16);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-9-9.png" width="960" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-9-9.png" width="960" style="display: block; margin: auto;" />
 
 The histogram is a distribution with intensity values mostly between about 50 and 250.
 <p style='text-align: justify;'>
@@ -275,7 +275,7 @@ ax[1].set_title('Masked image', fontsize=16)
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-10-11.png" width="1920" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-10-11.png" width="1920" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 The left subplot shows the binary mask itself. White represents values where our condition is true, and black where our condition is false. The right image shows the original image after we have applied the binary mask, i.e. the original pixel intensities in regions where the mask value is true. 
@@ -301,7 +301,7 @@ ax[1].set_xlabel("Pixel intensity", fontsize=16)
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-11-13.png" width="1920" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-11-13.png" width="1920" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 On the left we show all the values for the masked image. There is a large peak at zero, as a large part of the image is masked. On the right, we show only the non-zero pixel intensities. We can see that our mask worked as expected, only values up to 125 are found. This is because our threshold causes a sharp cut-off at a pixel intensity of 125.
@@ -338,7 +338,7 @@ ax.imshow(img_col);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-13-15.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-13-15.png" width="2400" style="display: block; margin: auto;" />
 
 The sample is labeled for Hoechst stain (blue), the Inositol trisphosphate (IP3) receptor (green) and Glial fibrillary acidic protein (GFAP) (red).
 <p style='text-align: justify;'>
@@ -368,7 +368,7 @@ fig.colorbar(imgplot_blue, ax=ax[2], shrink=0.4);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-15-17.png" width="1920" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-15-17.png" width="1920" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 This shows what colour combinations each of the pixels is made up of. Notice that the intensities go up to 255. This is because RGB (red, green and blue) colours are defined within the range 0-255. This gives a total of 16,777,216 possible colour combinations! 
@@ -393,7 +393,7 @@ ax[2].set_xlabel("Blue channel")
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-16-19.png" width="1920" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-16-19.png" width="1920" style="display: block; margin: auto;" />
 
 ### **Dealing with Large Images**
 <p style='text-align: justify;'>
@@ -453,7 +453,7 @@ ax.imshow(img_hr, cmap='gray');
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-20-21.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-20-21.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 Although now we can plot this image, it consists of over 300 million pixels, and we could run into memory problems when trying to process it. One approach is simply to reduce the resolution. One way to do this is to import the image using Image from the PIL library that we imported above. This library gives us more tools to process images, including decreasing the resolution. It is a rich library with lots of useful tools. As always, having a look at the [documentation](https://pillow.readthedocs.io/en/stable/)  and playing around is recommended!
@@ -484,7 +484,7 @@ ax.imshow(img_small, cmap='gray');
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-22-23.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-22-23.png" width="2400" style="display: block; margin: auto;" />
 
 <p style='text-align: justify;'>
 With this code, we have resized the image to 174 by 187 pixels. We should be aware though, that our image is no longer in a Numpy array form but rather it now has type 'PIL.Image.Image'. We can, however, easily convert it back into a Numpy array using `array`, if we wish.
@@ -541,7 +541,7 @@ for index in range(patches.shape[0]):
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-26-25.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-26-25.png" width="2400" style="display: block; margin: auto;" />
 
 Now, working with these smaller, individual patches will be much more manageable!
 
@@ -616,7 +616,7 @@ fig.colorbar(p3, ax=ax[2], shrink=0.4);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-29-27.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-29-27.png" width="2400" style="display: block; margin: auto;" />
 
 These look fairly dark. We can improve the contrast, by adjusting the intensity range. This requires setting of the keyword arguments `vmin` and `vmax`. 
 
@@ -641,7 +641,7 @@ fig.colorbar(p3, ax=ax[2], shrink=0.4);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-30-29.png" width="2400" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-30-29.png" width="2400" style="display: block; margin: auto;" />
 
 What about the other dimensions? We can also plot coronal and sagittal slices but note that the respective slices have different pixel resolution. 
 
@@ -670,7 +670,7 @@ s5 = ax[2, 4].imshow(img_data[135, :, :].T, cmap='gray', vmin=0, vmax=150, origi
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-31-31.png" width="2496" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-31-31.png" width="2496" style="display: block; margin: auto;" />
 
 Now, we can see all three viewing planes for this 3-dimensional brain scan!
 
@@ -722,7 +722,7 @@ ax.imshow(img_task, cmap='gray');
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-33-33.png" width="1920" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-33-33.png" width="1920" style="display: block; margin: auto;" />
 
 ### Q2
 
@@ -747,7 +747,7 @@ ax[2].set_xlabel("Blue channel");
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-34-35.png" width="1920" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-34-35.png" width="1920" style="display: block; margin: auto;" />
 
 
 ```python
@@ -763,7 +763,7 @@ fig.colorbar(imgplot_blue,  ax=ax[2], shrink=0.5);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-35-37.png" width="1920" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-35-37.png" width="1920" style="display: block; margin: auto;" />
 
 ### Q3-4
 
@@ -795,7 +795,7 @@ ax[2, 1].set_title('Masked image', fontsize=16);
 show()
 ```
 
-<img src="fig/03-image_handling-rendered-unnamed-chunk-36-39.png" width="1728" />
+<img src="fig/03-image_handling-rendered-unnamed-chunk-36-39.png" width="1728" style="display: block; margin: auto;" />
 
 ### Q5
 

@@ -769,7 +769,7 @@ print('Labels:          ', randomLabel)
 ```{.output}
 Number of rows:   18
 Number of Labels: 18
-Labels:           [0 1 0 0 1 0 0 0 0 0 0 0 1 1 0 1 0 1]
+Labels:           [1 1 1 1 0 0 0 0 1 1 1 1 0 0 1 1 1 0]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code.
@@ -789,11 +789,11 @@ df.head()
 
 ```{.output}
     calcium      sodium  gender
-0  3.455582  112.690980       0
+0  3.455582  112.690980       1
 1  3.669026  125.663330       1
-2  2.789910  105.821810       0
-3  2.939900   98.172772       0
-4  5.426060   97.931489       1
+2  2.789910  105.821810       1
+3  2.939900   98.172772       1
+4  5.426060   97.931489       0
 ```
 
 <p style='text-align: justify;'>
@@ -806,24 +806,24 @@ df['gender'] == 1
 ```
 
 ```{.output}
-0     False
+0      True
 1      True
-2     False
-3     False
-4      True
+2      True
+3      True
+4     False
 5     False
 6     False
 7     False
-8     False
-9     False
-10    False
-11    False
-12     True
-13     True
-14    False
+8      True
+9      True
+10     True
+11     True
+12    False
+13    False
+14     True
 15     True
-16    False
-17     True
+16     True
+17    False
 Name: gender, dtype: bool
 ```
 
@@ -840,12 +840,17 @@ df[df_female]
 
 ```{.output}
      calcium      sodium  gender
+0   3.455582  112.690980       1
 1   3.669026  125.663330       1
-4   5.426060   97.931489       1
-12  3.664987  105.346410       1
-13  1.362779  123.359490       1
+2   2.789910  105.821810       1
+3   2.939900   98.172772       1
+8   4.300067  132.031720       1
+9   1.369419  118.499010       1
+10  2.550962  117.373730       1
+11  2.894129  134.052390       1
+14  3.718798  125.021060       1
 15  1.865868  112.075420       1
-17  3.917591  101.009870       1
+16  3.272809  117.588040       1
 ```
 
 Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label.
@@ -870,7 +875,7 @@ print(no_males, 'samples are labelled "male".')
 ```
 
 ```{.output}
-6 samples are labelled "male".
+9 samples are labelled "male".
 ```
 :::::::::::::::::
 ::::::::::::::::::::::::::::::::::

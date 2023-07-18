@@ -64,10 +64,6 @@ jobs:
         with:
           cache-version: ${{ secrets.CACHE_VERSION }}
 
-      - name: "Install jupytext"
-        run: |
-          pip install jupytext
-
       - name: "Deploy Site"
         run: |
           reset <- "${{ github.event.inputs.reset }}" == "true"

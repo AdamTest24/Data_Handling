@@ -1,2 +1,5 @@
 "file" "checksum" "built" "date"
-"episodes/01-data_frames_1.Rmd" "97436c3e4d3439f3db0195adaa4e1062" "site/built/01-data_frames_1.ipynb" "2023-09-26"
+"01-data_frames_1.Rmd" "97436c3e4d3439f3db0195adaa4e1062" "../site/built/01-data_frames_1.ipynb" "2023-09-27"
+"02-data_frames_2.Rmd" "7297b77ba30f930ce36b9df4c58baacf" "../site/built/02-data_frames_2.ipynb" "2023-09-27"
+"03-image_handling.Rmd" "1d35f2549e071d978c09dbef54b06f2e" "../site/built/03-image_handling.ipynb" "2023-09-27"
+"04-time_series.Rmd" "7fb45f0613d4d250c5502a352786aa4d" "../site/built/04-time_series.ipynb" "2023-09-27"

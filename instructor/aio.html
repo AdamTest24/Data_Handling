@@ -273,7 +273,7 @@
         
 <section id="aio-01-data_frames_1"><p>Content from <a href="01-data_frames_1.html">Data Frames - Part 1</a></p>
 <hr>
-<p> Last updated on 2023-08-11 | 
+<p> Last updated on 2023-09-28 | 
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/01-data_frames_1.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 120 minutes </p>
@@ -284,21 +284,6 @@
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
 Survey</strong></span></a></p>
-<div id="submissions" class="callout checklist">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check-square"></i>
-</div>
-<div id="submissions" class="callout-inner">
-<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#submissions"></a>
-</h3>
-<div class="callout-content">
-<ul>
-<li><p><a href="#assign"><strong>Lesson Assignment</strong></a></p></li>
-<li><p><a href="#forum"><strong>Lesson Forum</strong></a></p></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -369,7 +354,7 @@ deviation)</li>
   Instructor Note
   </h3>
 </button>
-<div id="collapseInstructor1" class="accordion-collapse collapse" data-bs-parent="#accordionInstructor1" aria-labelledby="headingInstructor1">
+<div id="collapseInstructor1" class="accordion-collapse collapse" aria-labelledby="headingInstructor1" data-bs-parent="#accordionInstructor1">
 <div class="accordion-body">
 <p>The diabetes data set is one of the challenging task.</p>
 </div>
@@ -720,7 +705,7 @@ types of data: real numbers (e.g. LoanAmount), integers
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -951,7 +936,7 @@ the first. Check the model solution at the bottom for options.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1029,7 +1014,7 @@ number).</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1144,7 +1129,7 @@ values using <code>.isnull</code>.
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
 <div class="accordion-body">
 <p>[ad libitum]</p>
 </div>
@@ -1244,7 +1229,7 @@ providing ‘2’ will thus yield either ‘0’ or ‘1’ only.
 </h3>
 <pre class="output" tabindex="0"><code>Number of rows:   18
 Number of Labels: 18
-Labels:           [0 1 1 0 1 0 1 1 1 0 1 0 0 0 0 1 0 1]</code></pre>
+Labels:           [1 1 0 1 0 1 0 0 0 1 0 0 0 1 0 1 1 0]</code></pre>
 </div>
 <p>Note how we obtain the number of rows (18) using <code>len</code> and
 do not put it directly into the code.</p>
@@ -1269,11 +1254,11 @@ create a column with more than two randomly assigned labels e.g. (0, 1,
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>    calcium      sodium  gender
-0  3.455582  112.690980       0
+0  3.455582  112.690980       1
 1  3.669026  125.663330       1
-2  2.789910  105.821810       1
-3  2.939900   98.172772       0
-4  5.426060   97.931489       1</code></pre>
+2  2.789910  105.821810       0
+3  2.939900   98.172772       1
+4  5.426060   97.931489       0</code></pre>
 </div>
 <p style="text-align: justify;">
 Now we can use the information contained in ‘gender’ to filter the data
@@ -1288,24 +1273,24 @@ which of the rows are labelled as ‘1’:
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>0     False
+<pre class="output" tabindex="0"><code>0      True
 1      True
-2      True
-3     False
-4      True
-5     False
-6      True
-7      True
-8      True
-9     False
-10     True
+2     False
+3      True
+4     False
+5      True
+6     False
+7     False
+8     False
+9      True
+10    False
 11    False
 12    False
-13    False
+13     True
 14    False
 15     True
-16    False
-17     True
+16     True
+17    False
 Name: gender, dtype: bool</code></pre>
 </div>
 <p style="text-align: justify;">
@@ -1325,15 +1310,14 @@ the rows where the condition was found to be True:
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
 <pre class="output" tabindex="0"><code>     calcium      sodium  gender
+0   3.455582  112.690980       1
 1   3.669026  125.663330       1
-2   2.789910  105.821810       1
-4   5.426060   97.931489       1
-6   5.652390  112.871500       1
-7   3.571320  112.647360       1
-8   4.300067  132.031720       1
-10  2.550962  117.373730       1
+3   2.939900   98.172772       1
+5   0.715811  120.858330       1
+9   1.369419  118.499010       1
+13  1.362779  123.359490       1
 15  1.865868  112.075420       1
-17  3.917591  101.009870       1</code></pre>
+16  3.272809  117.588040       1</code></pre>
 </div>
 <p>Using the Boolean, we only pick the rows that are labelled ‘1’ and
 thus get a subset of the data according to the label.</p>
@@ -1357,7 +1341,7 @@ check the number of rows of that subset.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb62">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1373,7 +1357,7 @@ check the number of rows of that subset.</p>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="output" tabindex="0"><code>7 samples are labelled "male".</code></pre>
+<pre class="output" tabindex="0"><code>11 samples are labelled "male".</code></pre>
 </div>
 </div>
 </div>
@@ -1518,7 +1502,7 @@ figure, that can also be done:</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb70">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1616,7 +1600,7 @@ horizontal axis). Use e.g. 20 bins.</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb74">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1732,48 +1716,15 @@ for the purpose of applying some machine learning algorithm to them.
 </p>
 <p>In this example, we see how important it is to check the data before
 working with them.</p>
-<div class="section level3">
-<h3 id="assign">
-<strong>Lesson Assignment</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=5UzoWit0Ewc" class="external-link">(Tutorial
-Video)</a>
-<a class="anchor" aria-label="anchor" href="#assign"></a>
-</h3>
-<hr>
-<p>The assignment for this lesson consists of the questions shown below
-in the next section and can be accessed via GitHub classroom.</p>
-<ul>
-<li>For <strong>L2D online cohort</strong>, please click this link: <a href="https://classroom.github.com/a/xNQnf9jf" class="external-link"><strong>GitHub classroom
-assignment link</strong></a>
-</li>
-</ul>
-<div id="note" class="callout callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="note" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
-</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal">
-<li><p>You will need to login to your GitHub account.</p></li>
-<li><p>Choose your name from the list of students.</p></li>
-<li><p>Accept the assignment.</p></li>
-<li><p>Refresh the page.</p></li>
-</ol>
-<p>By doing these steps, you will be able to access the assignment
-repository at GitHub. Instructions for completing the assignment are
-displayed beneath the file browser containing all the files you will
-need. These instructions are contained in the <code>README.md</code>
-file.</p>
-</div>
-</div>
-</div>
-<div id="assignment-questions" class="callout challenge">
+</section><section id="exercises"><h2 class="section-heading">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
+</h2>
+<hr class="half-width">
+<div id="end-of-chapter-exercises" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="assignment-questions" class="callout-inner">
-<h3 class="callout-title">Assignment Questions<a class="anchor" aria-label="anchor" href="#assignment-questions"></a>
+<div id="end-of-chapter-exercises" class="callout-inner">
+<h3 class="callout-title">End of chapter Exercises<a class="anchor" aria-label="anchor" href="#end-of-chapter-exercises"></a>
 </h3>
 <div class="callout-content">
 <p>Download the cervical cancer data set provided, import it using
@@ -1798,7 +1749,7 @@ intercourse</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1">Q1<a class="anchor" aria-label="anchor" href="#q1"></a>
@@ -2035,10 +1986,9 @@ static, animated, and interactive visualizations in Python.</li>
 Place links that you need to refer to multiple times across pages here. Delete
 any links that you are not going to use. 
  -->
-</div>
 </section></section><section id="aio-02-data_frames_2"><p>Content from <a href="02-data_frames_2.html">Data Frames - Part 2</a></p>
 <hr>
-<p> Last updated on 2023-09-27 | 
+<p> Last updated on 2023-09-28 | 
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/02-data_frames_2.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 120 minutes </p>
@@ -2049,21 +1999,6 @@ any links that you are not going to use.
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
 Survey</strong></span></a></p>
-<div id="submissions" class="callout checklist">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check-square"></i>
-</div>
-<div id="submissions" class="callout-inner">
-<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#submissions"></a>
-</h3>
-<div class="callout-content">
-<ul>
-<li><p><a href="#assign"><strong>Lesson Assignment</strong></a></p></li>
-<li><p><a href="#forum"><strong>Lesson Forum</strong></a></p></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -2406,7 +2341,7 @@ add the standard deviation as an errorbar, using the keyword argument
   Q1
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2439,7 +2374,7 @@ max     50.00   72.00  202.00    138.00      99.00</code></pre>
   Q2
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb10">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2461,7 +2396,7 @@ max     50.00   72.00  202.00    138.00      99.00</code></pre>
   Q3
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2542,7 +2477,7 @@ to have a numerical quantity.
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2795,7 +2730,7 @@ data using</p>
   Q1
   </h4>
 </button>
-<div id="collapseSolution5" class="accordion-collapse collapse" aria-labelledby="headingSolution5" data-bs-parent="#accordionSolution5">
+<div id="collapseSolution5" class="accordion-collapse collapse" data-bs-parent="#accordionSolution5" aria-labelledby="headingSolution5">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -2822,7 +2757,7 @@ Diastolic  0.511843   1.000000</code></pre>
   Q2
   </h4>
 </button>
-<div id="collapseSolution6" class="accordion-collapse collapse" aria-labelledby="headingSolution6" data-bs-parent="#accordionSolution6">
+<div id="collapseSolution6" class="accordion-collapse collapse" data-bs-parent="#accordionSolution6" aria-labelledby="headingSolution6">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3030,7 +2965,7 @@ Pearson tests for linear relationships.
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution7" class="accordion-collapse collapse" aria-labelledby="headingSolution7" data-bs-parent="#accordionSolution7">
+<div id="collapseSolution7" class="accordion-collapse collapse" data-bs-parent="#accordionSolution7" aria-labelledby="headingSolution7">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb38">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -3317,48 +3252,15 @@ set.</p>
 </h3>
 <pre class="output" tabindex="0"><code>Average Correlation Strength:  0.29</code></pre>
 </div>
-<div class="section level3">
-<h3 id="assign">
-<strong>Lesson Assignment</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=5UzoWit0Ewc" class="external-link">(Tutorial
-Video)</a>
-<a class="anchor" aria-label="anchor" href="#assign"></a>
-</h3>
-<hr>
-<p>The assignment for this lesson consists of the questions shown below
-in the next section and can be accessed via GitHub classroom.</p>
-<ul>
-<li>For <strong>L2D online cohort</strong>, please click this link: <a href="https://classroom.github.com/a/H5EGnzuZ" class="external-link"><strong>GitHub classroom
-assignment link</strong></a>
-</li>
-</ul>
-<div id="note-2" class="callout callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="note-2" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-2"></a>
-</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal">
-<li><p>You will need to login to your GitHub account.</p></li>
-<li><p>Choose your name from the list of students.</p></li>
-<li><p>Accept the assignment.</p></li>
-<li><p>Refresh the page.</p></li>
-</ol>
-<p>By doing these steps, you will be able to access the assignment
-repository at GitHub. Instructions for completing the assignment are
-displayed beneath the file browser containing all the files you will
-need. These instructions are contained in the <code>README.md</code>
-file.</p>
-</div>
-</div>
-</div>
-<div id="assignment-questions" class="callout challenge">
+</section><section id="exercises"><h2 class="section-heading">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
+</h2>
+<hr class="half-width">
+<div id="end-of-chapter-exercises" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="assignment-questions" class="callout-inner">
-<h3 class="callout-title">Assignment Questions<a class="anchor" aria-label="anchor" href="#assignment-questions"></a>
+<div id="end-of-chapter-exercises" class="callout-inner">
+<h3 class="callout-title">End of chapter Exercises<a class="anchor" aria-label="anchor" href="#end-of-chapter-exercises"></a>
 </h3>
 <div class="callout-content">
 <p><strong>Assignment: The Breast Cancer Data</strong></p>
@@ -3392,7 +3294,7 @@ for Pandas dataframes, Numpy and Matplotlib.</p>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution8" class="accordion-collapse collapse" aria-labelledby="headingSolution8" data-bs-parent="#accordionSolution8">
+<div id="collapseSolution8" class="accordion-collapse collapse" data-bs-parent="#accordionSolution8" aria-labelledby="headingSolution8">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1-2">Q1<a class="anchor" aria-label="anchor" href="#q1-2"></a>
@@ -3543,7 +3445,6 @@ max          28.11         39.28  ...                 0.20           0.30
 </div>
 </div>
 </div>
-</div>
 <div class="section level3">
 <h3 id="forum-for-questions-tutorial-video">
 <strong>Forum for Questions</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=N5N7QbLwztQ" id="forum" class="external-link">(Tutorial Video)</a>
@@ -3552,12 +3453,12 @@ max          28.11         39.28  ...                 0.20           0.30
 <hr>
 <p>Any questions related to this lesson, code or assignment can be
 posted at our <a href="https://github.com/orgs/L2D-June2023/discussions" class="external-link"><strong>forum</strong></a>.</p>
-<div id="note-3" class="callout callout">
+<div id="note-2" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="note-3" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-3"></a>
+<div id="note-2" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-2"></a>
 </h3>
 <div class="callout-content">
 <p>The forum can only be accessed via your GitHub account once you have
@@ -3594,7 +3495,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-03-image_handling"><p>Content from <a href="03-image_handling.html">Image Handling</a></p>
 <hr>
-<p> Last updated on 2023-09-27 | 
+<p> Last updated on 2023-09-28 | 
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/03-image_handling.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 120 minutes </p>
@@ -3605,21 +3506,6 @@ any links that you are not going to use.
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
 Survey</strong></span></a></p>
-<div id="submissions" class="callout checklist">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check-square"></i>
-</div>
-<div id="submissions" class="callout-inner">
-<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#submissions"></a>
-</h3>
-<div class="callout-content">
-<ul>
-<li><p><a href="#assign"><strong>Lesson Assignment</strong></a></p></li>
-<li><p><a href="#forum"><strong>Lesson Forum</strong></a></p></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -4408,48 +4294,15 @@ resolution.</p>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-31-31.png" width="2496" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Now, we can see all three viewing planes for this 3-dimensional brain
 scan!</p>
 </div>
-<div class="section level3">
-<h3 id="assign">
-<strong>Lesson Assignment</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=5UzoWit0Ewc" class="external-link">(Tutorial
-Video)</a>
-<a class="anchor" aria-label="anchor" href="#assign"></a>
-</h3>
-<hr>
-<p>The assignment for this lesson consists of the questions shown below
-in the next section and can be accessed via GitHub classroom.</p>
-<ul>
-<li>For <strong>L2D online cohort</strong>, please click this link: <a href="https://classroom.github.com/a/jbKZrOtx" class="external-link"><strong>GitHub classroom
-assignment link</strong></a>
-</li>
-</ul>
-<div id="note" class="callout callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="note" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
-</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal">
-<li><p>You will need to login to your GitHub account.</p></li>
-<li><p>Choose your name from the list of students.</p></li>
-<li><p>Accept the assignment.</p></li>
-<li><p>Refresh the page.</p></li>
-</ol>
-<p>By doing these steps, you will be able to access the assignment
-repository at GitHub. Instructions for completing the assignment are
-displayed beneath the file browser containing all the files you will
-need. These instructions are contained in the <code>README.md</code>
-file.</p>
-</div>
-</div>
-</div>
-<div id="assignment-questions" class="callout challenge">
+</section><section id="exercises-1"><h2 class="section-heading">Exercises<a class="anchor" aria-label="anchor" href="#exercises-1"></a>
+</h2>
+<hr class="half-width">
+<div id="end-of-chapter-exercises" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="assignment-questions" class="callout-inner">
-<h3 class="callout-title">Assignment Questions<a class="anchor" aria-label="anchor" href="#assignment-questions"></a>
+<div id="end-of-chapter-exercises" class="callout-inner">
+<h3 class="callout-title">End of chapter Exercises<a class="anchor" aria-label="anchor" href="#end-of-chapter-exercises"></a>
 </h3>
 <div class="callout-content">
 <p><strong>Assignment</strong></p>
@@ -4618,7 +4471,6 @@ Approximately 18% of the image is DNA</code></pre>
 </div>
 </div>
 </div>
-</div>
 <div class="section level3">
 <h3 id="forum-for-questions-tutorial-video">
 <strong>Forum for Questions</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=N5N7QbLwztQ" id="forum" class="external-link">(Tutorial Video)</a>
@@ -4627,12 +4479,12 @@ Approximately 18% of the image is DNA</code></pre>
 <hr>
 <p>Any questions related to this lesson, code or assignment can be
 posted at our <a href="https://github.com/orgs/L2D-June2023/discussions" class="external-link"><strong>forum</strong></a>.</p>
-<div id="note-1" class="callout callout">
+<div id="note" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="note-1" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-1"></a>
+<div id="note" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
 </h3>
 <div class="callout-content">
 <p>The forum can only be accessed via your GitHub account once you have
@@ -4669,7 +4521,7 @@ any links that you are not going to use.
 </div>
 </section></section><section id="aio-04-time_series"><p>Content from <a href="04-time_series.html">Time Series</a></p>
 <hr>
-<p> Last updated on 2023-09-27 | 
+<p> Last updated on 2023-09-28 | 
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/04-time_series.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
 <p>Estimated time <i aria-hidden="true" data-feather="clock"></i> 120 minutes </p>
@@ -4680,21 +4532,6 @@ any links that you are not going to use.
 (ipynb)</strong></a></p>
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1" class="external-link"><span style="color: rgb(255, 0, 0);"><strong>Mandatory Lesson Feedback
 Survey</strong></span></a></p>
-<div id="submissions" class="callout checklist">
-<div class="callout-square">
-<i class="callout-icon" data-feather="check-square"></i>
-</div>
-<div id="submissions" class="callout-inner">
-<h3 class="callout-title">Submissions<a class="anchor" aria-label="anchor" href="#submissions"></a>
-</h3>
-<div class="callout-content">
-<ul>
-<li><p><a href="#assign"><strong>Lesson Assignment</strong></a></p></li>
-<li><p><a href="#forum"><strong>Lesson Forum</strong></a></p></li>
-</ul>
-</div>
-</div>
-</div>
 <div class="overview card">
 <h2 class="card-header">Overview</h2>
 <div class="row g-0">
@@ -5175,7 +5012,7 @@ the seizure EEG. Note the differences.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5390,7 +5227,7 @@ harmonics?</p>
   Show me the solution
   </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5480,7 +5317,7 @@ correlation pattern to the one from the background data.</p>
   DIY ANSWER
   </h4>
 </button>
-<div id="collapseSolution3" class="accordion-collapse collapse" aria-labelledby="headingSolution3" data-bs-parent="#accordionSolution3">
+<div id="collapseSolution3" class="accordion-collapse collapse" data-bs-parent="#accordionSolution3" aria-labelledby="headingSolution3">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -5518,48 +5355,15 @@ a partial view. The next step to investigate is to show how the features
 found for one segment vary over time.
 </p>
 </div>
-<div class="section level3">
-<h3 id="assign">
-<strong>Lesson Assignment</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=5UzoWit0Ewc" class="external-link">(Tutorial
-Video)</a>
-<a class="anchor" aria-label="anchor" href="#assign"></a>
-</h3>
-<hr>
-<p>The assignment for this lesson consists of the questions shown below
-in the next section and can be accessed via GitHub classroom.</p>
-<ul>
-<li>For <strong>L2D online cohort</strong>, please click this link: <a href="https://classroom.github.com/a/ga-zaslv" class="external-link"><strong>GitHub classroom
-assignment link</strong></a>
-</li>
-</ul>
-<div id="note" class="callout callout">
-<div class="callout-square">
-<i class="callout-icon" data-feather="bell"></i>
-</div>
-<div id="note" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
-</h3>
-<div class="callout-content">
-<ol style="list-style-type: decimal">
-<li><p>You will need to login to your GitHub account.</p></li>
-<li><p>Choose your name from the list of students.</p></li>
-<li><p>Accept the assignment.</p></li>
-<li><p>Refresh the page.</p></li>
-</ol>
-<p>By doing these steps, you will be able to access the assignment
-repository at GitHub. Instructions for completing the assignment are
-displayed beneath the file browser containing all the files you will
-need. These instructions are contained in the <code>README.md</code>
-file.</p>
-</div>
-</div>
-</div>
-<div id="assignment-questions" class="callout challenge">
+</section><section id="exercises"><h2 class="section-heading">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
+</h2>
+<hr class="half-width">
+<div id="end-of-chapter-exercises" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="assignment-questions" class="callout-inner">
-<h3 class="callout-title">Assignment Questions<a class="anchor" aria-label="anchor" href="#assignment-questions"></a>
+<div id="end-of-chapter-exercises" class="callout-inner">
+<h3 class="callout-title">End of chapter Exercises<a class="anchor" aria-label="anchor" href="#end-of-chapter-exercises"></a>
 </h3>
 <div class="callout-content">
 <strong>Pathological Human Brain Rhythms</strong>
@@ -5613,7 +5417,7 @@ show the strongest change in correlations?</p></li>
   Please check these solutions only after submitting the assignments.
   </h4>
 </button>
-<div id="collapseSolution4" class="accordion-collapse collapse" aria-labelledby="headingSolution4" data-bs-parent="#accordionSolution4">
+<div id="collapseSolution4" class="accordion-collapse collapse" data-bs-parent="#accordionSolution4" aria-labelledby="headingSolution4">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb26">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -6001,7 +5805,6 @@ threshold (i.e. those displaying True), we can use Numpy function
 </div>
 </div>
 </div>
-</div>
 <div class="section level3">
 <h3 id="forum-for-questions-tutorial-video">
 <strong>Forum for Questions</strong> <a href="https://www.youtube.com/watch?app=desktop&amp;v=N5N7QbLwztQ" id="forum" class="external-link">(Tutorial Video)</a>
@@ -6010,12 +5813,12 @@ threshold (i.e. those displaying True), we can use Numpy function
 <hr>
 <p>Any questions related to this lesson, code or assignment can be
 posted at our <a href="https://github.com/orgs/L2D-June2023/discussions" class="external-link"><strong>forum</strong></a>.</p>
-<div id="note-1" class="callout callout">
+<div id="note" class="callout callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="note-1" class="callout-inner">
-<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note-1"></a>
+<div id="note" class="callout-inner">
+<h3 class="callout-title">Note<a class="anchor" aria-label="anchor" href="#note"></a>
 </h3>
 <div class="callout-content">
 <p>The forum can only be accessed via your GitHub account once you have
@@ -6074,7 +5877,7 @@ any links that you are not going to use.
         <p>Materials licensed under <a href="../LICENSE.html">CC-BY 4.0</a> by the authors</p>
         
         <p><a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">Template licensed under CC-BY 4.0</a> by <a href="https://carpentries.org" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.13.0)</a>,
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.13.3.9000)</a>,
         <a href="https://github.com/carpentries/pegboard/tree/3f03e852a4bc92a40d60ef5ef328dad7dd9a3ead" class="external-link">pegboard (0.6.1.9000)</a>,
       and <a href="https://github.com/LearnToDiscover/varnish/tree/aeffaff05b65bf7180c5154928fb2e3f42f9ec28" class="external-link">varnish (0.3.0)</a>.</p>
 			</div>
@@ -6097,9 +5900,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-rmd/instructor/aio.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/aio.html",
-  "dateCreated": "2023-09-27",
-  "dateModified": "2023-09-27",
-  "datePublished": "2023-09-27"
+  "dateCreated": "2023-09-28",
+  "dateModified": "2023-09-28",
+  "datePublished": "2023-09-28"
 }
 
   </script><script>

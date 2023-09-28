@@ -9,12 +9,6 @@ exercises: 60
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
-:::::::::: checklist
-## Submissions
-- [**Lesson Assignment**](#assign)
-
-- [**Lesson Forum**](#forum)
-::::::::::
 
 :::::::::::::::::::::::::::::::::::::: questions
 
@@ -660,32 +654,10 @@ So interestingly, while the time series changes dramatically in shape, the corre
 All results shown so far, represent the recording of the segment of 6 seconds chosen at the beginning. The human brain produces time-dependent voltage changes 24 hours a day and as seeing only a few seconds is only a partial view. The next step to investigate is to show how the features found for one segment vary over time.
 </p>
 
-### **Lesson Assignment** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=5UzoWit0Ewc) {#assign}
-
--------------------------------
-
-The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.
-
-- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/ga-zaslv)
-
-:::::::::::::::: callout
-## Note
-
-1. You will need to login to your GitHub account.
-
-2. Choose your name from the list of students.
-
-3. Accept the assignment.
-
-4. Refresh the page.
-
-By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
-
-::::::::::::::::
-
+## Exercises
 :::::::::::::::::::::::::::::::::::::::: challenge
 
-#### Assignment Questions
+#### End of chapter Exercises
 
 
 **Pathological Human Brain Rhythms**

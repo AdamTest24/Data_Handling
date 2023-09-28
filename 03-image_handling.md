@@ -831,17 +831,7 @@ Approximately 18% of the image is DNA
 
 ::::::::::::::::::::::::::::::::::::::::
 
-### **Forum for Questions** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=N5N7QbLwztQ){#forum}
 
-----------------------
-Any questions related to this lesson, code or assignment can be posted at our [**forum**](https://github.com/orgs/L2D-June2023/discussions).
-
-:::::::::::::::: callout
-## Note
-
-The forum can only be accessed via your GitHub account once you have accepted the invitation to be included in the team.
-
-::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 

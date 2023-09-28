@@ -9,12 +9,6 @@ exercises: 60
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
-:::::::::: checklist
-## Submissions
-- [**Lesson Assignment**](#assign)
-
-- [**Lesson Forum**](#forum)
-::::::::::
 
 :::::::::::::::::::::::::::::::::::::: questions
 
@@ -680,32 +674,13 @@ show()
 
 Now, we can see all three viewing planes for this 3-dimensional brain scan!
 
-### **Lesson Assignment** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=5UzoWit0Ewc) {#assign}
 
--------------------------------
 
-The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.
 
-- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/jbKZrOtx)
-
-:::::::::::::::: callout
-## Note
-
-1. You will need to login to your GitHub account.
-
-2. Choose your name from the list of students.
-
-3. Accept the assignment.
-
-4. Refresh the page.
-
-By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
-
-::::::::::::::::
-
+## Exercises
 :::::::::::::::::::::::::::::::::::::::: challenge
 
-#### Assignment Questions
+#### End of chapter Exercises
 
 
 **Assignment**

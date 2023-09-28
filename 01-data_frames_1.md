@@ -8,12 +8,8 @@ exercises: 60
 
 [<span style="color: rgb(255, 0, 0);">**Mandatory Lesson Feedback Survey**</span>](https://docs.google.com/forms/d/e/1FAIpQLSdr0capF7jloJhPH3Pki1B3LZoKOG16poOpuVJ7SL2LkwLHQA/viewform?pli=1)
 
-:::::::::: checklist
-## Submissions
-- [**Lesson Assignment**](#assign)
 
-- [**Lesson Forum**](#forum)
-::::::::::
+
 
 ::::::::::::::::::::::::::::::::::::: questions
 
@@ -769,7 +765,7 @@ print('Labels:          ', randomLabel)
 ```{.output}
 Number of rows:   18
 Number of Labels: 18
-Labels:           [0 1 1 0 1 0 1 1 1 0 1 0 0 0 0 1 0 1]
+Labels:           [1 1 0 1 0 1 0 0 0 1 0 0 0 1 0 1 1 0]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code.
@@ -789,11 +785,11 @@ df.head()
 
 ```{.output}
     calcium      sodium  gender
-0  3.455582  112.690980       0
+0  3.455582  112.690980       1
 1  3.669026  125.663330       1
-2  2.789910  105.821810       1
-3  2.939900   98.172772       0
-4  5.426060   97.931489       1
+2  2.789910  105.821810       0
+3  2.939900   98.172772       1
+4  5.426060   97.931489       0
 ```
 
 <p style='text-align: justify;'>
@@ -806,24 +802,24 @@ df['gender'] == 1
 ```
 
 ```{.output}
-0     False
+0      True
 1      True
-2      True
-3     False
-4      True
-5     False
-6      True
-7      True
-8      True
-9     False
-10     True
+2     False
+3      True
+4     False
+5      True
+6     False
+7     False
+8     False
+9      True
+10    False
 11    False
 12    False
-13    False
+13     True
 14    False
 15     True
-16    False
-17     True
+16     True
+17    False
 Name: gender, dtype: bool
 ```
 
@@ -840,15 +836,14 @@ df[df_female]
 
 ```{.output}
      calcium      sodium  gender
+0   3.455582  112.690980       1
 1   3.669026  125.663330       1
-2   2.789910  105.821810       1
-4   5.426060   97.931489       1
-6   5.652390  112.871500       1
-7   3.571320  112.647360       1
-8   4.300067  132.031720       1
-10  2.550962  117.373730       1
+3   2.939900   98.172772       1
+5   0.715811  120.858330       1
+9   1.369419  118.499010       1
+13  1.362779  123.359490       1
 15  1.865868  112.075420       1
-17  3.917591  101.009870       1
+16  3.272809  117.588040       1
 ```
 
 Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label.
@@ -873,7 +868,7 @@ print(no_males, 'samples are labelled "male".')
 ```
 
 ```{.output}
-7 samples are labelled "male".
+11 samples are labelled "male".
 ```
 :::::::::::::::::
 ::::::::::::::::::::::::::::::::::
@@ -1193,33 +1188,10 @@ The bars in this plot go up and down. Note, however, that the vertical axis has 
 
 In this example, we see how important it is to check the data before working with them.
 
-
-### **Lesson Assignment** [(Tutorial Video)](https://www.youtube.com/watch?app=desktop&v=5UzoWit0Ewc) {#assign}
-
--------------------------------
-
-The assignment for this lesson consists of the questions shown below in the next section and can be accessed via GitHub classroom.
-
-- For **L2D online cohort**, please click this link: [**GitHub classroom assignment link**](https://classroom.github.com/a/xNQnf9jf)
-
-:::::::::::::::: callout
-## Note
-
-1. You will need to login to your GitHub account.
-
-2. Choose your name from the list of students.
-
-3. Accept the assignment.
-
-4. Refresh the page.
-
-By doing these steps, you will be able to access the assignment repository at GitHub. Instructions for completing the assignment are displayed beneath the file browser containing all the files you will need. These instructions are contained in the `README.md` file.
-
-::::::::::::::::
-
+## Exercises
 :::::::::::::::::::::::::::::::::::::::: challenge
 
-#### Assignment Questions
+#### End of chapter Exercises
 
 Download the cervical cancer data set provided, import it using `read_csv`.
 

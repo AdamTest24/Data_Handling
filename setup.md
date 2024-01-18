@@ -30,7 +30,7 @@ Please download the [fig zip file](fig/fig.zip) and unzip it to your Desktop. It
 - [subfolder_data.png](fig/subfolder_data.png)
 - [axon_slice.jpg](fig/axon_slice.jpg)
 - [rat_brain_low_res.jpg](fig/rat_brain_low_res.jpg)
-- [rat_brain.jpg (download from Dropbox link)](https://www.dropbox.com/s/8an4zypmjq9035n/rat_brain.jpg?dl=0)
+- [rat_brain.jpg (download from Google Drive)](https://drive.google.com/file/d/1rPARv06HJfnshzo22H5xIPKbnWLt4cTU/view?usp=drive_link)
 - [brain.nii](fig/brain.nii)
 - [rat_cerebellum.jpg](fig/rat_cerebellum.jpg)
 

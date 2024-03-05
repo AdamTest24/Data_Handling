@@ -314,13 +314,12 @@ Survey</strong></span></a></p>
 </ul></div>
 </div>
 </div>
-<div id="exercises" class="callout callout">
+<div id="callout1" class="callout">
 <div class="callout-square">
 <i class="callout-icon" data-feather="bell"></i>
 </div>
-<div id="exercises" class="callout-inner">
-<h3 class="callout-title">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a>
-</h3>
+<div class="section level3 callout-title callout-inner">
+<h3 class="callout-title" id="exercises">Exercises<a class="anchor" aria-label="anchor" href="#exercises"></a></h3>
 <div class="callout-content">
 <p style="text-align: justify;">
 This lesson has no explicit exercises. At each step, use images of your
@@ -367,7 +366,8 @@ through some of the steps to get you started with processing images of
 all sorts using Python. At the end, you will have the opportunity to
 come back to this image example and perform some analysis of your own.
 </p>
-<figure><img src="../fig/rat_cerebellum.jpg" id="ratCerebellum" alt="" class="figure mx-auto d-block"><figcaption>Figure 1: Example image, rat cerebellum</figcaption></figure></div>
+<figure id="ratCerebellum"><img src="../fig/rat_cerebellum.jpg" alt="Figure 1: Example image, rat cerebellum" class="figure mx-auto d-block"><div class="figcaption">Figure 1: Example image, rat cerebellum</div>
+</figure></div>
 </section><section id="work-through-example"><h2 class="section-heading">Work Through Example<a class="anchor" aria-label="anchor" href="#work-through-example"></a>
 </h2>
 <hr class="half-width"><div class="section level3">
@@ -383,15 +383,15 @@ including jpg, png and tif images.
 <div class="codewrapper sourceCode" id="cb1">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.image <span class="im">import</span> imread</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>img <span class="op">=</span> imread(<span class="st">'fig/axon_slice.jpg'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" tabindex="-1"></a><span class="im">from</span> matplotlib.image <span class="im">import</span> imread</span>
+<span id="cb1-2"><a href="#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" tabindex="-1"></a>img <span class="op">=</span> imread(<span class="st">'fig/axon_slice.jpg'</span>)</span></code></pre>
 </div>
 <p>We can check what type of variable this is:</p>
 <div class="codewrapper sourceCode" id="cb2">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -404,7 +404,7 @@ dimensions are.</p>
 <div class="codewrapper sourceCode" id="cb4">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(img.shape)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" tabindex="-1"></a><span class="bu">print</span>(img.shape)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -423,13 +423,13 @@ default colour map.
 <div class="codewrapper sourceCode" id="cb6">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, show</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>ax.imshow(img, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, show</span>
+<span id="cb6-2"><a href="#cb6-2" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" tabindex="-1"></a>ax.imshow(img, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-4-1.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 <code>imshow</code> has allowed us to plot the Numpy array of our image
@@ -441,13 +441,13 @@ image and plotting that.
 <div class="codewrapper sourceCode" id="cb7">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, show</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>ax.imshow(img[:<span class="dv">50</span>, :<span class="dv">70</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, show</span>
+<span id="cb7-2"><a href="#cb7-2" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb7-4"><a href="#cb7-4" tabindex="-1"></a></span>
+<span id="cb7-5"><a href="#cb7-5" tabindex="-1"></a>ax.imshow(img[:<span class="dv">50</span>, :<span class="dv">70</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
+<span id="cb7-6"><a href="#cb7-6" tabindex="-1"></a></span>
+<span id="cb7-7"><a href="#cb7-7" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-5-3.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 With <code>img[:50, :70]</code> we select the first 50 values from the
@@ -460,11 +460,11 @@ look at an even smaller section.
 <div class="codewrapper sourceCode" id="cb8">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>ax.imshow(img[:<span class="dv">20</span>, :<span class="dv">15</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb8-2"><a href="#cb8-2" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" tabindex="-1"></a>ax.imshow(img[:<span class="dv">20</span>, :<span class="dv">15</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-6-5.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This is a small section from that same upper left corner. Each square is
@@ -475,7 +475,7 @@ Let us have a look at those values by picking a slice from the array.
 <div class="codewrapper sourceCode" id="cb9">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(img[:<span class="dv">20</span>, :<span class="dv">15</span>])</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" tabindex="-1"></a><span class="bu">print</span>(img[:<span class="dv">20</span>, :<span class="dv">15</span>])</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -516,14 +516,14 @@ We show an example of the colourmaps called <code>viridis</code> and
 <div class="codewrapper sourceCode" id="cb11">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> ax[<span class="dv">0</span>].imshow(img[:<span class="dv">20</span>, :<span class="dv">15</span>], cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> ax[<span class="dv">1</span>].imshow(img[:<span class="dv">20</span>, :<span class="dv">15</span>], cmap<span class="op">=</span><span class="st">'magma'</span>)</span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p1, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink <span class="op">=</span> <span class="fl">0.8</span>)</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p2, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink <span class="op">=</span> <span class="fl">0.8</span>)<span class="op">;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb11-2"><a href="#cb11-2" tabindex="-1"></a></span>
+<span id="cb11-3"><a href="#cb11-3" tabindex="-1"></a>p1 <span class="op">=</span> ax[<span class="dv">0</span>].imshow(img[:<span class="dv">20</span>, :<span class="dv">15</span>], cmap<span class="op">=</span><span class="st">'viridis'</span>)</span>
+<span id="cb11-4"><a href="#cb11-4" tabindex="-1"></a>p2 <span class="op">=</span> ax[<span class="dv">1</span>].imshow(img[:<span class="dv">20</span>, :<span class="dv">15</span>], cmap<span class="op">=</span><span class="st">'magma'</span>)</span>
+<span id="cb11-5"><a href="#cb11-5" tabindex="-1"></a>fig.colorbar(p1, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink <span class="op">=</span> <span class="fl">0.8</span>)</span>
+<span id="cb11-6"><a href="#cb11-6" tabindex="-1"></a>fig.colorbar(p2, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink <span class="op">=</span> <span class="fl">0.8</span>)<span class="op">;</span></span>
+<span id="cb11-7"><a href="#cb11-7" tabindex="-1"></a></span>
+<span id="cb11-8"><a href="#cb11-8" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-8-7.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 Note, that even though we can plot our greyscale image with colourful
@@ -552,12 +552,12 @@ found in this image:</p>
 <div class="codewrapper sourceCode" id="cb12">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>ax.hist(img.flatten(), bins <span class="op">=</span> <span class="dv">50</span>)</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">4</span>))</span>
+<span id="cb12-2"><a href="#cb12-2" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" tabindex="-1"></a>ax.hist(img.flatten(), bins <span class="op">=</span> <span class="dv">50</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" tabindex="-1"></a>ax.set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb12-5"><a href="#cb12-5" tabindex="-1"></a></span>
+<span id="cb12-6"><a href="#cb12-6" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-9-9.png" width="960" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 The histogram is a distribution with intensity values mostly between
@@ -581,20 +581,20 @@ and the masked image.
 <div class="codewrapper sourceCode" id="cb13">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>threshold <span class="op">=</span> <span class="dv">125</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>mask <span class="op">=</span> img <span class="op">&lt;</span> threshold</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>img_masked <span class="op">=</span> img<span class="op">*</span>mask</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].imshow(mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].imshow(img_masked, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" tabindex="-1"></a>threshold <span class="op">=</span> <span class="dv">125</span></span>
+<span id="cb13-2"><a href="#cb13-2" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" tabindex="-1"></a>mask <span class="op">=</span> img <span class="op">&lt;</span> threshold</span>
+<span id="cb13-4"><a href="#cb13-4" tabindex="-1"></a></span>
+<span id="cb13-5"><a href="#cb13-5" tabindex="-1"></a>img_masked <span class="op">=</span> img<span class="op">*</span>mask</span>
+<span id="cb13-6"><a href="#cb13-6" tabindex="-1"></a></span>
+<span id="cb13-7"><a href="#cb13-7" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
+<span id="cb13-8"><a href="#cb13-8" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" tabindex="-1"></a>ax[<span class="dv">0</span>].imshow(mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb13-10"><a href="#cb13-10" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb13-11"><a href="#cb13-11" tabindex="-1"></a>ax[<span class="dv">1</span>].imshow(img_masked, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb13-12"><a href="#cb13-12" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb13-13"><a href="#cb13-13" tabindex="-1"></a></span>
+<span id="cb13-14"><a href="#cb13-14" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-10-11.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 The left subplot shows the binary mask itself. White represents values
@@ -612,17 +612,17 @@ condition is false are multiplied with zero ans therefore set to zero.
 <div class="codewrapper sourceCode" id="cb14">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(img_masked.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Histogram of masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(img_masked[img_masked <span class="op">!=</span> <span class="dv">0</span>].flatten(), bins<span class="op">=</span><span class="dv">25</span>)</span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Histogram of masked image after zeros are removed'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
+<span id="cb14-2"><a href="#cb14-2" tabindex="-1"></a></span>
+<span id="cb14-3"><a href="#cb14-3" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(img_masked.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" tabindex="-1"></a>ax[<span class="dv">0</span>].set_title(<span class="st">'Histogram of masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(img_masked[img_masked <span class="op">!=</span> <span class="dv">0</span>].flatten(), bins<span class="op">=</span><span class="dv">25</span>)</span>
+<span id="cb14-8"><a href="#cb14-8" tabindex="-1"></a>ax[<span class="dv">1</span>].set_title(<span class="st">'Histogram of masked image after zeros are removed'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb14-9"><a href="#cb14-9" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb14-10"><a href="#cb14-10" tabindex="-1"></a></span>
+<span id="cb14-11"><a href="#cb14-11" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-11-13.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 On the left we show all the values for the masked image. There is a
@@ -646,9 +646,9 @@ cerebellar cortex. Let us import it and check its shape.
 <div class="codewrapper sourceCode" id="cb15">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>img_col <span class="op">=</span> imread(<span class="st">'fig/rat_brain_low_res.jpg'</span>)</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>img_col.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" tabindex="-1"></a>img_col <span class="op">=</span> imread(<span class="st">'fig/rat_brain_low_res.jpg'</span>)</span>
+<span id="cb15-2"><a href="#cb15-2" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" tabindex="-1"></a>img_col.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -665,11 +665,11 @@ values on top of each other.
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>ax.imshow(img_col)<span class="op">;</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" tabindex="-1"></a>ax.imshow(img_col)<span class="op">;</span></span>
+<span id="cb17-4"><a href="#cb17-4" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-13-15.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
 The sample is labeled for Hoechst stain (blue), the Inositol
@@ -683,24 +683,24 @@ corresponds to ‘green’ and index 2 corresponds to ‘blue’:
 <div class="codewrapper sourceCode" id="cb18">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>red_channel   <span class="op">=</span> img_col[:, :, <span class="dv">0</span>]</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>green_channel <span class="op">=</span> img_col[:, :, <span class="dv">1</span>]</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>blue_channel  <span class="op">=</span> img_col[:, :, <span class="dv">2</span>]</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" tabindex="-1"></a>red_channel   <span class="op">=</span> img_col[:, :, <span class="dv">0</span>]</span>
+<span id="cb18-2"><a href="#cb18-2" tabindex="-1"></a>green_channel <span class="op">=</span> img_col[:, :, <span class="dv">1</span>]</span>
+<span id="cb18-3"><a href="#cb18-3" tabindex="-1"></a>blue_channel  <span class="op">=</span> img_col[:, :, <span class="dv">2</span>]</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb19">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>imgplot_red <span class="op">=</span> ax[<span class="dv">0</span>].imshow(red_channel, cmap<span class="op">=</span><span class="st">"Reds"</span>)</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>imgplot_green <span class="op">=</span> ax[<span class="dv">1</span>].imshow(green_channel, cmap<span class="op">=</span><span class="st">"Greens"</span>)</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>imgplot_blue <span class="op">=</span> ax[<span class="dv">2</span>].imshow(blue_channel, cmap<span class="op">=</span><span class="st">"Blues"</span>)</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>fig.colorbar(imgplot_red, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>fig.colorbar(imgplot_green, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>fig.colorbar(imgplot_blue, ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)<span class="op">;</span></span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
+<span id="cb19-2"><a href="#cb19-2" tabindex="-1"></a></span>
+<span id="cb19-3"><a href="#cb19-3" tabindex="-1"></a>imgplot_red <span class="op">=</span> ax[<span class="dv">0</span>].imshow(red_channel, cmap<span class="op">=</span><span class="st">"Reds"</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" tabindex="-1"></a>imgplot_green <span class="op">=</span> ax[<span class="dv">1</span>].imshow(green_channel, cmap<span class="op">=</span><span class="st">"Greens"</span>)</span>
+<span id="cb19-5"><a href="#cb19-5" tabindex="-1"></a>imgplot_blue <span class="op">=</span> ax[<span class="dv">2</span>].imshow(blue_channel, cmap<span class="op">=</span><span class="st">"Blues"</span>)</span>
+<span id="cb19-6"><a href="#cb19-6" tabindex="-1"></a></span>
+<span id="cb19-7"><a href="#cb19-7" tabindex="-1"></a>fig.colorbar(imgplot_red, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb19-8"><a href="#cb19-8" tabindex="-1"></a>fig.colorbar(imgplot_green, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb19-9"><a href="#cb19-9" tabindex="-1"></a>fig.colorbar(imgplot_blue, ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)<span class="op">;</span></span>
+<span id="cb19-10"><a href="#cb19-10" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-15-17.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 This shows what colour combinations each of the pixels is made up of.
@@ -712,19 +712,19 @@ total of 16,777,216 possible colour combinations!
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(red_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Red channel"</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(green_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Green channel"</span>)</span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].hist(blue_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Blue channel"</span>)</span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">1</span>, ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
+<span id="cb20-2"><a href="#cb20-2" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="#cb20-3" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(red_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb20-4"><a href="#cb20-4" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb20-5"><a href="#cb20-5" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Red channel"</span>)</span>
+<span id="cb20-6"><a href="#cb20-6" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(green_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb20-7"><a href="#cb20-7" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb20-8"><a href="#cb20-8" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Green channel"</span>)</span>
+<span id="cb20-9"><a href="#cb20-9" tabindex="-1"></a>ax[<span class="dv">2</span>].hist(blue_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb20-10"><a href="#cb20-10" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb20-11"><a href="#cb20-11" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Blue channel"</span>)</span>
+<span id="cb20-12"><a href="#cb20-12" tabindex="-1"></a></span>
+<span id="cb20-13"><a href="#cb20-13" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-16-19.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
@@ -741,8 +741,8 @@ version of the rat brain in the above example.
 <div class="codewrapper sourceCode" id="cb21">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>img_hr <span class="op">=</span> imread(<span class="st">'fig/rat_brain.jpg'</span>)</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>img_hr.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" tabindex="-1"></a>img_hr <span class="op">=</span> imread(<span class="st">'fig/rat_brain.jpg'</span>)</span>
+<span id="cb21-2"><a href="#cb21-2" tabindex="-1"></a>img_hr.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -766,16 +766,16 @@ follows.</p>
 <div class="codewrapper sourceCode" id="cb24">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>Image.MAX_IMAGE_PIXELS <span class="op">=</span> <span class="dv">1000000000</span></span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb24-1"><a href="#cb24-1" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
+<span id="cb24-2"><a href="#cb24-2" tabindex="-1"></a></span>
+<span id="cb24-3"><a href="#cb24-3" tabindex="-1"></a>Image.MAX_IMAGE_PIXELS <span class="op">=</span> <span class="dv">1000000000</span></span></code></pre>
 </div>
 <p>Let’s try again. Be patient, it might take a moment.</p>
 <div class="codewrapper sourceCode" id="cb25">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>img_hr <span class="op">=</span> imread(<span class="st">'fig/rat_brain.jpg'</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>img_hr.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" tabindex="-1"></a>img_hr <span class="op">=</span> imread(<span class="st">'fig/rat_brain.jpg'</span>)</span>
+<span id="cb25-2"><a href="#cb25-2" tabindex="-1"></a>img_hr.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -786,11 +786,11 @@ follows.</p>
 <div class="codewrapper sourceCode" id="cb27">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>ax.imshow(img_hr, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb27-1"><a href="#cb27-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb27-2"><a href="#cb27-2" tabindex="-1"></a></span>
+<span id="cb27-3"><a href="#cb27-3" tabindex="-1"></a>ax.imshow(img_hr, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
+<span id="cb27-4"><a href="#cb27-4" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-20-21.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 Although now we can plot this image, it consists of over 300 million
@@ -806,10 +806,10 @@ playing around is recommended!
 <div class="codewrapper sourceCode" id="cb28">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>img_pil <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'fig/rat_brain.jpg'</span>)</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>img_small <span class="op">=</span> img_pil.resize((<span class="dv">174</span>, <span class="dv">187</span>))</span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img_small))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb28-1"><a href="#cb28-1" tabindex="-1"></a>img_pil <span class="op">=</span> Image.<span class="bu">open</span>(<span class="st">'fig/rat_brain.jpg'</span>)</span>
+<span id="cb28-2"><a href="#cb28-2" tabindex="-1"></a>img_small <span class="op">=</span> img_pil.resize((<span class="dv">174</span>, <span class="dv">187</span>))</span>
+<span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img_small))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -820,11 +820,11 @@ playing around is recommended!
 <div class="codewrapper sourceCode" id="cb30">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>ax.imshow(img_small, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb30-1"><a href="#cb30-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb30-2"><a href="#cb30-2" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" tabindex="-1"></a>ax.imshow(img_small, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
+<span id="cb30-4"><a href="#cb30-4" tabindex="-1"></a></span>
+<span id="cb30-5"><a href="#cb30-5" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-22-23.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p style="text-align: justify;">
 With this code, we have resized the image to 174 by 187 pixels. We
@@ -836,11 +836,11 @@ we wish.
 <div class="codewrapper sourceCode" id="cb31">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>img_numpy <span class="op">=</span> array(img_small)</span>
-<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img_numpy))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> array</span>
+<span id="cb31-2"><a href="#cb31-2" tabindex="-1"></a></span>
+<span id="cb31-3"><a href="#cb31-3" tabindex="-1"></a>img_numpy <span class="op">=</span> array(img_small)</span>
+<span id="cb31-4"><a href="#cb31-4" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="#cb31-5" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img_numpy))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -857,15 +857,15 @@ smaller chunks, or patches.
 <div class="codewrapper sourceCode" id="cb33">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.image <span class="im">import</span> extract_patches_2d</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.image <span class="im">import</span> extract_patches_2d</span></code></pre>
 </div>
 <p>‘extract_patches_2d’ is used to extract parts of the image. The shape
 of each patch as well as maxiaml number of patches can be specified.</p>
 <div class="codewrapper sourceCode" id="cb34">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>patches <span class="op">=</span> extract_patches_2d(img_hr, (<span class="dv">174</span>, <span class="dv">187</span>), max_patches<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>patches.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb34-1"><a href="#cb34-1" tabindex="-1"></a>patches <span class="op">=</span> extract_patches_2d(img_hr, (<span class="dv">174</span>, <span class="dv">187</span>), max_patches<span class="op">=</span><span class="dv">100</span>)</span>
+<span id="cb34-2"><a href="#cb34-2" tabindex="-1"></a>patches.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -878,14 +878,14 @@ we can use a for loop:</p>
 <div class="codewrapper sourceCode" id="cb36">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">10</span>, ncols<span class="op">=</span><span class="dv">10</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">25</span>))</span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>ax <span class="op">=</span> ax.flatten()</span>
-<span id="cb36-4"><a href="#cb36-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-5"><a href="#cb36-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(patches.shape[<span class="dv">0</span>]):</span>
-<span id="cb36-6"><a href="#cb36-6" aria-hidden="true" tabindex="-1"></a>    ax[index].imshow(patches[index, :, :, :])</span>
-<span id="cb36-7"><a href="#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb36-8"><a href="#cb36-8" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb36-1"><a href="#cb36-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">10</span>, ncols<span class="op">=</span><span class="dv">10</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">25</span>))</span>
+<span id="cb36-2"><a href="#cb36-2" tabindex="-1"></a></span>
+<span id="cb36-3"><a href="#cb36-3" tabindex="-1"></a>ax <span class="op">=</span> ax.flatten()</span>
+<span id="cb36-4"><a href="#cb36-4" tabindex="-1"></a></span>
+<span id="cb36-5"><a href="#cb36-5" tabindex="-1"></a><span class="cf">for</span> index <span class="kw">in</span> <span class="bu">range</span>(patches.shape[<span class="dv">0</span>]):</span>
+<span id="cb36-6"><a href="#cb36-6" tabindex="-1"></a>    ax[index].imshow(patches[index, :, :, :])</span>
+<span id="cb36-7"><a href="#cb36-7" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="#cb36-8" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-26-25.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Now, working with these smaller, individual patches will be much more
 manageable!</p>
@@ -913,7 +913,7 @@ distribution</strong> of Python.</p>
 <div class="codewrapper sourceCode" id="cb39">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> nibabel <span class="im">as</span> nib</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" tabindex="-1"></a><span class="im">import</span> nibabel <span class="im">as</span> nib</span></code></pre>
 </div>
 <p>The package is now available for use. If a function comes from that
 package, we call it by referring to the package using <code>nib</code>,
@@ -921,11 +921,11 @@ followed by a period and the name of the function:</p>
 <div class="codewrapper sourceCode" id="cb40">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>img_3d <span class="op">=</span> nib.load(<span class="st">'fig/brain.nii'</span>)</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>img_data <span class="op">=</span> img_3d.get_fdata()</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img_data))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb40-1"><a href="#cb40-1" tabindex="-1"></a>img_3d <span class="op">=</span> nib.load(<span class="st">'fig/brain.nii'</span>)</span>
+<span id="cb40-2"><a href="#cb40-2" tabindex="-1"></a></span>
+<span id="cb40-3"><a href="#cb40-3" tabindex="-1"></a>img_data <span class="op">=</span> img_3d.get_fdata()</span>
+<span id="cb40-4"><a href="#cb40-4" tabindex="-1"></a></span>
+<span id="cb40-5"><a href="#cb40-5" tabindex="-1"></a><span class="bu">print</span>(<span class="bu">type</span>(img_data))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -935,7 +935,7 @@ followed by a period and the name of the function:</p>
 <div class="codewrapper sourceCode" id="cb42">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(img_data.shape)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb42-1"><a href="#cb42-1" tabindex="-1"></a><span class="bu">print</span>(img_data.shape)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -953,17 +953,17 @@ third dimension of the image:
 <div class="codewrapper sourceCode" id="cb44">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> ax[<span class="dv">0</span>].imshow(img_data[:, :, <span class="dv">60</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> ax[<span class="dv">1</span>].imshow(img_data[:, :, <span class="dv">75</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> ax[<span class="dv">2</span>].imshow(img_data[:, :, <span class="dv">90</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p1, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p2, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p3, ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)<span class="op">;</span></span>
-<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb44-1"><a href="#cb44-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb44-2"><a href="#cb44-2" tabindex="-1"></a></span>
+<span id="cb44-3"><a href="#cb44-3" tabindex="-1"></a>p1 <span class="op">=</span> ax[<span class="dv">0</span>].imshow(img_data[:, :, <span class="dv">60</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb44-4"><a href="#cb44-4" tabindex="-1"></a>p2 <span class="op">=</span> ax[<span class="dv">1</span>].imshow(img_data[:, :, <span class="dv">75</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb44-5"><a href="#cb44-5" tabindex="-1"></a>p3 <span class="op">=</span> ax[<span class="dv">2</span>].imshow(img_data[:, :, <span class="dv">90</span>], cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb44-6"><a href="#cb44-6" tabindex="-1"></a></span>
+<span id="cb44-7"><a href="#cb44-7" tabindex="-1"></a>fig.colorbar(p1, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb44-8"><a href="#cb44-8" tabindex="-1"></a>fig.colorbar(p2, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb44-9"><a href="#cb44-9" tabindex="-1"></a>fig.colorbar(p3, ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)<span class="op">;</span></span>
+<span id="cb44-10"><a href="#cb44-10" tabindex="-1"></a></span>
+<span id="cb44-11"><a href="#cb44-11" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-29-27.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>These look fairly dark. We can improve the contrast, by adjusting the
 intensity range. This requires setting of the keyword arguments
@@ -979,17 +979,17 @@ darker shades of grey, we can reduce the value of <code>vmax</code>
 <div class="codewrapper sourceCode" id="cb45">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>p1 <span class="op">=</span> ax[<span class="dv">0</span>].imshow(img_data[:, :, <span class="dv">60</span>], cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>)</span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>p2 <span class="op">=</span> ax[<span class="dv">1</span>].imshow(img_data[:, :, <span class="dv">75</span>], cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>)</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>p3 <span class="op">=</span> ax[<span class="dv">2</span>].imshow(img_data[:, :, <span class="dv">90</span>], cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>)</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p1, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p2, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>fig.colorbar(p3, ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)<span class="op">;</span></span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">25</span>, <span class="dv">15</span>))</span>
+<span id="cb45-2"><a href="#cb45-2" tabindex="-1"></a></span>
+<span id="cb45-3"><a href="#cb45-3" tabindex="-1"></a>p1 <span class="op">=</span> ax[<span class="dv">0</span>].imshow(img_data[:, :, <span class="dv">60</span>], cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb45-4"><a href="#cb45-4" tabindex="-1"></a>p2 <span class="op">=</span> ax[<span class="dv">1</span>].imshow(img_data[:, :, <span class="dv">75</span>], cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb45-5"><a href="#cb45-5" tabindex="-1"></a>p3 <span class="op">=</span> ax[<span class="dv">2</span>].imshow(img_data[:, :, <span class="dv">90</span>], cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>)</span>
+<span id="cb45-6"><a href="#cb45-6" tabindex="-1"></a></span>
+<span id="cb45-7"><a href="#cb45-7" tabindex="-1"></a>fig.colorbar(p1, ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb45-8"><a href="#cb45-8" tabindex="-1"></a>fig.colorbar(p2, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)</span>
+<span id="cb45-9"><a href="#cb45-9" tabindex="-1"></a>fig.colorbar(p3, ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.4</span>)<span class="op">;</span></span>
+<span id="cb45-10"><a href="#cb45-10" tabindex="-1"></a></span>
+<span id="cb45-11"><a href="#cb45-11" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-30-29.png" width="2400" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>What about the other dimensions? We can also plot coronal and
 sagittal slices but note that the respective slices have different pixel
@@ -997,27 +997,27 @@ resolution.</p>
 <div class="codewrapper sourceCode" id="cb46">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">3</span>, ncols<span class="op">=</span><span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">26</span>, <span class="dv">18</span>))</span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>t1 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">0</span>].imshow(img_data[:, :, <span class="dv">45</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>t2 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">1</span>].imshow(img_data[:, :, <span class="dv">60</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>t3 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">2</span>].imshow(img_data[:, :, <span class="dv">75</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>t4 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">3</span>].imshow(img_data[:, :, <span class="dv">90</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>t5 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">4</span>].imshow(img_data[:, :, <span class="dv">105</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>c1 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">0</span>].imshow(img_data[:, <span class="dv">50</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>c2 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">1</span>].imshow(img_data[:, <span class="dv">75</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>c3 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">2</span>].imshow(img_data[:, <span class="dv">90</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>c4 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">3</span>].imshow(img_data[:, <span class="dv">105</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>c5 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">4</span>].imshow(img_data[:, <span class="dv">120</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>s1 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">0</span>].imshow(img_data[<span class="dv">75</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>s2 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">1</span>].imshow(img_data[<span class="dv">90</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>s3 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">2</span>].imshow(img_data[<span class="dv">105</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>s4 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">3</span>].imshow(img_data[<span class="dv">120</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
-<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>s5 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">4</span>].imshow(img_data[<span class="dv">135</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)<span class="op">;</span></span>
-<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb46-21"><a href="#cb46-21" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">3</span>, ncols<span class="op">=</span><span class="dv">5</span>, figsize<span class="op">=</span>(<span class="dv">26</span>, <span class="dv">18</span>))</span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a></span>
+<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a>t1 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">0</span>].imshow(img_data[:, :, <span class="dv">45</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a>t2 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">1</span>].imshow(img_data[:, :, <span class="dv">60</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-5"><a href="#cb46-5" tabindex="-1"></a>t3 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">2</span>].imshow(img_data[:, :, <span class="dv">75</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-6"><a href="#cb46-6" tabindex="-1"></a>t4 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">3</span>].imshow(img_data[:, :, <span class="dv">90</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-7"><a href="#cb46-7" tabindex="-1"></a>t5 <span class="op">=</span> ax[<span class="dv">0</span>, <span class="dv">4</span>].imshow(img_data[:, :, <span class="dv">105</span>].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-8"><a href="#cb46-8" tabindex="-1"></a></span>
+<span id="cb46-9"><a href="#cb46-9" tabindex="-1"></a>c1 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">0</span>].imshow(img_data[:, <span class="dv">50</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-10"><a href="#cb46-10" tabindex="-1"></a>c2 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">1</span>].imshow(img_data[:, <span class="dv">75</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-11"><a href="#cb46-11" tabindex="-1"></a>c3 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">2</span>].imshow(img_data[:, <span class="dv">90</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-12"><a href="#cb46-12" tabindex="-1"></a>c4 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">3</span>].imshow(img_data[:, <span class="dv">105</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-13"><a href="#cb46-13" tabindex="-1"></a>c5 <span class="op">=</span> ax[<span class="dv">1</span>, <span class="dv">4</span>].imshow(img_data[:, <span class="dv">120</span>, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-14"><a href="#cb46-14" tabindex="-1"></a></span>
+<span id="cb46-15"><a href="#cb46-15" tabindex="-1"></a>s1 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">0</span>].imshow(img_data[<span class="dv">75</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-16"><a href="#cb46-16" tabindex="-1"></a>s2 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">1</span>].imshow(img_data[<span class="dv">90</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-17"><a href="#cb46-17" tabindex="-1"></a>s3 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">2</span>].imshow(img_data[<span class="dv">105</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-18"><a href="#cb46-18" tabindex="-1"></a>s4 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">3</span>].imshow(img_data[<span class="dv">120</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)</span>
+<span id="cb46-19"><a href="#cb46-19" tabindex="-1"></a>s5 <span class="op">=</span> ax[<span class="dv">2</span>, <span class="dv">4</span>].imshow(img_data[<span class="dv">135</span>, :, :].T, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">150</span>, origin<span class="op">=</span><span class="st">'lower'</span>)<span class="op">;</span></span>
+<span id="cb46-20"><a href="#cb46-20" tabindex="-1"></a></span>
+<span id="cb46-21"><a href="#cb46-21" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-31-31.png" width="2496" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>Now, we can see all three viewing planes for this 3-dimensional brain
 scan!</p>
@@ -1060,30 +1060,30 @@ the resolution affect your results?</p></li>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution1" aria-expanded="false" aria-controls="collapseSolution1">
   <h4 class="accordion-header" id="headingSolution1">Please check these solutions only after submitting the assignments.</h4>
 </button>
-<div id="collapseSolution1" class="accordion-collapse collapse" aria-labelledby="headingSolution1" data-bs-parent="#accordionSolution1">
+<div id="collapseSolution1" class="accordion-collapse collapse" data-bs-parent="#accordionSolution1" aria-labelledby="headingSolution1">
 <div class="accordion-body">
 <div class="section level3">
 <h3 id="q1">Q1<a class="anchor" aria-label="anchor" href="#q1"></a></h3>
 <div class="codewrapper sourceCode" id="cb47">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Import the image</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.image <span class="im">import</span> imread</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>img_task <span class="op">=</span> imread(<span class="st">'fig/rat_cerebellum.jpg'</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" tabindex="-1"></a><span class="co">## Import the image</span></span>
+<span id="cb47-2"><a href="#cb47-2" tabindex="-1"></a><span class="im">from</span> matplotlib.image <span class="im">import</span> imread</span>
+<span id="cb47-3"><a href="#cb47-3" tabindex="-1"></a></span>
+<span id="cb47-4"><a href="#cb47-4" tabindex="-1"></a>img_task <span class="op">=</span> imread(<span class="st">'fig/rat_cerebellum.jpg'</span>)</span></code></pre>
 </div>
 <div class="codewrapper sourceCode" id="cb48">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co">## Display the image</span></span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, show</span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>ax.imshow(img_task, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb48-1"><a href="#cb48-1" tabindex="-1"></a><span class="co">## Display the image</span></span>
+<span id="cb48-2"><a href="#cb48-2" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="#cb48-3" tabindex="-1"></a><span class="im">from</span> matplotlib.pyplot <span class="im">import</span> subplots, show</span>
+<span id="cb48-4"><a href="#cb48-4" tabindex="-1"></a></span>
+<span id="cb48-5"><a href="#cb48-5" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
+<span id="cb48-6"><a href="#cb48-6" tabindex="-1"></a></span>
+<span id="cb48-7"><a href="#cb48-7" tabindex="-1"></a>ax.imshow(img_task, cmap<span class="op">=</span><span class="st">'gray'</span>)<span class="op">;</span></span>
+<span id="cb48-8"><a href="#cb48-8" tabindex="-1"></a></span>
+<span id="cb48-9"><a href="#cb48-9" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-33-33.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
@@ -1091,37 +1091,37 @@ the resolution affect your results?</p></li>
 <div class="codewrapper sourceCode" id="cb49">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>red_channel   <span class="op">=</span> img_task[:, :, <span class="dv">0</span>]</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>green_channel <span class="op">=</span> img_task[:, :, <span class="dv">1</span>]</span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>blue_channel  <span class="op">=</span> img_task[:, :, <span class="dv">2</span>]</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(red_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Red channel"</span>)</span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(green_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Green channel"</span>)</span>
-<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].hist(blue_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb49-15"><a href="#cb49-15" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Blue channel"</span>)<span class="op">;</span></span>
-<span id="cb49-16"><a href="#cb49-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-17"><a href="#cb49-17" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" tabindex="-1"></a>red_channel   <span class="op">=</span> img_task[:, :, <span class="dv">0</span>]</span>
+<span id="cb49-2"><a href="#cb49-2" tabindex="-1"></a>green_channel <span class="op">=</span> img_task[:, :, <span class="dv">1</span>]</span>
+<span id="cb49-3"><a href="#cb49-3" tabindex="-1"></a>blue_channel  <span class="op">=</span> img_task[:, :, <span class="dv">2</span>]</span>
+<span id="cb49-4"><a href="#cb49-4" tabindex="-1"></a></span>
+<span id="cb49-5"><a href="#cb49-5" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">5</span>))</span>
+<span id="cb49-6"><a href="#cb49-6" tabindex="-1"></a></span>
+<span id="cb49-7"><a href="#cb49-7" tabindex="-1"></a>ax[<span class="dv">0</span>].hist(red_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb49-8"><a href="#cb49-8" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb49-9"><a href="#cb49-9" tabindex="-1"></a>ax[<span class="dv">0</span>].set_xlabel(<span class="st">"Red channel"</span>)</span>
+<span id="cb49-10"><a href="#cb49-10" tabindex="-1"></a>ax[<span class="dv">1</span>].hist(green_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb49-11"><a href="#cb49-11" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb49-12"><a href="#cb49-12" tabindex="-1"></a>ax[<span class="dv">1</span>].set_xlabel(<span class="st">"Green channel"</span>)</span>
+<span id="cb49-13"><a href="#cb49-13" tabindex="-1"></a>ax[<span class="dv">2</span>].hist(blue_channel.flatten(), bins<span class="op">=</span><span class="dv">50</span>)</span>
+<span id="cb49-14"><a href="#cb49-14" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Pixel intensity"</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb49-15"><a href="#cb49-15" tabindex="-1"></a>ax[<span class="dv">2</span>].set_xlabel(<span class="st">"Blue channel"</span>)<span class="op">;</span></span>
+<span id="cb49-16"><a href="#cb49-16" tabindex="-1"></a></span>
+<span id="cb49-17"><a href="#cb49-17" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-34-35.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb50">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>imgplot_red   <span class="op">=</span> ax[<span class="dv">0</span>].imshow(red_channel, cmap<span class="op">=</span><span class="st">"Reds"</span>)</span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>imgplot_green <span class="op">=</span> ax[<span class="dv">1</span>].imshow(green_channel, cmap<span class="op">=</span><span class="st">"Greens"</span>)</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>imgplot_blue  <span class="op">=</span> ax[<span class="dv">2</span>].imshow(blue_channel, cmap<span class="op">=</span><span class="st">"Blues"</span>)</span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>fig.colorbar(imgplot_red,   ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>fig.colorbar(imgplot_green, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>fig.colorbar(imgplot_blue,  ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb50-1"><a href="#cb50-1" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(ncols<span class="op">=</span><span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">20</span>, <span class="dv">10</span>))</span>
+<span id="cb50-2"><a href="#cb50-2" tabindex="-1"></a></span>
+<span id="cb50-3"><a href="#cb50-3" tabindex="-1"></a>imgplot_red   <span class="op">=</span> ax[<span class="dv">0</span>].imshow(red_channel, cmap<span class="op">=</span><span class="st">"Reds"</span>)</span>
+<span id="cb50-4"><a href="#cb50-4" tabindex="-1"></a>imgplot_green <span class="op">=</span> ax[<span class="dv">1</span>].imshow(green_channel, cmap<span class="op">=</span><span class="st">"Greens"</span>)</span>
+<span id="cb50-5"><a href="#cb50-5" tabindex="-1"></a>imgplot_blue  <span class="op">=</span> ax[<span class="dv">2</span>].imshow(blue_channel, cmap<span class="op">=</span><span class="st">"Blues"</span>)</span>
+<span id="cb50-6"><a href="#cb50-6" tabindex="-1"></a>fig.colorbar(imgplot_red,   ax<span class="op">=</span>ax[<span class="dv">0</span>], shrink<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb50-7"><a href="#cb50-7" tabindex="-1"></a>fig.colorbar(imgplot_green, ax<span class="op">=</span>ax[<span class="dv">1</span>], shrink<span class="op">=</span><span class="fl">0.5</span>)</span>
+<span id="cb50-8"><a href="#cb50-8" tabindex="-1"></a>fig.colorbar(imgplot_blue,  ax<span class="op">=</span>ax[<span class="dv">2</span>], shrink<span class="op">=</span><span class="fl">0.5</span>)<span class="op">;</span></span>
+<span id="cb50-9"><a href="#cb50-9" tabindex="-1"></a></span>
+<span id="cb50-10"><a href="#cb50-10" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-35-37.png" width="1920" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
@@ -1129,30 +1129,30 @@ the resolution affect your results?</p></li>
 <div class="codewrapper sourceCode" id="cb51">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>red_mask   <span class="op">=</span> red_channel   <span class="op">&gt;</span> <span class="dv">120</span></span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>green_mask <span class="op">=</span> green_channel <span class="op">&gt;</span> <span class="dv">100</span></span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a>blue_mask  <span class="op">=</span> blue_channel  <span class="op">&gt;</span> <span class="dv">100</span></span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>red_masked   <span class="op">=</span> red_channel<span class="op">*</span>red_mask</span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>green_masked <span class="op">=</span> green_channel<span class="op">*</span>green_mask</span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a>blue_masked  <span class="op">=</span> blue_channel<span class="op">*</span>blue_mask</span>
-<span id="cb51-8"><a href="#cb51-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-9"><a href="#cb51-9" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">3</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">20</span>))</span>
-<span id="cb51-10"><a href="#cb51-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-11"><a href="#cb51-11" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">0</span>].imshow(red_mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb51-12"><a href="#cb51-12" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Red binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb51-13"><a href="#cb51-13" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">1</span>].imshow(red_masked, cmap<span class="op">=</span><span class="st">'Reds'</span>)</span>
-<span id="cb51-14"><a href="#cb51-14" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb51-15"><a href="#cb51-15" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">0</span>].imshow(green_mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb51-16"><a href="#cb51-16" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Green binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb51-17"><a href="#cb51-17" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">1</span>].imshow(green_masked, cmap<span class="op">=</span><span class="st">'Greens'</span>)</span>
-<span id="cb51-18"><a href="#cb51-18" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb51-19"><a href="#cb51-19" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">0</span>].imshow(blue_mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
-<span id="cb51-20"><a href="#cb51-20" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">0</span>].set_title(<span class="st">'Blue binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
-<span id="cb51-21"><a href="#cb51-21" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">1</span>].imshow(blue_masked, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
-<span id="cb51-22"><a href="#cb51-22" aria-hidden="true" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
-<span id="cb51-23"><a href="#cb51-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-24"><a href="#cb51-24" aria-hidden="true" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" tabindex="-1"></a>red_mask   <span class="op">=</span> red_channel   <span class="op">&gt;</span> <span class="dv">120</span></span>
+<span id="cb51-2"><a href="#cb51-2" tabindex="-1"></a>green_mask <span class="op">=</span> green_channel <span class="op">&gt;</span> <span class="dv">100</span></span>
+<span id="cb51-3"><a href="#cb51-3" tabindex="-1"></a>blue_mask  <span class="op">=</span> blue_channel  <span class="op">&gt;</span> <span class="dv">100</span></span>
+<span id="cb51-4"><a href="#cb51-4" tabindex="-1"></a></span>
+<span id="cb51-5"><a href="#cb51-5" tabindex="-1"></a>red_masked   <span class="op">=</span> red_channel<span class="op">*</span>red_mask</span>
+<span id="cb51-6"><a href="#cb51-6" tabindex="-1"></a>green_masked <span class="op">=</span> green_channel<span class="op">*</span>green_mask</span>
+<span id="cb51-7"><a href="#cb51-7" tabindex="-1"></a>blue_masked  <span class="op">=</span> blue_channel<span class="op">*</span>blue_mask</span>
+<span id="cb51-8"><a href="#cb51-8" tabindex="-1"></a></span>
+<span id="cb51-9"><a href="#cb51-9" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(nrows<span class="op">=</span><span class="dv">3</span>, ncols<span class="op">=</span><span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">18</span>, <span class="dv">20</span>))</span>
+<span id="cb51-10"><a href="#cb51-10" tabindex="-1"></a></span>
+<span id="cb51-11"><a href="#cb51-11" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">0</span>].imshow(red_mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb51-12"><a href="#cb51-12" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">0</span>].set_title(<span class="st">'Red binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb51-13"><a href="#cb51-13" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">1</span>].imshow(red_masked, cmap<span class="op">=</span><span class="st">'Reds'</span>)</span>
+<span id="cb51-14"><a href="#cb51-14" tabindex="-1"></a>ax[<span class="dv">0</span>, <span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb51-15"><a href="#cb51-15" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">0</span>].imshow(green_mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb51-16"><a href="#cb51-16" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">0</span>].set_title(<span class="st">'Green binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb51-17"><a href="#cb51-17" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">1</span>].imshow(green_masked, cmap<span class="op">=</span><span class="st">'Greens'</span>)</span>
+<span id="cb51-18"><a href="#cb51-18" tabindex="-1"></a>ax[<span class="dv">1</span>, <span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb51-19"><a href="#cb51-19" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">0</span>].imshow(blue_mask, cmap<span class="op">=</span><span class="st">'gray'</span>)</span>
+<span id="cb51-20"><a href="#cb51-20" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">0</span>].set_title(<span class="st">'Blue binary mask'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)</span>
+<span id="cb51-21"><a href="#cb51-21" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">1</span>].imshow(blue_masked, cmap<span class="op">=</span><span class="st">'Blues'</span>)</span>
+<span id="cb51-22"><a href="#cb51-22" tabindex="-1"></a>ax[<span class="dv">2</span>, <span class="dv">1</span>].set_title(<span class="st">'Masked image'</span>, fontsize<span class="op">=</span><span class="dv">16</span>)<span class="op">;</span></span>
+<span id="cb51-23"><a href="#cb51-23" tabindex="-1"></a></span>
+<span id="cb51-24"><a href="#cb51-24" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/03-image_handling-rendered-unnamed-chunk-36-39.png" width="1728" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
@@ -1160,15 +1160,15 @@ the resolution affect your results?</p></li>
 <div class="codewrapper sourceCode" id="cb52">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> <span class="bu">sum</span> <span class="im">as</span> numpy_sum</span>
-<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>total_pixels <span class="op">=</span> img_task.shape[<span class="dv">0</span>]<span class="op">*</span>img_task.shape[<span class="dv">1</span>]</span>
-<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>red_counts   <span class="op">=</span> numpy_sum(red_mask)</span>
-<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>green_counts <span class="op">=</span> numpy_sum(green_mask)</span>
-<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>blue_counts  <span class="op">=</span> numpy_sum(blue_mask)</span>
-<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Approximately </span><span class="sc">%d</span><span class="st">"</span><span class="op">%</span>(red_counts<span class="op">/</span>total_pixels<span class="op">*</span><span class="dv">100</span>)<span class="op">+</span><span class="st">"</span><span class="sc">% o</span><span class="st">f the image is synaptophysin"</span>)</span>
-<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Approximately </span><span class="sc">%d</span><span class="st">"</span><span class="op">%</span>(green_counts<span class="op">/</span>total_pixels<span class="op">*</span><span class="dv">100</span>)<span class="op">+</span><span class="st">"</span><span class="sc">% o</span><span class="st">f the image is IP3R"</span>)</span>
-<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Approximately </span><span class="sc">%d</span><span class="st">"</span><span class="op">%</span>(blue_counts<span class="op">/</span>total_pixels<span class="op">*</span><span class="dv">100</span>)<span class="op">+</span><span class="st">"</span><span class="sc">% o</span><span class="st">f the image is DNA"</span>)</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb52-1"><a href="#cb52-1" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> <span class="bu">sum</span> <span class="im">as</span> numpy_sum</span>
+<span id="cb52-2"><a href="#cb52-2" tabindex="-1"></a>total_pixels <span class="op">=</span> img_task.shape[<span class="dv">0</span>]<span class="op">*</span>img_task.shape[<span class="dv">1</span>]</span>
+<span id="cb52-3"><a href="#cb52-3" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" tabindex="-1"></a>red_counts   <span class="op">=</span> numpy_sum(red_mask)</span>
+<span id="cb52-5"><a href="#cb52-5" tabindex="-1"></a>green_counts <span class="op">=</span> numpy_sum(green_mask)</span>
+<span id="cb52-6"><a href="#cb52-6" tabindex="-1"></a>blue_counts  <span class="op">=</span> numpy_sum(blue_mask)</span>
+<span id="cb52-7"><a href="#cb52-7" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Approximately </span><span class="sc">%d</span><span class="st">"</span><span class="op">%</span>(red_counts<span class="op">/</span>total_pixels<span class="op">*</span><span class="dv">100</span>)<span class="op">+</span><span class="st">"</span><span class="sc">% o</span><span class="st">f the image is synaptophysin"</span>)</span>
+<span id="cb52-8"><a href="#cb52-8" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Approximately </span><span class="sc">%d</span><span class="st">"</span><span class="op">%</span>(green_counts<span class="op">/</span>total_pixels<span class="op">*</span><span class="dv">100</span>)<span class="op">+</span><span class="st">"</span><span class="sc">% o</span><span class="st">f the image is IP3R"</span>)</span>
+<span id="cb52-9"><a href="#cb52-9" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Approximately </span><span class="sc">%d</span><span class="st">"</span><span class="op">%</span>(blue_counts<span class="op">/</span>total_pixels<span class="op">*</span><span class="dv">100</span>)<span class="op">+</span><span class="st">"</span><span class="sc">% o</span><span class="st">f the image is DNA"</span>)</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1271,7 +1271,7 @@ any links that you are not going to use.
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/03-image_handling.html",
   "dateCreated": "2024-01-18",
   "dateModified": "2024-02-27",
-  "datePublished": "2024-02-27"
+  "datePublished": "2024-03-05"
 }
 
   </script><script>

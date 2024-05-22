@@ -77,7 +77,7 @@
       </fieldset>
     </form>
     -->
-    <a class="btn btn-primary" href="../aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
+    <a class="btn btn-primary" href="../instructor/aio.html" role="button" aria-label="Search the All In One page">Search the All In One page</a>
   </div><!--/div.container-fluid -->
 </nav><div class="col-md-12 mobile-title">
   Data Handling
@@ -258,7 +258,7 @@
       </div>
       <hr></nav><main id="main-content" class="main-content"><div class="container lesson-content">
         <h1>Data Frames - Part 2</h1>
-        <p>Last updated on 2024-05-15 |
+        <p>Last updated on 2024-05-22 |
         
         <a href="https://github.com/carpentries/workbench-template-rmd/edit/main/episodes/02-data_frames_2.Rmd" class="external-link">Edit this page <i aria-hidden="true" data-feather="edit"></i></a></p>
         
@@ -1053,9 +1053,9 @@ coefficients for <span class="math inline">\(N\)</span> columns.
 <span id="cb28-3"><a href="#cb28-3" tabindex="-1"></a>df.corr()</span></code></pre>
 </div>
 <div class="codewrapper">
-<h3 class="code-label">ERROR<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
+<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="error" tabindex="0"><code>Error: ValueError: could not convert string to float: 'Male'</code></pre>
+<pre class="output" tabindex="0"><code>ValueError: could not convert string to float: 'Male'</code></pre>
 </div>
 <p style="text-align: justify;">
 If we do the calculation with the Pandas dataframe, the ‘Gender’ is
@@ -1372,11 +1372,10 @@ type.
 <div class="codewrapper sourceCode" id="cb46">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a></span>
-<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a><span class="co"># Average of the correlation strengths</span></span>
-<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a>corr_matrix_average <span class="op">=</span> mean(corr_matrix_abs)</span>
-<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a></span>
-<span id="cb46-5"><a href="#cb46-5" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Average correlation strength: '</span>, <span class="bu">round</span>(corr_matrix_average, <span class="dv">3</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb46-1"><a href="#cb46-1" tabindex="-1"></a><span class="co"># Average of the correlation strengths</span></span>
+<span id="cb46-2"><a href="#cb46-2" tabindex="-1"></a>corr_matrix_average <span class="op">=</span> mean(corr_matrix_abs)</span>
+<span id="cb46-3"><a href="#cb46-3" tabindex="-1"></a></span>
+<span id="cb46-4"><a href="#cb46-4" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Average correlation strength: '</span>, <span class="bu">round</span>(corr_matrix_average, <span class="dv">3</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1576,20 +1575,15 @@ max          28.11         39.28  ...                 0.20           0.30
 <span id="cb56-6"><a href="#cb56-6" tabindex="-1"></a></span>
 <span id="cb56-7"><a href="#cb56-7" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<div class="codewrapper">
-<h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
-</h3>
-<pre class="output" tabindex="0"><code>&lt;BarContainer object of 9 artists&gt;</code></pre>
-</div>
 <figure><img src="../fig/02-data_frames_2-rendered-unnamed-chunk-35-27.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="q3-1">Q3<a class="anchor" aria-label="anchor" href="#q3-1"></a></h3>
-<div class="codewrapper sourceCode" id="cb58">
+<div class="codewrapper sourceCode" id="cb57">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb58-1"><a href="#cb58-1" tabindex="-1"></a>bc_numpy <span class="op">=</span> df_bc.to_numpy()</span>
-<span id="cb58-2"><a href="#cb58-2" tabindex="-1"></a></span>
-<span id="cb58-3"><a href="#cb58-3" tabindex="-1"></a>bc_numpy.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" tabindex="-1"></a>bc_numpy <span class="op">=</span> df_bc.to_numpy()</span>
+<span id="cb57-2"><a href="#cb57-2" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="#cb57-3" tabindex="-1"></a>bc_numpy.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1599,12 +1593,12 @@ max          28.11         39.28  ...                 0.20           0.30
 </div>
 <div class="section level3">
 <h3 id="q4">Q4<a class="anchor" aria-label="anchor" href="#q4"></a></h3>
-<div class="codewrapper sourceCode" id="cb60">
+<div class="codewrapper sourceCode" id="cb59">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb60-1"><a href="#cb60-1" tabindex="-1"></a>bc_corr <span class="op">=</span> corrcoef(bc_numpy, rowvar<span class="op">=</span><span class="va">False</span>)</span>
-<span id="cb60-2"><a href="#cb60-2" tabindex="-1"></a></span>
-<span id="cb60-3"><a href="#cb60-3" tabindex="-1"></a>bc_corr.shape</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb59-1"><a href="#cb59-1" tabindex="-1"></a>bc_corr <span class="op">=</span> corrcoef(bc_numpy, rowvar<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb59-2"><a href="#cb59-2" tabindex="-1"></a></span>
+<span id="cb59-3"><a href="#cb59-3" tabindex="-1"></a>bc_corr.shape</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1614,45 +1608,45 @@ max          28.11         39.28  ...                 0.20           0.30
 </div>
 <div class="section level3">
 <h3 id="q5">Q5<a class="anchor" aria-label="anchor" href="#q5"></a></h3>
-<div class="codewrapper sourceCode" id="cb62">
+<div class="codewrapper sourceCode" id="cb61">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> fill_diagonal</span>
-<span id="cb62-2"><a href="#cb62-2" tabindex="-1"></a></span>
-<span id="cb62-3"><a href="#cb62-3" tabindex="-1"></a>fill_diagonal(bc_corr, <span class="dv">0</span>)</span>
-<span id="cb62-4"><a href="#cb62-4" tabindex="-1"></a></span>
-<span id="cb62-5"><a href="#cb62-5" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span>
-<span id="cb62-6"><a href="#cb62-6" tabindex="-1"></a></span>
-<span id="cb62-7"><a href="#cb62-7" tabindex="-1"></a>im <span class="op">=</span> ax.imshow(bc_corr, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)<span class="op">;</span></span>
-<span id="cb62-8"><a href="#cb62-8" tabindex="-1"></a></span>
-<span id="cb62-9"><a href="#cb62-9" tabindex="-1"></a>fig.colorbar(im, orientation<span class="op">=</span><span class="st">'horizontal'</span>, shrink<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></span>
-<span id="cb62-10"><a href="#cb62-10" tabindex="-1"></a></span>
-<span id="cb62-11"><a href="#cb62-11" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb61-1"><a href="#cb61-1" tabindex="-1"></a><span class="im">from</span> numpy <span class="im">import</span> fill_diagonal</span>
+<span id="cb61-2"><a href="#cb61-2" tabindex="-1"></a></span>
+<span id="cb61-3"><a href="#cb61-3" tabindex="-1"></a>fill_diagonal(bc_corr, <span class="dv">0</span>)</span>
+<span id="cb61-4"><a href="#cb61-4" tabindex="-1"></a></span>
+<span id="cb61-5"><a href="#cb61-5" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots(figsize<span class="op">=</span>(<span class="dv">7</span>,<span class="dv">7</span>))</span>
+<span id="cb61-6"><a href="#cb61-6" tabindex="-1"></a></span>
+<span id="cb61-7"><a href="#cb61-7" tabindex="-1"></a>im <span class="op">=</span> ax.imshow(bc_corr, cmap<span class="op">=</span><span class="st">'coolwarm'</span>)<span class="op">;</span></span>
+<span id="cb61-8"><a href="#cb61-8" tabindex="-1"></a></span>
+<span id="cb61-9"><a href="#cb61-9" tabindex="-1"></a>fig.colorbar(im, orientation<span class="op">=</span><span class="st">'horizontal'</span>, shrink<span class="op">=</span><span class="fl">0.7</span>)<span class="op">;</span></span>
+<span id="cb61-10"><a href="#cb61-10" tabindex="-1"></a></span>
+<span id="cb61-11"><a href="#cb61-11" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="../fig/02-data_frames_2-rendered-unnamed-chunk-38-29.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure></div>
 <div class="section level3">
 <h3 id="q6">Q6<a class="anchor" aria-label="anchor" href="#q6"></a></h3>
-<div class="codewrapper sourceCode" id="cb63">
+<div class="codewrapper sourceCode" id="cb62">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a>bc_column_average <span class="op">=</span> mean(<span class="bu">abs</span>(bc_corr), axis<span class="op">=</span><span class="dv">0</span>)</span>
-<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a></span>
-<span id="cb63-3"><a href="#cb63-3" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span>
-<span id="cb63-4"><a href="#cb63-4" tabindex="-1"></a></span>
-<span id="cb63-5"><a href="#cb63-5" tabindex="-1"></a>bins <span class="op">=</span> arange(<span class="bu">len</span>(bc_column_average))</span>
-<span id="cb63-6"><a href="#cb63-6" tabindex="-1"></a></span>
-<span id="cb63-7"><a href="#cb63-7" tabindex="-1"></a>ax.bar(bins, bc_column_average)<span class="op">;</span></span>
-<span id="cb63-8"><a href="#cb63-8" tabindex="-1"></a>ax.set_title(<span class="st">'Average Correlation Strength per Column'</span>)<span class="op">;</span></span>
-<span id="cb63-9"><a href="#cb63-9" tabindex="-1"></a></span>
-<span id="cb63-10"><a href="#cb63-10" tabindex="-1"></a>show()</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb62-1"><a href="#cb62-1" tabindex="-1"></a>bc_column_average <span class="op">=</span> mean(<span class="bu">abs</span>(bc_corr), axis<span class="op">=</span><span class="dv">0</span>)</span>
+<span id="cb62-2"><a href="#cb62-2" tabindex="-1"></a></span>
+<span id="cb62-3"><a href="#cb62-3" tabindex="-1"></a>fig, ax <span class="op">=</span> subplots()</span>
+<span id="cb62-4"><a href="#cb62-4" tabindex="-1"></a></span>
+<span id="cb62-5"><a href="#cb62-5" tabindex="-1"></a>bins <span class="op">=</span> arange(<span class="bu">len</span>(bc_column_average))</span>
+<span id="cb62-6"><a href="#cb62-6" tabindex="-1"></a></span>
+<span id="cb62-7"><a href="#cb62-7" tabindex="-1"></a>ax.bar(bins, bc_column_average)<span class="op">;</span></span>
+<span id="cb62-8"><a href="#cb62-8" tabindex="-1"></a>ax.set_title(<span class="st">'Average Correlation Strength per Column'</span>)<span class="op">;</span></span>
+<span id="cb62-9"><a href="#cb62-9" tabindex="-1"></a></span>
+<span id="cb62-10"><a href="#cb62-10" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="../fig/02-data_frames_2-rendered-unnamed-chunk-39-31.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb64">
+<figure><img src="../fig/02-data_frames_2-rendered-unnamed-chunk-39-31.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><div class="codewrapper sourceCode" id="cb63">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
-<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb64-1"><a href="#cb64-1" tabindex="-1"></a><span class="co"># Average of the correlation strengths</span></span>
-<span id="cb64-2"><a href="#cb64-2" tabindex="-1"></a>bc_corr_matrix_average <span class="op">=</span> mean(<span class="bu">abs</span>(bc_corr))</span>
-<span id="cb64-3"><a href="#cb64-3" tabindex="-1"></a></span>
-<span id="cb64-4"><a href="#cb64-4" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Average Correlation Strength: '</span>, <span class="bu">round</span>(bc_corr_matrix_average, <span class="dv">3</span>))</span></code></pre>
+<pre class="sourceCode python" tabindex="0"><code class="sourceCode python"><span id="cb63-1"><a href="#cb63-1" tabindex="-1"></a><span class="co"># Average of the correlation strengths</span></span>
+<span id="cb63-2"><a href="#cb63-2" tabindex="-1"></a>bc_corr_matrix_average <span class="op">=</span> mean(<span class="bu">abs</span>(bc_corr))</span>
+<span id="cb63-3"><a href="#cb63-3" tabindex="-1"></a></span>
+<span id="cb63-4"><a href="#cb63-4" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'Average Correlation Strength: '</span>, <span class="bu">round</span>(bc_corr_matrix_average, <span class="dv">3</span>))</span></code></pre>
 </div>
 <div class="codewrapper">
 <h3 class="code-label">OUTPUT<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -1710,7 +1704,7 @@ any links that you are not going to use.
       </div><!--/div.row-->
       		<footer class="row footer mx-md-3"><hr><div class="col-md-6">
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/a32a7836d4455f407c3cafe8ab95edc636e5e919" class="external-link">pegboard (0.7.5)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/984327b741b11dcc2f17455c8df498d5aa583c95" class="external-link">varnish (1.0.2)</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.4)</a>, <a href="https://github.com/carpentries/pegboard/tree/a32a7836d4455f407c3cafe8ab95edc636e5e919" class="external-link">pegboard (0.7.5)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/08cf866453c1c17dca9cb07d7037476b97ac8afb" class="external-link">varnish (1.0.2)</a></p>
 			</div>
 		</footer></div> <!-- / div.container -->
 	<div id="to-top">
@@ -1731,9 +1725,9 @@ any links that you are not going to use.
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-rmd/instructor/02-data_frames_2.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/instructor/02-data_frames_2.html",
-  "dateCreated": "2024-01-18",
-  "dateModified": "2024-05-15",
-  "datePublished": "2024-05-15"
+  "dateCreated": "2024-05-22",
+  "dateModified": "2024-05-22",
+  "datePublished": "2024-05-22"
 }
 
   </script><script>

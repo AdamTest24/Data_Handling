@@ -91,7 +91,7 @@ First, we want to read in an image. For this part of the lesson, we use a histol
 </p>
 
 
-```python
+``` python
 from matplotlib.image import imread
 
 img = imread('fig/axon_slice.jpg')
@@ -101,11 +101,11 @@ We can check what type of variable this is:
 
 
 
-```python
+``` python
 print(type(img))
 ```
 
-```{.output}
+``` output
 <class 'numpy.ndarray'>
 ```
 
@@ -113,11 +113,11 @@ This tells us that the image is stored in a Numpy array. We can check some other
 
 
 
-```python
+``` python
 print(img.shape)
 ```
 
-```{.output}
+``` output
 (2300, 3040)
 ```
 
@@ -126,7 +126,7 @@ This tells us that our image is composed of 2300 by 3040 data units, or _pixels_
 </p>
 
 
-```python
+``` python
 from matplotlib.pyplot import subplots, show
 
 fig, ax = subplots(figsize=(25, 15))
@@ -143,7 +143,7 @@ show()
 </p>
 
 
-```python
+``` python
 from matplotlib.pyplot import subplots, show
 
 fig, ax = subplots(figsize=(25, 15))
@@ -160,7 +160,7 @@ With `img[:50, :70]` we select the first 50 values from the first dimension, and
 </p>
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img[:20, :15], cmap='gray');
@@ -175,11 +175,11 @@ This is a small section from that same upper left corner. Each square is a pixel
 </p>
 
 
-```python
+``` python
 print(img[:20, :15])
 ```
 
-```{.output}
+``` output
 [[ 18   9   3   4   4   1   2   7   6   8  10  12  13  14  13]
  [ 14   7   3   4   4   2   2   6   6   7   9  11  12  12  12]
  [  8   3   1   3   5   3   2   4   6   7   8   9  10  10   9]
@@ -209,12 +209,15 @@ We chose `cmap = gray`, which assigns darker grey colours to smaller numbers, an
 </p>
 
 
-```python
+``` python
 fig, ax = subplots(nrows=1, ncols=2, figsize=(25, 15))
 
 p1 = ax[0].imshow(img[:20, :15], cmap='viridis')
 p2 = ax[1].imshow(img[:20, :15], cmap='magma')
 fig.colorbar(p1, ax=ax[0], shrink = 0.8)
+```
+
+``` python
 fig.colorbar(p2, ax=ax[1], shrink = 0.8);
 
 show()
@@ -237,7 +240,7 @@ As a first approach, we can plot a histogram of the original image intensities. 
 The histogram plot shows how many of each of the intensities are found in this image:
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(10, 4))
 
 ax.hist(img.flatten(), bins = 50)
@@ -258,7 +261,7 @@ Based on the histogram above, we might try to adjust that threshold somewhere be
 </p>
 
 
-```python
+``` python
 threshold = 125
 
 mask = img < threshold
@@ -287,7 +290,7 @@ Let's have a look at the resulting image histograms.
 
 
 
-```python
+``` python
 fig, ax = subplots(nrows=1, ncols=2, figsize=(20, 5))
 
 ax[0].hist(img_masked.flatten(), bins=50)
@@ -313,13 +316,13 @@ Often we want to work with colour images. So far, our image had a single intensi
 </p>
 
 
-```python
+``` python
 img_col = imread('fig/rat_brain_low_res.jpg')
 
 img_col.shape
 ```
 
-```{.output}
+``` output
 (929, 1000, 3)
 ```
 
@@ -330,7 +333,7 @@ First, let us plot the whole image.
 
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_col);
@@ -346,7 +349,7 @@ Now we can visualise the three colour channels individually by slicing the Numpy
 </p>
 
 
-```python
+``` python
 red_channel   = img_col[:, :, 0]
 green_channel = img_col[:, :, 1]
 blue_channel  = img_col[:, :, 2]
@@ -354,7 +357,7 @@ blue_channel  = img_col[:, :, 2]
 
 
 
-```python
+``` python
 fig, ax = subplots(nrows=1, ncols=3, figsize=(20, 10))
 
 imgplot_red = ax[0].imshow(red_channel, cmap="Reds")
@@ -362,7 +365,13 @@ imgplot_green = ax[1].imshow(green_channel, cmap="Greens")
 imgplot_blue = ax[2].imshow(blue_channel, cmap="Blues")
 
 fig.colorbar(imgplot_red, ax=ax[0], shrink=0.4)
+```
+
+``` python
 fig.colorbar(imgplot_green, ax=ax[1], shrink=0.4)
+```
+
+``` python
 fig.colorbar(imgplot_blue, ax=ax[2], shrink=0.4);
 
 show()
@@ -377,7 +386,7 @@ This shows what colour combinations each of the pixels is made up of. Notice tha
 We can plot histograms of each of the colour channels.
 
 
-```python
+``` python
 fig, ax = subplots(nrows=1, ncols=3, figsize=(20, 5))
 
 ax[0].hist(red_channel.flatten(), bins=50)
@@ -401,17 +410,14 @@ Sometimes (or quite often, depending on the field of research), we have to deal 
 </p>
 
 
-```python
+``` python
 img_hr = imread('fig/rat_brain.jpg')
 img_hr.shape
 ```
 
-```{.error}
-Error: PIL.Image.DecompressionBombError: Image size (324649360 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack.
-```
-
-```{.error}
-Error: NameError: name 'img_hr' is not defined
+``` output
+PIL.Image.DecompressionBombError: Image size (324649360 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack.
+NameError: name 'img_hr' is not defined
 ```
 
 <p style='text-align: justify;'>
@@ -423,7 +429,7 @@ We can get around this by changing the maximum pixel limit as follows.
 To do this, we import Image from the Python Image Library PIL:
 
 
-```python
+``` python
 from PIL import Image
 
 Image.MAX_IMAGE_PIXELS = 1000000000
@@ -433,19 +439,19 @@ Let's try again. Be patient, it might take a moment.
 
 
 
-```python
+``` python
 img_hr = imread('fig/rat_brain.jpg')
 img_hr.shape
 ```
 
-```{.output}
+``` output
 (17360, 18701, 3)
 ```
 
 Now we can plot the full high-resolution image:
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_hr, cmap='gray');
@@ -462,21 +468,21 @@ Although now we can plot this image, it consists of over 300 million pixels, and
 We use `resize` to downsample the image:
 
 
-```python
+``` python
 img_pil = Image.open('fig/rat_brain.jpg')
 img_small = img_pil.resize((174, 187))
 
 print(type(img_small))
 ```
 
-```{.output}
+``` output
 <class 'PIL.Image.Image'>
 ```
 
 Plotting should now be quicker.
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_small, cmap='gray');
@@ -491,7 +497,7 @@ With this code, we have resized the image to 174 by 187 pixels. We should be awa
 </p>
 
 
-```python
+``` python
 from numpy import array
 
 img_numpy = array(img_small)
@@ -499,7 +505,7 @@ img_numpy = array(img_small)
 print(type(img_numpy))
 ```
 
-```{.output}
+``` output
 <class 'numpy.ndarray'>
 ```
 
@@ -510,7 +516,7 @@ Often, we like to have full resolution images, as resizing causes a loss of info
 For this, we can use functionality from the [Scikit-Learn](https://scikit-learn.org/stable/) library.
 
 
-```python
+``` python
 from sklearn.feature_extraction.image import extract_patches_2d
 ```
 
@@ -518,19 +524,19 @@ from sklearn.feature_extraction.image import extract_patches_2d
 
 
 
-```python
+``` python
 patches = extract_patches_2d(img_hr, (174, 187), max_patches=100)
 patches.shape
 ```
 
-```{.output}
+``` output
 (100, 174, 187, 3)
 ```
 
 Note that patching itself can be a memory-intensive task. Extracting lots and lots of patches might take a long time. To look at the patches we can use a for loop:
 
 
-```python
+``` python
 fig, ax = subplots(nrows=10, ncols=10, figsize=(25, 25))
 
 ax = ax.flatten()
@@ -570,14 +576,14 @@ pip install nibabel
 in your command line or terminal.
 
 
-```python
+``` python
 import nibabel as nib
 ```
 
 The package is now available for use. If a function comes from that package, we call it by referring to the package using `nib`, followed by a period and the name of the function:
 
 
-```python
+``` python
 img_3d = nib.load('fig/brain.nii')
 
 img_data = img_3d.get_fdata()
@@ -585,15 +591,15 @@ img_data = img_3d.get_fdata()
 print(type(img_data))
 ```
 
-```{.output}
+``` output
 <class 'numpy.memmap'>
 ```
 
-```python
+``` python
 print(img_data.shape)
 ```
 
-```{.output}
+``` output
 (256, 256, 124)
 ```
 
@@ -602,7 +608,7 @@ We can see that this image has three dimensions, and a total of 256 x 256 x 124 
 </p>
 
 
-```python
+``` python
 fig, ax = subplots(ncols=3, figsize=(25, 15))
 
 p1 = ax[0].imshow(img_data[:, :, 60], cmap='gray')
@@ -610,7 +616,13 @@ p2 = ax[1].imshow(img_data[:, :, 75], cmap='gray')
 p3 = ax[2].imshow(img_data[:, :, 90], cmap='gray')
 
 fig.colorbar(p1, ax=ax[0], shrink=0.4)
+```
+
+``` python
 fig.colorbar(p2, ax=ax[1], shrink=0.4)
+```
+
+``` python
 fig.colorbar(p3, ax=ax[2], shrink=0.4);
 
 show()
@@ -627,7 +639,7 @@ These look fairly dark. We can improve the contrast, by adjusting the intensity 
 Expanding the above code:
 
 
-```python
+``` python
 fig, ax = subplots(ncols=3, figsize=(25, 15))
 
 p1 = ax[0].imshow(img_data[:, :, 60], cmap='gray', vmin=0, vmax=150)
@@ -635,7 +647,13 @@ p2 = ax[1].imshow(img_data[:, :, 75], cmap='gray', vmin=0, vmax=150)
 p3 = ax[2].imshow(img_data[:, :, 90], cmap='gray', vmin=0, vmax=150)
 
 fig.colorbar(p1, ax=ax[0], shrink=0.4)
+```
+
+``` python
 fig.colorbar(p2, ax=ax[1], shrink=0.4)
+```
+
+``` python
 fig.colorbar(p3, ax=ax[2], shrink=0.4);
 
 show()
@@ -646,7 +664,7 @@ show()
 What about the other dimensions? We can also plot coronal and sagittal slices but note that the respective slices have different pixel resolution.
 
 
-```python
+``` python
 fig, ax = subplots(nrows=3, ncols=5, figsize=(26, 18))
 
 t1 = ax[0, 0].imshow(img_data[:, :, 45].T, cmap='gray', vmin=0, vmax=150, origin='lower')
@@ -706,7 +724,7 @@ Using the image from the beginning of this lesson, "rat_cerebellum.jpg", do the 
 ### Q1
 
 
-```python
+``` python
 ## Import the image
 from matplotlib.image import imread
 
@@ -714,7 +732,7 @@ img_task = imread('fig/rat_cerebellum.jpg')
 ```
 
 
-```python
+``` python
 ## Display the image
 
 from matplotlib.pyplot import subplots, show
@@ -731,7 +749,7 @@ show()
 ### Q2
 
 
-```python
+``` python
 red_channel   = img_task[:, :, 0]
 green_channel = img_task[:, :, 1]
 blue_channel  = img_task[:, :, 2]
@@ -754,14 +772,20 @@ show()
 <img src="fig/03-image_handling-rendered-unnamed-chunk-34-35.png" width="1920" style="display: block; margin: auto;" />
 
 
-```python
+``` python
 fig, ax = subplots(ncols=3, figsize=(20, 10))
 
 imgplot_red   = ax[0].imshow(red_channel, cmap="Reds")
 imgplot_green = ax[1].imshow(green_channel, cmap="Greens")
 imgplot_blue  = ax[2].imshow(blue_channel, cmap="Blues")
 fig.colorbar(imgplot_red,   ax=ax[0], shrink=0.5)
+```
+
+``` python
 fig.colorbar(imgplot_green, ax=ax[1], shrink=0.5)
+```
+
+``` python
 fig.colorbar(imgplot_blue,  ax=ax[2], shrink=0.5);
 
 show()
@@ -772,7 +796,7 @@ show()
 ### Q3-4
 
 
-```python
+``` python
 red_mask   = red_channel   > 120
 green_mask = green_channel > 100
 blue_mask  = blue_channel  > 100
@@ -804,7 +828,7 @@ show()
 ### Q5
 
 
-```python
+``` python
 from numpy import sum as numpy_sum
 total_pixels = img_task.shape[0]*img_task.shape[1]
 
@@ -816,7 +840,7 @@ print("Approximately %d"%(green_counts/total_pixels*100)+"% of the image is IP3R
 print("Approximately %d"%(blue_counts/total_pixels*100)+"% of the image is DNA")
 ```
 
-```{.output}
+``` output
 Approximately 13% of the image is synaptophysin
 Approximately 34% of the image is IP3R
 Approximately 18% of the image is DNA

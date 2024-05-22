@@ -55,7 +55,7 @@ exercises: 60
 ::::::::::::::::::
 
 
-```python
+``` python
 from pandas import read_csv
 
 from numpy import arange, zeros, linspace, sin, pi, c_, mean, var, array
@@ -75,7 +75,7 @@ Please execute the following function definition before proceeding. The function
 </p>
 
 
-```python
+``` python
 def plot_series(data, sr):
     '''
     Time series plot of multiple time series
@@ -126,7 +126,7 @@ As an example, let us import two sets of time series data and convert them to Nu
 </p>
 
 
-```python
+``` python
 df_back = read_csv("data/EEG_background.txt", delim_whitespace=True)
 df_epil = read_csv("data/EEG_absence.txt", delim_whitespace=True)
 
@@ -154,11 +154,11 @@ The data are then converted from a data frame to Numpy arrays.
 To see the names of the channels (or recording sensors) we can use `head`.
 
 
-```python
+``` python
 df_back.head()
 ```
 
-```{.output}
+``` output
        FP1      FP2        F3       F4  ...      EO2      EM1      EM2      PHO
 0  -7.4546  22.8428   6.28159  15.6212  ...  13.7021  12.9109  13.7034  9.37573
 1 -11.1060  21.4828   6.89088  15.0562  ...  13.7942  13.0194  13.7628  9.44731
@@ -178,7 +178,7 @@ We can now use the plot function from above to plot the data. Note from the defi
 </p>
 
 
-```python
+``` python
 plot_series(data_back, sr)
 show()
 ```
@@ -186,7 +186,7 @@ show()
 <img src="fig/04-time_series-rendered-unnamed-chunk-5-1.png" width="672" style="display: block; margin: auto;" />
 
 
-```python
+``` python
 plot_series(data_epil, sr);
 show()
 ```
@@ -232,11 +232,11 @@ As a bivariate feature we can use the cross-correlation matrix.
 Check the Numpy array containing the background and seizure data.
 
 
-```python
+``` python
 print(data_back.shape, data_epil.shape)
 ```
 
-```{.output}
+``` output
 (1536, 10) (1536, 10)
 ```
 
@@ -251,7 +251,7 @@ Take a look at the code of the function `plot_series` that creates the time seri
 The sensors or recording channels are assumed to be in the columns.
 
 
-```python
+``` python
 def plot_series(data, sr):
     '''
     Time series plot of multiple time series
@@ -307,7 +307,7 @@ Here is how to call the function and then add a title and the sensor names to th
 
 
 
-```python
+``` python
 (fig, ax) = plot_series(data_epil, sr)
 
 names = df_back.columns[:channels]
@@ -356,7 +356,7 @@ Here is a simple function which takes two additional input arguments, the low an
 
 
 
-```python
+``` python
 def data_filter(data, sr, low, high):
     """
     Filtering of multiple time series.
@@ -390,7 +390,7 @@ def data_filter(data, sr, low, high):
 
 
 
-```python
+``` python
 data_back_filt = data_filter(data_back, sr, 8, 13)
 
 (fig, ax) = plot_series(data_back_filt, sr)
@@ -419,7 +419,7 @@ Create figures of the delta (1-4 Hz) band for both the background and the seizur
 ## DIY ANSWER
 
 
-```python
+``` python
 data_back_filt = data_filter(data_back, sr, 1, 4)
 
 (fig, ax) = plot_series(data_back_filt, sr)
@@ -434,7 +434,7 @@ show()
 <img src="fig/04-time_series-rendered-unnamed-chunk-12-9.png" width="672" style="display: block; margin: auto;" />
 
 
-```python
+``` python
 data_epil_filt = data_filter(data_epil, sr, 1, 4)
 
 (fig, ax) = plot_series(data_epil_filt, sr)
@@ -467,7 +467,7 @@ We import the Fourier transform function `fft` from __scipy.fftpack__ and can us
 
 
 
-```python
+``` python
 from scipy.fftpack import fft
 
 data_back_fft = fft(data_back, axis=0)
@@ -485,7 +485,7 @@ Third, the Fourier transform outputs complex numbers. To display the 'amplitude'
 </p>
 
 
-```python
+``` python
 no_win = 2
 
 rows = data_back.shape[0]
@@ -517,12 +517,12 @@ Let us compare the corresponding figure for the case of seizure activity:
 
 
 
-```python
+``` python
 data_epil_fft = fft(data_epil, axis=0)
 ```
 
 
-```python
+``` python
 fig, axes = subplots(figsize=(6, 5), ncols=1, nrows=no_win, sharex=False)
 
 names = df_epil.columns[:2]
@@ -547,7 +547,7 @@ As we can see above in the Fourier spectra above, the amplitudes are high for lo
 </p>
 
 
-```python
+``` python
 fig, axes = subplots(figsize=(6, 6), ncols=1, nrows=no_win, sharex=False)
 
 for index, ax in enumerate(axes.flat):
@@ -568,8 +568,7 @@ show()
 And for the seizure data:
 
 
-```python
-
+``` python
 fig, axes = subplots(figsize=(6, 10), ncols=1, nrows=no_win, sharex=False)
 
 for index, ax in enumerate(axes.flat):
@@ -601,7 +600,7 @@ Calculate and display the Fourier spectra of the first two channels filtered bet
 
 ::::::::::::::::: solution
 
-```python
+``` python
 data_epil_filt = data_filter(data_epil, sr, 4, 12)
 
 data_epil_fft = fft(data_epil_filt, axis=0)
@@ -637,7 +636,7 @@ As one example of a multivariate analysis of time series data, we can calculate 
 Here it is done for the background:
 
 
-```python
+``` python
 corr_matrix_back = corrcoef(data_back, rowvar=False)
 
 fill_diagonal(corr_matrix_back, 0)
@@ -676,7 +675,7 @@ Calculate the correlation matrix for the seizure data and compare the correlatio
 ## DIY ANSWER
 
 
-```python
+``` python
 corr_matrix_epil = corrcoef(data_epil, rowvar=False)
 
 fill_diagonal(corr_matrix_epil, 0)
@@ -720,7 +719,7 @@ Look at the image of brain activity from a child at the start of an epileptic se
 
 
 
-```python
+``` python
 path = 'data/P1_Seizure1.csv'
 
 data = read_csv(path, delimiter=r"\s+")
@@ -758,7 +757,7 @@ Using the code from this lesson, import the data from the file `P1_Seizure1.csv`
 ## Please check these solutions only after submitting the assignments.
 
 
-```python
+``` python
 from pandas import read_csv
 
 from numpy import arange, zeros, linspace, sin, pi, c_, mean, var, array
@@ -776,7 +775,7 @@ from matplotlib.pyplot import subplots, yticks, legend, axis, figure, show
 ### Q1
 ### Extract data for first and last two seconds
 
-```python
+``` python
 sr = 1024
 
 duration = 2 # seconds
@@ -791,7 +790,7 @@ time = linspace(0, 1, duration*sr)
 print(dat_back.shape, dat_epil.shape, time.shape)
 ```
 
-```{.output}
+``` output
 (2048, 10) (2048, 10) (2048,)
 ```
 
@@ -800,7 +799,7 @@ print(dat_back.shape, dat_epil.shape, time.shape)
 ### Filter and display data
 
 
-```python
+``` python
 def data_filter(data, sr, low, high):
     """
     Filtering of multiple time series.
@@ -833,7 +832,7 @@ def data_filter(data, sr, low, high):
 ```
 
 
-```python
+``` python
 
 dat_back_filt = data_filter(dat_back, sr, 1, 20)
 
@@ -847,7 +846,7 @@ show()
 <img src="fig/04-time_series-rendered-unnamed-chunk-27-29.png" width="672" style="display: block; margin: auto;" />
 
 
-```python
+``` python
 dat_epil_filt = data_filter(dat_epil, sr, 1, 20)
 
 (fig, ax) = plot_series(dat_epil_filt, sr)
@@ -863,7 +862,7 @@ show()
 ### Fourier Transform
 
 
-```python
+``` python
 rows = dat_back.shape[0]
 
 dat_back_fft = fft(dat_back_filt, axis=0)
@@ -880,7 +879,7 @@ You can see the frequencies with largest power visually from a display of the Fo
 </p>
 
 
-```python
+``` python
 # Get the maxima of powers for each channel
 
 powermax_back2 = amax(powers_back2, axis=0)
@@ -929,7 +928,7 @@ ax[1].set(xlabel='Frequency (Hz), Seizure');
 show()
 ```
 
-```{.output}
+``` output
 Frequencies of max power in background (Hz):  
  [ 2.5 11.   4.5 10.5 10.5  1.5 10.5 10.5 10.5 11. ]
 
@@ -946,7 +945,7 @@ Frequencies of max power in seizure (Hz):
 ### Fourier spectrum with max frequency
 
 
-```python
+``` python
 print('Maximum count: background: ', amax(counts1))
 
 print('Maximum count: seizure:    ', amax(counts2))
@@ -956,7 +955,7 @@ print('Frequency with maximum count: background: ', '10-11 Hz')
 print('Frequency with maximum count: seizure:    ', ' 7- 8 Hz')
 ```
 
-```{.output}
+``` output
 Maximum count: background:  5.0
 Maximum count: seizure:     3.0
 Frequency with maximum count: background:  10-11 Hz
@@ -965,29 +964,49 @@ Frequency with maximum count: seizure:      7- 8 Hz
 
 
 
-```python
+``` python
 freqs = (sr/2)*linspace(0, 1, int(rows/2))
 
 fig, axes = subplots(figsize=(6, 14), ncols=1, nrows=4, sharex=False)
 
 axes[0].plot(freqs, powers_back2[:, 3])
 axes[0].set_xlim(0, 20)
+```
+
+``` python
 axes[0].set_ylim(0, 12)
+```
+
+``` python
 axes[0].set(ylabel=f'Power channel 3')
 axes[0].set(xlabel='Frequency (Hz)');
 
 axes[1].plot(time, dat_back_filt[:, 3], c='r')
 axes[1].set(xlabel='Time (s)');
 axes[1].set_ylim(-50, 60)
+```
+
+``` python
+
 axes[2].plot(freqs, powers_epil2[:, 3])
 axes[2].set_xlim(0, 20)
+```
+
+``` python
 axes[2].set_ylim(0, 12)
+```
+
+``` python
 axes[2].set(ylabel='Power channel index 1')
 axes[2].set(xlabel='Frequency (Hz)');
 
 axes[3].plot(time, dat_epil_filt[:, 3], c='r')
 axes[3].set(xlabel='Time (s)');
 axes[3].set_ylim(-50, 60)
+```
+
+``` python
+
 show()
 ```
 
@@ -996,7 +1015,7 @@ show()
 ### Correlation Matrix
 
 
-```python
+``` python
 corr_matrix_back2 = corrcoef(dat_back_filt, rowvar=False)
 
 fill_diagonal(corr_matrix_back2, 0)
@@ -1009,6 +1028,10 @@ fig, ax = subplots(figsize = (8,8), ncols=2)
 
 im1 = ax[0].imshow(corr_matrix_back2, cmap='coolwarm');
 fig.colorbar(im1, ax=ax[0], orientation='horizontal', shrink=0.8)
+```
+
+``` python
+
 im2 = ax[1].imshow(corr_matrix_epil2, cmap='coolwarm');
 fig.colorbar(im2, ax=ax[1], orientation='horizontal', shrink=0.8);
 
@@ -1020,7 +1043,7 @@ show()
 ### Hist of Correlation Coefficients
 
 
-```python
+``` python
 channels = dat_back.shape[1]
 
 corr_coeffs_back2 = corr_matrix_back2[triu_indices(channels, k=1)]
@@ -1030,6 +1053,10 @@ fig, ax = subplots(nrows=2)
 
 ax[0].hist(corr_coeffs_back2, bins = 12);
 ax[0].set_xlim(-1, 1)
+```
+
+``` python
+
 ax[1].hist(corr_coeffs_epil2, bins = 12);
 ax[1].set_xlim(-1, 1);
 
@@ -1041,16 +1068,21 @@ show()
 ### Channel Correlations
 
 
-```python
+``` python
 corr_coeffs_back2_mean = mean(abs(corr_matrix_back2), axis=0)
 corr_coeffs_epil2_mean = mean(abs(corr_matrix_epil2), axis=0)
 
 fig, ax = subplots(nrows=2, figsize=(5,9))
+
 bins = arange(corr_coeffs_back2_mean.shape[0])
 
 ax[0].bar(bins, corr_coeffs_back2_mean);
 ax[0].set_xlabel('Background')
 ax[0].set_ylim(0, 0.4)
+```
+
+``` python
+
 ax[1].bar(bins, corr_coeffs_epil2_mean);
 ax[1].set_xlabel('Seizure')
 ax[1].set_ylim(0, 0.4);
@@ -1061,7 +1093,7 @@ show()
 <img src="fig/04-time_series-rendered-unnamed-chunk-35-41.png" width="480" style="display: block; margin: auto;" />
 
 
-```python
+``` python
 corr_back2_mean = mean(corr_coeffs_back2_mean)
 corr_epil2_mean = mean(corr_coeffs_epil2_mean)
 
@@ -1069,14 +1101,14 @@ print('Average correlation background: ', around(corr_back2_mean, decimals=2))
 print('Average correlation seizure:    ', around(corr_epil2_mean, decimals=2))
 ```
 
-```{.output}
+``` output
 Average correlation background:  0.23
 Average correlation seizure:     0.2
 ```
 
 ### Channels with strongest correlations during the seizure
 
-```python
+``` python
 threshold = 0.2
 
 corr_coeffs_epil2_large = corr_coeffs_epil2_mean > threshold
@@ -1084,7 +1116,7 @@ corr_coeffs_epil2_large = corr_coeffs_epil2_mean > threshold
 corr_coeffs_epil2_large
 ```
 
-```{.output}
+``` output
 array([False, False, False,  True, False,  True,  True,  True, False,
         True])
 ```
@@ -1092,7 +1124,7 @@ array([False, False, False,  True, False,  True,  True,  True, False,
 A horizontal line can be used to indicate the threshold:
 
 
-```python
+``` python
 fig, ax = subplots()
 
 bins = arange(corr_coeffs_back2_mean.shape[0])
@@ -1110,13 +1142,13 @@ show()
 To find the indices of the channels that are larger than the threshold (i.e. those displaying True), we can use Numpy function `nonzero`:
 
 
-```python
+``` python
 from numpy import nonzero
 
 nonzero(corr_coeffs_epil2_large)
 ```
 
-```{.output}
+``` output
 (array([3, 5, 6, 7, 9]),)
 ```
 

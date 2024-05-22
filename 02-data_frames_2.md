@@ -52,7 +52,7 @@ exercises: 60
 The following cell contains functions that need to be imported, please execute it before continuing with the Introduction.
 
 
-```python
+``` python
 # To import data from a csv file into a Pandas dataframe
 from pandas import read_csv
 
@@ -73,7 +73,7 @@ from numpy import corrcoef, fill_diagonal, triu_indices, arange
 In many online tutorials you can find the following convention when importing functions:
 
 
-```python
+``` python
 import numpy as np
 import pandas as pd
 ```
@@ -111,7 +111,7 @@ One way to check for the similarity between variables in a dataset is to create 
 (Please execute the code to create the figures. We will describe the scatter plot and its features later on.)
 
 
-```python
+``` python
 # Figure Code
 
 diabetes = datasets.load_diabetes()
@@ -180,7 +180,7 @@ We import the data from the .csv file using `read_csv` from Pandas into a datafr
 </p>
 
 
-```python
+``` python
 # Please adjust path according to operating system & personal path to file
 df = read_csv('data/patients.csv')
 
@@ -190,7 +190,7 @@ print('Number of rows: ', len(df))
 df.head()
 ```
 
-```{.output}
+``` output
    Age  Height  Weight  Systolic  Diastolic  Smoker  Gender
 0   38      71   176.0     124.0       93.0       1    Male
 1   43      69   163.0     109.0       77.0       0    Male
@@ -208,12 +208,12 @@ Number of rows:  100
 ```
 
 
-```python
+``` python
 print('The columns are of the following data types:')
 df.dtypes
 ```
 
-```{.output}
+``` output
 The columns are of the following data types:
 Age            int64
 Height         int64
@@ -243,13 +243,13 @@ Out of the seven columns, three containing integers, three containing floating p
 
 ## Q1
 
-```python
+``` python
 df = read_csv('data/patients.csv')
 df_describe = df.iloc[:, :5].describe()
 df_describe.round(2)
 ```
 
-```{.output}
+``` output
           Age  Height  Weight  Systolic  Diastolic
 count  100.00  100.00  100.00    100.00     100.00
 mean    38.28   67.07  154.00    122.78      82.96
@@ -267,7 +267,7 @@ max     50.00   72.00  202.00    138.00      99.00
 
 ## Q2
 
-```python
+``` python
 fig, ax = subplots()
 bins = arange(5)
 ax.bar(bins, df_describe.loc['min'])
@@ -282,7 +282,7 @@ show()
 
 ## Q3
 
-```python
+``` python
 
 fig, ax = subplots()
 bins = arange(5)
@@ -305,7 +305,7 @@ In Matplotlib, the function `scatter` allows plotting of one variable against th
 </p>
 
 
-```python
+``` python
 # Scatter plot
 fig, ax = subplots();
 
@@ -337,7 +337,7 @@ Scatter plots are useful for the inspection of select pairs of data. However, th
 
 ::::::::::::::::: solution
 
-```python
+``` python
 fig, ax = subplots();
 ax.scatter(df['Systolic'], df['Diastolic']);
 ax.set_xlabel('Systolic', fontsize=16)
@@ -384,12 +384,12 @@ A direct way to calculate the $PCC$ of two data-sets is to use the function `cor
 </p>
 
 
-```python
+``` python
 df_everley = read_csv('data/everleys_data.csv')
 df_everley.corr()
 ```
 
-```{.output}
+``` output
           calcium    sodium
 calcium  1.000000 -0.258001
 sodium  -0.258001  1.000000
@@ -420,12 +420,12 @@ A lot of what we are going to do in the machine learning sessions will involve N
 
 
 
-```python
+``` python
 everley_numpy = df_everley.to_numpy()
 everley_numpy
 ```
 
-```{.output}
+``` output
 array([[  3.4555817 , 112.69098   ],
        [  3.6690263 , 125.66333   ],
        [  2.7899104 , 105.82181   ],
@@ -451,11 +451,11 @@ We can see that the numbers remain the same but the format changed. E.g. we have
 </p>
 
 
-```python
+``` python
 everley_numpy.shape
 ```
 
-```{.output}
+``` output
 (18, 2)
 ```
 
@@ -463,7 +463,7 @@ We can now use the Numpy function `corrcoef` to calculate the Pearson correlatio
 
 
 
-```python
+``` python
 from numpy import corrcoef
 
 corr_matrix = corrcoef(everley_numpy, rowvar=False)
@@ -471,7 +471,7 @@ corr_matrix = corrcoef(everley_numpy, rowvar=False)
 print(corr_matrix)
 ```
 
-```{.output}
+``` output
 [[ 1.         -0.25800058]
  [-0.25800058  1.        ]]
 ```
@@ -484,7 +484,7 @@ We mentioned that the values of the $PCC$ are calculated such that they must lie
 </p>
 
 
-```python
+``` python
 from numpy import cov
 
 cov_matrix = cov(everley_numpy, rowvar=False)
@@ -492,7 +492,7 @@ cov_matrix = cov(everley_numpy, rowvar=False)
 print(cov_matrix)
 ```
 
-```{.output}
+``` output
 [[  1.70733842  -3.62631625]
  [ -3.62631625 115.70986192]]
 ```
@@ -514,13 +514,13 @@ ii) the data as Numpy array.
 ::::::::::::::::: solution
 ## Q1
 
-```python
+``` python
 df = read_csv('data/patients.csv')
 
 df[['Systolic', 'Diastolic']].corr()
 ```
 
-```{.output}
+``` output
            Systolic  Diastolic
 Systolic   1.000000   0.511843
 Diastolic  0.511843   1.000000
@@ -531,7 +531,7 @@ Diastolic  0.511843   1.000000
 ::::::::::::::::: solution
 ## Q2
 
-```python
+``` python
 df_SysDia_numpy = df[['Systolic', 'Diastolic']].to_numpy()
 
 df_SysDia_corr = corrcoef(df_SysDia_numpy, rowvar=False)
@@ -539,7 +539,7 @@ df_SysDia_corr = corrcoef(df_SysDia_numpy, rowvar=False)
 print('Correlation coefficient between Systole and Diastole:', round(df_SysDia_corr[0, 1], 2))
 ```
 
-```{.output}
+``` output
 Correlation coefficient between Systole and Diastole: 0.51
 ```
 
@@ -558,14 +558,14 @@ Here is an example for the 'patients' data:
 
 
 
-```python
+``` python
 df = read_csv('data/patients.csv')
 
 df.corr()
 ```
 
-```{.error}
-Error: ValueError: could not convert string to float: 'Male'
+``` output
+ValueError: could not convert string to float: 'Male'
 ```
 
 <p style='text-align: justify;'>
@@ -576,12 +576,12 @@ Let us now convert the dataframe to a Numpy array and check its shape:
 
 
 
-```python
+``` python
 patients_numpy = df.to_numpy()
 patients_numpy.shape
 ```
 
-```{.output}
+``` output
 (100, 7)
 ```
 
@@ -593,7 +593,7 @@ This is mended by converting the array to floating point before using the `corrc
 </p>
 
 
-```python
+``` python
 cols = 5
 
 patients_numpy_float = patients_numpy[:, :cols].astype(float)
@@ -603,7 +603,7 @@ patients_corr = corrcoef(patients_numpy_float, rowvar=False)
 patients_corr
 ```
 
-```{.output}
+``` output
 array([[1.        , 0.11600246, 0.09135615, 0.13412699, 0.08059714],
        [0.11600246, 1.        , 0.6959697 , 0.21407555, 0.15681869],
        [0.09135615, 0.6959697 , 1.        , 0.15578811, 0.22268743],
@@ -627,7 +627,7 @@ Here is some code using Matplotlib to plot a heatmap of the correlation matrix f
 </p>
 
 
-```python
+``` python
 fig, ax = subplots(figsize=(5,5))
 
 im = ax.imshow(patients_corr, cmap='coolwarm');
@@ -651,7 +651,7 @@ Second, `imshow` scales the colours by default to the minimum and maximum value 
 
 
 
-```python
+``` python
 from numpy import fill_diagonal
 
 fill_diagonal(patients_corr, 0)
@@ -692,7 +692,7 @@ data_spearman_corr = spearmanr(data).correlation
 
 ::::::::::::::::: solution
 
-```python
+``` python
 from scipy.stats import spearmanr
 patients_numpy = df.to_numpy()
 cols = 5
@@ -703,7 +703,7 @@ patients_spearman = spearmanr(patients_numpy_float).correlation
 patients_spearman
 ```
 
-```{.output}
+``` output
 array([[1.        , 0.11636668, 0.09327152, 0.12105741, 0.08703685],
        [0.11636668, 1.        , 0.65614849, 0.20036338, 0.14976559],
        [0.09327152, 0.65614849, 1.        , 0.12185782, 0.19738765],
@@ -712,7 +712,7 @@ array([[1.        , 0.11636668, 0.09327152, 0.12105741, 0.08703685],
 ```
 
 
-```python
+``` python
 from numpy import fill_diagonal
 fill_diagonal(patients_spearman, 0)
 
@@ -745,7 +745,7 @@ We also need to specify that we do not want the diagonal to be included. For thi
 </p>
 
 
-```python
+``` python
 from numpy import triu_indices
 
 # Get the number of rows of the correlation matrix
@@ -760,7 +760,7 @@ corr_coeffs = patients_corr[corr_coeff_indices]
 print(corr_coeffs)
 ```
 
-```{.output}
+``` output
 [0.11600246 0.09135615 0.13412699 0.08059714 0.6959697  0.21407555
  0.15681869 0.15578811 0.22268743 0.51184337]
 ```
@@ -769,7 +769,7 @@ Now we plot these correlation coefficients as a bar chart to see them one next t
 
 
 
-```python
+``` python
 fig, ax = subplots()
 
 bins = arange(len(corr_coeffs))
@@ -795,7 +795,7 @@ To average, we use function `mean`. This function by default averages over all v
 </p>
 
 
-```python
+``` python
 from numpy import abs, mean
 
 # Absolute values of correlation matrix
@@ -815,7 +815,7 @@ print(corr_column_average)
 show()
 ```
 
-```{.output}
+``` output
 [0.08441655 0.23657328 0.23316028 0.20316681 0.19438933]
 ```
 
@@ -831,15 +831,14 @@ The result is that the average column correlation is on the order of 0.2 for the
 The sum over rows or columns has given us a reduced set of values to look at. We can now take the final step and average over all correlation coefficients. This will yield the average correlation of the data set. It condenses the full bivariate analysis into a single number and can be a starting point when comparing e.g. different data sets of the same type. </p>
 
 
-```python
-
+``` python
 # Average of the correlation strengths
 corr_matrix_average = mean(corr_matrix_abs)
 
 print('Average correlation strength: ', round(corr_matrix_average, 3))
 ```
 
-```{.output}
+``` output
 Average correlation strength:  0.19
 ```
 
@@ -852,7 +851,7 @@ First we import the data. it is one of the example datasets of scikit-learn, the
 </p>
 
 
-```python
+``` python
 from sklearn import datasets
 
 diabetes = datasets.load_diabetes()
@@ -865,7 +864,7 @@ For the bivariate features, let us get the correlation matrix and plot it as a h
 </p>
 
 
-```python
+``` python
 from numpy import fill_diagonal
 
 data_corr_matrix = corrcoef(data_diabetes, rowvar=False)
@@ -890,7 +889,7 @@ There is one strongly correlated pair (column indices 4 and 5) and one strongly 
 Now we calculate the $10*9/2 = 45$ correlation coefficients and plot them as a histogram:
 
 
-```python
+``` python
 from numpy import triu_indices
 
 data_corr_coeffs = data_corr_matrix[triu_indices(data_corr_matrix.shape[0], k=1)]
@@ -911,7 +910,7 @@ This histogram shows that the data have a distribution that is shifted towards p
 Next we can get the average (absolute) correlation per column.
 
 
-```python
+``` python
 data_column_average = mean(abs(data_corr_matrix), axis=0)
 
 fig, ax = subplots()
@@ -934,14 +933,14 @@ Finally, we can obtain the average correlation of the whole data set.
 
 
 
-```python
+``` python
 # Average of the correlation strengths
 data_corr_matrix_average = mean(abs(data_corr_matrix))
 
 print('Average Correlation Strength: ', round(data_corr_matrix_average, 3))
 ```
 
-```{.output}
+``` output
 Average Correlation Strength:  0.29
 ```
 
@@ -975,7 +974,7 @@ In case of doubt, try to get help from the respective documentations for Pandas 
 ### Q1
 
 
-```python
+``` python
 # To import data from a csv file into a Pandas dataframe
 from pandas import read_csv
 
@@ -996,7 +995,7 @@ df_bc_describe = df_bc.iloc[:, 1:10].describe()
 df_bc_describe.round(2)
 ```
 
-```{.output}
+``` output
        radius_mean  texture_mean  ...  concave points_mean  symmetry_mean
 count       569.00        569.00  ...               569.00         569.00
 mean         14.13         19.29  ...                 0.05           0.18
@@ -1013,7 +1012,7 @@ max          28.11         39.28  ...                 0.20           0.30
 ### Q2
 
 
-```python
+``` python
 fig, ax = subplots()
 
 bins = arange(df_bc_describe.shape[1])
@@ -1023,42 +1022,38 @@ ax.bar(bins, df_bc_describe.loc['mean'], yerr=df_bc_describe.loc['std'])
 show()
 ```
 
-```{.output}
-<BarContainer object of 9 artists>
-```
-
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-35-27.png" width="672" style="display: block; margin: auto;" />
 
 ### Q3
 
 
-```python
+``` python
 bc_numpy = df_bc.to_numpy()
 
 bc_numpy.shape
 ```
 
-```{.output}
+``` output
 (569, 31)
 ```
 
 ### Q4
 
 
-```python
+``` python
 bc_corr = corrcoef(bc_numpy, rowvar=False)
 
 bc_corr.shape
 ```
 
-```{.output}
+``` output
 (31, 31)
 ```
 
 ### Q5
 
 
-```python
+``` python
 from numpy import fill_diagonal
 
 fill_diagonal(bc_corr, 0)
@@ -1077,7 +1072,7 @@ show()
 ### Q6
 
 
-```python
+``` python
 bc_column_average = mean(abs(bc_corr), axis=0)
 
 fig, ax = subplots()
@@ -1093,14 +1088,14 @@ show()
 <img src="fig/02-data_frames_2-rendered-unnamed-chunk-39-31.png" width="672" style="display: block; margin: auto;" />
 
 
-```python
+``` python
 # Average of the correlation strengths
 bc_corr_matrix_average = mean(abs(bc_corr))
 
 print('Average Correlation Strength: ', round(bc_corr_matrix_average, 3))
 ```
 
-```{.output}
+``` output
 Average Correlation Strength:  0.387
 ```
 :::::::::::::::::::::

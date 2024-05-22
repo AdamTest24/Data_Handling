@@ -123,7 +123,7 @@ To use the functions contained in Pandas they need to be imported. Our dataset i
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-```python
+``` python
 from pandas import read_csv
 ```
 
@@ -133,7 +133,7 @@ Executing this code does not lead to any output on the screen. However, the func
 
 
 
-```python
+``` python
 # for Mac OSX and Linux
 # (please go to the next cell if using Windows)
 
@@ -142,7 +142,7 @@ df = read_csv("data/everleys_data.csv")
 
 
 
-```python
+``` python
 # Please uncomment for Windows
 # (please go to previous cell if using Mac OSX or Linux)
 
@@ -164,11 +164,11 @@ To see the contents of `df`, simply use:
 
 
 
-```python
+``` python
 df
 ```
 
-```{.output}
+``` output
      calcium      sodium
 0   3.455582  112.690980
 1   3.669026  125.663330
@@ -204,11 +204,11 @@ For large data sets, the function `head` is a convenient way to get a feel of th
 
 
 
-```python
+``` python
 df.head()
 ```
 
-```{.output}
+``` output
     calcium      sodium
 0  3.455582  112.690980
 1  3.669026  125.663330
@@ -227,11 +227,11 @@ If you feel there are too many decimal places in the default view, you can restr
 
 
 
-```python
+``` python
 df.head().round(2)
 ```
 
-```{.output}
+``` output
    calcium  sodium
 0     3.46  112.69
 1     3.67  125.66
@@ -245,13 +245,13 @@ While we can see how many rows there are in a dataframe when we display the whol
 </p>
 
 
-```python
+``` python
 no_rows = len(df)
 
 print('Data frame has', no_rows, 'rows')
 ```
 
-```{.output}
+``` output
 Data frame has 18 rows
 ```
 
@@ -259,13 +259,13 @@ You could see above, that the columns of the dataframe have labels. To see all l
 
 
 
-```python
+``` python
 column_labels = df.columns
 
 print(column_labels)
 ```
 
-```{.output}
+``` output
 Index(['calcium', 'sodium'], dtype='object')
 ```
 
@@ -273,13 +273,13 @@ Now we can count the labels to obtain the number of columns:
 
 
 
-```python
+``` python
 no_columns = len(column_labels)
 
 print('Data frame has', no_columns, 'columns')
 ```
 
-```{.output}
+``` output
 Data frame has 2 columns
 ```
 
@@ -288,13 +288,13 @@ And if you want to have both the number of the rows and the columns together, us
 </p>
 
 
-```python
+``` python
 df_shape = df.shape
 
 print('Data frame has', df_shape[0], 'rows and',df_shape[1],  'columns')
 ```
 
-```{.output}
+``` output
 Data frame has 18 rows and 2 columns
 ```
 
@@ -306,11 +306,11 @@ To find out what data type is contained in each of the columns, us `dtypes`, ano
 
 
 
-```python
+``` python
 df.dtypes
 ```
 
-```{.output}
+``` output
 calcium    float64
 sodium     float64
 dtype: object
@@ -336,7 +336,7 @@ Display the first ten rows of the Loan data set to see its contents. It is taken
 ::::::::::::::::: solution
 
 
-```python
+``` python
 from pandas import read_csv
 # dataframe from .csv file
 df_loan = read_csv("data/loan_data.csv")
@@ -344,7 +344,7 @@ df_loan = read_csv("data/loan_data.csv")
 df_loan.head(10)
 ```
 
-```{.output}
+``` output
     Loan_ID  Gender Married  ... Loan_Amount_Term Credit_History Property_Area
 0  LP001015    Male     Yes  ...            360.0            1.0         Urban
 1  LP001022    Male     Yes  ...            360.0            1.0         Urban
@@ -371,11 +371,11 @@ To access data contained in a specific column of a dataframe, we can use a simil
 </p>
 
 
-```python
+``` python
 df['calcium']
 ```
 
-```{.output}
+``` output
 0     3.455582
 1     3.669026
 2     2.789910
@@ -400,11 +400,11 @@ Name: calcium, dtype: float64
 To access individual rows of a column we use two pairs of square brackets:
 
 
-```python
+``` python
 df['calcium'][0:3]
 ```
 
-```{.output}
+``` output
 0    3.455582
 1    3.669026
 2    2.789910
@@ -424,11 +424,11 @@ To access non-contiguous elements, we use an additional pair of square brackets 
 
 
 
-```python
+``` python
 df['calcium'][[1, 3, 7]]
 ```
 
-```{.output}
+``` output
 1    3.669026
 3    2.939900
 7    3.571320
@@ -440,11 +440,11 @@ Another possibility to index and slice a dataframe is the use of the 'index loca
 </p>
 
 
-```python
+``` python
 df.iloc[:, 0]
 ```
 
-```{.output}
+``` output
 0     3.455582
 1     3.669026
 2     2.789910
@@ -469,11 +469,11 @@ Name: calcium, dtype: float64
 To display only the first three calcium concentrations, you use slicing, remembering that the upper bound is excluded):
 
 
-```python
+``` python
 df.iloc[0:3, 0]
 ```
 
-```{.output}
+``` output
 0    3.455582
 1    3.669026
 2    2.789910
@@ -483,11 +483,11 @@ Name: calcium, dtype: float64
 To access non-consecutive values, we can use a pair of square brackets within the pair of square brackets:
 
 
-```python
+``` python
 df.iloc[[2, 4, 7], 0]
 ```
 
-```{.output}
+``` output
 2    2.78991
 4    5.42606
 7    3.57132
@@ -497,11 +497,11 @@ Name: calcium, dtype: float64
 Similarly, we can access the values from multiple columns:
 
 
-```python
+``` python
 df.iloc[[2, 4, 7], :]
 ```
 
-```{.output}
+``` output
    calcium      sodium
 2  2.78991  105.821810
 4  5.42606   97.931489
@@ -511,11 +511,11 @@ df.iloc[[2, 4, 7], :]
 To pick only the even rows from the two columns, check this colon notation:
 
 
-```python
+``` python
 df.iloc[:18:2, :]
 ```
 
-```{.output}
+``` output
      calcium      sodium
 0   3.455582  112.690980
 2   2.789910  105.821810
@@ -539,11 +539,11 @@ Display the calcium and sodium concentrations of all patients except the first. 
 ::::::::::::::::: solution
 
 
-```python
+``` python
 df[['calcium', 'sodium']][1:]
 ```
 
-```{.output}
+``` output
      calcium      sodium
 1   3.669026  125.663330
 2   2.789910  105.821810
@@ -576,11 +576,11 @@ Some tables contain missing entries. You can check a dataframe for such missing 
 
 
 
-```python
+``` python
 df.isnull().any()
 ```
 
-```{.output}
+``` output
 calcium    False
 sodium     False
 dtype: bool
@@ -598,21 +598,21 @@ In the Loan data set, check the entry 'Self-employed' for ID LP001059. It shows 
 ::::::::::::::::: solution
 
 
-```python
+``` python
 df_loan['Self_Employed'][8]
 ```
 
-```{.output}
+``` output
 nan
 ```
 
 
 
-```python
+``` python
 df_loan['Self_Employed'][8:9].isnull()
 ```
 
-```{.output}
+``` output
 8    True
 Name: Self_Employed, dtype: bool
 ```
@@ -630,13 +630,13 @@ To get a summary of basic data features use the function `describe`:
 
 
 
-```python
+``` python
 description = df.describe()
 
 description
 ```
 
-```{.output}
+``` output
          calcium      sodium
 count  18.000000   18.000000
 mean    3.174301  115.167484
@@ -654,7 +654,7 @@ The `describe` function produces a new dataframe (here called 'description') tha
 
 
 
-```python
+``` python
 # Option 1
 description.loc['mean']['calcium']
 
@@ -668,7 +668,7 @@ description['calcium']['mean']
 description['calcium'][1]
 ```
 
-```{.output}
+``` output
 3.1743005405555555
 3.1743005405555555
 3.1743005405555555
@@ -696,13 +696,13 @@ Here is code to iterate through the columns and access the first two concentrati
 
 
 
-```python
+``` python
 for col in df:
 
     print(df[col][0:2])
 ```
 
-```{.output}
+``` output
 0    3.455582
 1    3.669026
 Name: calcium, dtype: float64
@@ -715,7 +715,7 @@ As a slightly more complex example, we access the median ('50%') of each column 
 
 
 
-```python
+``` python
 conc_medians = list()
 
 for col in df:
@@ -726,7 +726,7 @@ print('The columns are: ', list(df.columns))
 print('The medians are: ', conc_medians)
 ```
 
-```{.output}
+``` output
 The columns are:  ['calcium', 'sodium']
 The medians are:  [3.3641954, 115.122615]
 ```
@@ -750,7 +750,7 @@ First we randomly create as many labels as we have rows in the data frame. We ca
 </p>
 
 
-```python
+``` python
 from numpy.random import randint
 
 no_rows = len(df)
@@ -762,10 +762,10 @@ print('Number of Labels:', len(randomLabel))
 print('Labels:          ', randomLabel)
 ```
 
-```{.output}
+``` output
 Number of rows:   18
 Number of Labels: 18
-Labels:           [1 1 0 1 1 1 0 0 0 0 1 1 1 1 0 0 0 1]
+Labels:           [0 1 1 1 1 1 0 0 1 1 0 1 1 1 0 0 1 1]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code.
@@ -777,17 +777,17 @@ Now we create a new data column in our `df` dataframe which contains the labels.
 As gender specification can include more than two labels, try to create a column with more than two randomly assigned labels e.g. (0, 1, 2).
 
 
-```python
+``` python
 df['gender'] = randomLabel
 
 df.head()
 ```
 
-```{.output}
+``` output
     calcium      sodium  gender
-0  3.455582  112.690980       1
+0  3.455582  112.690980       0
 1  3.669026  125.663330       1
-2  2.789910  105.821810       0
+2  2.789910  105.821810       1
 3  2.939900   98.172772       1
 4  5.426060   97.931489       1
 ```
@@ -797,28 +797,28 @@ Now we can use the information contained in 'gender' to filter the data by gende
 </p>
 
 
-```python
+``` python
 df['gender'] == 1
 ```
 
-```{.output}
-0      True
+``` output
+0     False
 1      True
-2     False
+2      True
 3      True
 4      True
 5      True
 6     False
 7     False
-8     False
-9     False
-10     True
+8      True
+9      True
+10    False
 11     True
 12     True
 13     True
 14    False
 15    False
-16    False
+16     True
 17     True
 Name: gender, dtype: bool
 ```
@@ -828,23 +828,25 @@ If we assign the result of the conditional statement (Boolean True or False) to 
 </p>
 
 
-```python
+``` python
 df_female = df['gender'] == 1
 
 df[df_female]
 ```
 
-```{.output}
+``` output
      calcium      sodium  gender
-0   3.455582  112.690980       1
 1   3.669026  125.663330       1
+2   2.789910  105.821810       1
 3   2.939900   98.172772       1
 4   5.426060   97.931489       1
 5   0.715811  120.858330       1
-10  2.550962  117.373730       1
+8   4.300067  132.031720       1
+9   1.369419  118.499010       1
 11  2.894129  134.052390       1
 12  3.664987  105.346410       1
 13  1.362779  123.359490       1
+16  3.272809  117.588040       1
 17  3.917591  101.009870       1
 ```
 
@@ -859,7 +861,7 @@ Modify the code to calculate the number of samples labelled 0 and check the numb
 ::::::::::::::::: solution
 
 
-```python
+``` python
 from numpy.random import randint
 no_rows = len(df)
 randomLabel = randint(2, size=no_rows)
@@ -869,8 +871,8 @@ no_males = len(df[df_male])
 print(no_males, 'samples are labelled "male".')
 ```
 
-```{.output}
-9 samples are labelled "male".
+``` output
+8 samples are labelled "male".
 ```
 :::::::::::::::::
 ::::::::::::::::::::::::::::::::::
@@ -886,7 +888,7 @@ The simplest way of visualisation is to use Pandas functionality which offers di
 
 
 
-```python
+``` python
 df = read_csv("data/everleys_data.csv")
 df.boxplot()
 ```
@@ -898,7 +900,7 @@ By default, boxplots are shown for all columns if no further argument is given t
 </p>
 
 
-```python
+``` python
 # Boxplot of calcium results
 df.boxplot(column='calcium')
 ```
@@ -920,7 +922,7 @@ However, we are going to use __Matplotlib__ extensively later on in the course, 
 For this, we import the function `subplots` from the [pyplot library](https://matplotlib.org/stable/api/pyplot_summary.html):
 
 
-```python
+``` python
 from matplotlib.pyplot import subplots, show
 ```
 
@@ -933,10 +935,14 @@ As an example, let us create a [boxplot](https://matplotlib.org/api/_as_gen/matp
 </p>
 
 
-```python
+``` python
 fig, ax = subplots()
 
 ax.boxplot(df['calcium'])
+```
+
+``` python
+
 ax.set_title('Boxplot of Everley Calcium')
 
 show()
@@ -953,13 +959,19 @@ Here is an example to create two boxplots next to each other. The keyword argume
 </p>
 
 
-```python
+``` python
 fig, ax = subplots(ncols=2)
 
 ax[0].boxplot(df['calcium'])
+```
+
+``` python
 ax[0].set_title('Calcium')
 
 ax[1].boxplot(df['sodium'])
+```
+
+``` python
 ax[1].set_title('Sodium');
 
 show()
@@ -974,10 +986,13 @@ If you prefer to have the boxplots of both columns in a single figure, that can 
 
 
 
-```python
+``` python
 fig, ax = subplots(ncols=1, nrows=1)
 
 ax.boxplot([df['calcium'], df['sodium']], positions=[1, 2])
+```
+
+``` python
 ax.set_title('Boxplot of Calcium (left) and Sodium (right)')
 
 show()
@@ -994,9 +1009,12 @@ Plot the boxplots of the 'ApplicantIncome' and the 'CoapplicantIncome' in the Lo
 ::::::::::::::::: solution
 
 
-```python
+``` python
 fig, ax = subplots(ncols=1, nrows=1)
 ax.boxplot([df_loan['ApplicantIncome'], df_loan['CoapplicantIncome']], positions=[1, 2])
+```
+
+``` python
 ax.set_title('Applicant Income (left) & Co-Applicant Income (right)');
 
 show()
@@ -1013,7 +1031,7 @@ Another good overview is the histogram: Containers or 'bins' are created over th
 </p>
 
 
-```python
+``` python
 fig, ax = subplots(ncols=2, nrows=1)
 
 ax[0].hist(df['calcium'])
@@ -1036,7 +1054,7 @@ This uses the default value for the generation of the bins. It is set to 10 bins
 
 
 
-```python
+``` python
 fig, ax = subplots(ncols=2, nrows=1)
 
 ax[0].hist(df['calcium'], bins=5)
@@ -1056,7 +1074,7 @@ Note how the y-label of the right figure is not placed well. To correct for the 
 `tight_layout` on the figure:
 
 
-```python
+``` python
 fig, ax = subplots(ncols=2, nrows=1)
 
 ax[0].hist(df['calcium'], bins=5)
@@ -1081,7 +1099,7 @@ Take the loan data and display the histogram of the loan amount that people aske
 
 
 
-```python
+``` python
 # Histogram of loan amounts in k£
 fig, ax = subplots()
 ax.hist(df_loan['LoanAmount'], bins=20)
@@ -1110,7 +1128,7 @@ First we import the data set and check its `head`. Wait until the numbers show b
 
 
 
-```python
+``` python
 from sklearn import datasets
 
 diabetes = datasets.load_diabetes()
@@ -1124,7 +1142,7 @@ df_diabetes = DataFrame(data=X)
 df_diabetes.head()
 ```
 
-```{.output}
+``` output
           0         1         2  ...         7         8         9
 0  0.038076  0.050680  0.061696  ... -0.002592  0.019907 -0.017646
 1 -0.001882 -0.044642 -0.051474  ... -0.039493 -0.068332 -0.092204
@@ -1140,14 +1158,14 @@ Now let's check the number of columns and rows.
 
 
 
-```python
+``` python
 no_rows = len(df_diabetes)
 no_cols = len(df_diabetes.columns)
 
 print('Rows:', no_rows, 'Columns:', no_cols)
 ```
 
-```{.output}
+``` output
 Rows: 442 Columns: 10
 ```
 
@@ -1156,7 +1174,7 @@ There are 442 rows organised in 10 columns.
 To get an overview, let us extract the mean of each column using 'describe' and plot all means as a bar chart. The Matplotlib function to plot a bar chart is `bar`:
 
 
-```python
+``` python
 conc_means = list()
 
 for col in df_diabetes:
@@ -1166,13 +1184,13 @@ print('The columns are: ', list(df_diabetes.columns))
 print('The medians are: ', conc_means, 2)
 ```
 
-```{.output}
+``` output
 The columns are:  [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 The medians are:  [-2.511816797794472e-19, 1.2307902309192911e-17, -2.2455642172282577e-16, -4.7975700837874414e-17, -1.3814992387869595e-17, 3.918434204559376e-17, -5.7771786349272854e-18, -9.042540472060099e-18, 9.293722151839546e-17, 1.1303175590075123e-17] 2
 ```
 
 
-```python
+``` python
 fig, ax = subplots()
 
 bins = range(10)
@@ -1216,7 +1234,7 @@ Download the cervical cancer data set provided, import it using `read_csv`.
 ### Q1
 
 
-```python
+``` python
 df_cervix = read_csv("data/cervical_cancer.csv")
 
 df_cervix.head(10)
@@ -1228,7 +1246,7 @@ print('Number of rows:', cervix_rows)
 print('Number of columns:', cervix_cols)
 ```
 
-```{.output}
+``` output
    Age  Number of sexual partners  ...  Citology  Biopsy
 0   18                        4.0  ...         0       0
 1   15                        1.0  ...         0       0
@@ -1249,22 +1267,21 @@ Number of columns: 34
 ### Q2
 
 
-```python
+``` python
 df_types = df_cervix.dtypes == 'float64'
 
 print('There are', df_types.sum(), 'columns with floating point numbers')
-
 ```
 
-```{.output}
+``` output
 There are 24 columns with floating point numbers
 ```
 
-```python
+``` python
 df_types
 ```
 
-```{.output}
+``` output
 Age                                   False
 Number of sexual partners              True
 First sexual intercourse               True
@@ -1305,7 +1322,7 @@ dtype: bool
 ### Q3
 
 
-```python
+``` python
 for col in df_cervix:
 
     print(type(df_cervix[col][0]))
@@ -1314,7 +1331,7 @@ for col in df_cervix:
 cervix_smoker = df_cervix['Smokes'] == 1.0
 ```
 
-```{.output}
+``` output
 <class 'numpy.int64'>
 <class 'numpy.float64'>
 <class 'numpy.float64'>
@@ -1354,19 +1371,19 @@ cervix_smoker = df_cervix['Smokes'] == 1.0
 ### Q4
 
 
-```python
+``` python
 print('There are', cervix_smoker.sum(), 'smokers.')
 print('This is', round(100*cervix_smoker.sum() / cervix_rows, 1), '% of the total.')
 ```
 
-```{.output}
+``` output
 There are 96 smokers.
 This is 14.4 % of the total.
 ```
 
 ### Q5
 
-```python
+``` python
 fig, ax = subplots()
 
 ax.hist(df_cervix['Age'], bins=50)
@@ -1381,7 +1398,7 @@ show()
 ### Q6
 
 
-```python
+``` python
 int_mean = df_cervix['First sexual intercourse'].mean()
 
 int_std = df_cervix['First sexual intercourse'].std()
@@ -1390,7 +1407,7 @@ print('Mean of age of first sexual intercourse: ', round(int_mean, 1))
 print('Standard distribution of age of first sexual intercourse: ', round(int_std, 1))
 ```
 
-```{.output}
+``` output
 Mean of age of first sexual intercourse:  17.1
 Standard distribution of age of first sexual intercourse:  2.9
 ```

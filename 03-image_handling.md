@@ -97,6 +97,10 @@ from matplotlib.image import imread
 img = imread('fig/axon_slice.jpg')
 ```
 
+``` output
+PIL.UnidentifiedImageError: cannot identify image file 'fig/axon_slice.jpg'
+```
+
 We can check what type of variable this is:
 
 
@@ -106,7 +110,7 @@ print(type(img))
 ```
 
 ``` output
-<class 'numpy.ndarray'>
+NameError: name 'img' is not defined
 ```
 
 This tells us that the image is stored in a Numpy array. We can check some other properties of this array, for example, what the image dimensions are.
@@ -118,7 +122,7 @@ print(img.shape)
 ```
 
 ``` output
-(2300, 3040)
+NameError: name 'img' is not defined
 ```
 
 <p style='text-align: justify;'>
@@ -132,7 +136,9 @@ from matplotlib.pyplot import subplots, show
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img, cmap='gray');
+```
 
+``` python
 show()
 ```
 
@@ -149,7 +155,13 @@ from matplotlib.pyplot import subplots, show
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img[:50, :70], cmap='gray');
+```
 
+``` output
+NameError: name 'img' is not defined
+```
+
+``` python
 show()
 ```
 
@@ -164,7 +176,13 @@ With `img[:50, :70]` we select the first 50 values from the first dimension, and
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img[:20, :15], cmap='gray');
+```
 
+``` output
+NameError: name 'img' is not defined
+```
+
+``` python
 show()
 ```
 
@@ -180,26 +198,7 @@ print(img[:20, :15])
 ```
 
 ``` output
-[[ 18   9   3   4   4   1   2   7   6   8  10  12  13  14  13]
- [ 14   7   3   4   4   2   2   6   6   7   9  11  12  12  12]
- [  8   3   1   3   5   3   2   4   6   7   8   9  10  10   9]
- [  2   0   0   2   4   4   3   2   6   6   7   8   8   8   8]
- [  0   0   0   1   3   5   3   1   6   6   7   7   8   9  10]
- [  0   0   0   0   2   6   5   0   7   7   7   8   9  11  13]
- [  0   2   1   0   1   6   5   1   8   8   8  10  11  14  17]
- [  1   3   2   0   0   6   6   1   9   9   9  10  13  16  19]
- [  1   0   0   1   4   7   8   8  10  12  15  16  18  20  24]
- [  1   1   1   2   4   7   8   8  14  16  19  22  24  28  33]
- [  4   5   5   6   8  10  12  13  19  22  26  30  34  40  46]
- [  9  11  12  13  14  16  18  21  24  27  32  36  42  49  57]
- [ 12  15  17  18  19  21  25  28  32  34  38  43  49  57  65]
- [ 14  17  21  23  24  26  32  36  43  45  47  51  56  63  72]
- [ 18  23  28  31  31  35  41  47  56  57  58  60  64  70  78]
- [ 24  29  35  38  39  42  50  56  65  65  66  67  69  75  82]
- [ 32  39  40  44  51  48  52  69  77  82  83  80  81  89  94]
- [ 35  43  46  51  58  55  58  74  80  85  88  85  87  94  98]
- [ 38  50  56  61  69  66  67  80  85  90  94  95  97 102 105]
- [ 41  56  64  70  78  76  75  84  90  95 100 104 106 109 111]]
+NameError: name 'img' is not defined
 ```
 
 Each of these numbers corresponds to an intensity in the specified colourmap. These numbers range from 0 to 255, implying 256 shades of grey.
@@ -213,12 +212,21 @@ We chose `cmap = gray`, which assigns darker grey colours to smaller numbers, an
 fig, ax = subplots(nrows=1, ncols=2, figsize=(25, 15))
 
 p1 = ax[0].imshow(img[:20, :15], cmap='viridis')
+```
+
+``` python
 p2 = ax[1].imshow(img[:20, :15], cmap='magma')
+```
+
+``` python
 fig.colorbar(p1, ax=ax[0], shrink = 0.8)
 ```
 
 ``` python
 fig.colorbar(p2, ax=ax[1], shrink = 0.8);
+```
+
+``` python
 
 show()
 ```
@@ -244,6 +252,9 @@ The histogram plot shows how many of each of the intensities are found in this i
 fig, ax = subplots(figsize=(10, 4))
 
 ax.hist(img.flatten(), bins = 50)
+```
+
+``` python
 ax.set_xlabel("Pixel intensity", fontsize=16);
 
 show()
@@ -265,14 +276,26 @@ Based on the histogram above, we might try to adjust that threshold somewhere be
 threshold = 125
 
 mask = img < threshold
+```
+
+``` python
 
 img_masked = img*mask
+```
+
+``` python
 
 fig, ax = subplots(nrows=1, ncols=2, figsize=(20, 10))
 
 ax[0].imshow(mask, cmap='gray')
+```
+
+``` python
 ax[0].set_title('Binary mask', fontsize=16)
 ax[1].imshow(img_masked, cmap='gray')
+```
+
+``` python
 ax[1].set_title('Masked image', fontsize=16)
 
 show()
@@ -294,10 +317,16 @@ Let's have a look at the resulting image histograms.
 fig, ax = subplots(nrows=1, ncols=2, figsize=(20, 5))
 
 ax[0].hist(img_masked.flatten(), bins=50)
+```
+
+``` python
 ax[0].set_title('Histogram of masked image', fontsize=16)
 ax[0].set_xlabel("Pixel intensity", fontsize=16)
 
 ax[1].hist(img_masked[img_masked != 0].flatten(), bins=25)
+```
+
+``` python
 ax[1].set_title('Histogram of masked image after zeros are removed', fontsize=16)
 ax[1].set_xlabel("Pixel intensity", fontsize=16)
 
@@ -318,12 +347,18 @@ Often we want to work with colour images. So far, our image had a single intensi
 
 ``` python
 img_col = imread('fig/rat_brain_low_res.jpg')
+```
 
+``` output
+PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain_low_res.jpg'
+```
+
+``` python
 img_col.shape
 ```
 
 ``` output
-(929, 1000, 3)
+NameError: name 'img_col' is not defined
 ```
 
 <p style='text-align: justify;'>
@@ -337,7 +372,13 @@ First, let us plot the whole image.
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_col);
+```
 
+``` output
+NameError: name 'img_col' is not defined
+```
+
+``` python
 show()
 ```
 
@@ -351,8 +392,26 @@ Now we can visualise the three colour channels individually by slicing the Numpy
 
 ``` python
 red_channel   = img_col[:, :, 0]
+```
+
+``` output
+NameError: name 'img_col' is not defined
+```
+
+``` python
 green_channel = img_col[:, :, 1]
+```
+
+``` output
+NameError: name 'img_col' is not defined
+```
+
+``` python
 blue_channel  = img_col[:, :, 2]
+```
+
+``` output
+NameError: name 'img_col' is not defined
 ```
 
 
@@ -361,8 +420,17 @@ blue_channel  = img_col[:, :, 2]
 fig, ax = subplots(nrows=1, ncols=3, figsize=(20, 10))
 
 imgplot_red = ax[0].imshow(red_channel, cmap="Reds")
+```
+
+``` python
 imgplot_green = ax[1].imshow(green_channel, cmap="Greens")
+```
+
+``` python
 imgplot_blue = ax[2].imshow(blue_channel, cmap="Blues")
+```
+
+``` python
 
 fig.colorbar(imgplot_red, ax=ax[0], shrink=0.4)
 ```
@@ -373,6 +441,9 @@ fig.colorbar(imgplot_green, ax=ax[1], shrink=0.4)
 
 ``` python
 fig.colorbar(imgplot_blue, ax=ax[2], shrink=0.4);
+```
+
+``` python
 
 show()
 ```
@@ -390,12 +461,21 @@ We can plot histograms of each of the colour channels.
 fig, ax = subplots(nrows=1, ncols=3, figsize=(20, 5))
 
 ax[0].hist(red_channel.flatten(), bins=50)
+```
+
+``` python
 ax[0].set_xlabel("Pixel intensity", fontsize=16)
 ax[0].set_xlabel("Red channel")
 ax[1].hist(green_channel.flatten(), bins=50)
+```
+
+``` python
 ax[1].set_xlabel("Pixel intensity", fontsize=16)
 ax[1].set_xlabel("Green channel")
 ax[2].hist(blue_channel.flatten(), bins=50)
+```
+
+``` python
 ax[2].set_xlabel("Pixel intensity", fontsize=16)
 ax[2].set_xlabel("Blue channel")
 
@@ -416,7 +496,7 @@ img_hr.shape
 ```
 
 ``` output
-PIL.Image.DecompressionBombError: Image size (324649360 pixels) exceeds limit of 178956970 pixels, could be decompression bomb DOS attack.
+PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
 NameError: name 'img_hr' is not defined
 ```
 
@@ -441,11 +521,18 @@ Let's try again. Be patient, it might take a moment.
 
 ``` python
 img_hr = imread('fig/rat_brain.jpg')
+```
+
+``` output
+PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
+```
+
+``` python
 img_hr.shape
 ```
 
 ``` output
-(17360, 18701, 3)
+NameError: name 'img_hr' is not defined
 ```
 
 Now we can plot the full high-resolution image:
@@ -455,7 +542,13 @@ Now we can plot the full high-resolution image:
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_hr, cmap='gray');
+```
 
+``` output
+NameError: name 'img_hr' is not defined
+```
+
+``` python
 show()
 ```
 
@@ -476,7 +569,9 @@ print(type(img_small))
 ```
 
 ``` output
-<class 'PIL.Image.Image'>
+PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_brain.jpg'
+NameError: name 'img_pil' is not defined
+NameError: name 'img_small' is not defined
 ```
 
 Plotting should now be quicker.
@@ -486,7 +581,13 @@ Plotting should now be quicker.
 fig, ax = subplots(figsize=(25, 15))
 
 ax.imshow(img_small, cmap='gray');
+```
 
+``` output
+NameError: name 'img_small' is not defined
+```
+
+``` python
 show()
 ```
 
@@ -501,12 +602,18 @@ With this code, we have resized the image to 174 by 187 pixels. We should be awa
 from numpy import array
 
 img_numpy = array(img_small)
+```
 
+``` output
+NameError: name 'img_small' is not defined
+```
+
+``` python
 print(type(img_numpy))
 ```
 
 ``` output
-<class 'numpy.ndarray'>
+NameError: name 'img_numpy' is not defined
 ```
 
 <p style='text-align: justify;'>
@@ -526,11 +633,18 @@ from sklearn.feature_extraction.image import extract_patches_2d
 
 ``` python
 patches = extract_patches_2d(img_hr, (174, 187), max_patches=100)
+```
+
+``` output
+NameError: name 'img_hr' is not defined
+```
+
+``` python
 patches.shape
 ```
 
 ``` output
-(100, 174, 187, 3)
+NameError: name 'patches' is not defined
 ```
 
 Note that patching itself can be a memory-intensive task. Extracting lots and lots of patches might take a long time. To look at the patches we can use a for loop:
@@ -543,7 +657,13 @@ ax = ax.flatten()
 
 for index in range(patches.shape[0]):
     ax[index].imshow(patches[index, :, :, :])
+```
 
+``` output
+NameError: name 'patches' is not defined
+```
+
+``` python
 show()
 ```
 
@@ -731,6 +851,10 @@ from matplotlib.image import imread
 img_task = imread('fig/rat_cerebellum.jpg')
 ```
 
+``` output
+PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_cerebellum.jpg'
+```
+
 
 ``` python
 ## Display the image
@@ -740,6 +864,9 @@ from matplotlib.pyplot import subplots, show
 fig, ax = subplots(figsize=(20, 10))
 
 ax.imshow(img_task, cmap='gray');
+```
+
+``` python
 
 show()
 ```
@@ -751,18 +878,36 @@ show()
 
 ``` python
 red_channel   = img_task[:, :, 0]
+```
+
+``` python
 green_channel = img_task[:, :, 1]
+```
+
+``` python
 blue_channel  = img_task[:, :, 2]
+```
+
+``` python
 
 fig, ax = subplots(ncols=3, figsize=(20, 5))
 
 ax[0].hist(red_channel.flatten(), bins=50)
+```
+
+``` python
 ax[0].set_xlabel("Pixel intensity", fontsize=16)
 ax[0].set_xlabel("Red channel")
 ax[1].hist(green_channel.flatten(), bins=50)
+```
+
+``` python
 ax[1].set_xlabel("Pixel intensity", fontsize=16)
 ax[1].set_xlabel("Green channel")
 ax[2].hist(blue_channel.flatten(), bins=50)
+```
+
+``` python
 ax[2].set_xlabel("Pixel intensity", fontsize=16)
 ax[2].set_xlabel("Blue channel");
 
@@ -776,8 +921,17 @@ show()
 fig, ax = subplots(ncols=3, figsize=(20, 10))
 
 imgplot_red   = ax[0].imshow(red_channel, cmap="Reds")
+```
+
+``` python
 imgplot_green = ax[1].imshow(green_channel, cmap="Greens")
+```
+
+``` python
 imgplot_blue  = ax[2].imshow(blue_channel, cmap="Blues")
+```
+
+``` python
 fig.colorbar(imgplot_red,   ax=ax[0], shrink=0.5)
 ```
 
@@ -787,6 +941,9 @@ fig.colorbar(imgplot_green, ax=ax[1], shrink=0.5)
 
 ``` python
 fig.colorbar(imgplot_blue,  ax=ax[2], shrink=0.5);
+```
+
+``` python
 
 show()
 ```
@@ -798,26 +955,62 @@ show()
 
 ``` python
 red_mask   = red_channel   > 120
+```
+
+``` python
 green_mask = green_channel > 100
+```
+
+``` python
 blue_mask  = blue_channel  > 100
+```
+
+``` python
 
 red_masked   = red_channel*red_mask
+```
+
+``` python
 green_masked = green_channel*green_mask
+```
+
+``` python
 blue_masked  = blue_channel*blue_mask
+```
+
+``` python
 
 fig, ax = subplots(nrows=3, ncols=2, figsize=(18, 20))
 
 ax[0, 0].imshow(red_mask, cmap='gray')
+```
+
+``` python
 ax[0, 0].set_title('Red binary mask', fontsize=16)
 ax[0, 1].imshow(red_masked, cmap='Reds')
+```
+
+``` python
 ax[0, 1].set_title('Masked image', fontsize=16)
 ax[1, 0].imshow(green_mask, cmap='gray')
+```
+
+``` python
 ax[1, 0].set_title('Green binary mask', fontsize=16)
 ax[1, 1].imshow(green_masked, cmap='Greens')
+```
+
+``` python
 ax[1, 1].set_title('Masked image', fontsize=16)
 ax[2, 0].imshow(blue_mask, cmap='gray')
+```
+
+``` python
 ax[2, 0].set_title('Blue binary mask', fontsize=16)
 ax[2, 1].imshow(blue_masked, cmap='Blues')
+```
+
+``` python
 ax[2, 1].set_title('Masked image', fontsize=16);
 
 show()
@@ -841,9 +1034,13 @@ print("Approximately %d"%(blue_counts/total_pixels*100)+"% of the image is DNA")
 ```
 
 ``` output
-Approximately 13% of the image is synaptophysin
-Approximately 34% of the image is IP3R
-Approximately 18% of the image is DNA
+NameError: name 'img_task' is not defined
+NameError: name 'red_mask' is not defined
+NameError: name 'green_mask' is not defined
+NameError: name 'blue_mask' is not defined
+NameError: name 'red_counts' is not defined
+NameError: name 'green_counts' is not defined
+NameError: name 'blue_counts' is not defined
 ```
 
 ### Q6

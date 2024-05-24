@@ -50,3 +50,4 @@ docs/
 po/*~
 
 .DS_Store
+renv/sandbox

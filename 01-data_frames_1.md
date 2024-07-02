@@ -765,7 +765,7 @@ print('Labels:          ', randomLabel)
 ``` output
 Number of rows:   18
 Number of Labels: 18
-Labels:           [0 0 1 0 1 0 1 1 0 0 1 0 0 1 1 1 1 0]
+Labels:           [0 0 0 1 1 1 1 0 1 1 0 0 1 0 1 1 1 0]
 ```
 
 Note how we obtain the number of rows (18) using `len` and do not put it directly into the code.
@@ -787,8 +787,8 @@ df.head()
     calcium      sodium  gender
 0  3.455582  112.690980       0
 1  3.669026  125.663330       0
-2  2.789910  105.821810       1
-3  2.939900   98.172772       0
+2  2.789910  105.821810       0
+3  2.939900   98.172772       1
 4  5.426060   97.931489       1
 ```
 
@@ -804,18 +804,18 @@ df['gender'] == 1
 ``` output
 0     False
 1     False
-2      True
-3     False
+2     False
+3      True
 4      True
-5     False
+5      True
 6      True
-7      True
-8     False
-9     False
-10     True
+7     False
+8      True
+9      True
+10    False
 11    False
-12    False
-13     True
+12     True
+13    False
 14     True
 15     True
 16     True
@@ -836,12 +836,13 @@ df[df_female]
 
 ``` output
      calcium      sodium  gender
-2   2.789910  105.821810       1
+3   2.939900   98.172772       1
 4   5.426060   97.931489       1
+5   0.715811  120.858330       1
 6   5.652390  112.871500       1
-7   3.571320  112.647360       1
-10  2.550962  117.373730       1
-13  1.362779  123.359490       1
+8   4.300067  132.031720       1
+9   1.369419  118.499010       1
+12  3.664987  105.346410       1
 14  3.718798  125.021060       1
 15  1.865868  112.075420       1
 16  3.272809  117.588040       1
@@ -869,7 +870,7 @@ print(no_males, 'samples are labelled "male".')
 ```
 
 ``` output
-11 samples are labelled "male".
+9 samples are labelled "male".
 ```
 :::::::::::::::::
 ::::::::::::::::::::::::::::::::::

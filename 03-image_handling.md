@@ -212,21 +212,9 @@ We chose `cmap = gray`, which assigns darker grey colours to smaller numbers, an
 fig, ax = subplots(nrows=1, ncols=2, figsize=(25, 15))
 
 p1 = ax[0].imshow(img[:20, :15], cmap='viridis')
-```
-
-``` python
 p2 = ax[1].imshow(img[:20, :15], cmap='magma')
-```
-
-``` python
 fig.colorbar(p1, ax=ax[0], shrink = 0.8)
-```
-
-``` python
 fig.colorbar(p2, ax=ax[1], shrink = 0.8);
-```
-
-``` python
 
 show()
 ```
@@ -252,9 +240,6 @@ The histogram plot shows how many of each of the intensities are found in this i
 fig, ax = subplots(figsize=(10, 4))
 
 ax.hist(img.flatten(), bins = 50)
-```
-
-``` python
 ax.set_xlabel("Pixel intensity", fontsize=16);
 
 show()
@@ -276,26 +261,14 @@ Based on the histogram above, we might try to adjust that threshold somewhere be
 threshold = 125
 
 mask = img < threshold
-```
-
-``` python
 
 img_masked = img*mask
-```
-
-``` python
 
 fig, ax = subplots(nrows=1, ncols=2, figsize=(20, 10))
 
 ax[0].imshow(mask, cmap='gray')
-```
-
-``` python
 ax[0].set_title('Binary mask', fontsize=16)
 ax[1].imshow(img_masked, cmap='gray')
-```
-
-``` python
 ax[1].set_title('Masked image', fontsize=16)
 
 show()
@@ -317,16 +290,10 @@ Let's have a look at the resulting image histograms.
 fig, ax = subplots(nrows=1, ncols=2, figsize=(20, 5))
 
 ax[0].hist(img_masked.flatten(), bins=50)
-```
-
-``` python
 ax[0].set_title('Histogram of masked image', fontsize=16)
 ax[0].set_xlabel("Pixel intensity", fontsize=16)
 
 ax[1].hist(img_masked[img_masked != 0].flatten(), bins=25)
-```
-
-``` python
 ax[1].set_title('Histogram of masked image after zeros are removed', fontsize=16)
 ax[1].set_xlabel("Pixel intensity", fontsize=16)
 
@@ -420,30 +387,12 @@ NameError: name 'img_col' is not defined
 fig, ax = subplots(nrows=1, ncols=3, figsize=(20, 10))
 
 imgplot_red = ax[0].imshow(red_channel, cmap="Reds")
-```
-
-``` python
 imgplot_green = ax[1].imshow(green_channel, cmap="Greens")
-```
-
-``` python
 imgplot_blue = ax[2].imshow(blue_channel, cmap="Blues")
-```
-
-``` python
 
 fig.colorbar(imgplot_red, ax=ax[0], shrink=0.4)
-```
-
-``` python
 fig.colorbar(imgplot_green, ax=ax[1], shrink=0.4)
-```
-
-``` python
 fig.colorbar(imgplot_blue, ax=ax[2], shrink=0.4);
-```
-
-``` python
 
 show()
 ```
@@ -461,21 +410,12 @@ We can plot histograms of each of the colour channels.
 fig, ax = subplots(nrows=1, ncols=3, figsize=(20, 5))
 
 ax[0].hist(red_channel.flatten(), bins=50)
-```
-
-``` python
 ax[0].set_xlabel("Pixel intensity", fontsize=16)
 ax[0].set_xlabel("Red channel")
 ax[1].hist(green_channel.flatten(), bins=50)
-```
-
-``` python
 ax[1].set_xlabel("Pixel intensity", fontsize=16)
 ax[1].set_xlabel("Green channel")
 ax[2].hist(blue_channel.flatten(), bins=50)
-```
-
-``` python
 ax[2].set_xlabel("Pixel intensity", fontsize=16)
 ax[2].set_xlabel("Blue channel")
 
@@ -736,13 +676,7 @@ p2 = ax[1].imshow(img_data[:, :, 75], cmap='gray')
 p3 = ax[2].imshow(img_data[:, :, 90], cmap='gray')
 
 fig.colorbar(p1, ax=ax[0], shrink=0.4)
-```
-
-``` python
 fig.colorbar(p2, ax=ax[1], shrink=0.4)
-```
-
-``` python
 fig.colorbar(p3, ax=ax[2], shrink=0.4);
 
 show()
@@ -767,13 +701,7 @@ p2 = ax[1].imshow(img_data[:, :, 75], cmap='gray', vmin=0, vmax=150)
 p3 = ax[2].imshow(img_data[:, :, 90], cmap='gray', vmin=0, vmax=150)
 
 fig.colorbar(p1, ax=ax[0], shrink=0.4)
-```
-
-``` python
 fig.colorbar(p2, ax=ax[1], shrink=0.4)
-```
-
-``` python
 fig.colorbar(p3, ax=ax[2], shrink=0.4);
 
 show()
@@ -864,9 +792,6 @@ from matplotlib.pyplot import subplots, show
 fig, ax = subplots(figsize=(20, 10))
 
 ax.imshow(img_task, cmap='gray');
-```
-
-``` python
 
 show()
 ```
@@ -878,36 +803,18 @@ show()
 
 ``` python
 red_channel   = img_task[:, :, 0]
-```
-
-``` python
 green_channel = img_task[:, :, 1]
-```
-
-``` python
 blue_channel  = img_task[:, :, 2]
-```
-
-``` python
 
 fig, ax = subplots(ncols=3, figsize=(20, 5))
 
 ax[0].hist(red_channel.flatten(), bins=50)
-```
-
-``` python
 ax[0].set_xlabel("Pixel intensity", fontsize=16)
 ax[0].set_xlabel("Red channel")
 ax[1].hist(green_channel.flatten(), bins=50)
-```
-
-``` python
 ax[1].set_xlabel("Pixel intensity", fontsize=16)
 ax[1].set_xlabel("Green channel")
 ax[2].hist(blue_channel.flatten(), bins=50)
-```
-
-``` python
 ax[2].set_xlabel("Pixel intensity", fontsize=16)
 ax[2].set_xlabel("Blue channel");
 
@@ -921,29 +828,11 @@ show()
 fig, ax = subplots(ncols=3, figsize=(20, 10))
 
 imgplot_red   = ax[0].imshow(red_channel, cmap="Reds")
-```
-
-``` python
 imgplot_green = ax[1].imshow(green_channel, cmap="Greens")
-```
-
-``` python
 imgplot_blue  = ax[2].imshow(blue_channel, cmap="Blues")
-```
-
-``` python
 fig.colorbar(imgplot_red,   ax=ax[0], shrink=0.5)
-```
-
-``` python
 fig.colorbar(imgplot_green, ax=ax[1], shrink=0.5)
-```
-
-``` python
 fig.colorbar(imgplot_blue,  ax=ax[2], shrink=0.5);
-```
-
-``` python
 
 show()
 ```
@@ -955,62 +844,26 @@ show()
 
 ``` python
 red_mask   = red_channel   > 120
-```
-
-``` python
 green_mask = green_channel > 100
-```
-
-``` python
 blue_mask  = blue_channel  > 100
-```
-
-``` python
 
 red_masked   = red_channel*red_mask
-```
-
-``` python
 green_masked = green_channel*green_mask
-```
-
-``` python
 blue_masked  = blue_channel*blue_mask
-```
-
-``` python
 
 fig, ax = subplots(nrows=3, ncols=2, figsize=(18, 20))
 
 ax[0, 0].imshow(red_mask, cmap='gray')
-```
-
-``` python
 ax[0, 0].set_title('Red binary mask', fontsize=16)
 ax[0, 1].imshow(red_masked, cmap='Reds')
-```
-
-``` python
 ax[0, 1].set_title('Masked image', fontsize=16)
 ax[1, 0].imshow(green_mask, cmap='gray')
-```
-
-``` python
 ax[1, 0].set_title('Green binary mask', fontsize=16)
 ax[1, 1].imshow(green_masked, cmap='Greens')
-```
-
-``` python
 ax[1, 1].set_title('Masked image', fontsize=16)
 ax[2, 0].imshow(blue_mask, cmap='gray')
-```
-
-``` python
 ax[2, 0].set_title('Blue binary mask', fontsize=16)
 ax[2, 1].imshow(blue_masked, cmap='Blues')
-```
-
-``` python
 ax[2, 1].set_title('Masked image', fontsize=16);
 
 show()

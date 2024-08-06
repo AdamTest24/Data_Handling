@@ -971,41 +971,23 @@ fig, axes = subplots(figsize=(6, 14), ncols=1, nrows=4, sharex=False)
 
 axes[0].plot(freqs, powers_back2[:, 3])
 axes[0].set_xlim(0, 20)
-```
-
-``` python
 axes[0].set_ylim(0, 12)
-```
-
-``` python
 axes[0].set(ylabel=f'Power channel 3')
 axes[0].set(xlabel='Frequency (Hz)');
 
 axes[1].plot(time, dat_back_filt[:, 3], c='r')
 axes[1].set(xlabel='Time (s)');
 axes[1].set_ylim(-50, 60)
-```
-
-``` python
 
 axes[2].plot(freqs, powers_epil2[:, 3])
 axes[2].set_xlim(0, 20)
-```
-
-``` python
 axes[2].set_ylim(0, 12)
-```
-
-``` python
 axes[2].set(ylabel='Power channel index 1')
 axes[2].set(xlabel='Frequency (Hz)');
 
 axes[3].plot(time, dat_epil_filt[:, 3], c='r')
 axes[3].set(xlabel='Time (s)');
 axes[3].set_ylim(-50, 60)
-```
-
-``` python
 
 show()
 ```
@@ -1028,9 +1010,6 @@ fig, ax = subplots(figsize = (8,8), ncols=2)
 
 im1 = ax[0].imshow(corr_matrix_back2, cmap='coolwarm');
 fig.colorbar(im1, ax=ax[0], orientation='horizontal', shrink=0.8)
-```
-
-``` python
 
 im2 = ax[1].imshow(corr_matrix_epil2, cmap='coolwarm');
 fig.colorbar(im2, ax=ax[1], orientation='horizontal', shrink=0.8);
@@ -1053,9 +1032,6 @@ fig, ax = subplots(nrows=2)
 
 ax[0].hist(corr_coeffs_back2, bins = 12);
 ax[0].set_xlim(-1, 1)
-```
-
-``` python
 
 ax[1].hist(corr_coeffs_epil2, bins = 12);
 ax[1].set_xlim(-1, 1);
@@ -1079,9 +1055,6 @@ bins = arange(corr_coeffs_back2_mean.shape[0])
 ax[0].bar(bins, corr_coeffs_back2_mean);
 ax[0].set_xlabel('Background')
 ax[0].set_ylim(0, 0.4)
-```
-
-``` python
 
 ax[1].bar(bins, corr_coeffs_epil2_mean);
 ax[1].set_xlabel('Seizure')

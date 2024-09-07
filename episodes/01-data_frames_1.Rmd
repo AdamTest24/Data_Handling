@@ -1,5 +1,5 @@
 ---
-title: "Data Frames - Part 1"
+title: "DataFrames - Part 1"
 teaching: 60
 exercises: 60
 ---
@@ -13,15 +13,15 @@ exercises: 60
 
 ::::::::::::::::::::::::::::::::::::: questions
 
-- How is data read into a dataframe?
-- What are different ways to manipulate data in dataframes?
-- What makes data visualisation simple in Python?
+- What is a Dataframe, and how can we read data into one?
+- What are the different methods for manipulating data in Dataframes?
+- What makes data visualisation simple, in Python?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
-- Import data set as Pandas dataframe
-- Inspect data frame and access data
+- Import a dataset as a Pandas Dataframe
+- Inspect a Dataframe and access data
 - Produce an overview of data features
 - Create data plots using Matplotlib
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -46,9 +46,9 @@ exercises: 60
 
 ## Prerequisites
 
-- Indexing of Arrays
-- For Loop through Array
-- Basic Statistics (distributions, mean, median, standard deviation)
+- [Indexing of arrays](https://learntodiscover.github.io/Basic_Python/04-arrays.html#sec:list:indexing)
+- [For-loop through an array](https://learntodiscover.github.io/Basic_Python/05-iterations.html#retaining-the-new-values)
+- Basic statistics (distributions, mean, median and standard deviation)
 
 ::::::::::::::::::
 
@@ -59,56 +59,56 @@ The diabetes data set is one of the challenging task.
 ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
 
-## Challenge: The diabetes data set
+## Challenge: The diabetes dataset
 <p style='text-align: justify;'>
-Here is a screenshot of the so-called diabetes data set. It is taken from
-[this webpage](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt) and it is one of the [example data sets](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) used to illustrate machine learning functionality in scikit-learn (Part III and Part IV of the course).
+Here is a screenshot of a diabetes dataset. It is taken from
+[this webpage](https://www4.stat.ncsu.edu/~boos/var.select/diabetes.tab.txt), and is one of the [example datasets](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_diabetes.html) used to illustrate machine learning functionality in scikit-learn (Part II of the L2D course).
 </p>
 
 ![](fig/diabetes_data_screenshot.png "Screenshot of Diabetes Data")
 
 <p style='text-align: justify;'>
-This figure captures only the top part of the data. On the webpage you need to scroll down considerably to view the whole content. Thus, to get an __overview__ of the dataset is the first main task in Data Science.
+This figure captures only the top part of the data. On the webpage, you will need to scroll down considerably to view all of it. Thus, our first data science task, will be to obtain an overview of this datset.
 </p>
 
 ::::::::::::::::::::::::::::::::::::: callout
 
 ## The lesson
 
-- introduces code to read and inspect the data
-- works with a specific data frame and extracts some techniques to get an overview
-- discusses the concept 'distribution' as a way of summarising data in a single figure
+- Introduces code to read and inspect the data
+- Works with a specific Dataframe and explains methods used to get an overview of the data
+- Discusses the concept of 'distribution' as a way of summarising data within a single figure
 
 
 
 :::::::: checklist
 
-### To get to know a dataset you need to
+### To familiarise yourself with a dataset you need to:
 
-- access the data
-- check the content
-- produce a summary of basic properties
+- Access the data
+- Check the content
+- Produce a summary of basic properties
 
 ::::::::
 
 <p style='text-align: justify;'>
-In this lesson we will only look at univariate features where each data column is studied independently of the others. Further properties and bivariate features will be the topic of the next lesson.
+In this lesson we will look solely at univariate features, where each data columns are studied independently of the others in the datasets. Further properties and bivariate features will be the topic of the next lesson.
 </p>
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
-## Work Through Example
+## Work-Through Example
 
 :::::::::::::::::::::::::::::::::::::::::::::::: discussion
 
 ## Reading data into a Pandas DataFrame
 
 <p style='text-align: justify;'>
-The small practice data file for this section is called 'everleys_data.csv' and can be downloaded using the link given above in "Materials for this Lesson". To start, please create a subfolder called 'data' in the current directory and put the data file in it. It can now be accessed using the relative path `data/everleys_data.csv` or `data\everleys_data.csv`, respectively.
+The small practice data file for this section is called 'everleys_data.csv', and can be downloaded using the link given above in [Summary and Setup](../learners/setup.md) for this Lesson. To start, please create a subfolder called 'data' in the current directory and put the data file in it. It can now be accessed using the relative path `data/everleys_data.csv` or `data\everleys_data.csv`, respectively.
 </p>
 
 <p style='text-align: justify;'>
-The file `everleys_data.csv` contains blood concentrations of calcium and sodium ions from 17 patients with Everley's syndrome. The data are taken from a [BMJ statistics tutorial](https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one/7-t-tests). The data are stored as comma-separated values (csv), two values for each patient.
+The file `everleys_data.csv` contains serum concentrations of calcium and sodium ions, sampled from 17 patients with Everley's syndrome - a rare genetic disorder that results in sufferers experiencing developmental delays, intellectual and physical abnormalities. The data are taken from a [BMJ statistics tutorial](https://www.bmj.com/about-bmj/resources-readers/publications/statistics-square-one/7-t-tests), and are stored as comma-separated values (csv): with two values given for each patient.
 </p>
 <p style='text-align: justify;'>
 To get to know a dataset, we will use the Pandas package and the Matplotlib plotting library. The Pandas package for data science is included in the Anaconda distribution of Python. Check this [link for installation instructions](https://pandas.pydata.org/getting_started.html) to get started.
@@ -117,7 +117,7 @@ To get to know a dataset, we will use the Pandas package and the Matplotlib plot
 If you are not using the Anaconda distribution, please refer to [these guidelines](https://pandas.pydata.org/docs/getting_started/install.html).
 
 <p style='text-align: justify;'>
-To use the functions contained in Pandas they need to be imported. Our dataset is in '.csv' format, and we therefore need to read it from a csv file. For this, we import the function `read_csv`. This function will create a _Pandas dataframe_.
+In order to use the functions contained in Pandas, they must first to be imported. Since our dataset is in a '.csv' file, we must first read it from a csv file. For this, we must import the function `read_csv`, which will create a _Pandas DataFrame_ from data provided in a '.csv' file.
 </p>
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
@@ -128,12 +128,12 @@ from pandas import read_csv
 ```
 
 <p style='text-align: justify;'>
-Executing this code does not lead to any output on the screen. However, the function is now ready to be used. To use it, we type its name and provide the required arguments. The following code should import the Everley's data into your JupyterLab notebook (or other Python environment):
+Executing this code does not lead to any output on the screen. However, the function is now ready to be used. To use it, we type its name and provide the required arguments. The following code should import the Everley's data into your Python Notebook: 
 </p>
 
 
 ```{python}
-# for Mac OSX and Linux
+# For Mac OS X and Linux:
 # (please go to the next cell if using Windows)
 
 df = read_csv("data/everleys_data.csv")
@@ -142,22 +142,21 @@ df = read_csv("data/everleys_data.csv")
 
 
 ```{python}
-# Please uncomment for Windows
-# (please go to previous cell if using Mac OSX or Linux)
+# For Windows:
 
 # df = read_csv("data\everleys_data.csv")
 
 ```
 
 <p style='text-align: justify;'>
-This code uses the `read_csv` function from Pandas to read data from a data file, in this case a file with extension '.csv'. Note that the location of the data file is specified within quotes by the relative path to the subfolder 'data' followed by the file name. Use the JupyterLab file browser to check that subfolder exists and has the file in it.
+Note the orientation of backward and forward slashes that differentiate filepaths given between Unix-based systems, and Windows. This code uses the `read_csv` function from Pandas to read data from a data file, in this case a file with extension '.csv'. Note that the location of the data file is specified within quotes by the relative path to the subfolder 'data', followed by the file name. Use your file browser or the browser in JupyterLab (or an ‘Explorer’-type pane in your IDE of choice) to check that subfolder does indeed exists, and contains the file within it.
 </p>
 
 ![](fig/subfolder_data.png "Screenshot of subfolder 'data' ")
 
 After execution of the code, the data are contained in a variable called `df`. This is a structure referred to as a Pandas _DataFrame_.
 
-> A [__Pandas dataframe__](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe) is a 2-dimensional labeled data structure with columns of potentially different types. You can think of it as a spreadsheet.
+> A [__Pandas DataFrame__](https://pandas.pydata.org/pandas-docs/stable/user_guide/dsintro.html#dataframe) is a 2-dimensional labelled data structure, with columns of (potentially different) types. You can think of it as a spreadsheet.
 
 
 To see the contents of `df`, simply use:
@@ -175,10 +174,10 @@ The output shows in the first column an index, integers from 0 to 17; and the ca
 </p>
 
 <p style='text-align: justify;'>
-In a dataframe, the first column is referred to as _Indices_, the first row is referred to as _Labels_. Note that the row with the labels is excluded from the row count. Similarly, the row with the indices is excluded from the column count.
+In a DataFrame, the first column is referred to as _Indices_, the first row is referred to as _Labels_. Note that the row with the labels is excluded from the row count. Similarly, the row with the indices is excluded from the column count.
 </p>
 
-For large data sets, the function `head` is a convenient way to get a feel of the dataset.
+For large datasets, the function `head` is a convenient way to get a feel of the dataset.
 
 
 ```{python}
@@ -186,11 +185,11 @@ df.head()
 ```
 
 <p style='text-align: justify;'>
-Without any input argument, this displays the first five data lines of the dataframe. You can specify alter the number of rows displayed by including a single integer as argument, e.g. `head(10)`.
+Without any input argument, this displays the first five data lines of data i the newly-created DataFrame. You can specify and alter the number of rows displayed by including a single integer as argument, e.g. `head(10)`.
 </p>
 
 <p style='text-align: justify;'>
-If you feel there are too many decimal places in the default view, you can restrict their number by using the `round` function:
+If you feel there are too many decimal places in the default view, you can restrict their number by using the `round` method. The numerical argument that you provide in the round parentheses controls the number of decimal places the method rounds to, with digits up to 5 being rounded down, and above (and inclusive of) 5, being rounded up:
 </p>
 
 
@@ -199,17 +198,17 @@ df.head().round(2)
 ```
 
 <p style='text-align: justify;'>
-While we can see how many rows there are in a dataframe when we display the whole data frame and look at the last index, there is a convenient way to obtain the number directly:
+While it is possible to see how many rows there are in a DataFrame by displaying the whole DataFrame and looking at the last index, there is a convenient way to obtain this number, directly:
 </p>
 
 ```{python}
 no_rows = len(df)
 
-print('Data frame has', no_rows, 'rows')
+print('DataFrame has', no_rows, 'rows')
 
 ```
 
-You could see above, that the columns of the dataframe have labels. To see all labels:
+You could see above, that the columns of the DataFrame have labels. To see all labels:
 
 
 ```{python}
@@ -225,23 +224,23 @@ Now we can count the labels to obtain the number of columns:
 ```{python}
 no_columns = len(column_labels)
 
-print('Data frame has', no_columns, 'columns')
+print('DataFrame has', no_columns, 'columns')
 
 ```
 
 <p style='text-align: justify;'>
-And if you want to have both the number of the rows and the columns together, use `shape`. Shape returns a tuple of two numbers, first the number of rows, then the number of columns.
+And if you want to have both the number of the rows and the number columns displayed together, you can use the `shape` method. Shape returns a tuple of two numbers: the first is the number of rows, and the second is the number of columns.
 </p>
 
 ```{python}
 df_shape = df.shape
 
-print('Data frame has', df_shape[0], 'rows and',df_shape[1],  'columns')
+print('DataFrame has', df_shape[0], 'rows and',df_shape[1],  'columns')
 
 ```
 
 
-Notice that `shape` (like `columns`) is not followed by round parenthesis. It is not a function that can take arguments. Technically, `shape` is a 'property' of the dataframe.
+Notice that `shape` (like `columns`) is not followed by round parentheses. It is not a function that can take arguments. Technically, `shape` is a 'property' of the DataFrame.
 
 
 To find out what data type is contained in each of the columns, us `dtypes`, another 'property':
@@ -256,17 +255,19 @@ In this case, both columns contain floating point (decimal) numbers.
 
 :::::::::::::::::::::::: challenge
 
-## DIY1: Read data into a dataframe
+## Practice Exercise 1
+
+**Read data into a DataFrame**
 
 <p style='text-align: justify;'>
-Download the data file 'loan_data.csv' using the link given above in "Materials for this Lesson". It contains data that can be used for the assessment of loan applications. Read the data into a DataFrame. It is best to assign it a name other than 'df' (to avoid overwriting the Evereley data set).
+Download the data file 'loan_data.csv' using the link given above in [Summary and Setup](../learners/setup.md) for this Lesson". It contains data that can be used for the assessment of loan applications. Read the data into a DataFrame. It is best to assign it a name other than 'df' (to avoid overwriting the Evereley dataset).
 </p>
 
 <p style='text-align: justify;'>
-Display the first ten rows of the Loan data set to see its contents. It is taken from a [tutorial on Data Handling in Python](https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/) which you might find useful for further practice.
+Display the first ten rows of the Loan dataset to see its contents. It is taken from a [tutorial on Data Handling in Python](https://www.analyticsvidhya.com/blog/2016/01/complete-tutorial-learn-data-science-python-scratch-2/) which you might find useful for further practice.
 </p>
 
-> From this exercise we can see that a dataframe can contain different types of data: real numbers (e.g. LoanAmount), integers (ApplicantIncome), categorical data (Gender), and strings (Loan_ID).
+> From this exercise we can see that a DataFrame can contain different types of data: real numbers (e.g. LoanAmount), integers (ApplicantIncome), categorical data (Gender), and strings (Loan_ID).
 
 ::::::::::::::::: solution
 
@@ -285,7 +286,7 @@ df_loan.head(10)
 
 <p style='text-align: justify;'>
 If a datafile is large and you only want to check the format of data in a specific column, you can limit the display to that column.
-To access data contained in a specific column of a dataframe, we can use a similar convention as in a Python dictionary, treating the column names as 'keys'. E.g. to show all rows in column 'Calcium', use:
+To access data contained in a specific column of a DataFrame, we can use a similar convention as in a Python dictionary, treating the column names as 'keys'. E.g. to show all rows in column 'Calcium', use:
 </p>
 
 ```{python}
@@ -302,11 +303,11 @@ df['calcium'][0:3]
 
 <p style='text-align: justify;'>
 Here all rules for [slicing](https://docs.python.org/3/tutorial/introduction.html) can be applied.
-As for lists and tuples, the indexing of rows is semi-inclusive, lower boundary included, upper boundary excluded.
-Note that the first pair of square brackets refers to a column and the second pair refers to the rows. This is different from e.g. accessing items in a nested list.
+As for lists and tuples, the indexing of rows is semi-inclusive, with the lower boundary included and upper boundary excluded.
+Note that the first pair of square brackets refers to columns, and the second pair refers to the rows. However, this is different from accessing items in a nested list, for instance.
 </p>
 
-Accessing items in a Pandas dataframe is analogous to accessing the values in a Python dictionary by referring to its keys.
+Accessing items in a Pandas DataFrame is analogous to accessing the values in a Python dictionary by referring to its keys.
 
 
 To access non-contiguous elements, we use an additional pair of square brackets (as if for a list within a list):
@@ -317,47 +318,51 @@ df['calcium'][[1, 3, 7]]
 ```
 
 <p style='text-align: justify;'>
-Another possibility to index and slice a dataframe is the use of the 'index location' or `iloc` property. It refers first to rows and then to columns by index, all within a single pair of brackets. For example, to get all rows of the first column (index `0`), you use:
+Another method for indexing and slicing a DataFrame is to use the 'index location' or `iloc` property. Note that properties in Python differ from methods. Syntactically, they use the same dot notation we are accustomed to with methods, but they differ in their use of square brackets, rather than the round parentheses that methods operate with. A property also refers directly to a specific **attribute** of an object. 
+
+In this example `iloc` refers first to the rows of data, and then to columns - by index; all contained within a single pair of brackets. For example, to obtain all the rows of the first column (index `0`), you use:
 </p>
 
 ```{python}
 df.iloc[:, 0]
 ```
 
-To display only the first three calcium concentrations, you use slicing, remembering that the upper bound is excluded):
+To display only the first three calcium concentrations, slicing is used: note that the upper boundary is excluded):
 
 ```{python}
 df.iloc[0:3, 0]
 ```
 
-To access non-consecutive values, we can use a pair of square brackets within the pair of square brackets:
+To access non-consecutive values, we can use a pair of square brackets within the outer pair of square brackets:
 
 ```{python}
 df.iloc[[2, 4, 7], 0]
 
 ```
 
-Similarly, we can access the values from multiple columns:
+Similarly, we can access values from multiple columns:
 
 ```{python}
 df.iloc[[2, 4, 7], :]
 
 ```
 
-To pick only the even rows from the two columns, check this colon notation:
+To pick only the even rows from the two columns, note the following colon notation:
 
 ```{python}
 df.iloc[:18:2, :]
 
 ```
 
-The number after the second colon indicates the stepsize.
+The number after the second colon indicates the _stepsize_.
 
 :::::::::::::::::::::::::::::::::: challenge
 
-## DIY2: Select data from dataframe
+## Practice Exercise 2
 
-Display the calcium and sodium concentrations of all patients except the first. Check the model solution at the bottom for options.
+**Select data from DataFrame**
+
+Display the calcium and sodium concentrations of all patients - except the first. Check the model solution at the bottom for options.
 
 ::::::::::::::::: solution
 
@@ -369,11 +374,11 @@ df[['calcium', 'sodium']][1:]
 
 ::::::::::::::::::::::::::::::::::
 
-Mixing the ways to access specific data in a dataframe can be confusing and needs practice.
+Mixing the different methods of accessing specific data in a DataFrame can be confusing, and requires practice and diligence.
 
 ### **Search for missing values**
 
-Some tables contain missing entries. You can check a dataframe for such missing entries. If no missing entry is found, the function `isnull` will return `False`.
+Some tables contain missing entries. You can check a DataFrame for such missing entries. If no missing entry is found, the function `isnull` will return `False`.
 
 
 ```{python}
@@ -381,12 +386,14 @@ df.isnull().any()
 
 ```
 
-This shows that there are no missing entries in our dataframe.
+This shows that there are no missing entries in our DataFrame.
 
 :::::::::::::::::::::::::::::::::: challenge
-## DIY3: Find NaN in dataframe
+## Practice Exercise 3
 
-In the Loan data set, check the entry 'Self-employed' for ID LP001059. It shows how a missing value is represented as 'NaN' (not a number).
+**Find NaN in DataFrame**
+
+In the Loan dataset, check the entry 'Self-employed' for ID LP001059. It shows how a missing value is represented as 'NaN' (not a number).
 
  Verify that the output of `isnull` in this case is `True`
 
@@ -406,11 +413,11 @@ df_loan['Self_Employed'][8:9].isnull()
 ::::::::::::::::::::::::::::::::::
 
 
-## Basic data features
+## Basic data features:
 
 ### **Summary Statistics**
 
-To get a summary of basic data features use the function `describe`:
+To get a summary of basic data features, it is possible to use the function `describe`:
 
 
 ```{python}
@@ -421,7 +428,7 @@ description
 ```
 
 <p style='text-align: justify;'>
-The `describe` function produces a new dataframe (here called 'description') that contains the number of samples, the mean, the standard deviation, minimum, 25th, 50th, 75th  percentile, and the maximum value for each column of the data. Note that the indices of the rows have now been replaced by strings. To access rows, it is possible to refer to those names using the `loc` property. E.g. to access the mean of the calcium concentrations from the description, each of the following is valid:
+The `describe` function produces a new DataFrame (here called 'description') that contains the number of samples, the mean, the standard deviation, 25th, 50th, 75th  percentile, and the minimum and maximum values for each column of the data. Note that the indices of the rows have now been replaced by strings. To access rows, it is possible to refer to those names using the `loc` property. Thus, in order to access the mean of the calcium concentrations from the description, each of the following is valid:
 </p>
 
 
@@ -441,10 +448,10 @@ description['calcium'][1]
 ```
 
 :::::::::::::::::::::::::::::::::: challenge
-## DIY4: Practice
+## Practice Exercise 4
 
 <p style='text-align: justify;'>
-Use your own .csv data set to practice. (If you don't have a data set at hand, any excel table can be exported as .csv.) Read it into a dataframe, check its header, access individual values or sets of values. Create a statistics using `describe` and check for missing values using `.isnull`.
+Use your own .csv dataset to practice. (If you don't have a dataset at hand, any excel table can be exported as .csv.) Firstly, read it into a DataFrame, and proceed by checking its header, accessing individual values or sets of values etc. Create a statistical summary using `describe`, and check for missing values using `.isnull`.
 </p>
 
 ::::::::::::::::: solution
@@ -455,7 +462,7 @@ Use your own .csv data set to practice. (If you don't have a data set at hand, a
 
 ### **Iterating through the columns**
 
-Now we know how to access all data in a dataframe and how to get a summary statistics over each column.
+Now we know how to access all data in a DataFrame and how to get a statistical summary statistics over each column.
 
 Here is code to iterate through the columns and access the first two concentrations:
 
@@ -467,7 +474,7 @@ for col in df:
 
 ```
 
-As a slightly more complex example, we access the median ('50%') of each column in the description and add it to a list:
+As a slightly more complex example, we access the median ('50%') of each column in the description, and add it to a list:
 
 
 ```{python, results = "hold"}
@@ -483,21 +490,21 @@ print('The medians are: ', conc_medians)
 ```
 
 <p style='text-align: justify;'>
-This approach is useful for data frames with a large number of columns. For instance, it is possible to then create a boxplot or histogram for the means, medians etc. of the dataframe and thus to get an overview of all (comparable) columns.
+This approach is useful for DataFrames with a larger number of columns. For instance, it is possible to follow this by creating a boxplot or histogram for the means, medians etc. of the DataFrame, thus giving a comprehensive overview of all (comparable) columns.
 </p>
 
 ### **Selecting a subset based on a template**
 
 <p style='text-align: justify;'>
-An analysis of a data set may need to be done on part of the data. This can often be formulated by using a logical condition which specifies the required subset.
+Often, an analysis of a dataset may required on only part of the data. This can often be formulated by using a logical condition which specifies the required subset.
 </p>
 
 <p style='text-align: justify;'>
-For this we will assume that some of the data are labelled '0' and some are labelled '1'. Let us therefore see how to add a new column to our Evereleys data frame which contains the (in this case arbitrary) labels.
+For this we will assume that some of the data are labelled '0' and some are labelled '1'. Let us therefore see how to add a new column to our Evereleys DataFrame, which contains the labels (which are, in this example, arbitrary).
 </p>
 
 <p style='text-align: justify;'>
-First we randomly create as many labels as we have rows in the data frame. We can use the `randint` function which we import from 'numpy.random'. `randint` in its simple form takes two arguments. First the upper bound of the integer needed, where by default it starts from zero. As Python is exclusive on the upper bound, providing '2' will thus yield either '0' or '1' only.
+Firstly, we can randomly create as many labels as we have rows in the DataFrame. We can use the <kbd>randint</kbd> function, which can be imported from the <kbd>numpy.random</kbd> module of the NumPy library. In its simplest form, the <kbd>randint</kbd> function accepts two arguments. Firstly, the upper bound of the integer needed, which defaults to zero. As Python is exclusive of the upper bound, providing '2' will thus yield either '0' or '1' only.
 </p>
 
 ```{python, results = "hold"}
@@ -513,10 +520,10 @@ print('Labels:          ', randomLabel)
 
 ```
 
-Note how we obtain the number of rows (18) using `len` and do not put it directly into the code.
+Note how we obtain the number of rows (18) using <kbd>len</kbd> function and do not explicitly state it in the code.
 
 <p style='text-align: justify;'>
-Now we create a new data column in our `df` dataframe which contains the labels. To create a new column, you can simply refer to a column name that does not yet exist and assign values to it. Let us call it 'gender', assuming that '0' represents male and '1' represents female.
+Next, we must create a new data column in our `df` DataFrame which contains the labels. In order to create a new column, you may simply refer to a column name that does not yet exist, and subsequently assign values to it. Let us call it 'gender', assuming that '0' represents male and '1' represents female.
 </p>
 
 As gender specification can include more than two labels, try to create a column with more than two randomly assigned labels e.g. (0, 1, 2).
@@ -536,7 +543,7 @@ df['gender'] == 1
 ```
 
 <p style='text-align: justify;'>
-If we assign the result of the conditional statement (Boolean True or False) to a variable, then this variable can act as a template to filter the data. If we call the data frame with that variable, we will only get the rows where the condition was found to be True:
+If we assign the result of the conditional statement (a boolean: True or False) to a variable, then this variable can act as a template to filter the data. If we call the DataFrame with that variable, we will only get the rows where the condition was found to be True:
 </p>
 
 ```{python}
@@ -546,11 +553,13 @@ df[df_female]
 
 ```
 
-Using the Boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label.
+Using the boolean, we only pick the rows that are labelled '1' and thus get a subset of the data according to the label.
 
 :::::::::::::::::::::::::::::::::: challenge
 
-## DIY5: Using a template
+## Practice Exercise 5 
+
+**Using a template**
 
 Modify the code to calculate the number of samples labelled 0 and check the number of rows of that subset.
 
@@ -570,11 +579,11 @@ print(no_males, 'samples are labelled "male".')
 
 ## Visualisation of data
 <p style='text-align: justify;'>
-It is easy to see from the numbers that the concentrations of sodium are much higher than that of calcium. However, to also compare the medians, percentiles and the spread of the data it is better to use visualisation.
+It is easy to see from the numbers that the concentrations of sodium are much higher than those of calcium. However, to incorporate comparisons of medians, percentiles and the spread of the data, it is better to use visualisation.
 </p>
 
 <p style='text-align: justify;'>
-The simplest way of visualisation is to use Pandas functionality which offers direct ways of plotting. Here is an example where a boxplot is created for each column:
+The simplest way to visualise data, is to use Pandas' functionality which offers direct methods of plotting your data. Here is an example where a boxplot is created for each column:
 </p>
 
 
@@ -585,7 +594,7 @@ df.boxplot()
 ```
 
 <p style='text-align: justify;'>
-By default, boxplots are shown for all columns if no further argument is given to the function (empty round parenthesis). As the calcium plot is rather squeezed we may wish to see it individually. This can be done by specifying the calcium column as an argument:
+By default, boxplots are shown for all columns if no further argument is given to the function (empty round parentheses). As the calcium plot is quite condensed, we may wish to visualise it, separately. This can be done by specifying the calcium column as an argument:
 </p>
 
 ```{python}
@@ -596,17 +605,17 @@ df.boxplot(column='calcium')
 
 ## Plots using Matplotlib
 
-> [__Matplotlib__](https://matplotlib.org) is a comprehensive library for creating static, animated, and interactive visualizations in Python.
+> [__Matplotlib__](https://matplotlib.org) is a comprehensive library for creating static, animated and interactive visualizations in Python.
 
 <p style='text-align: justify;'>
-The above is an easy way to create boxplots directly on the dataframe. It is based on the library Matplotlib and specifically uses the __pyplot library__. For simplicity, the code is put in a convenient Pandas function.
+The above is an easy way to create boxplots directly on the DataFrame. It is based on the library Matplotlib and specifically uses the __pyplot library__. For simplicity, this code is put into a convenient Pandas function.
 </p>
 
 <p style='text-align: justify;'>
-However, we are going to use __Matplotlib__ extensively later on in the course, and we therefore now introduce the direct, generic way of using it.
+However, we are going to use __Matplotlib__ extensively later on in the course, and we will therefore start by introducing a more direct and generic way of using it.
 </p>
 
-For this, we import the function `subplots` from the [pyplot library](https://matplotlib.org/stable/api/pyplot_summary.html):
+To do this, we import the function <kbd>subplots</kbd> from the [pyplot library](https://matplotlib.org/stable/api/pyplot_summary.html):
 
 ```{python}
 from matplotlib.pyplot import subplots, show
@@ -614,11 +623,11 @@ from matplotlib.pyplot import subplots, show
 ```
 
 <p style='text-align: justify;'>
-The way to use `subplots` is to first set up a figure environment (below it is called 'fig') and an empty coordinate system (below called 'ax'). The plot is then done using one of the many methods available in Matplotlib. We apply it to the coordinate system 'ax'.
+The way to use <kbd>subplots</kbd> is to first set up a figure environment (below referred to in the code as an object titled 'fig') and an empty coordinate system (below referred to as object 'ax'). The plot is then created using one of the many methods available in Matplotlib. We will proceed by applying it to the coordinate system, 'ax'.
 </p>
 
 <p style='text-align: justify;'>
-As an example, let us create a [boxplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html#matplotlib.pyplot.boxplot|) of the calcium variable. As an argument of the function we need to specify the data. We can use the values of the 'calcium' concentrations from the column with that name:
+As an example, let us create a [boxplot](https://matplotlib.org/api/_as_gen/matplotlib.pyplot.boxplot.html#matplotlib.pyplot.boxplot|) of the calcium variable. As an argument of the function we need to specify the data. We can use the values of the 'calcium' concentrations from the column with the same name:
 </p>
 
 ```{python, results='hide', collapse=TRUE}
@@ -631,12 +640,12 @@ ax.set_title('Boxplot of Everley Calcium')
 show()
 ```
 
-Note how following the actual plot we define the title of the plot by referring to the same coordinate system `ax`.
+Note how we define the title of the plot by referring to the same coordinate system `ax`.
 
-The value of `subplots` becomes apparent when we try to create more than one plot in a single figure.
+The value of <kbd>subplots</kbd> becomes apparent when it is used to generate more than one plot as part of a single figure: one of its many useful features.
 
 <p style='text-align: justify;'>
-Here is an example to create two boxplots next to each other. The keyword arguments to use is 'ncols' which is the number of figures per row. 'ncols=2' indicates that you want to have two plots next to each other.
+Here is an example whereby we create two boxplots adjacent to each other. The keyword arguments to use is 'ncols' which is the number of figures per row. 'ncols=2' indicates that you are plotting two plots adjacent to each other.
 </p>
 
 ```{python, results='hide', collapse=TRUE}
@@ -652,10 +661,10 @@ show()
 
 ```
 
-Note that you now have to refer to each of the subplots by indexing the coordinate system 'ax'. This figure gives a good overview of the Everley's data.
+Each of these subplots must now be referred to using indexing the coordinate system 'ax'. This figure gives a good overview of the Everley's data.
 
 
-If you prefer to have the boxplots of both columns in a single figure, that can also be done:
+If you prefer to have the boxplots of both columns in a single figure, this can also be done:
 
 
 ```{python, results='hide', collapse=TRUE}
@@ -669,7 +678,9 @@ show()
 
 
 :::::::::::::::::::::::::::::: challenge
-### DIY6: Boxplot from Loan data
+## Practice Exercise 6 
+
+**Boxplot from Loan data**
 
 Plot the boxplots of the 'ApplicantIncome' and the 'CoapplicantIncome' in the Loan data using the above code.
 
@@ -688,7 +699,7 @@ show()
 
 ### **Histogram**
 <p style='text-align: justify;'>
-Another good overview is the histogram: Containers or 'bins' are created over the range of values found within a column and the count of the values for each bin is plotted on the vertical axis.
+Another good visual overview for data is the histogram. Containers or 'bins' are created over the range of values found within a column, and the count of the values for each bin is plotted on the vertical (y-)axis.
 </p>
 
 ```{python, results='hide', collapse=TRUE}
@@ -706,9 +717,9 @@ show()
 ```
 
 
-This also shows how to add labels to the axes and a title to the overall figure.
+This example code also demonstrates how to use methods from within subplots to add labels to the axes, together with a title for the overall figure.
 
-This uses the default value for the generation of the bins. It is set to 10 bins over the range of which values are found. The number of bins in the histogram can be changed using the keyword argument 'bins':
+Unless specified, a default value is used for the generation of the bins. It is set to 10 bins over the range of which values are found. The number of bins in the histogram can be changed using the keyword argument 'bins':
 
 
 ```{python, results='hide', collapse=TRUE}
@@ -725,8 +736,7 @@ show()
 ```
 
 
-Note how the y-label of the right figure is not placed well. To correct for the placement of the labels and the title, you can use
-`tight_layout` on the figure:
+Note how the y-axis label of the right figure is slightly misplaced, and overlapping the border of the left figure. In order to correct for the placement of the labels and the title, you can use `tight_layout` automatically adjust for this:
 
 ```{python, results='hide', collapse=TRUE}
 fig, ax = subplots(ncols=2, nrows=1)
@@ -743,9 +753,11 @@ show()
 ```
 
 ::::::::::::::::::::::::::::::: challenge
-## DIY7: Create the histogram of a column
+## Practice Exercise 7: 
 
-Take the loan data and display the histogram of the loan amount that people asked for. (Loan amounts are divided by 1000, i.e. in k£ on the horizontal axis).  Use e.g. 20 bins.
+**Create the histogram of a column**
+
+Take the loan data and display the histogram of the loan amount that people asked for. (Loan amounts are divided by 1000, i.e. in k£ on the horizontal axis).  Use 20 bins, as an example.
 
 ::::::::::::::::: solution
 
@@ -763,17 +775,17 @@ show()
 :::::::::::::::::
 :::::::::::::::::::::::::::::::
 
-## Handling the Diabetes Data Set
+## Handling the Diabetes Dataset
 
-We now return to the data set that started our enquiry into the handling of data in a dataframe.
+Let us return to the dataset that commenced our exploration of the handling of data within a DataFrame.
 
-We will now:
+Next, we will:
 
 - Import the diabetes data from 'sklearn'
-- Check the shape of the dataframe and search for NANs
-- Get a summary plot of one of its statistical quantities (e.g. mean) for all columns
+- Check the shape of the DataFrame and search for NANs
+- Get a summary plot of one of its statistical quantities (i.e. mean) for all columns
 
-First we import the data set and check its `head`. Wait until the numbers show below the code, it might take a while.
+Firstly, let's import the dataset and check its `head`. In some cases, this may take a moment: please be patient, and wait for the numbers to appear as output below your code cell (if you’re using an IDE).
 
 
 ```{python, results = "hold"}
@@ -791,8 +803,7 @@ df_diabetes.head()
 
 ```
 
-If you don't see all columns, use the cursor to scroll to the right.
-Now let's check the number of columns and rows.
+If you don't see all the columns, use the cursor to scroll to the right. Next, let's check the number of columns and rows.
 
 
 ```{python}
@@ -805,7 +816,7 @@ print('Rows:', no_rows, 'Columns:', no_cols)
 
 There are 442 rows organised in 10 columns.
 
-To get an overview, let us extract the mean of each column using 'describe' and plot all means as a bar chart. The Matplotlib function to plot a bar chart is `bar`:
+In order o obtain an overview, let us extract the mean of each column using the <kbd>describe</kbd> and plot all means as a bar chart. The Matplotlib function to plot a bar chart is called <kbd>bar</kbd>:
 
 ```{python, results = "hold"}
 conc_means = list()
@@ -828,103 +839,34 @@ show()
 ```
 
 <p style='text-align: justify;'>
-The bars in this plot go up and down. Note, however, that the vertical axis has values ranging from -10^(-16)^ to +10^(-16)^. This means that for all practical purposes all means are zero. This is not a coincidence. The original values have been normalised to zero mean for the purpose of applying some machine learning algorithm to them.
+Note how the bars in this plot go up and down. The vertical axis, however, has values ranging from -10^(-16)^ to +10^(-16)^. This means that, for all practical purposes, all means are zero which is not a coincidence. The original values have been normalised to mean zero for the purpose of applying a machine learning algorithm to them.
 </p>
 
-In this example, we see how important it is to check the data before working with them.
+In this example, we can clearly observe the importance of checking the data before working with them.
 
 ## Exercises
 :::::::::::::::::::::::::::::::::::::::: challenge
 
 #### End of chapter Exercises
 
-Download the cervical cancer data set provided, import it using `read_csv`.
+Download the cervical cancer dataset provided, import it using `read_csv`.
 
 1. How many rows and columns are there?
 
-2. How many columns contain floating point numbers (float64)?
+2. How many columns contain floating point numbers (type float64)?
 
 3. How many of the subjects are smokers?
 
 4. Calculate the percentage of smokers
 
-5. Plot the age distribution (with e.g. 50 bins)
+5. Plot the age distribution (with, for instance, 50 bins)
 
 6. Get the mean and standard distribution of age of first sexual intercourse
 
 ::::::::::::::::::::: solution
 
-## Please check these solutions only after submitting the assignments.
+## Solutions will be provided once the submitted assignments are marked and returned.
 
-### Q1
-
-```{python, results = "hold"}
-df_cervix = read_csv("data/cervical_cancer.csv")
-
-df_cervix.head(10)
-
-
-cervix_rows, cervix_cols = len(df_cervix), len(df_cervix.columns)
-
-print('Number of rows:', cervix_rows)
-print('Number of columns:', cervix_cols)
-
-```
-
-### Q2
-
-```{python}
-df_types = df_cervix.dtypes == 'float64'
-
-print('There are', df_types.sum(), 'columns with floating point numbers')
-
-
-df_types
-
-```
-
-### Q3
-
-```{python, results = "hold"}
-for col in df_cervix:
-
-    print(type(df_cervix[col][0]))
-
-
-cervix_smoker = df_cervix['Smokes'] == 1.0
-
-```
-
-### Q4
-
-```{python, results = "hold"}
-print('There are', cervix_smoker.sum(), 'smokers.')
-print('This is', round(100*cervix_smoker.sum() / cervix_rows, 1), '% of the total.')
-
-```
-
-### Q5
-```{python, results='hide', collapse=TRUE}
-fig, ax = subplots()
-
-ax.hist(df_cervix['Age'], bins=50)
-ax.set_xlabel('Age', fontsize=20)
-ax.set_ylabel('Count', fontsize=20)
-ax.set_title('Age distribution of subjects',  fontsize=24);
-show()
-```
-
-### Q6
-
-```{python, results = "hold"}
-int_mean = df_cervix['First sexual intercourse'].mean()
-
-int_std = df_cervix['First sexual intercourse'].std()
-
-print('Mean of age of first sexual intercourse: ', round(int_mean, 1))
-print('Standard distribution of age of first sexual intercourse: ', round(int_std, 1))
-
-```
 
 :::::::::::::::::::::
 
@@ -932,11 +874,11 @@ print('Standard distribution of age of first sexual intercourse: ', round(int_st
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
-- `Pandas` package contains useful functions to work with dataframes.
-- `iloc` property is used to index and slice a dataframe.
-- `describe` function is used to get a summary of basic data features.
-- The simplest way of visualisation is to use Pandas functionality.
-- `Matplotlib` is a comprehensive library for creating static, animated, and interactive visualizations in Python.
+- <kbd>Pandas</kbd> package contains useful functions to work with DataFrames.
+- The <kbd>iloc</kbd> property is used to index and slice a DataFrame.
+- <kbd>describe</kbd> function is used to obtain a statistical summary of basic data features.
+- The simplest method for data visualisation, is to use Pandas' in-built functionality.
+- `Matplotlib` is a comprehensive library for creating static, animated, and interactive visualizations, in Python.
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 

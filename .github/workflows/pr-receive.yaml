@@ -8,10 +8,6 @@ concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
 
-concurrency:
-  group: ${{ github.ref }}
-  cancel-in-progress: true
-
 jobs:
   test-pr:
     name: "Record PR number"

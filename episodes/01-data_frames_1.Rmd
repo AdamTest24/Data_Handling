@@ -46,8 +46,8 @@ exercises: 60
 
 ## Prerequisites
 
-- Indexing of arrays
-- For-loop through an array
+- [Indexing of arrays](https://learntodiscover.github.io/Basic_Python/04-arrays.html#sec:list:indexing)
+- [For-loop through an array](https://learntodiscover.github.io/Basic_Python/05-iterations.html#retaining-the-new-values)
 - Basic statistics (distributions, mean, median and standard deviation)
 
 ::::::::::::::::::
@@ -104,7 +104,7 @@ In this lesson we will look solely at univariate features, where each data colum
 ## Reading data into a Pandas DataFrame
 
 <p style='text-align: justify;'>
-The small practice data file for this section is called 'everleys_data.csv', and can be downloaded using the link given above in "Materials for this Lesson". To start, please create a subfolder called 'data' in the current directory and put the data file in it. It can now be accessed using the relative path `data/everleys_data.csv` or `data\everleys_data.csv`, respectively.
+The small practice data file for this section is called 'everleys_data.csv', and can be downloaded using the link given above in [Summary and Setup](../learners/setup.md) for this Lesson. To start, please create a subfolder called 'data' in the current directory and put the data file in it. It can now be accessed using the relative path `data/everleys_data.csv` or `data\everleys_data.csv`, respectively.
 </p>
 
 <p style='text-align: justify;'>
@@ -260,7 +260,7 @@ In this case, both columns contain floating point (decimal) numbers.
 **Read data into a DataFrame**
 
 <p style='text-align: justify;'>
-Download the data file 'loan_data.csv' using the link given above in "Materials for this Lesson". It contains data that can be used for the assessment of loan applications. Read the data into a DataFrame. It is best to assign it a name other than 'df' (to avoid overwriting the Evereley dataset).
+Download the data file 'loan_data.csv' using the link given above in [Summary and Setup](../learners/setup.md) for this Lesson". It contains data that can be used for the assessment of loan applications. Read the data into a DataFrame. It is best to assign it a name other than 'df' (to avoid overwriting the Evereley dataset).
 </p>
 
 <p style='text-align: justify;'>

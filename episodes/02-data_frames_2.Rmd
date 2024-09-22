@@ -15,15 +15,15 @@ exercises: 60
 - What is bivariate or multivariate analysis?
 - How are bivariate properties of data interpreted?
 - How can a bivariate quantity be explained?
-- When to use the correlation matrix?
-- What are the ways to study relationships in data?
+- When to use a correlation matrix?
+- What are ways to study relationships in data?
 
 ::::::::::::::::::::::::::::::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::: objectives
 
-- Practise working with Pandas dataframes and Numpy arrays.
-- Bivariate analysis of Pandas dataframe / Numpy array.
+- Practise working with Pandas DataFrames and NumPy arrays.
+- Bivariate analysis of Pandas DataFrame / NumPy array.
 - The Pearson correlation coefficient ($PCC$).
 - Correlation Matrix as an example of bivariate summary statistics.
 
@@ -44,15 +44,22 @@ exercises: 60
 
 ## Prerequisites
 - Python Arrays
-- Basic Statistics, in particular the [correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
-- Pandas dataframes: import and handling
+- Basic statistics, in particular, the [correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient)
+- Pandas DataFrames: import and handling
 ::::::::::::::::::
 
+
+:::::::::::::::::: callout
+
+## Remember
+Any dataset associated with this lesson is present in `Data` folder of your assignment repository, and can also be downloaded using the link given above in [Summary and Setup](../learners/setup.md) for this Lesson.
+
+::::::::::::::::::
 
 The following cell contains functions that need to be imported, please execute it before continuing with the Introduction.
 
 ```{python}
-# To import data from a csv file into a Pandas dataframe
+# To import data from a csv file into a Pandas DataFrame
 from pandas import read_csv
 
 # To import a dataset from scikit-learn
@@ -80,34 +87,34 @@ import pandas as pd
 (or similar). In this case, the whole library is imported and any function in that library is then available using e.g. `pd.read_csv(my_file)`
 
 
-We don't recommend this as the import of the whole library uses a lot of working memory (e.g. on the order of 100 MB for Numpy).
+We don't recommend this as the import of the whole library uses a lot of working memory (e.g. on the order of 100 MB for NumPy).
 
 ::::::::::::::::::
 
 ## Introduction
 
 <p style='text-align: justify;'>
-In the previous lesson we have obtained some basic data quantifications using `describe`. Each of these quantities was calculated for individual columns (where each column contained a different measured variable). However, in data analysis in general, and especially in machine learning, the main point of analysis is to also try and exploit the presence of information that lies in relationships _between_ variables, i.e. columns in our data.
+In the previous lesson, we obtained some basic data quantifications using the <kbd>describe</kbd> function. Each of these quantities was calculated for individual columns, where each column contained a different measured variable. However, in data analysis in general (and in machine learning in particular), one of the main points of analysis is to try and exploit the presence of information that lies in relationships _between_ variables (i.e. columns in our data).
 </p>
 <p style='text-align: justify;'>
-Quantities that are based on data from two variables are referred to as __bivariate__ measures. Analysis that makes use of bivariate (and potentially higher order) quantities is referred to as bivariate or (in general) __multivariate data analysis__.
+Quantities that are based on data from two variables are referred to as __bivariate__ measures. Analyses that make use of bivariate (and potentially higher order) quantities are referred to as bivariate or more broadly, __multivariate data analyses__.
 </p>
 
-When we combine uni- and multivariate analysis we can get an excellent overview of basic properties of a dataset.
+When we combine uni- and multivariate analyses, we can often obtain a thorough, comprehensive overview of the basic properties of a dataset.
 
 :::::::::::::::::::::::::::::::::::: discussion
 
-### **Example: The diabetes data set**
+### **Example: The diabetes dataset**
 
 <p style='text-align: justify;'>
-Using the diabetes dataset (introduced in the previous lesson), let us look at the data from three of its columns: The upper row of the below figure shows three histograms. A histogram is a summary plot of the recordings of a single variable.
-The histograms of columns with indices 3, 4, and 5 have similar means and variances but that is due to prior normalisation. The shapes differ but this does not tell us anything about a relationship between the measurements.
+Using the diabetes dataset (introduced in the Data Handling 1 lesson), we can begin by looking at the data from three of its columns: The upper row of the below figure shows three histograms. A histogram is a summarising plot of the recordings of a single variable.
+The histograms of columns with indices 3, 4, and 5 have similar means and variances, which can be explained by prior normalisation of the data. The shapes differ, but this does not tell us anything about a relationship between the measurements.
 </p>
 <p style='text-align: justify;'>
-One thing that we want to know before we start to apply any machine learning is whether or not there is evidence of relationships between the individual variables in a dataframe. One of the potential relationships is that the variables are 'similar'.
-One way to check for the similarity between variables in a dataset is to create a [scatter plot](https://en.wikipedia.org/wiki/Scatter_plot). The bottom row of the figure below contains the three scatter plots between variables used to create the histograms in the top row.
+Before the application of any machine learning methods, its is important to understand whether there is evidence of any relationships between the individual variables in a DataFrame. One potential relationships is that the variables are 'similar'.
+One way to check for the similarity between variables in a dataset, is to create a [scatter plot](https://en.wikipedia.org/wiki/Scatter_plot). The bottom row of the figure below contains the three scatter plots between variables used to create the histograms in the top row.
 </p>
-(Please execute the code to create the figures. We will describe the scatter plot and its features later on.)
+(Please execute the code in order to generate the figures. We will describe the scatter plot and its features, later.)
 
 ```{python, results='hide', collapse=TRUE}
 # Figure Code
@@ -146,34 +153,33 @@ show()
 ```
 
 <p style='text-align: justify;'>
-When plotting the data against each other in pairs (lower row), data column 3 versus column 4 (left) and column 5 versus 3 (right) both show a fairly uniform circular distribution of points. This is what would be expected if the data in the two columns were independent of each other.
+When plotting the data against each other in pairs (as displayed in the bottom row of the figure), data column 3 plotted against column 4 (left) and column 5 against 3 (right) both show a fairly uniform circular distribution of points. This is what would be expected if the data in the two columns were independent of each other.
 </p>
 <p style='text-align: justify;'>
-In contrast, column 4 versus 5 (centre) shows an elliptic, pointed shape along the main diagonal. This shows that something particular goes on between these data sets. Specifically, it indicates that the two variables recorded in these columns (indices 4 and 5) are not independent of each other. They are more similar than would be expected for independent variables.
+In contrast, column 4 against 5 (centre, bottom) shows an elliptical, pointed shape along the main diagonal. This shows that there is a clear relationship between these data. Specifically, it indicates that the two variables recorded in these columns (indices 4 and 5) are _not_ independent of each other. They exhibit more similarity than would be expected of independent variables.
 </p>
 <p style='text-align: justify;'>
-In this lesson we aim to get an overview of the similarities in a data set. We first introduce bivariate visualisation using Matplotlib. Then we use Numpy functions to calculate correlation coefficients and the correlation matrix as an introduction to multivariate analysis. Combined with the basic statistics obtained in the previous lesson we can get a good overview of a high-dimensional data set before applying machine learning algorithms.
+In this lesson, we aim to obtain an overview of the similarities in a dataset. We will firstly introduce __bivariate__ visualisation using Matplotlib. We will then go on to demonstrate the use of NumPy functions in calculating correlation coefficients and obtaining a correlation matrix, as a means of introducing __multivariate__ analysis. Combined with the basic statistics covered in the previous lesson, we can obtain a good overview of a high-dimensional dataset, prior to the application of machine learning algorithms.
 </p>
 
 ::::::::::::::::::::::::::::::::::::
 
-## Work Through: Properties of a Data Set
+## Work-Through: Properties of a Dataset
 
 ### **Univariate properties**
 
 <p style='text-align: justify;'>
-For recordings of variables that are contained e.g. in the columns of a dataframe, we often assume the independence of samples: the measurement in one row does not depend on the recording in another row. Therefore all results of the features obtained e.g. under `describe` will not depend on the order of the rows. Also, while the numbers obtained from different rows can be similar (or even the same) by chance, there is no way to _predict_ the values in one row from the values of another row.
+For recordings of variables that are contained, for example, in the columns of a DataFrame, we often assume the independence of samples: the measurement in one row does not depend on the recording present in another row. Therefore results of the features obtained under the output of the <kbd>describe</kbd> function, for instance, will not depend on the order of the rows. Also, while the numbers obtained from different rows can be similar (or even the same) by chance, there is no way to _predict_ the values in one row based on the values of another.
 </p>
 <p style='text-align: justify;'>
-When comparing different variables arranged in columns, in contrast, this is not necessarily so. (We assume here that they are consistent, e.g. all values in a single row obtained from the same subject.) The values in one column can be related to the numbers in another column and specifically they can show degrees of similarity. If, for instance, we have a number of subjects investigated some of who have an inflammatory disease and some of who are healthy controls, an inflammatory marker might be increased in the diseased subjects. If several markers are recorded from each subject (i.e. more than one column in the data frame), the values of several inflammatory markers may be elevated simultaneously in the diseased subjects. Thus, the profiles of these markers across the whole group will show a certain similarity.
+Contrastingly, when comparing different variables arranged in columns, this is not necessarily the case. Let us firstly assume that they are consistent: that all values in a single row are obtained from the same subject. The values in one column can be related to the numbers in another column and, specifically, they can show degrees of similarity. If, for instance, we have a number of subjects investigated (some of whom have an inflammatory disease and some of whom are healthy controls) an inflammatory marker might be expected to be elevated in the diseased subjects. If several markers are recorded from each subject (i.e. more than one column in the data frame), the values of several inflammatory markers may be elevated simultaneously in the diseased subjects. Thus, the profiles of these markers across the whole group will show a certain similarity.
 </p>
 <p style='text-align: justify;'>
-The goal of multivariate data analysis is to find out whether similarities (or, in general, any relationships) between recorded variables exist.
+The goal of multivariate data analysis is to find out whether or not any relationships exist between recorded variables.
 </p>
-Let us first import a demo data set and check its basic statistics.
+Let us first import a demonstration dataset and check its basic statistics.
 <p style='text-align: justify;'>
-For a work through example, let us work with the 'patients' data set.
-We import the data from the .csv file using `read_csv` from Pandas into a dataframe. We then check the number of columns and rows using the `len` function. We also check the data type of each column to find out which columns can be used for quantitative analysis.
+For a work-through example, we can start with the 'patients' dataset. Let's firstly import the data from the .csv file using the function <kbd>read_csv</kbd> from Pandas and load this into a DataFrame. We can then assess the number of columns and rows using the <kbd>len</kbd> function. We can also determine the data type of each column, which will reveal which columns can be analysed, quantitatively.
 </p>
 
 ```{python, results = 'hold'}
@@ -193,17 +199,19 @@ df.dtypes
 ```
 
 <p style='text-align: justify;'>
-Out of the seven columns, three containing integers, three containing floating point (decimal) numbers, and the last one containing gender specification as 'female' or 'male'. We note that the sixth column contains a binary classification. Numerical analysis can thus be restricted to columns with indices 0 to 4.
+Out of the seven columns, three contain integers, three contain floating-point (decimal) numbers, and the last one contains gender specification as 'female' or 'male' - held as string data. The sixth column in this dataset contains a binary classification, with a value of '0' indicating a non-smoker individual and '1' indicating a smoker. Numerical analysis can thus be restricted to columns with indices 0 to 4.
 </p>
 
 :::::::::::::::::::::::: challenge
+## Practice Exercise 1 
 
-## __DIY1: Univariate properties of the patients data__
-1. Get the basic statistical properties of first five columns from the 'describe' function.
+**Univariate properties of the patients dataset**
 
-2. Create a barchart of the means of each column. To access a row by its name you can use the convention 'df_describe.loc['name']'.
+1. Obtain the basic statistical properties of the first five columns using the `describe` function.
 
-3. **Optional:** In the bar chart of the means, try to add the standard deviation as an errorbar, using the keyword argument `yerr` in the form 'yerr = df_describe.loc['std']'.
+2. Plot a bar chart of the means of each column. To access a row by its name, you can use the convention `df_describe.loc['name']`.
+
+3. **Optional:** In the bar chart of the means, try to add the standard deviation as an errorbar, using the keyword argument `yerr` in the form `yerr = df_describe.loc['std']`.
 
 
 ::::::::::::::::: solution
@@ -249,7 +257,7 @@ show()
 ### **Visual Search for Similarity: the Scatter Plot**
 
 <p style='text-align: justify;'>
-In Matplotlib, the function `scatter` allows plotting of one variable against the other. This is a common way to visually check for relationships between individual columns in a dataframe.
+In Matplotlib, the function `scatter` allows a user to plot one variable against another. This is a common way to visually eyeball your data for relationships between individual columns in a DataFrame.
 </p>
 
 ```{python}
@@ -264,20 +272,23 @@ show()
 ```
 
 <p style='text-align: justify;'>
-The data points appear to be grouped into two clouds. We will not deal with this qualitative aspect further at present. Grouping will be discussed as Unsupervised Machine Learning or Clustering later in the Course.
+The data points appear to be grouped into two clouds. We will not deal with this qualitative aspect further, at this point. Grouping will be discussed in more detail in L2D's later lessons on Unsupervised Machine Learning and Clustering.
 </p>
 <p style='text-align: justify;'>
-However, from the plot one might also suspect that there is a trend of heavier people being taller. For instance, we note that there are no points in the lower right corner of the plot (weight >160 pounds and height < 65 inches).
+However, from the information shown on the plot, it is reasonable to suspect a trend where heavier people are also taller. For instance, we note that there are no points in the lower right corner of the plot (weight >160 pounds and height < 65 inches).
 </p>
 
 :::::::::::::::::::::::: challenge
 
-## __DIY2: Scatter plot from the patients data__
+## ## Practice Exercise 2
+
+__DIY2: Scatter plot from the patients data__
+
 <p style='text-align: justify;'>
-Create a scatter plot of the systolic via the diastolic blood pressure. Do the two variables appear to be independent or related?
+Plot systolic against diastolic blood pressure. Do the two variables appear to be independent, or related?
 </p>
 <p style='text-align: justify;'>
-Scatter plots are useful for the inspection of select pairs of data. However, they are only qualitative and thus, in general, it is preferred to have a numerical quantity.
+Scatter plots are useful for the inspection of select pairs of data. However, they are only qualitative and thus, it is generally preferred to have a numerical quantity.
 </p>
 
 ::::::::::::::::: solution
@@ -305,24 +316,24 @@ Bivariate features are the most widely used subset of multivariate features - al
 </p>
 
 <p style='text-align: justify;'>
-The concept behind many bivariate measures is to quantify "similarity" between two data sets. If any similarity is discovered it is assumed that there is some connection or relationship between the sets. For similar variables, knowledge of one leads to some expectation about the other.
+The concept behind many bivariate measures is to quantify "similarity" between two datasets. If any similarity is observed, it is assumed that there is a connection or relationship in the data. For variables exhibiting similarity, knowledge of one understandably leads to an expectation surrounding the other.
 </p>
 <p style='text-align: justify;'>
 Here we are going to look at a specific bivariate quantity: the [Pearson correlation coefficient](https://en.wikipedia.org/wiki/Pearson_correlation_coefficient) $PCC$.
 </p>
 
 <p style='text-align: justify;'>
-The formula for the Pearson $PCC$ is set up such that two identical data sets yield a $PCC$ of 1. (Technically this is done by normalising all variances to be equal to 1). This implies that all data points in a scatter plot of a variable against itself are aligned along the main diagonal (with positive slope).
+The formula for the $PCC$ is set up such that two identical datasets yield a $PCC$ of 1. Technically, this is achieved by normalising all variances to be equal to 1. This also implies that all data points in a scatter plot of one variable plotted against itself are aligned along the main diagonal (with a positive slope).
 </p>
 <p style='text-align: justify;'>
-Two perfectly antisymmetrical data sets (one variable can be obtained by multiplying the other by -1) yield a value -1. This implies that all data points in a scatter plot are aligned along the negative or anti diagonal (with negative slope). All other situations lie in between. A value of 0 refers to exactly balanced positive and negative contributions to the measure. (Note that strictly speaking, the latter does not necessarily mean that there is no relationship between the variables).
+In two perfectly antisymmetrical datasets, where one variable can be obtained by multiplying the other by -1, a value of -1 is obtained. This implies that all data points in a scatter plot are aligned along the negative, or anti diagonal, (with a negative slope). All other possibilities lie in between. A value of 0 refers to precisely balanced positive and negative contributions to the measure. However - strictly speaking - the latter does not necessarily indicate that there is no relationship between the variables.
 </p>
 
 <p style='text-align: justify;'>
-The $PCC$ is an **undirected** measure in the sense that its value for the comparison between data set 1 and data set 2 is the same as the $PCC$ between data set 2 and data set 1.
+The $PCC$ is an **undirected** measure. This means that its value for the comparison between dataset 1 and dataset 2 is exactly the same as the $PCC$ between dataset 2 and dataset 1.
 </p>
 <p style='text-align: justify;'>
-A direct way to calculate the $PCC$ of two data-sets is to use the function `corr` applied to a dataframe. For instance, we can apply it to the Everleys data:
+A method to directly calculate the $PCC$ of two datasets, is to use the function `corr` and apply this to your DataFrame. For instance, we can apply it to the Everleys dataset:
 </p>
 
 ```{python, results = 'hold'}
@@ -334,23 +345,23 @@ df_everley.corr()
 The result as a matrix of two-by-two numbers. Along the diagonal (top left and bottom right) are the values for the comparison of a column to itself. As any dataset is identical with itself, the values are one by definition.
 </p>
 <p style='text-align: justify;'>
-The non-diagonal elements show that the $CC \approx-0.26$ for the two data sets. Both $CC(12)$ and $CC(21)$ are given in the matrix but because of the symmetry we would only need to report one of the two.
+The non-diagonal elements indicate that $CC \approx-0.26$ for the two datasets. Both $CC(12)$ and $CC(21)$ are given in the matrix, however because of the symmetry, we would only need to report one out of the two.
 </p>
 
 :::::::::::::::::::::::::: discussion
 
 ## Note
 <p style='text-align: justify;'>
-Note that in this lesson we introduce how to calculate the $PCC$ but do not discuss its significance. E.g. the interpretation of the value above needs to be checked against the fact that we only have 18 data points. Specifically, we refrain from concluding that because the $PCC$ is negative, a high value of the calcium concentration is associated with a small value of the sodium concentration (relative to their respective means).
+In this lesson we introduce how to calculate the $PCC$ but do not discuss its significance. For example, interpreting the value above requires consideration of the fact that we only have only 18 data points. Specifically, we refrain from concluding that because the $PCC$ is negative, a high value for the calcium concentration is associated with a small value for sodium concentration (relative to their respective means).
 </p>
 <p style='text-align: justify;'>
-One quantitative way to assess whether or not a given value of the $PCC$ is meaningful or not is to use surrogate data. In our case, we could e.g. create random numbers in an array with shape (18, 2) such that the two means and standard deviations are the same as in the Everley data but the two columns are independent of each other. Creating many realisations, we can check what distribution of $PCC$ values is expected from the randomly generated data and compare this with the values from the Everleys data.
+One quantitative way to assess whether or not a given value of the $PCC$ is meaningful or not, is to use surrogate data. In our example, we could create random numbers in an array with shape (18, 2), for instance - such that the two means and standard deviations are the same as in the Everley dataset, but the two columns are independent of each other. Creating many realisations, we can check what distribution of $PCC$ values is expected from the randomly generated data, and compare this against the values obtained from the Everleys dataset.
 </p>
 
 ::::::::::::::::::::::::::
 
 <p style='text-align: justify;'>
-A lot of what we are going to do in the machine learning sessions will involve Numpy arrays. Let us therefore convert the Everleys data from a Pandas dataframe into a Numpy array.
+Much of what we will cover in the Machine Learning component of L2D will involve NumPy arrays. Let us, therefore, convert the Everleys dataset from a Pandas DataFrame into a NumPy array.
 </p>
 
 
@@ -360,14 +371,14 @@ everley_numpy
 ```
 
 <p style='text-align: justify;'>
-We can see that the numbers remain the same but the format changed. E.g. we have lost the names of the columns. Similar to the Pandas dataframe, we can use 'shape' to see the dimensions of the data array.
+We can see that the numbers remain the same, but the format has changed; we have lost the names of the columns. Similar to a Pandas DataFrame, we can also make use of the <kbd>shape</kbd> function to see the dimensions of the data array.
 </p>
 
 ```{python}
 everley_numpy.shape
 ```
 
-We can now use the Numpy function `corrcoef` to calculate the Pearson correlation:
+We can now use the NumPy function <kbd>corrcoef</kbd> to calculate the Pearson correlation:
 
 
 ```{python}
@@ -380,10 +391,10 @@ print(corr_matrix)
 ```
 
 <p style='text-align: justify;'>
-The function `corrcoef` takes a two-dimensional array as input. The keyword argument `rowvar` is True by default which means the correlation will be calculated along the rows. As we have the data features in the columns, it needs to be set to False. (You can check what happens if you set it to 'True'. Instead of a 2x2 matrix for two columns you will get a 18x18 matrix for eighteen pair comparisons.)
+The function <kbd>corrcoef</kbd> takes a two-dimensional array as its input. The keyword argument `rowvar` is True by default, which means that the correlation will be calculated along the rows of the dataset. As we have the data features contained in the columns, the value of `rowvar` needs to be set to False. (You can check what happens if you set it to 'True'. Instead of a 2x2 matrix for two columns you will get a 18x18 matrix for eighteen pair comparisons.)
 </p>
 <p style='text-align: justify;'>
-We mentioned that the values of the $PCC$ are calculated such that they must lie between -1 and 1. This is achieved by normalisation with the variance. If for some reason we don't want the similarity calculated using this normalisation, what we get is the so-called __covariance__. In contrast to the $PCC$ its values will depend on the absolute size of the numbers in the data array. From Numpy, we can use the function `cov` to calculate the covariance:
+We mentioned that the values of the $PCC$ are calculated such that they must lie between -1 and 1. This is achieved by normalisation with the variance. If, for any reason, we don't want the similarity calculated using this normalisation, what results is the so-called __covariance__. In contrast to the $PCC$, its values will depend on the absolute size of the numbers in the data array. From the NumPy library, we can use the function <kbd>cov</kbd> in order to calculate the covariance:
 </p>
 
 ```{python}
@@ -395,18 +406,20 @@ print(cov_matrix)
 ```
 
 <p style='text-align: justify;'>
-The result shows how the covariance is strongly dependent on the actual numerical values in a data column. The two values along the diagonal are identical with the variances obtained by squaring the standard deviation (calculated for example using the `describe` function).
+The result shows how covariance is strongly dependent on the actual numerical values in a data column. The two values along the diagonal are identical with the variances obtained by squaring the standard deviation (calculated, for example, using the <kbd>describe</kbd> function).
 </p>
 
 :::::::::::::::::::::::: challenge
 
-## __DIY3: Correlations from the patients data__
+## Practice Exercise 3
 
-Calculate the Pearson $PCC$ between the systolic and the diastolic blood pressure from the patients data using
+__Correlations from the patients dataset__
 
-i) the Pandas dataframe and
+Calculate the Pearson $PCC$ between the systolic and the diastolic blood pressure from the patients data using:
 
-ii) the data as Numpy array.
+i) The Pandas DataFrame and
+
+ii) The data as a NumPy array.
 
 ::::::::::::::::: solution
 ## Q1
@@ -429,7 +442,7 @@ print('Correlation coefficient between Systole and Diastole:', round(df_SysDia_c
 ```
 
 <p style='text-align: justify;'>
-It is worth noting that it is equally possible to calculate the correlation between rows of a two-dimension array (i.e. rowvar=True) but the interpretation will differ. Imagine a dataset where for two subjects a large number, call it $N$, of metabolites were determined quantitatively (a Metabolomics dataset).  If that dataset is of shape (2, N) then one can calculate the correlation between the two rows. This would be done to determine the correlation of the metabolite profiles between the two subjects.
+It is worth noting that it is equally possible to calculate the correlation between rows of a two-dimension array (i.e. `rowvar=True`) but the interpretation will differ. Imagine a dataset where for two subjects a large number, call it $N$, of metabolites were determined quantitatively (a Metabolomics dataset).  If that dataset is of shape (2, N) then one can calculate the correlation between the two rows. This would be done to determine the correlation of the metabolite profiles between the two subjects.
 </p>
 
 :::::::::::::::::
@@ -437,9 +450,9 @@ It is worth noting that it is equally possible to calculate the correlation betw
 
 ## The Correlation Matrix
 <p style='text-align: justify;'>
-If we have more than two columns of data, we can obtain a Pearson correlation coefficient for each pair. In general, for N columns, we get $N^2$ pairwise values. We omit the correlations of each column with itself, of which there are $N$, which means we are left with $N*(N-1)$ pairs. Because each value appears twice due to symmetry of the calculation, we can ignore half of them and we are left with $N*(N-1) / 2$ coefficients for $N$ columns.
+If we have more than two columns of data, we can obtain a Pearson correlation coefficient for each pair. In general, for N columns, we get $N^2$ pairwise values. We will omit the correlations of each column relative to itself, of which there are $N$, which means we are left with $N*(N-1)$ pairs. Since each value appears twice, due to the symmetry of the calculation, we can ignore half of them, leaving us with $N*(N-1) / 2$ coefficients for $N$ columns.
 </p>
-Here is an example for the 'patients' data:
+Here is an example using the 'patients' data:
 
 
 ```{python}
@@ -449,10 +462,10 @@ df.corr()
 ```
 
 <p style='text-align: justify;'>
-If we do the calculation with the Pandas dataframe, the 'Gender' is automatically ignored and by default we get $6*5/2=15$ coefficients for the six remaining columns. Note that the values that involves the 'Smoker' column are meaningless.
+If we do the calculation with the Pandas DataFrame, the 'Gender' is automatically ignored and, by default, we get $6*5/2=15$ coefficients for the remaining six columns. Note that the values that involves the 'Smoker' column are meaningless, since they represent a True/False-like binary.
 </p>
 
-Let us now convert the dataframe to a Numpy array and check its shape:
+Let us now convert the DataFrame into a NumPy array, and check its shape:
 
 
 ```{python}
@@ -461,10 +474,10 @@ patients_numpy.shape
 ```
 
 <p style='text-align: justify;'>
-Now we can try to calculate the correlation matrix for the first five columns of this data array. If we do it directly to the array, we get an AttributeError: 'float' object has no attribute 'shape'.
+Next, we can try to calculate the correlation matrix for the first five columns of this data array. If we do this directly to the array, we get an AttributeError: 'float' object has no attribute 'shape'.
 </p>
 <p style='text-align: justify;'>
-This is mended by converting the array to floating point before using the `corrcoef` function. For this we use `astype(float)`:
+This is amended by converting the array to a floating point prior to using the <kbd>corrcoef</kbd> function. For this, we can convert the data type using the method `astype(float)`:
 </p>
 
 ```{python}
@@ -478,18 +491,18 @@ patients_corr
 ```
 
 <p style='text-align: justify;'>
-The result is called the __correlation matrix__. It contains all the bivariate comparisons possible for the five columns chosen.
+The result is called the __correlation matrix__. It contains all the bivariate comparisons possible for the five chosen columns.
 </p>
 <p style='text-align: justify;'>
-In the calculation above we used the $PCC$ to calculate the matrix. In general, any bivariate measure can be used to obtain a matrix of same shape.
+In the calculation above, we used the $PCC$ in order to calculate the matrix. In general, any bivariate measure can be used to obtain a matrix of the same shape.
 </p>
 
-### **Heat map in Matplotlib**
+### **Heatmaps in Matplotlib**
 <p style='text-align: justify;'>
-To get an illustration of the correlation pattern in a dataset we can plot the correlation matrix as a heatmap.
+To get an illustration of the correlation pattern in a dataset, we can plot the correlation matrix as a heatmap.
 </p>
 <p style='text-align: justify;'>
-Here is some code using Matplotlib to plot a heatmap of the correlation matrix from the patients dataset. We use the function `imshow`:
+Below are three lines of code, that make use of functionality within `Matplotlib`, to plot a heatmap of the correlation matrix from the 'patients' dataset. We make use of the function <kbd>imshow</kbd>:
 </p>
 
 ```{python}
@@ -502,15 +515,15 @@ show()
 ```
 
 <p style='text-align: justify;'>
-Note that we have specified the colour map 'coolwarm'. For a list of Matplotlib colour maps, please refer to the [gallery in the documentation](https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html). The names to use in the code are on the left hand side of the colour bar.
+Note: we have specified the colour map `coolwarm`, using the keyword argument `cmap`. For a list of `Matplotlib` colour maps, please refer to the [gallery in the documentation](https://matplotlib.org/3.1.1/gallery/color/colormap_reference.html). The names to use in the code are on the left hand side of the colour bar.
 </p>
 
-Let us add two more features to improve the figure.
+Let us add two more features to improve this figure.
 <p style='text-align: justify;'>
-First, to have true correlations stand out (rather than the trivial self correlations along the diagonal which are always one) we we can deliberately set the diagonal equal to zero. To achieve this, we use the Numpy function `fill_diagonal`.
+Firstly, in order to highlight true correlations stand out (rather than the trivial self-correlations along the diagonal, which are always equal to 1) we can deliberately set the diagonal as being equal to 0. To achieve this, we use the NumPy function <kbd>fill_diagonal</kbd>.
 </p>
 <p style='text-align: justify;'>
-Second, `imshow` scales the colours by default to the minimum and maximum value of the array. As such we don't know what red or blue means. To see the colour bar, it can be added to the figure environment 'fig' using `colorbar`.
+Secondly, the <kbd>imshow</kbd> function, by default, will scale the colours to the minimum and maximum values present in the array. As such, we do not know what red or blue means. To see the colour bar, it can be added to the figure environment 'fig' using `colorbar`.
 </p>
 
 
@@ -530,22 +543,25 @@ show()
 
 
 <p style='text-align: justify;'>
-The result is that the correlation between columns 'Height' and 'Weight' is the strongest and presumably higher than could be expected if these two measures were independent. We can confirm this by plotting a scatter plot for these two columns and compare to the scatter plot for (original) columns 2 (Height) and 5 (Diastolic blood pressure):
+The result is that the correlation between columns 'Height' and 'Weight' is the strongest, and presumably higher than would be expected if these two measures were independent. We can confirm this by plotting a scatter plot for these two columns, and refer to the scatter plot for columns 2 (Height) and 5 (Diastolic blood pressure):
 </p>
 
 :::::::::::::::::::::::: challenge
 
-## __DIY4: Spearman Correlations from the patients data__
+## Practice Exercise 4
+
+__Spearman Correlations from the patients dataset__
 <p style='text-align: justify;'>
-Calculate and plot the correlation matrix of the first five columns as above based on the [Spearman rank correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient). It is based on the ranking of values instead of their numerical values as for the Pearson coefficient. Spearman therefore tests for tests for monotonic relationships whereas Pearson tests for linear relationships.
+Calculate and plot the correlation matrix of the first five columns, as above, based on the [Spearman rank correlation coefficient](https://en.wikipedia.org/wiki/Spearman%27s_rank_correlation_coefficient). This is based on the ranking of values instead of their numerical values as for the Pearson coefficient. Spearman therefore tests for monotonic relationships, whereas Pearson tests for linear relationships.
 </p>
-To import the function use:
+
+To import the function in question:
 
 ```
 from scipy.stats import spearmanr
 ```
 
-You can then apply it in the form:
+You can then apply it:
 
 ```
 data_spearman_corr = spearmanr(data).correlation
@@ -585,13 +601,13 @@ show()
 
 ### **The Correlation Coefficients**
 <p style='text-align: justify;'>
-To analyse the correlations in a data set, we are only interested in the $N*(N-1)/2$ unduplicated correlation coefficients. Here is a way to extract them and assign them to a variable.
+To analyse the correlations in a dataset, we are only interested in the $N*(N-1)/2$ unduplicated correlation coefficients. Here is a way to extract them and assign them to a variable.
 </p>
 <p style='text-align: justify;'>
-We import the function `triu_indices`. It provides the indices of a matrix with specified size. The size we need is obtained from our correlation matrix, using `len`. It is identical to the number of columns for which we calculated the $CCs$.
+Firstly, we must import the function <kbd>triu_indices</kbd>. It provides the indices of a matrix with specified size. The required size is obtained from our correlation matrix, using <kbd>len</kbd>. It is identical to the number of columns for which we calculated the $CCs$.
 </p>
 <p style='text-align: justify;'>
-We also need to specify that we do not want the diagonal to be included. For this, there is an offset parameter 'k' which will collect the indices excluding the diagonal if it is set to 1. (To include the indices of the diagonal it would have to be 0).
+We also need to specify that we do not want the diagonal to be included. For this, there is an offset parameter 'k', which collects the indices excluding the diagonal, provided it is set to 1. (To include the indices of the diagonal, it would have to be set to 0).
 </p>
 
 ```{python}
@@ -623,17 +639,17 @@ ax.bar(bins, corr_coeffs);
 show()
 ```
 
-If there is a large number of coefficients, we can also display their histogram or a boxplot as a summary statistics.
+If there are a large number of coefficients, we can also display their histogram or boxplot as summary statistics.
 
 ### **The Average Correlation per Column**
 <p style='text-align: justify;'>
-On a higher level, we can calculate the overall or average correlation per data column. We achieve this by averaging over either the rows or the columns of the correlation matrix. Because our similarity measure is undirected, both ways of summing yield the same result.
+On a higher level, we can calculate the overall, or average correlation per data column. This can be achieved by averaging over either the rows or the columns of the correlation matrix. Because our similarity measure is undirected, both ways of summing yield the same result.
 </p>
 <p style='text-align: justify;'>
-However, we need to consider the sign. The correlation coefficients can be positive or negative. As such, adding for instance +1 ans -1 would yield an average of zero even though both indicate perfect correlation and anti-correlation, respectively. We address this by using the absolute value `abs`, ignoring the sign.
+However, we need to consider whether the value is positive or negative. Correlation coefficients can be either positive or negative. As such, adding for instance +1 and -1 would yield an average of 0, even though both indicate perfect correlation and anti-correlation, respectively. This can be addressed by using the absolute value `abs`, and ignoring the sign.
 </p>
 <p style='text-align: justify;'>
-To average, we use function `mean`. This function by default averages over all values of the matrix. To obtain the five values by averaging over the columns, we specify the 'axis' keyword argument as 0.
+In order to average, we can use the NumPy function: <kbd>mean</kbd>. This function defaults to averaging over all values of the matrix. In order to obtain the five values by averaging over the columns, we specify the 'axis' keyword argument must be specified as 0.
 </p>
 
 ```{python, results = 'hold'}
@@ -657,13 +673,13 @@ show()
 ```
 
 <p style='text-align: justify;'>
-The result is that the average column correlation is on the order of 0.2 for the columns with indices 1 to 4 and less than 0.1 for the column with index 0, which is the age.
+The result is that the average column correlation is on the order of 0.2 for the columns with indices 1 to 4, and less than 0.1 for the column with index 0 (which is age).
 </p>
 
-### **The Average Data Set Correlation**
+### **The Average Dataset Correlation**
 
 <p style='text-align: justify;'>
-The sum over rows or columns has given us a reduced set of values to look at. We can now take the final step and average over all correlation coefficients. This will yield the average correlation of the data set. It condenses the full bivariate analysis into a single number and can be a starting point when comparing e.g. different data sets of the same type. </p>
+The sum over rows or columns has given us a reduced set of values to look at. We can now take the final step and average over all correlation coefficients. This will yield the average correlation of the dataset. It condenses the full bivariate analysis into a single number, and can be a starting point when comparing different datasets of the same type, for example. </p>
 
 ```{python}
 
@@ -674,12 +690,12 @@ print('Average correlation strength: ', round(corr_matrix_average, 3))
 
 ```
 
-## Application: The Diabetes Data Set
+## Application: The Diabetes Dataset
 <p style='text-align: justify;'>
-We now return to the data set that started our enquiry into dataframes in the previous lesson. Let us apply the above and do a summary analysis of its bivariate features.
+We now return to the dataset that began our enquiry into DataFrames in the previous lesson. Let us apply the above, and perform a summary analysis of its bivariate features.
 </p>
 <p style='text-align: justify;'>
-First we import the data. it is one of the example datasets of scikit-learn, the Python library for Machine Learning. As such it is already included in the Anaconda package and you can import it directly.
+Firstly, import the data. This is one of the example datasets from scikit-learn: a Python library used for Machine Learning. It is already included in the Anaconda distribution of Python, and can therefore be directly imported, if you have installed this.
 </p>
 
 ```{python}
@@ -692,7 +708,7 @@ data_diabetes = diabetes.data
 ```
 
 <p style='text-align: justify;'>
-For the bivariate features, let us get the correlation matrix and plot it as a heatmap. We use code introduced above.
+For the bivariate features, let us get the correlation matrix and plot it as a heatmap. We can make use of code that introduced above.
 </p>
 
 ```{python}
@@ -716,7 +732,7 @@ show()
 There is one strongly correlated pair (column indices 4 and 5) and one strongly anti-correlated pair (column indices 6 and 7).
 </p>
 
-Now we calculate the $10*9/2 = 45$ correlation coefficients and plot them as a histogram:
+Let's calculate the $10*9/2 = 45$ correlation coefficients and plot them as a histogram:
 
 ```{python}
 from numpy import triu_indices
@@ -735,7 +751,7 @@ show()
 This histogram shows that the data have a distribution that is shifted towards positive correlations. However, only four values are (absolutely) larger than 0.5 (three positive, one negative).
 </p>
 
-Next we can get the average (absolute) correlation per column.
+Next, let's obtain the average (absolute) correlation per column.
 
 ```{python}
 data_column_average = mean(abs(data_corr_matrix), axis=0)
@@ -754,7 +770,7 @@ show()
 
 In the plot, note how the column names were extracted from the 'diabetes' data using `diabetes.feature_names`.
 
-Finally, we can obtain the average correlation of the whole data set.
+Finally, let's obtain the average correlation of the entire dataset.
 
 
 ```{python}
@@ -770,121 +786,28 @@ print('Average Correlation Strength: ', round(data_corr_matrix_average, 3))
 
 #### End of chapter Exercises
 
-**Assignment: The Breast Cancer Data**
+**Assignment: The Breast Cancer Dataset**
 
-Import the breast cancer data set using `read_csv`. Based on the code of this lesson, try to do the following:
+Import the breast cancer dataset using <kbd>read_csv</kbd>. Based on the code in this lesson, try to do the following:
 
-1. Get the summary (univariate) statistics of columns 2-10 (accessing indices 1:10) using `describe`
+1. Get the summary (univariate) statistics of columns 2-10 (accessing indices 1:10) using <kbd>describe</kbd>
 
-2. Plot the means of each column as a bar chart with standard deviations as error bars. Why are some bars invisible?
+2. Plot the means of each column as a bar chart with standard deviations displayed as error bars. Why are some bars invisible?
 
-3. Extract the values as Numpy array using `to_numpy`. The shape of the array should be (569, 31).
+3. Extract the values as a NumPy array using the <kbd>to_numpy</kbd> function. The shape of the array should be (569, 31).
 
-4. Calculate the correlation matrix using `corrcoef` from Numpy and plot it as a heatmap. The shape of the matrix should be (31, 31). Use `fill_diagonal` to set the diagonal elements to 0.
+4. Calculate the correlation matrix using <kbd>corrcoef</kbd> from NumPy and plot it as a heatmap. The shape of the matrix should be (31, 31). Use `fill_diagonal` to set the diagonal elements to 0.
 
 5. Calculate the average column correlation and plot it as a bar chart.
 
-6. Calculate the average correlation strength of the data set.
+6. Calculate the average correlation strength of the dataset.
 
-In case of doubt, try to get help from the respective documentations for Pandas dataframes, Numpy and Matplotlib.
+In case of doubt, try to get help from the respective documentation available for Pandas DataFrames, NumPy and Matplotlib.
 
 ::::::::::::::::::::: solution
 
-## Please check these solutions only after submitting the assignments.
+## Solutions will be provided once the submitted assignments are marked and returned.
 
-### Q1
-
-```{python, results = "hold"}
-# To import data from a csv file into a Pandas dataframe
-from pandas import read_csv
-
-# To import a dataset from scikit-learn
-from sklearn import datasets
-
-# To create figure environments and plots
-from matplotlib.pyplot import subplots, show
-
-# Specific numpy functions, description in the main body
-from numpy import corrcoef, fill_diagonal, triu_indices, arange
-from numpy import mean
-
-df_bc = read_csv("data/breast_cancer.csv")
-
-df_bc_describe = df_bc.iloc[:, 1:10].describe()
-
-df_bc_describe.round(2)
-
-```
-
-### Q2
-
-```{python, results = "hold"}
-fig, ax = subplots()
-
-bins = arange(df_bc_describe.shape[1])
-
-ax.bar(bins, df_bc_describe.loc['mean'], yerr=df_bc_describe.loc['std'])
-
-show()
-```
-
-### Q3
-
-```{python, results = "hold"}
-bc_numpy = df_bc.to_numpy()
-
-bc_numpy.shape
-
-```
-
-### Q4
-
-```{python, results = "hold"}
-bc_corr = corrcoef(bc_numpy, rowvar=False)
-
-bc_corr.shape
-
-```
-
-### Q5
-
-```{python, results = "hold"}
-
-from numpy import fill_diagonal
-
-fill_diagonal(bc_corr, 0)
-
-fig, ax = subplots(figsize=(7,7))
-
-im = ax.imshow(bc_corr, cmap='coolwarm');
-
-fig.colorbar(im, orientation='horizontal', shrink=0.7);
-
-show()
-```
-
-### Q6
-
-```{python, results = "hold"}
-bc_column_average = mean(abs(bc_corr), axis=0)
-
-fig, ax = subplots()
-
-bins = arange(len(bc_column_average))
-
-ax.bar(bins, bc_column_average);
-ax.set_title('Average Correlation Strength per Column');
-
-show()
-```
-
-```{python}
-# Average of the correlation strengths
-bc_corr_matrix_average = mean(abs(bc_corr))
-
-print('Average Correlation Strength: ', round(bc_corr_matrix_average, 3))
-
-```
 :::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::
@@ -892,11 +815,11 @@ print('Average Correlation Strength: ', round(bc_corr_matrix_average, 3))
 
 ::::::::::::::::::::::::::::::::::::: keypoints
 
-- Quantities based on data from two variables are referred as bivariate measures.
-- Bivariate properties can be studied using `matplotlib` and `numpy`.
-- Multivariate data analysis helps to find out relationships between recorded variables.
-- Functions `corr` and `corrcoef` are used to calculate the $PCC$.
-- A correlation matrix is visualised as a heatmap.
+- Quantities based on data from two variables are referred to as bivariate measures.
+- Bivariate properties can be studied and visualised using `matplotlib` and `NumPy`.
+- Multivariate data analyses can help to uncover relationships between recorded variables.
+- The functions `corr` and `corrcoef` can be used to calculate the $PCC$.
+- A correlation matrix can be visualised as a heatmap.
 
 
 ::::::::::::::::::::::::::::::::::::::::::::::::

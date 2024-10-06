@@ -93,7 +93,13 @@ First, we want to read in an image. For this part of the lesson, we use a histol
 
 ``` python
 from matplotlib.image import imread
+```
 
+``` output
+Matplotlib is building the font cache; this may take a moment.
+```
+
+``` python
 img = imread('fig/axon_slice.jpg')
 ```
 
@@ -767,140 +773,8 @@ Using the image from the beginning of this lesson, "rat_cerebellum.jpg", do the 
 
 ::::::::::::::::::::: solution
 
-## Please check these solutions only after submitting the assignments.
+## Solutions will be provided once the submitted assignments are marked and returned.
 
-### Q1
-
-
-``` python
-## Import the image
-from matplotlib.image import imread
-
-img_task = imread('fig/rat_cerebellum.jpg')
-```
-
-``` output
-PIL.UnidentifiedImageError: cannot identify image file 'fig/rat_cerebellum.jpg'
-```
-
-
-``` python
-## Display the image
-
-from matplotlib.pyplot import subplots, show
-
-fig, ax = subplots(figsize=(20, 10))
-
-ax.imshow(img_task, cmap='gray');
-
-show()
-```
-
-<img src="fig/03-image_handling-rendered-unnamed-chunk-33-33.png" width="1920" style="display: block; margin: auto;" />
-
-### Q2
-
-
-``` python
-red_channel   = img_task[:, :, 0]
-green_channel = img_task[:, :, 1]
-blue_channel  = img_task[:, :, 2]
-
-fig, ax = subplots(ncols=3, figsize=(20, 5))
-
-ax[0].hist(red_channel.flatten(), bins=50)
-ax[0].set_xlabel("Pixel intensity", fontsize=16)
-ax[0].set_xlabel("Red channel")
-ax[1].hist(green_channel.flatten(), bins=50)
-ax[1].set_xlabel("Pixel intensity", fontsize=16)
-ax[1].set_xlabel("Green channel")
-ax[2].hist(blue_channel.flatten(), bins=50)
-ax[2].set_xlabel("Pixel intensity", fontsize=16)
-ax[2].set_xlabel("Blue channel");
-
-show()
-```
-
-<img src="fig/03-image_handling-rendered-unnamed-chunk-34-35.png" width="1920" style="display: block; margin: auto;" />
-
-
-``` python
-fig, ax = subplots(ncols=3, figsize=(20, 10))
-
-imgplot_red   = ax[0].imshow(red_channel, cmap="Reds")
-imgplot_green = ax[1].imshow(green_channel, cmap="Greens")
-imgplot_blue  = ax[2].imshow(blue_channel, cmap="Blues")
-fig.colorbar(imgplot_red,   ax=ax[0], shrink=0.5)
-fig.colorbar(imgplot_green, ax=ax[1], shrink=0.5)
-fig.colorbar(imgplot_blue,  ax=ax[2], shrink=0.5);
-
-show()
-```
-
-<img src="fig/03-image_handling-rendered-unnamed-chunk-35-37.png" width="1920" style="display: block; margin: auto;" />
-
-### Q3-4
-
-
-``` python
-red_mask   = red_channel   > 120
-green_mask = green_channel > 100
-blue_mask  = blue_channel  > 100
-
-red_masked   = red_channel*red_mask
-green_masked = green_channel*green_mask
-blue_masked  = blue_channel*blue_mask
-
-fig, ax = subplots(nrows=3, ncols=2, figsize=(18, 20))
-
-ax[0, 0].imshow(red_mask, cmap='gray')
-ax[0, 0].set_title('Red binary mask', fontsize=16)
-ax[0, 1].imshow(red_masked, cmap='Reds')
-ax[0, 1].set_title('Masked image', fontsize=16)
-ax[1, 0].imshow(green_mask, cmap='gray')
-ax[1, 0].set_title('Green binary mask', fontsize=16)
-ax[1, 1].imshow(green_masked, cmap='Greens')
-ax[1, 1].set_title('Masked image', fontsize=16)
-ax[2, 0].imshow(blue_mask, cmap='gray')
-ax[2, 0].set_title('Blue binary mask', fontsize=16)
-ax[2, 1].imshow(blue_masked, cmap='Blues')
-ax[2, 1].set_title('Masked image', fontsize=16);
-
-show()
-```
-
-<img src="fig/03-image_handling-rendered-unnamed-chunk-36-39.png" width="1728" style="display: block; margin: auto;" />
-
-### Q5
-
-
-``` python
-from numpy import sum as numpy_sum
-total_pixels = img_task.shape[0]*img_task.shape[1]
-
-red_counts   = numpy_sum(red_mask)
-green_counts = numpy_sum(green_mask)
-blue_counts  = numpy_sum(blue_mask)
-print("Approximately %d"%(red_counts/total_pixels*100)+"% of the image is synaptophysin")
-print("Approximately %d"%(green_counts/total_pixels*100)+"% of the image is IP3R")
-print("Approximately %d"%(blue_counts/total_pixels*100)+"% of the image is DNA")
-```
-
-``` output
-NameError: name 'img_task' is not defined
-NameError: name 'red_mask' is not defined
-NameError: name 'green_mask' is not defined
-NameError: name 'blue_mask' is not defined
-NameError: name 'red_counts' is not defined
-NameError: name 'green_counts' is not defined
-NameError: name 'blue_counts' is not defined
-```
-
-### Q6
-
-```
-[ad libitum]
-```
 :::::::::::::::::::::
 
 ::::::::::::::::::::::::::::::::::::::::

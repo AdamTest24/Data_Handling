@@ -403,9 +403,9 @@
 <h4 id="fourier-transform-of-eeg-data">
 <strong>Fourier Transform of EEG data</strong><a class="anchor" aria-label="anchor" href="#fourier-transform-of-eeg-data"></a>
 </h4>
-<p>We import the Fourier transform function <code>fft</code> from
-<strong>scipy.fftpack</strong> and can use it to transform all columns
-at the same time.</p>
+<p>We import the Fourier Transform function <code>fft</code> from the
+library <strong>scipy.fftpack</strong> where it can be used to transform
+all columns at the same time.</p>
 <div class="codewrapper sourceCode" id="cb16">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
 </h3>
@@ -413,22 +413,23 @@ at the same time.</p>
 <span id="cb16-2"><a href="#cb16-2" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" tabindex="-1"></a>data_back_fft <span class="op">=</span> fft(data_back, axis<span class="op">=</span><span class="dv">0</span>)</span></code></pre>
 </div>
-To plot the results, a couple of steps are required.
+To plot the results of the Fourier Transform, the following steps must
+be taken.
 <p style="text-align: justify;">
-First, we obtain a Fourier spectrum for every data column, so we need to
-define how many plots we want to have. If we take only columns, we can
-display them all in one go.
+Firstly, we must obtain a Fourier spectrum for every data column. Thus,
+we need to define how many plots we want to have. If we take only the
+columns in our data, we should be able to display them all,
+simultaneously.
 </p>
 <p style="text-align: justify;">
-Second, the Fourier transform results in twice the number of complex
-coefficients (positive and negative) of which we only need the first
-half.
+Secondly, the Fourier Transform results in twice the number of complex
+coefficients; it produces both positive and negative frequency
+components, of which we only need the first (positive) half.
 </p>
 <p style="text-align: justify;">
-Third, the Fourier transform outputs complex numbers. To display the
-‘amplitude’ of a frequency (the coefficient corresponding to the
-amplitude of the sine wave with that frequency) we take the absolute
-value of the complex numbers.
+Lastly, the Fourier Transform outputs complex numbers. To display the
+‘amplitude’ of each frequency, we take the absolute value of the complex
+numbers, using the abs() function.
 </p>
 <div class="codewrapper sourceCode" id="cb17">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -455,7 +456,7 @@ value of the complex numbers.
 <span id="cb17-20"><a href="#cb17-20" tabindex="-1"></a></span>
 <span id="cb17-21"><a href="#cb17-21" tabindex="-1"></a>show()</span></code></pre>
 </div>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>We can see that in these two channels, the main amplitude
+<figure><img src="fig/04-time_series-rendered-unnamed-chunk-15-13.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><p>In these two channels, we can clearly see that the main amplitude
 contributions lie in the low frequencies, below 2 Hz.</p>
 <p>Let us compare the corresponding figure for the case of seizure
 activity:</p>
@@ -483,12 +484,13 @@ activity:</p>
 <span id="cb19-14"><a href="#cb19-14" tabindex="-1"></a>show()</span></code></pre>
 </div>
 <figure><img src="fig/04-time_series-rendered-unnamed-chunk-17-15.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure>
-The main frequency of the epileptic rhythm is between 2 and 3 Hz.
+During the seizure, it is clear that the main frequency of the epileptic
+rhythm is between 2 and 3 Hz.
 <p style="text-align: justify;">
-As we can see above in the Fourier spectra above, the amplitudes are
-high for low frequencies and tend to decrease with increasing frequency.
-Sometimes it is useful to see the high frequencies enhanced. This can be
-achieved with a logarithmic plot of the powers.
+As we can see from the Fourier spectra generated above, the amplitudes
+are high for low frequencies, and tend to decrease as the frequency
+increases. Thus, it can sometimes be useful to see the high frequencies
+enhanced. This can be achieved with a logarithmic plot of the powers.
 </p>
 <div class="codewrapper sourceCode" id="cb20">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -527,28 +529,29 @@ achieved with a logarithmic plot of the powers.
 </div>
 <img src="fig/04-time_series-rendered-unnamed-chunk-19-19.png" width="576" style="display: block; margin: auto;" class="figure"><p style="text-align: justify;">
 In the spectrum of the absence data, it is now more obvious that there
-are further maxima at 6, 9, 12, and perhaps 15Hz. These are integer
-multiples or ‘harmonics’ of the basic frequency at around 3Hz, also
-referred to as the fundamental frequency.
+are further maxima at 6, 9, 12 and perhaps 15Hz. These are integer
+multiples or ‘harmonics’ of the basic frequency at around 3Hz, which we
+term as the fundamental frequency.
 </p>
 <p style="text-align: justify;">
 A feature that can be used as a summary statistic, is to caclulate the
-<strong>band power</strong> for each channel. The band power can be
-obtained as the sum of all powers within a specified range of
-frequencies, also called the ‘band’. The band power thus represents a
-single number.
+<strong>band power</strong> for each channel. Band power is the total
+power of a signal within a specific frequency range. The band power can
+be obtained by calculating the sum of all powers within a specified
+range of frequencies; this range is also referred to as the ‘band’. The
+band power, thus, is given as a single number.
 </p>
-<div id="diy2-fourier-spectra-of-filtered-data" class="callout challenge">
+<div id="practice-exercise-2" class="callout challenge">
 <div class="callout-square">
 <i class="callout-icon" data-feather="zap"></i>
 </div>
-<div id="diy2-fourier-spectra-of-filtered-data" class="callout-inner">
-<h3 class="callout-title"><strong>DIY2: Fourier spectra of filtered
-data</strong></h3>
+<div id="practice-exercise-2" class="callout-inner">
+<h3 class="callout-title">Practice Exercise 2</h3>
 <div class="callout-content">
+<p><strong>Fourier spectra of filtered data</strong></p>
 <p>Calculate and display the Fourier spectra of the first two channels
 filtered between 4 and 12 Hz for the absence seizure data. Can you find
-harmonics?</p>
+any harmonics?</p>
 </div>
 </div>
 </div>
@@ -557,7 +560,7 @@ harmonics?</p>
 <button class="accordion-button solution-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSolution2" aria-expanded="false" aria-controls="collapseSolution2">
   <h4 class="accordion-header" id="headingSolution2"> Show me the solution </h4>
 </button>
-<div id="collapseSolution2" class="accordion-collapse collapse" data-bs-parent="#accordionSolution2" aria-labelledby="headingSolution2">
+<div id="collapseSolution2" class="accordion-collapse collapse" aria-labelledby="headingSolution2" data-bs-parent="#accordionSolution2">
 <div class="accordion-body">
 <div class="codewrapper sourceCode" id="cb22">
 <h3 class="code-label">PYTHON<i aria-hidden="true" data-feather="chevron-left"></i><i aria-hidden="true" data-feather="chevron-right"></i>
@@ -604,25 +607,7 @@ harmonics?</p>
 <h3 id="04-time_series-figure-13">Figure 13</h3>
 <figure><img src="fig/04-time_series-rendered-unnamed-chunk-22-25.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
 <h3 id="04-time_series-figure-14">Figure 14</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
-<h3 id="04-time_series-figure-15">Figure 15</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-27-29.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
-<h3 id="04-time_series-figure-16">Figure 16</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-28-31.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
-<h3 id="04-time_series-figure-17">Figure 17</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-30-33.png" width="576" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
-<h3 id="04-time_series-figure-18">Figure 18</h3>
-<p><img src="fig/04-time_series-rendered-unnamed-chunk-32-35.png" width="576" style="display: block; margin: auto;" class="figure">
-### Q5 ### Correlation Matrix</p>
-<hr>
-<h3 id="04-time_series-figure-19">Figure 19</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-33-37.png" width="768" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
-<h3 id="04-time_series-figure-20">Figure 20</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-34-39.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
-<h3 id="04-time_series-figure-21">Figure 21</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-35-41.png" width="480" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr>
-<h3 id="04-time_series-figure-22">Figure 22</h3>
-<figure><img src="fig/04-time_series-rendered-unnamed-chunk-38-43.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr></section>
+<figure><img src="fig/04-time_series-rendered-unnamed-chunk-23-27.png" width="672" style="display: block; margin: auto;" class="figure mx-auto d-block"></figure><hr></section>
 </div>
     </main>
 </div>
@@ -633,7 +618,7 @@ harmonics?</p>
       		<footer class="row footer mx-md-3"><hr>
 <div class="col-md-6">
         <p>Template licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/" class="external-link">CC-BY 4.0</a> by <a href="https://carpentries.org/" class="external-link">The Carpentries</a></p>
-        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.6.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
+        <p>Built with <a href="https://github.com/LearnToDiscover/sandpaper/tree/l2d" class="external-link">sandpaper (0.16.9.9000.1)</a>, <a href="https://github.com/carpentries/pegboard/tree/ad2542f7f7b9c3f90cc871b355ff81ec14a09ca9" class="external-link">pegboard (0.7.6)</a>, and <a href="https://github.com/LearnToDiscover/varnish/tree/ef687d476fd8ae2bb8eb288a25e69130004f4f7b" class="external-link">varnish (1.0.3.9000.1)</a></p>
 			</div>
 		</footer>
 </div> <!-- / div.container -->
@@ -655,9 +640,9 @@ harmonics?</p>
   "creativeWorkStatus": "active",
   "url": "https://carpentries.github.io/workbench-template-rmd/images.html",
   "identifier": "https://carpentries.github.io/workbench-template-rmd/images.html",
-  "dateCreated": "2024-10-06",
-  "dateModified": "2024-10-08",
-  "datePublished": "2024-10-08"
+  "dateCreated": "2024-10-18",
+  "dateModified": "2024-10-18",
+  "datePublished": "2024-10-18"
 }
 
   </script><script>
